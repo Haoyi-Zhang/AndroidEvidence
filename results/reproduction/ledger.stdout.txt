@@ -1,0 +1,1 @@
+{"coarse_mosaic": "covered", "counts": {"base_eligible_reviews": 11, "boundary_reviews": 2, "coverage_cells": 98, "extractions": 22, "horizon_primary": 2, "main_primary_corpus": 0, "positive_cells": 11, "review_records": 14, "selected_scholarly": 16, "unknown_cells": 87, "withdrawn": 1}, "joint_mosaic": "undetermined", "status": "ledger_audit_only"}

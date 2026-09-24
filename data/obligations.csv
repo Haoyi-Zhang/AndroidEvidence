@@ -1,0 +1,8 @@
+obligation_id,label,definition,granularity
+O1,Android relationship evidence,Repackaging or component-identification evidence in Android artifacts,coarse
+O2,Transformation sensitivity,Android representation changes or library noise affecting identification,coarse
+O3,Causal provenance,Artifact production steps or lineage relations across a supply chain,coarse
+O4,Authority and trust,Identity or authorization assumptions of software-chain evidence,coarse
+O5,Integrity and behavior,Distinction or interaction between artifact integrity and expected behavior,coarse
+O6,Validation limits,Limitations of empirical labels comparisons or validity of evidence,coarse
+O7,Mobile AI evidence transfer,Joint synthesis of generated Android transformations AND the validity of lineage/authorization inferences,joint

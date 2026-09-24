@@ -1,0 +1,134 @@
+\section{Review Design and Corpus}
+\label{sec:method}
+
+\subsection{Review type, objective, and unit of analysis}
+
+This work is a bounded, claim-centered structured evidence synthesis, not a PRISMA-complete review or prevalence meta-analysis. Its analytic unit is a scholarly work contributing an Android artifact-comparison, component/version, provenance or reproducibility mechanism; an empirical supply-chain or AI-development study; or a structuring review or method source.
+
+The coded unit relates object, observation, transformation model, oracle or policy, claim ceiling, and counter-history. Tool-level coding would hide stages such as module separation, signature construction, and version comparison; feature-level coding alone would also hide that clone pairs, family labels, repositories, signed policies, and rebuilds establish different propositions.
+
+\subsection{Search, snowballing, and corpus construction}
+
+Seeds included the Android repackaging benchmark review~\cite{repack}, the Android TPL review~\cite{tpl}, broader Android surveys~\cite{sufatrio,xuandroid,tamandroid}, and static-analysis/testing reviews~\cite{staticandroid,androidtesting}. Backward and targeted forward snowballing followed supply-chain attacks, secure design, authenticated updates, provenance, transparency, reproducible builds, CI, package ecosystems, SBOMs, and AI-mediated development, guided by established review methods~\cite{wohlin,kitchenham,brereton}.
+
+A 2024--2026 adversarial update added direct or adjacent syntheses~\cite{wurepack2026,zengtpsurvey2024,reichert2024,williams2025,gokkaya2026,cyberrisk2026} and empirical SBOM studies~\cite{bi2024sbom,bomsaway2024}. A candidate SBOM review was excluded after its official record reported withdrawal and no paper was available for coding. The artifact preserves 105 screening decisions plus source-location and retrospective discovery rows for every retained work; these support record audit, not a database-hit denominator.
+
+The map contains \CorpusWorks{} works: \PrimaryWorks{} primary/system and \SecondaryWorks{} review/method records. \PrimaryVenueWorks{} primary/system and \VenueRecordedWorks{} total records are venue-published; the remainder are three preprints and one method report. Coding depth is \FullSelectedWorks{} full-or-selected-source and \AbstractSelectedWorks{} abstract-or-selected-passage records, with ceilings limited accordingly.
+
+\begin{table}[t]
+\caption{Corpus strata and their role. Counts describe the retained evidence map, not field prevalence.}
+\label{tab:corpus}
+\small
+\begin{tabularx}{\textwidth}{L{2.65cm}rY Y}
+\toprule
+Stratum & Works & Main evidence objects & Principal use \\
+\midrule
+Android artifact analysis & \AndroidWorks & DEX code, graphs, resources, UI, behavior, signatures, clone pairs & Bound artifact-level identity, resemblance, and directional claims \\
+Third-party libraries & \TPLWorks & Module boundaries, signatures, versions, update histories & Separate composition, version, reachability, and application ancestry \\
+Supply-chain integrity & \SupplyWorks & Metadata, attestations, logs, roles, builds, CI workflows & Establish principals, steps, authorization, transparency, and reproducibility \\
+AI-mediated development & \AIWorks & Prompts, generated source, dependencies, interactions, accepted output & Identify generated transformations, missing context, and causal-record limits \\
+Reviews and method & \SecondaryWorks & Taxonomies, protocols, benchmark critiques, design properties & Adversarially position scope and normalize evaluation obligations \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The heterogeneous corpus is not pooled into a detector ranking: candidate generation, transformations, labels, periods, and counting units differ, and benchmark construction can dominate apparent results~\cite{repack,repackeval,blackburn}. The synthesis therefore compares mechanisms and inference validity.
+
+\subsection{Record integrity and writing calibration}
+
+The evidence package separates the representation consumed for coding from the canonical bibliographic record. Each retained work has a corpus row, BibTeX entry, source-location boundary, retrospective discovery row, and publication-status record. DOI-bearing entries use the DOI as canonical identifier; other records use an official venue, archive, or report locator. Automated checks require title and year agreement, unique identifiers, and consistency between venue/preprint status and entry type. A withdrawn SBOM candidate is preserved only in an exclusion ledger and historical regression fixture. These checks establish record-level consistency, not a comprehensive retraction-registry search or independent confirmation of every interpretation.
+
+Writing and structure were calibrated against 22 full-or-selected-source papers: 12 closest reviews, five influential review/method exemplars, and five adjacent evidence exemplars. The calibration matrix records each paper's motivating problem, organizing principle, evidence argument, practical connection, evaluation breadth, artifact strength, narrative sequence, section pattern, bibliography role, and figure/table function. It informed progression from problem to claim model to evidence synthesis and limits, without copying wording or treating venue style as evidence for the scientific result.
+
+\subsection{Prior-review adversary matrix}
+
+Each of \ReviewMatrixWorks{} review/method records was coded for Android repackaging, component/version evidence, provenance, authorization, behavior, AI mediation, and an explicit claim ceiling with cross-layer binding. Table~\ref{tab:review-matrix} uses 1 for direct treatment, P for partial, 0 for out of scope, and ? for unresolved; the artifact retains every row and source basis.
+
+\begin{table}[t]
+\caption{Selected prior-review adversary matrix. A=Android repackaging, C=component/version, P=process provenance, U=authorization, B=behavior, G=AI-mediated generation, X=claim-ceiling and binding rule.}
+\label{tab:review-matrix}
+\centering
+\scriptsize
+\begin{tabular}{lccccccc}
+\toprule
+Prior synthesis & A & C & P & U & B & G & X \\
+\midrule
+\cite{repack} & 1 & P & 0 & 0 & P & 0 & P \\
+\cite{tpl} & P & 1 & 0 & 0 & P & 0 & P \\
+\cite{astra} & 0 & P & 1 & 1 & P & 0 & P \\
+\cite{properties} & 0 & P & 1 & 1 & P & 0 & P \\
+\cite{wurepack2026} & 1 & P & 0 & 0 & P & 0 & P \\
+\cite{zengtpsurvey2024} & 0 & 1 & P & P & P & 0 & P \\
+\cite{reichert2024} & 0 & P & 1 & P & P & 0 & P \\
+\cite{williams2025} & 0 & P & 1 & P & P & P & P \\
+\cite{cyberrisk2026} & 0 & P & P & P & P & 0 & P \\
+\cite{gokkaya2026} & 0 & P & 1 & P & P & 0 & P \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+No retained row directly covers all seven dimensions under one inference rule. This rejects a broad ``no prior survey'' claim while supporting the narrower organizing question. Partial cells prevent absence-by-title reasoning, and uncoded work remains possible; the matrix is positioning evidence, not worldwide novelty proof.
+
+\subsection{Inclusion, exclusion, and source-depth rules}
+
+Works were included when their technical object could support an Android lineage or release claim. Clone/malware systems supplied reusable artifact observations; supply-chain systems supplied source, build, repository, or release evidence; and AI papers generated mobile software or measured security-relevant generation workflows. General model, GUI-agent, or prompt-injection work without a software-artifact lineage object was excluded.
+
+Publication status and evidential role were separate. Preprints may expose emerging workflows, and method reports may guide procedure, without counting as peer-reviewed primary evidence. Every record has a scholarly/official locator and version-status row; withdrawn or retracted candidates are quarantined. This is not a comprehensive retraction-registry search, and lighter-depth records are limited to what their accessible materials support.
+
+\subsection{Claim-level extraction and recheck}
+
+Each retained work has one extraction with seven substantive fields:
+
+\begin{enumerate}
+\item \textbf{Object}: source file, method, class, library, DEX, resource, UI, APK, build step, repository metadata, release event, or runtime trace.
+\item \textbf{Observation}: exact hash, fuzzy signature, graph relation, resource or visual similarity, call pattern, watermark, signature, attestation, log entry, rebuild result, or behavioral finding.
+\item \textbf{Transformation model}: renaming, dead-code elimination, control-flow change, packing, library insertion, resource editing, compilation, regeneration, or distribution.
+\item \textbf{Oracle or policy}: curated pair, market metadata, family label, version database, signed policy, independently rebuilt output, human task outcome, or vulnerability check.
+\item \textbf{Claim ceiling}: the strongest lineage or assurance statement directly supported under the reported assumptions.
+\item \textbf{Counter-history}: a plausible history preserving the observation while falsifying a stronger interpretation.
+\item \textbf{Inference limit}: the conclusion that must not be transferred from the record without additional evidence.
+\end{enumerate}
+
+Ceilings are conservative: clone-pair similarity remains resemblance unless direction comes from chronology, source, ownership, or provenance; authenticated builds do not prove safety; and family, version, and reachability remain distinct.
+
+\SourceRechecks{} extractions (\SourceRecheckPercent\%) received source-grounded rechecks, prioritizing direct adversaries and high-load assignments. Rechecks record the old and revised ceiling, source, result, and boundary; they are same-process checks, not independent coding.
+
+\subsection{Evidence-strength notation}
+
+The claim ladder states \emph{which proposition} is supported; an orthogonal grade states \emph{how it was evaluated}.
+
+\begin{table}[t]
+\caption{Evidence-strength notation. A higher grade is not automatically available for every question.}
+\label{tab:evidence-grades}
+\small
+\begin{tabularx}{\textwidth}{L{.85cm}L{2.85cm}Y Y}
+\toprule
+Grade & Evaluation basis & Typical strength & Typical limitation \\
+\midrule
+\evidence{0} & Illustrative example & Makes a mechanism concrete & No discriminating evaluation \\
+\evidence{1} & Curated positive cases & Demonstrates feasibility & Does not estimate false positives or open-world behavior \\
+\evidence{2} & Positive and negative labeled corpus & Supports discrimination under a stated oracle & Labels may encode the method's assumptions \\
+\evidence{3} & Transformation-aware or adversarial corpus & Tests robustness to explicit changes & Covers a finite transformation family \\
+\evidence{4} & Temporal, cross-market, or independently constructed validation & Reduces leakage and construction bias & Transfer beyond sampled ecosystems remains uncertain \\
+\evidence{5} & Authenticated process evidence or independent reproduction & Supports a stated provenance or equality proposition & Does not imply semantic safety or policy authorization \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The two axes must remain separate. A valid signature may strongly bind a key and artifact while saying nothing about functional equivalence. A transformation-aware benchmark can strongly evaluate resemblance robustness without identifying the authorized publisher.
+
+\subsection{Synthesis and contradiction procedure}
+
+Synthesis first grouped observation families, then assigned each a ceiling and counter-history, and finally mapped the bindings needed across the Android lifecycle. Contradictions denote incompatible objects, denominators, times, policies, or oracles rather than numerical disagreement alone. This is not vote counting: repeated observations cannot convert resemblance into direction or provenance into benign behavior. Seven synthesis propositions retain named support, counter-histories, and boundaries in the claim ledger.
+
+\subsection{Deterministic traceability and negative controls}
+
+The standalone artifact checks one-to-one bindings among corpus, bibliography, extraction, source-location, provenance, status, screening, recheck, calibration, and material-claim ledgers. It rejects duplicate keys or canonical identifiers, title/year drift, missing source boundaries, publication-type conflicts, stale leads, generic extraction templates, or leakage of an excluded publication into active synthesis data. Mutation tests deliberately introduce representative faults to confirm that the checks fail rather than merely report success on the supplied files.
+
+A retained historical gap pilot also exercises unknown handling. Its exhaustive $3\times3$ ternary-matrix oracle compares the implemented direct/mosaic classification with an independently expressed completion rule over every small case. This finite check validates bookkeeping semantics only; it does not prove literature completeness, source interpretation, or any detector guarantee. Manuscript tables and count macros are generated only after these checks pass, so changes in the evidence map cannot silently leave stale paper totals.
+
+\subsection{Validity limits}
+
+The map is not an exhaustive detector census: it lacks a complete search denominator, independent second coder, pooled accuracy estimate, and prevalence claim; some records remain at abstract-plus-selected-passage depth. The adversary matrix and rechecks reduce obvious errors but cannot prove worldwide absence or independent interpretation.
+
+AI assistance covered discovery, extraction, coding, analysis, validation scripts, and drafting, with same-process rechecks disclosed in the artifact. External use still requires accountable human source verification, authorship, and current policy review.

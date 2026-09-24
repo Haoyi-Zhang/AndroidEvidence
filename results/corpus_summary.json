@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "records": 97,
+  "unique_bib_keys": 97,
+  "bibliography_entries": 97,
+  "bibliography_verification_records": 97,
+  "excluded_publications": 1,
+  "claim_level_extractions": 97,
+  "closest_review_records": 21,
+  "calibration_records": 22,
+  "calibration_groups": {
+    "adjacent_evidence": 5,
+    "closest": 12,
+    "influential_method": 5
+  },
+  "direct_all_dimension_reviews": [],
+  "source_rechecks": 26,
+  "source_recheck_fraction": 0.26804123711340205,
+  "source_rechecks_independent": false,
+  "screening_rows": 105,
+  "source_location_records": 97,
+  "retained_record_provenance_records": 97,
+  "unresolved_leads": 0,
+  "resolved_leads": 3,
+  "templated_observations": 0,
+  "placeholder_source_locators": 0,
+  "material_claims": 28,
+  "venue_recorded": 93,
+  "active_preprints": 3,
+  "technical_method_reports": 1,
+  "primary_or_system": 76,
+  "primary_venue_recorded": 74,
+  "secondary_or_method": 21,
+  "reading_depth": {
+    "full_or_selected_source": 61,
+    "publisher_abstract_or_selected_source": 36
+  },
+  "strata": {
+    "ai_mediated": 8,
+    "android_artifact": 34,
+    "review_and_method": 21,
+    "supply_chain": 17,
+    "third_party_library": 17
+  },
+  "bibliography_optional_metadata_warnings": [],
+  "errors": [],
+  "boundary": "The checks validate supplied ledgers, exact active/excluded key quarantine, record-level publication-status metadata, review/calibration obligations, recheck coverage, and minimum corpus obligations. They do not prove search exhaustiveness, a comprehensive retraction-registry search, independent source interpretation, detector performance, or worldwide novelty."
+}

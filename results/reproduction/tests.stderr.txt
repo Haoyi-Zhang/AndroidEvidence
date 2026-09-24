@@ -1,0 +1,46 @@
+test_bibliography_status_ledger_and_quarantine (test_corpus.CorpusTests.test_bibliography_status_ledger_and_quarantine) ... ok
+test_calibration_contract (test_corpus.CorpusTests.test_calibration_contract) ... ok
+test_each_extraction_is_bound_and_has_limits (test_corpus.CorpusTests.test_each_extraction_is_bound_and_has_limits) ... ok
+test_exact_corpus_bibliography_extraction_binding (test_corpus.CorpusTests.test_exact_corpus_bibliography_extraction_binding) ... ok
+test_external_resource_ledger_exactly_binds_scholarly_records (test_corpus.CorpusTests.test_external_resource_ledger_exactly_binds_scholarly_records) ... ok
+test_material_claim_ledger_complete (test_corpus.CorpusTests.test_material_claim_ledger_complete) ... ok
+test_no_retired_template_observations (test_corpus.CorpusTests.test_no_retired_template_observations) ... ok
+test_primary_review_and_publication_obligations (test_corpus.CorpusTests.test_primary_review_and_publication_obligations) ... ok
+test_recheck_fraction_and_same_process_disclosure (test_corpus.CorpusTests.test_recheck_fraction_and_same_process_disclosure) ... ok
+test_retained_record_provenance_is_exact_and_bounded (test_corpus.CorpusTests.test_retained_record_provenance_is_exact_and_bounded) ... ok
+test_review_matrix_has_no_direct_all_dimension_prior (test_corpus.CorpusTests.test_review_matrix_has_no_direct_all_dimension_prior) ... ok
+test_screening_binds_retained_and_excluded_records (test_corpus.CorpusTests.test_screening_binds_retained_and_excluded_records) ... ok
+test_source_location_ledger_exactly_binds_corpus (test_corpus.CorpusTests.test_source_location_ledger_exactly_binds_corpus) ... ok
+test_stale_leads_are_resolved (test_corpus.CorpusTests.test_stale_leads_are_resolved) ... ok
+test_strata_and_depths (test_corpus.CorpusTests.test_strata_and_depths) ... ok
+test_synthesis_claim_sources_are_bound (test_corpus.CorpusTests.test_synthesis_claim_sources_are_bound) ... ok
+test_visual_inspection_evidence (test_corpus.CorpusTests.test_visual_inspection_evidence) ... ok
+test_calibration_group_count_is_locked (test_corpus_mutations.CorpusMutationControls.test_calibration_group_count_is_locked) ... ok
+test_corpus_title_drift_is_rejected (test_corpus_mutations.CorpusMutationControls.test_corpus_title_drift_is_rejected) ... ok
+test_corpus_year_drift_is_rejected (test_corpus_mutations.CorpusMutationControls.test_corpus_year_drift_is_rejected) ... ok
+test_doi_canonical_url_drift_is_rejected (test_corpus_mutations.CorpusMutationControls.test_doi_canonical_url_drift_is_rejected) ... ok
+test_duplicate_canonical_identifier_is_rejected (test_corpus_mutations.CorpusMutationControls.test_duplicate_canonical_identifier_is_rejected) ... ok
+test_excluded_key_cannot_leak_into_active_corpus (test_corpus_mutations.CorpusMutationControls.test_excluded_key_cannot_leak_into_active_corpus) ... ok
+test_publication_type_disagreement_is_rejected (test_corpus_mutations.CorpusMutationControls.test_publication_type_disagreement_is_rejected) ... ok
+test_withdrawn_status_cannot_enter_active_verification_ledger (test_corpus_mutations.CorpusMutationControls.test_withdrawn_status_cannot_enter_active_verification_ledger) ... ok
+test_complete_review_negative_control (test_coverage.Controls.test_complete_review_negative_control) ... ok
+test_disjoint_mosaic (test_coverage.Controls.test_disjoint_mosaic) ... ok
+test_exhaustive_all_3x3 (test_coverage.Controls.test_exhaustive_all_3x3) ... ok
+test_invalid (test_coverage.Controls.test_invalid) ... ok
+test_minimal_cover (test_coverage.Controls.test_minimal_cover) ... ok
+test_partial_matrix_not_full_gap (test_coverage.Controls.test_partial_matrix_not_full_gap) ... ok
+test_unknown_is_not_absent (test_coverage.Controls.test_unknown_is_not_absent) ... ok
+test_abstract_positive_rejected (test_ledger.LedgerControls.test_abstract_positive_rejected) ... ok
+test_completed_rechecks_cannot_disappear (test_ledger.LedgerControls.test_completed_rechecks_cannot_disappear) ... ok
+test_duplicate_cell_rejected (test_ledger.LedgerControls.test_duplicate_cell_rejected) ... ok
+test_duplicate_record_rejected (test_ledger.LedgerControls.test_duplicate_record_rejected) ... ok
+test_no_gap_promotion (test_ledger.LedgerControls.test_no_gap_promotion) ... ok
+test_recheck_correction_and_fraction (test_ledger.LedgerControls.test_recheck_correction_and_fraction) ... ok
+test_unknown_to_absence_without_reading_rejected (test_ledger.LedgerControls.test_unknown_to_absence_without_reading_rejected) ... ok
+test_unverified_primary_rejected (test_ledger.LedgerControls.test_unverified_primary_rejected) ... ok
+test_withdrawn_sbom_and_boundary_exclusion (test_ledger.LedgerControls.test_withdrawn_sbom_and_boundary_exclusion) ... ok
+
+----------------------------------------------------------------------
+Ran 41 tests in 1.444s
+
+OK

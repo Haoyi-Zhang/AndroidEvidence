@@ -1,0 +1,12 @@
+{
+  "date": "2026-09-10",
+  "cpu_quota_cores": 4,
+  "cpu_affinity_cores": 5,
+  "cgroup_memory_max_bytes": 4294967296,
+  "cgroup_memory_current_at_intake_bytes": 359100416,
+  "writable_free_bytes_at_intake": 32029859840,
+  "workers": 1,
+  "project_swap_requested": false,
+  "cgroup_swap_max": "max",
+  "measurement_scope": "single intake; no stress test"
+}

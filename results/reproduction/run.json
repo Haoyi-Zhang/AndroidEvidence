@@ -1,0 +1,85 @@
+{
+  "status": "passed",
+  "commands": [
+    {
+      "name": "corpus",
+      "command": [
+        "python",
+        "scripts/corpus_audit.py"
+      ],
+      "cwd": "repository root",
+      "timeout_seconds": 45,
+      "timed_out": false,
+      "exit_code": 0,
+      "wall_seconds": 0.8168238819999942,
+      "child_cpu_seconds": 0.766492,
+      "cumulative_max_child_rss_kib": 96168
+    },
+    {
+      "name": "ledger",
+      "command": [
+        "python",
+        "scripts/audit.py"
+      ],
+      "cwd": "repository root",
+      "timeout_seconds": 45,
+      "timed_out": false,
+      "exit_code": 0,
+      "wall_seconds": 0.8168542949999846,
+      "child_cpu_seconds": 0.8119320000000001,
+      "cumulative_max_child_rss_kib": 96168
+    },
+    {
+      "name": "oracle",
+      "command": [
+        "python",
+        "scripts/oracle_check.py"
+      ],
+      "cwd": "repository root",
+      "timeout_seconds": 45,
+      "timed_out": false,
+      "exit_code": 0,
+      "wall_seconds": 1.920250411999973,
+      "child_cpu_seconds": 1.8707569999999998,
+      "cumulative_max_child_rss_kib": 96168
+    },
+    {
+      "name": "tests",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "cwd": "repository root",
+      "timeout_seconds": 45,
+      "timed_out": false,
+      "exit_code": 0,
+      "wall_seconds": 2.2723299829999632,
+      "child_cpu_seconds": 2.2537480000000003,
+      "cumulative_max_child_rss_kib": 101368
+    },
+    {
+      "name": "tables",
+      "command": [
+        "python",
+        "scripts/render_tables.py"
+      ],
+      "cwd": "repository root",
+      "timeout_seconds": 45,
+      "timed_out": false,
+      "exit_code": 0,
+      "wall_seconds": 0.7667572770000106,
+      "child_cpu_seconds": 0.7557480000000001,
+      "cumulative_max_child_rss_kib": 101368
+    }
+  ],
+  "wall_seconds": 6.595833366999955,
+  "measured_child_cpu_seconds": 6.458677,
+  "workers": 1,
+  "rss_note": "Linux RUSAGE_CHILDREN running maximum, not a sum of simultaneous RSS.",
+  "scope": "Only these commands; discovery/intake and earlier construction were not fully CPU instrumented."
+}

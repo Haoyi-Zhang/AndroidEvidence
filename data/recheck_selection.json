@@ -1,0 +1,13 @@
+{
+  "rule": "Recheck all seven coverage decisions for R01, R03 and R04 after initial coding; including unknown cells.",
+  "selected_records": [
+    "R01",
+    "R03",
+    "R04"
+  ],
+  "selected_cells": 21,
+  "all_coded_cells": 98,
+  "method": "same-assistant fresh source-grounded pass",
+  "independent": false,
+  "completed": true
+}

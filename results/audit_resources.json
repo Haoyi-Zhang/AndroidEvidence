@@ -1,0 +1,9 @@
+{
+  "wall_seconds": 0.007989995999992061,
+  "cpu_seconds": 0.007988892999999941,
+  "peak_rss_kib": 93232,
+  "workers": 1,
+  "input_selection": "all supplied selected-record tables",
+  "output": "coverage_result.json",
+  "scientific_experiment": false
+}

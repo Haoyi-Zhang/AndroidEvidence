@@ -1,0 +1,106 @@
+{
+  "status": "passed",
+  "target_pages": 35,
+  "pages": 35,
+  "page_size": "486 x 720 pts",
+  "file_size_bytes": 618492,
+  "commands": [
+    {
+      "command": [
+        "pdflatex",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-output-directory=build",
+        "main.tex"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.8190100549999215,
+      "child_cpu_seconds": 1.7784679999999997,
+      "cumulative_max_child_rss_kib": 92720,
+      "accepted_bibliography_warnings": false
+    },
+    {
+      "command": [
+        "bibtex8",
+        "build/main"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.11445540500005791,
+      "child_cpu_seconds": 0.07997800000000016,
+      "cumulative_max_child_rss_kib": 92720,
+      "accepted_bibliography_warnings": false
+    },
+    {
+      "command": [
+        "pdflatex",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-output-directory=build",
+        "main.tex"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.9699689159999707,
+      "child_cpu_seconds": 1.9648600000000005,
+      "cumulative_max_child_rss_kib": 92720,
+      "accepted_bibliography_warnings": false
+    },
+    {
+      "command": [
+        "pdflatex",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-output-directory=build",
+        "main.tex"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.9214307839999947,
+      "child_cpu_seconds": 1.9069190000000005,
+      "cumulative_max_child_rss_kib": 92720,
+      "accepted_bibliography_warnings": false
+    },
+    {
+      "command": [
+        "pdflatex",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-output-directory=build",
+        "main.tex"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.9698150849999365,
+      "child_cpu_seconds": 1.920075,
+      "cumulative_max_child_rss_kib": 92720,
+      "accepted_bibliography_warnings": false
+    }
+  ],
+  "latex_findings": {
+    "overfull_boxes": 0,
+    "undefined_references": 0,
+    "undefined_citations": 0,
+    "undefined_control_sequence": 0
+  },
+  "bibliography_warning_count": 0,
+  "citation_audit": {
+    "bibliography_entries": 97,
+    "unique_bibliography_entries": 97,
+    "unique_cited_entries": 97,
+    "citation_occurrences": 259,
+    "duplicates": [],
+    "missing_bib_entries": [],
+    "uncited_bib_entries": [],
+    "minimum_unique_citations": 55,
+    "status": "passed"
+  },
+  "artifact_bibliography_match": true,
+  "template_contract": {
+    "documentclass": "acmsmall,screen,review",
+    "forbidden_source_patterns_found": [],
+    "source_contract_passed": true
+  },
+  "qpdf_check": "not_available",
+  "visual_inspection": "separate manual page-image inspection required"
+}

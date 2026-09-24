@@ -1,0 +1,99 @@
+record_id,obligation_id,value,basis,source_location,reason
+R01,O1,1,body_positive,Sections 2–4,Repackaged-app detection and its evidence are reviewed.
+R01,O2,1,body_positive,Sections 3 and 7,Obfuscation and common-library confounding are discussed.
+R01,O3,?,unresolved,Sections 1–9 and references; PDF pp.1–17,No source-grounded decision on this exact obligation; not an absence assertion.
+R01,O4,?,unresolved,Sections 1–9 and references; PDF pp.1–17,No source-grounded decision on this exact obligation; not an absence assertion.
+R01,O5,?,unresolved,Sections 1–9 and references; PDF pp.1–17,No source-grounded decision on this exact obligation; not an absence assertion.
+R01,O6,1,body_positive,Sections 4.2 5.4 5.5 and 7,Ground truth and comparison limitations are explicitly examined.
+R01,O7,?,unresolved,Sections 1–9 and references; PDF pp.1–17,No source-grounded decision on this exact obligation; not an absence assertion.
+R02,O1,1,body_positive,Sections III and V-C,Android third-party component identification is a central subject.
+R02,O2,1,body_positive,Section V-C,Obfuscation version ambiguity and partial import affect identification.
+R02,O3,?,unresolved,Abstract; Sections I–III; IV-D; V-C; not all of IV,No source-grounded decision on this exact obligation; not an absence assertion.
+R02,O4,?,unresolved,Abstract; Sections I–III; IV-D; V-C; not all of IV,No source-grounded decision on this exact obligation; not an absence assertion.
+R02,O5,?,unresolved,Abstract; Sections I–III; IV-D; V-C; not all of IV,No source-grounded decision on this exact obligation; not an absence assertion.
+R02,O6,1,body_positive,Section V-C,Detection and version-identification challenges delimit the evidence.
+R02,O7,?,unresolved,Abstract; Sections I–III; IV-D; V-C; not all of IV,No source-grounded decision on this exact obligation; not an absence assertion.
+R03,O1,?,unresolved,Sections 1–4 and 6–9; Section 5 partially read,No source-grounded decision on this exact obligation; not an absence assertion.
+R03,O2,?,unresolved,Sections 1–4 and 6–9; Section 5 partially read,No source-grounded decision on this exact obligation; not an absence assertion.
+R03,O3,1,body_positive,Section 2,AStRA models artifacts steps resources and principals with causal relations.
+R03,O4,1,body_positive,Sections 3 and 7,Principal authorization and trust are part of the defense analysis.
+R03,O5,1,body_positive,Sections 4.1–4.3,Artifact integrity and expected behavior are distinct objectives.
+R03,O6,?,unresolved,Sections 1–4 and 6–9; Section 5 partially read,No source-grounded decision on this exact obligation; not an absence assertion.
+R03,O7,?,unresolved,Sections 1–4 and 6–9; Section 5 partially read,No source-grounded decision on this exact obligation; not an absence assertion.
+R04,O1,?,unresolved,Sections 2–7; introduction not fully read,No source-grounded decision on this exact obligation; not an absence assertion.
+R04,O2,?,unresolved,Sections 2–7; introduction not fully read,No source-grounded decision on this exact obligation; not an absence assertion.
+R04,O3,1,body_positive,Sections 2 3 and 5.3,Artifact and operation provenance are analyzed.
+R04,O4,1,body_positive,Sections 3 and 5.3,Actor identity and validity assumptions constrain defenses.
+R04,O5,?,unresolved,Sections 3.2–3.3 and 4.2,Validity includes artifact integrity; the read passage does not establish the exact integrity-versus-expected-behavior distinction required by O5.
+R04,O6,?,unresolved,Sections 2–7; introduction not fully read,No source-grounded decision on this exact obligation; not an absence assertion.
+R04,O7,?,unresolved,Sections 2–7; introduction not fully read,No source-grounded decision on this exact obligation; not an absence assertion.
+R05,O1,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R05,O2,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R05,O3,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R05,O4,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R05,O5,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R05,O6,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R05,O7,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R06,O1,?,unresolved,Abstract and journal reference,No source-grounded decision on this exact obligation; not an absence assertion.
+R06,O2,?,unresolved,Abstract and journal reference,No source-grounded decision on this exact obligation; not an absence assertion.
+R06,O3,?,unresolved,Abstract and journal reference,No source-grounded decision on this exact obligation; not an absence assertion.
+R06,O4,?,unresolved,Abstract and journal reference,No source-grounded decision on this exact obligation; not an absence assertion.
+R06,O5,?,unresolved,Abstract and journal reference,No source-grounded decision on this exact obligation; not an absence assertion.
+R06,O6,?,unresolved,Abstract and journal reference,No source-grounded decision on this exact obligation; not an absence assertion.
+R06,O7,?,unresolved,Abstract and journal reference,No source-grounded decision on this exact obligation; not an absence assertion.
+R07,O1,?,unresolved,Official arXiv withdrawal record; no substantive PDF available,Withdrawn record is excluded from eligible review analyses; the historical matrix cell remains unknown and is not an absence assertion.
+R07,O2,?,unresolved,Official arXiv withdrawal record; no substantive PDF available,Withdrawn record is excluded from eligible review analyses; the historical matrix cell remains unknown and is not an absence assertion.
+R07,O3,?,unresolved,Official arXiv withdrawal record; no substantive PDF available,Withdrawn record is excluded from eligible review analyses; the historical matrix cell remains unknown and is not an absence assertion.
+R07,O4,?,unresolved,Official arXiv withdrawal record; no substantive PDF available,Withdrawn record is excluded from eligible review analyses; the historical matrix cell remains unknown and is not an absence assertion.
+R07,O5,?,unresolved,Official arXiv withdrawal record; no substantive PDF available,Withdrawn record is excluded from eligible review analyses; the historical matrix cell remains unknown and is not an absence assertion.
+R07,O6,?,unresolved,Official arXiv withdrawal record; no substantive PDF available,Withdrawn record is excluded from eligible review analyses; the historical matrix cell remains unknown and is not an absence assertion.
+R07,O7,?,unresolved,Official arXiv withdrawal record; no substantive PDF available,Withdrawn record is excluded from eligible review analyses; the historical matrix cell remains unknown and is not an absence assertion.
+R08,O1,?,unresolved,Abstract and journal reference,No source-grounded decision on this exact obligation; not an absence assertion.
+R08,O2,?,unresolved,Abstract and journal reference,No source-grounded decision on this exact obligation; not an absence assertion.
+R08,O3,?,unresolved,Abstract and journal reference,No source-grounded decision on this exact obligation; not an absence assertion.
+R08,O4,?,unresolved,Abstract and journal reference,No source-grounded decision on this exact obligation; not an absence assertion.
+R08,O5,?,unresolved,Abstract and journal reference,No source-grounded decision on this exact obligation; not an absence assertion.
+R08,O6,?,unresolved,Abstract and journal reference,No source-grounded decision on this exact obligation; not an absence assertion.
+R08,O7,?,unresolved,Abstract and journal reference,No source-grounded decision on this exact obligation; not an absence assertion.
+R09,O1,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R09,O2,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R09,O3,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R09,O4,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R09,O5,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R09,O6,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R09,O7,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R10,O1,?,unresolved,Abstract; record says work in progress,No source-grounded decision on this exact obligation; not an absence assertion.
+R10,O2,?,unresolved,Abstract; record says work in progress,No source-grounded decision on this exact obligation; not an absence assertion.
+R10,O3,?,unresolved,Abstract; record says work in progress,No source-grounded decision on this exact obligation; not an absence assertion.
+R10,O4,?,unresolved,Abstract; record says work in progress,No source-grounded decision on this exact obligation; not an absence assertion.
+R10,O5,?,unresolved,Abstract; record says work in progress,No source-grounded decision on this exact obligation; not an absence assertion.
+R10,O6,?,unresolved,Abstract; record says work in progress,No source-grounded decision on this exact obligation; not an absence assertion.
+R10,O7,?,unresolved,Abstract; record says work in progress,No source-grounded decision on this exact obligation; not an absence assertion.
+R11,O1,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R11,O2,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R11,O3,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R11,O4,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R11,O5,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R11,O6,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R11,O7,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R12,O1,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R12,O2,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R12,O3,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R12,O4,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R12,O5,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R12,O6,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R12,O7,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R13,O1,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R13,O2,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R13,O3,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R13,O4,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R13,O5,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R13,O6,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R13,O7,?,unresolved,Abstract and bibliographic record,No source-grounded decision on this exact obligation; not an absence assertion.
+R14,O1,?,unresolved,Abstract; comments identify ESEM 2024,No source-grounded decision on this exact obligation; not an absence assertion.
+R14,O2,?,unresolved,Abstract; comments identify ESEM 2024,No source-grounded decision on this exact obligation; not an absence assertion.
+R14,O3,?,unresolved,Abstract; comments identify ESEM 2024,No source-grounded decision on this exact obligation; not an absence assertion.
+R14,O4,?,unresolved,Abstract; comments identify ESEM 2024,No source-grounded decision on this exact obligation; not an absence assertion.
+R14,O5,?,unresolved,Abstract; comments identify ESEM 2024,No source-grounded decision on this exact obligation; not an absence assertion.
+R14,O6,?,unresolved,Abstract; comments identify ESEM 2024,No source-grounded decision on this exact obligation; not an absence assertion.
+R14,O7,?,unresolved,Abstract; comments identify ESEM 2024,No source-grounded decision on this exact obligation; not an absence assertion.

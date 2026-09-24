@@ -1,0 +1,70 @@
+\section{Third-Party Libraries and Component Lineage}
+\label{sec:libraries}
+
+Third-party libraries complicate every Android lineage claim. They can dominate an application's code, create similarity among unrelated products, carry vulnerabilities across many packages, and change independently of first-party logic. Removing all library code is not a safe default: a repackager may modify a library, disguise injected code as a library, or exploit an outdated component. The evidence problem is therefore not simply ``filter libraries.'' It is to identify component boundaries, names, versions, transformations, and use while preserving uncertainty.
+
+The systematic review by Zhan et al. organizes 74 Android-library studies and distinguishes detection, security analysis, maintenance, privilege separation, and other tasks~\cite{tpl}. That taxonomy establishes that ``library detection'' contains several relations. A module detector identifies candidate regions; a family detector attributes a region to a library; a version detector selects a release; and a vulnerability analysis links the selected version or reachable code to a security record. Each stage can fail independently.
+
+\subsection{Module separation}
+
+An APK does not necessarily preserve the source project's module boundaries. Build tools merge bytecode, shrink unused classes, rewrite names, desugar language features, and package transitive dependencies. A library may be partially included, several libraries may share utility classes, and generated adapters may connect first-party and third-party code. Package names therefore provide useful hints but not a reliable boundary under obfuscation.
+
+LibRadar, LibD, LibScout, LibID, and ORLIS illustrate different combinations of package structure, normalized method features, class dependencies, call graphs, and databases~\cite{libradar,libd,libscout,libid,orlis}. The design choice affects both recall and the object being reported. A detector that returns individual library classes can remain robust when dead-code elimination removes part of a component, but the result may not correspond to a complete upstream release. A detector that requires a coherent module can provide stronger attribution when it succeeds but may lose partial embeddings.
+
+Module separation matters for repackaging because shared-library code can produce false similarity. Yet removing candidate libraries before matching can erase relevant evidence when the transformation occurs inside a library or when injected code is placed under a familiar namespace. A sound workflow retains both views: first-party resemblance with common components discounted, and component-aware resemblance that reports which libraries and versions account for the match.
+
+\subsection{Family and version attribution}
+
+Family attribution maps an in-app region to an upstream library identity. Version attribution is harder because adjacent releases can differ by few methods, while shrinking can remove precisely the distinguishing code. LibScout focuses on reliable library detection and security applications, OSSPolice combines library identification with license and known-risk analysis, and ATVHunter targets reliable version detection for vulnerability identification~\cite{libscout,osspolice,atvhunter}. LibID and ORLIS explicitly address obfuscation resilience~\cite{libid,orlis}.
+
+A version result is conditional on the reference database. The detector can select only among indexed releases and may face forks, republished binaries, shaded dependencies, or vendor patches. Reporting a single exact version without alternatives can overstate the evidence. A better output is a candidate set with distinguishing and missing features, plus an ``unknown or modified'' state when no indexed version explains the observed region.
+
+Cross-platform and online systems broaden the reference space. LibDX analyzes binary code across platforms, while LibRoad targets rapid online detection~\cite{libdx,libroad}. These approaches are relevant as Android applications incorporate native libraries and cross-platform frameworks. They also increase the importance of architecture, compiler, and packaging transformations. A signature learned from Java bytecode does not automatically transfer to native machine code or ahead-of-time compiled framework output.
+
+\begin{table}[t]
+\caption{Component-evidence tasks and representative systems.}
+\label{tab:tpl-systems}
+\small
+\begin{tabularx}{\textwidth}{L{2.6cm}Y L{1.35cm}Y}
+\toprule
+Task and examples & Principal evidence & Ceiling & Important uncertainty \\
+\midrule
+Library-region discovery~\cite{libradar,libd,orlis} & Package structure, class relations, calls, normalized code & \claimlevel{1} & Partial inclusion, merged modules, generated bridges \\
+Family identification~\cite{libscout,libid,tplprecision} & Signatures compared with an indexed corpus & \claimlevel{1} & Forks, unknown libraries, signature collisions, database coverage \\
+Version attribution~\cite{atvhunter,osspolice} & Version-discriminating code or graph features & \claimlevel{1} & Shrinking, patches, republishing, indistinguishable adjacent releases \\
+Cross-platform detection~\cite{libdx,libroad} & Binary or online features across packaging forms & \claimlevel{1} & Compiler and architecture variation, native stripping \\
+Update and maintenance studies~\cite{keepupdated,developersupdate,originsvuln,appcommune} & App versions, release histories, dependency changes & \claimlevel{3} for observed update history & Store coverage, hidden source decisions, unresolved component versions \\
+Potentially malicious libraries~\cite{malicioustpl} & Library attribution plus security or behavior analysis & \claimlevel{1}+\claimlevel{6} & Attribution and maliciousness have separate oracles \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Obfuscation and transformation resilience}
+
+The TPL review shows that resilience is multidimensional~\cite{tpl}. Identifier renaming is comparatively easy to suppress by excluding names. Package flattening defeats systems that use namespace hierarchy to recover modules. Dead-code elimination removes features and boundaries. Control-flow randomization changes graphs and instruction sequences. String encryption removes constants used as signatures. Reflection and dynamic loading hide call relations. No detector handles all transformations equally.
+
+The comparative question should therefore be stated as a conditional: given transformation family $M$, reference corpus $D$, and inclusion fraction $f$, can the system identify family or version? A single ``obfuscation'' flag conceals too much. The ``Are We There Yet?'' evaluation directly questions the readiness and comparability of Android TPL detectors~\cite{tplready}. Such comparative work is especially valuable when it runs multiple tools over one artifact set with controlled transformations, because it separates algorithm differences from dataset differences.
+
+Generated code adds a related transformation. Code generators can copy templates, synthesize adapters, inline dependencies, or produce semantically similar but structurally novel implementations. A library detector may correctly report no known library even though the generated code implements a familiar component interface. Conversely, an agent may import a package based on a textual suggestion, making the dependency a direct supply-chain decision. TPL evidence should distinguish reused implementation from independently generated compatibility code.
+
+\subsection{Updates, vulnerabilities, and reachability}
+
+Library identification is often motivated by vulnerability management. Studies of mobile library updates show that developers do not always adopt new versions promptly, and that application vulnerabilities can originate in embedded third-party code~\cite{keepupdated,developersupdate,originsvuln}. AppCommune explores automated de-duplication and updating~\cite{appcommune}. These studies connect composition evidence to maintenance behavior, but a vulnerability claim requires further steps.
+
+First, the version must be identified with sufficient confidence. Second, the vulnerability record must apply to that version and configuration. Third, the affected code must be present after shrinking. Fourth, it may be necessary to establish reachability from an application entry point. Fifth, environment and permissions can affect exploitability. A software bill of materials or detector output typically satisfies only the first part of this chain.
+
+This layered view prevents two opposite errors. Treating every detected vulnerable version as exploitable inflates risk; treating a library as harmless because an affected method was not observed can miss dynamically loaded or reflective paths. The evidence report should state whether it establishes presence, reachability, triggerability, or observed behavior.
+
+\subsection{License, ownership, and common-code ambiguity}
+
+OSSPolice demonstrates that component attribution can support license and security analyses~\cite{osspolice}. The ownership inference remains policy dependent. Detecting open-source code in an APK does not establish a violation unless the applicable license, distribution obligations, modifications, and offered source are evaluated. Similarly, finding a proprietary SDK in two applications does not establish copying between the application developers.
+
+This is the main connection to repackaging. Common components are alternative explanations for similarity. The first-party residual after component accounting is often more probative of direct relationship, but only if the component detector's uncertainty is retained. A hard filter can turn library false negatives into clone false positives and library false positives into clone false negatives. Joint models should propagate component probabilities or candidate sets instead of making an irreversible preprocessing decision.
+
+The early investigation of common Android libraries identified how widespread reuse complicates application comparison~\cite{commonlibraries}. Later systems improved family and version detection, but the conceptual lesson remains: composition is not ancestry. A correct component map narrows the space of plausible histories; it does not select one history without direction evidence.
+
+\subsection{A component-aware lineage record}
+
+A component-aware lineage record for an APK should contain: the APK digest; candidate first-party regions; detected library regions; family and version candidate sets; omitted or unknown regions; transformation assumptions; reference-database date; and links from each region to the evidence used for attribution. When vulnerability or license claims are made, the record should add reachability or policy evidence rather than silently promoting a composition result.
+
+This record also helps connect artifact analysis to process provenance. An authenticated build record may declare dependencies, while binary analysis observes what was actually packaged. Agreement strengthens confidence. Disagreement is diagnostically useful: the build record may be incomplete, the binary detector may miss a transformed component, or the final artifact may not correspond to the claimed build. The two evidence sources should be reconciled, not treated as redundant.

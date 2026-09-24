@@ -1,0 +1,8 @@
+slice_id,date,query,selected_records,kind,completeness
+S1,2026-09-10,"""software supply chain"" ""systematic literature review"" survey 2024 2025",R07;R13;R14,exploratory_web_search,partial selected results only
+S2,2026-09-10,"""Android"" ""repackaging"" ""survey"" 2025 2026",,exploratory_web_search,no comprehensive result export; absence not evidence
+S3,2026-09-10,"""Static analysis of Android apps""",,exploratory_web_search,unresolved exact-source lead
+S4,2026-09-10,Source-address verification of arXiv records listed in records.csv,R01–R14;P01;P02,direct_record_retrieval,selected identities only; not a database search
+S5,2026-09-13,Android app repackaging detection comprehensive survey 2026,W090,targeted_closest_review_update,selected direct-prior adversary; not a database export
+S6,2026-09-13,third-party library security survey application software 2024,W091,targeted_closest_review_update,selected adjacent review; not a database export
+S7,2026-09-13,software supply chain systematic review research directions SBOM SLR 2024 2025 2026,W092;W093;W094;W095,targeted_closest_review_update,selected current close reviews; not a database export

@@ -1,0 +1,1 @@
+corpus_counts.tex is regenerated from the standalone artifact. Run artifact/scripts/reproduce.py and then paper/build.py. The build script replaces generated TeX inputs and they should not be edited manually.

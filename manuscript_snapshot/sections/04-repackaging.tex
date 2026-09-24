@@ -1,0 +1,84 @@
+\section{Android Repackaging and Artifact-Level Evidence}
+\label{sec:repackaging}
+
+Android repackaging research began from a concrete abuse pattern: obtain an application, modify it, re-sign it, and redistribute the result. The modification may add advertising, remove payment checks, graft malicious code, change branding, or camouflage an application in a market. This history makes repackaging a natural lineage problem, but it also creates a temptation to collapse several tasks into one label. Candidate retrieval, similarity measurement, pair classification, direction assignment, maliciousness assessment, and authorization judgment are separate stages.
+
+The review by Li et al. documents 57 approaches and emphasizes the difficulty of reproducing and comparing their results~\cite{repack}. That finding remains a useful organizing constraint. A survey of evidence should not ask only which feature a detector uses. It should ask what unit is compared, which transformations are modeled, how pairs are labeled, whether common libraries are removed, whether direction is part of the label, and whether the evaluation contains realistic negatives. Those choices determine the claim ceiling.
+
+\subsection{Code and structural resemblance}
+
+Early scalable systems represented applications through fingerprints, normalized code, or structural abstractions. DroidMOSS uses fuzzy hashing to detect repackaged applications in third-party markets~\cite{droidmoss}. Attack of the Clones and AnDarwin use program representations intended to scale beyond exact byte matching~\cite{attackclones,andarwin}. Juxtapp detects code reuse across Android applications, and WuKong combines candidate filtering with more detailed comparison~\cite{juxtapp,wukong}. These systems illustrate an enduring design pattern: a cheap first-stage index narrows the comparison set, then a more discriminating representation evaluates likely pairs. Earlier studies of application plagiarism and market-level reuse also show that the same observed reuse can correspond to copying, legitimate components, or product-family evolution~\cite{plagiarizing,reuseandroid}.
+
+The strength of code evidence depends on what is normalized. Identifier renaming can be suppressed by ignoring names or hashing normalized instructions. Package restructuring can be reduced by comparing below the package level. Control-flow graphs and call relations preserve more structure than token bags, but can change under inlining, outlining, reflection, packing, or control-flow rewriting. CodeMatch targets obfuscation-resilient matching, DAPASA uses sensitive subgraphs, and semantics-oriented approaches attempt to preserve relations that survive surface rewriting~\cite{codematch,dapasa,semanticsrepack}. SimiDroid adds explanations for similarities, which is important because a single score does not tell an analyst whether the match comes from application logic, a library, or boilerplate~\cite{simidroid}. RepDroid and work on automatically detecting similar applications provide further evidence that retrieval, localization, and final pair adjudication should be evaluated as separate stages~\cite{repdroid,similarapps}.
+
+Feature robustness and claim validity are related but distinct. A method robust to identifier renaming may improve recall for transformed derivatives, yet the same robustness can increase matches among independently built applications that use common frameworks. A graph abstraction can suppress irrelevant details, but an abstraction that is too coarse creates collisions. The right representation therefore depends on the relation of interest and the candidate population.
+
+Several works explicitly pursue scale. Achieving Accuracy and Scalability Simultaneously, WuKong, MassVet, and large-market analyses use staged processing or compact features to operate over many applications~\cite{accuracyclone,wukong,massvet,appraiser}. Scale changes the evidence problem. In a small curated pair set, every candidate may be known to have a related counterpart. In a market-scale setting, most pairs are negatives, labels are sparse, and a small false-positive rate can generate an unmanageable review queue. Reporting accuracy on balanced pairs is not enough to estimate this operational burden.
+
+\subsection{Code heterogeneity and piggybacking}
+
+Piggybacking narrows the lineage question by looking for a largely reused host with injected or changed code. The systematic study of malicious code grafting documents how code is added to existing applications~\cite{piggybacking}. Code-heterogeneity features exploit the intuition that grafted regions may differ from the surrounding program, while DAPASA focuses on sensitive subgraphs associated with piggybacked behavior~\cite{heterogeneity,dapasa}. These signals can support a hypothesis that code was inserted, but heterogeneity is not unique to malicious grafting. Applications commonly combine first-party code, generated code, libraries, and modules produced by different teams.
+
+A stronger piggybacking claim therefore needs at least two bindings: a relationship between the candidate and a plausible host, and evidence that the differing region corresponds to an added transformation rather than ordinary variation. Temporal market records, signing changes, known original--piggybacked pairs, or authenticated source histories can supply direction. Behavior analysis can then assess the inserted code. Without those bindings, a detector may accurately locate anomalous code while remaining uncertain about origin and intent.
+
+This distinction also explains why malware classifiers are relevant but not interchangeable with lineage detectors. DREBIN and MaMaDroid infer maliciousness from application features and behavioral abstractions~\cite{drebin,mamadroid}; FlowDroid supports precise information-flow analysis within an Android lifecycle model~\cite{flowdroid}. Their observations can strengthen \claimlevel{6} claims about a candidate. They do not establish that the candidate was copied from a specific application. Conversely, a near-perfect clone match does not establish that the changed or unchanged behavior is malicious.
+
+\subsection{Resources, user interfaces, and externally visible behavior}
+
+Code is only one layer of an Android application. Resources, layouts, images, strings, manifests, and user-interface structure can remain recognizable after code rewriting. Resource-driven systems exploit this fact~\cite{resourcedriven,resourceeval}. ViewDroid and DroidEagle use visual or view-level evidence to detect similar applications despite some code obfuscation~\cite{viewdroid,droideagle}. UI-clone evidence is especially useful for brand impersonation and applications that preserve a user-facing design while replacing implementation details.
+
+Resource and UI evidence also has a clear claim ceiling. Common templates, design systems, icon packs, and generated layouts can create legitimate resemblance. Localization can make legitimate variants appear dissimilar, while a malicious clone can deliberately alter images and colors. Screenshot evidence depends on explored states, device configuration, rendering, and input sequences. A UI match is consequently strong evidence of presentation resemblance in the sampled states, not proof of source-code derivation or full functional equivalence.
+
+Combining UI and code evidence can eliminate some alternative histories. A pair that shares distinctive first-party code and a distinctive layout is less likely to be explained by a common library alone. Nevertheless, independence should not be assumed: generated UI bindings and resource identifiers can influence both code and view features. A fusion model should report which underlying artifacts contribute to each score.
+
+\subsection{Watermarks, deterrence, and owner-origin evidence}
+
+AppInk and DroidMarking take a different approach: embed evidence intended to survive transformation and support later ownership or repackaging claims~\cite{appink,droidmarking}. A successfully verified watermark can be stronger than incidental similarity because the mark is designed and controlled by a party before distribution. It can help establish that a candidate contains material derived from a marked artifact.
+
+Watermarks still depend on assumptions. The mark must be bound to an identity, created before the dispute, resistant to removal and forgery, and specific enough not to collide across applications. A verifier must distinguish knowledge of a mark from authorization to use the marked code. If a build service, contractor, or licensee legitimately receives a marked source base, the mark establishes origin but not the legal or policy status of every derivative. Watermarking therefore contributes to \claimlevel{3} when deployment and identity records support direction, and to \claimlevel{5} only when an external authorization policy is added.
+
+Deterrence and detection should also be separated. A transformation that makes removal expensive can deter a repackager even if the detector is not perfect. Conversely, a highly detectable mark may be easy to strip once its location is known. Evaluation should include mark survival, false claims, collusion or copying, performance cost, and the risk that the protection itself changes downstream detector features.
+
+\subsection{Transformation models and adversarial validity}
+
+Android applications undergo ordinary and adversarial transformations: compiler changes, shrinking, optimization, identifier renaming, control-flow rewriting, string encryption, packing, library updates, resource replacement, and signing. DroidChameleon showed that semantics-preserving transformations can substantially affect anti-malware tools~\cite{droidchameleon}. The lesson transfers to lineage analysis: a detector's transformation model is part of its claim, not an implementation detail. AndroSimilar's malware-variant signatures illustrate the same trade-off from the family-detection side: invariance can recover transformed relatives while also coarsening the relation being inferred~\cite{androsimilar}.
+
+Transformation robustness should be described with a matrix rather than a binary ``obfuscation resistant'' label. A feature may survive renaming but fail under dead-code removal; survive resource edits but fail under package flattening; or tolerate local rewriting while failing when an application is regenerated from a high-level specification. CodeMatch, FSquaDRA, SimiDroid, and resource-based systems occupy different cells in this matrix~\cite{codematch,fsquadra,simidroid,resourceeval}. No single representation is invariant to all transformations without becoming so coarse that unrelated artifacts collide.
+
+There is also a direction asymmetry. A detector optimized for finding transformed copies of a known original has a reference artifact and can compute expensive targeted features. Open-world clone discovery must compare many artifacts without knowing the ancestor. Evaluations should state which setting is measured. Results from reference-based detection do not automatically transfer to all-pairs market discovery.
+
+\begin{table}[t]
+\caption{Representative Android artifact-evidence families. The claim ceiling assumes no auxiliary provenance or policy evidence.}
+\label{tab:android-families}
+\small
+\begin{tabularx}{\textwidth}{L{2.45cm}Y L{1.35cm}Y}
+\toprule
+Family and examples & Observation and modeled resilience & Ceiling & Recurring failure boundary \\
+\midrule
+Fuzzy and normalized code~\cite{droidmoss,attackclones,droidkin} & Method or application fingerprints; often tolerates renaming and local edits & \claimlevel{2} & Common libraries, templates, coarse collisions, unseen rewrites \\
+Graph and semantic structure~\cite{andarwin,dapasa,semanticsrepack,codematch} & Call, control, dependency, or sensitive subgraphs & \claimlevel{2}--\claimlevel{3} with pair oracle & Reflection, graph rewriting, incomplete recovery, direction supplied by labels \\
+Staged market-scale matching~\cite{massvet,wukong,accuracyclone,appraiser} & Cheap candidate retrieval followed by detailed comparison & \claimlevel{2} & Base-rate effects, sparse labels, candidate-stage false negatives \\
+Resources and UI~\cite{resourcedriven,resourceeval,viewdroid,droideagle} & Resource sets, layouts, images, or rendered views & \claimlevel{2} & Templates, localization, state coverage, deliberate restyling \\
+Embedded marks~\cite{appink,droidmarking} & Designed watermark verified in a candidate & \claimlevel{3} with deployment record & Removal, forgery, licensed reuse, weak identity binding \\
+Malware and flow evidence~\cite{drebin,mamadroid,flowdroid,heterogeneity} & Static features, behavioral abstractions, flows, anomalous regions & \claimlevel{6} for modeled property & Does not identify ancestor; analysis unsoundness or incomplete environment \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Ground truth, datasets, and comparison validity}
+
+Ground truth is the most consequential part of a repackaging evaluation. A positive pair can be established through controlled transformations, developer records, market chronology, known source relationships, watermarking, or manual investigation. Each oracle answers a different question. Controlled transformations provide exact direction and known changes but may be less diverse than field modifications. Market-derived pairs improve realism but can contain uncertain direction and false labels. Malware-family labels are not clone labels. Shared certificates can indicate a publisher relation but are neither necessary nor sufficient for derivation.
+
+The RePack benchmark was created to provide a common set of repackaging pairs and to improve comparison across detectors~\cite{repack}. AndroZoo supplies large-scale application artifacts and metadata that enable broader sampling~\cite{androzoo}. These resources address availability and scale, but dataset access does not by itself solve oracle construction. A benchmark should expose how each pair was formed, which artifact is considered original, what transformations are observed, which common components were removed, and which negative pairs are challenging.
+
+A useful negative set is not a random sample of unrelated applications. Random negatives are often easy and can overstate discrimination. Hard negatives include applications from the same developer, versions of one legitimate product, applications built from the same template, apps sharing large libraries, and independently implemented apps with similar UI or functionality. These cases test whether the detector confuses legitimate relatedness with unauthorized derivation.
+
+Temporal leakage is another risk. If a detector's signature database, threshold, or feature selection uses later versions of an application, evaluation on earlier pairs can accidentally reveal the answer. Splitting by application family, developer, market, and time is often more informative than a random pair split. The same principle applies to AI-era artifacts, where near-duplicate generated outputs from one prompt or agent trajectory can cross train and test boundaries.
+
+Comparison also requires a common unit. Some studies count application pairs, others count applications, clusters, methods, or detected regions. Precision among returned pairs cannot be compared directly with family classification accuracy or top-$k$ retrieval recall. A report should state the candidate population, class balance, threshold-selection set, unresolved labels, and review effort. The framework of Huang et al. and the later RePack critique both motivate this discipline~\cite{repackeval,repack}.
+
+\subsection{What artifact analysis establishes}
+
+Android artifact analysis is indispensable because process provenance is frequently absent, incomplete, or controlled by a party under investigation. The literature provides mature techniques for retrieving related candidates, localizing shared regions, resisting selected transformations, and analyzing behavior. Its strongest general contribution is not a universal repackaging verdict. It is a set of observations that can support composition, resemblance, and, with an external directional oracle, derivation.
+
+The principal unresolved issue is evidence binding. A detector output should identify the exact artifact digest, compared region, ignored components, transformation assumptions, threshold, and candidate universe. If direction or authorization is asserted, the report should name the additional source: time, source history, signing identity, watermark deployment, attestation, or policy. This reporting pattern makes a detector useful in a larger assurance case without asking it to prove what it does not observe.

@@ -1,0 +1,108 @@
+\section{Provenance, Release Authority, and Supply-Chain Integrity}
+\label{sec:provenance}
+
+Artifact analysis begins with the product and reasons backward. Supply-chain systems attempt to preserve evidence while the product is created and distributed. This shift changes what can be established. Instead of inferring a possible history from similarity, a provenance system records principals, steps, materials, and products. The record can make direction and authorization explicit, but only within the policy and collection boundary.
+
+Recent systematizations describe supply-chain defenses through properties, attack classes, and causal locations~\cite{astra,properties,ladisa,ohmstuke}. Their common lesson is that ``the software supply chain'' is not one service. It is a graph of source repositories, dependency registries, build workers, CI configuration, signing services, release metadata, mirrors, stores, and update clients. An Android APK sits near the end of that graph. A trustworthy store download therefore depends on more than the APK's own signature.
+
+\subsection{Repository metadata and delegated authority}
+
+The Update Framework separates repository responsibilities into roles and signs metadata describing targets, versions, expiration, and delegation~\cite{tuf}. The design addresses attacks in which an adversary compromises a key or repository and attempts to serve stale, substituted, or inconsistent updates. Diplomat extends the principle of delegation to community repositories~\cite{diplomat}. These systems show why authorization should be scoped. A key authorized to publish one target set should not automatically authorize every package or metadata function.
+
+Mapped to Android, a release policy could distinguish the principal that approves source, the builder that produces an APK, the signer that applies a release key, and the store account that publishes the package. Existing Android signing binds an APK to a key and supports update continuity, but a cryptographic verification result does not independently establish the real-world identity or current authority of the key holder. Key rotation, delegation, organization changes, compromised accounts, and outsourced builds all require policy context.
+
+Repository metadata also carries freshness. A correctly signed old release may be vulnerable or revoked. Rollback and freeze defenses therefore complement signature verification. This matters for mobile ecosystems in which alternative markets, enterprise distribution, archival sites, and device update behavior can expose different release states.
+
+\subsection{Step attestations and source-to-product binding}
+
+in-toto records authenticated link metadata for steps and checks the resulting supply chain against a layout defined by the project owner~\cite{intoto}. The important abstraction is not a particular file format; it is a signed relation among materials, a command or step, products, and a functionary. When the final product digest is an APK digest, the record can establish a directed source-to-package path that artifact similarity alone cannot.
+
+A complete Android-oriented layout might include source checkout, dependency resolution, code generation, resource processing, compilation, shrinking or obfuscation, native build, packaging, signing, and store upload. Each step changes the evidence available later. For example, a code-generation step should record the generator or service identity, version, policy, prompt or specification reference, retrieved context, and output digest. A shrinking step should record configuration because it affects both library evidence and clone-detection features.
+
+Attestations are conditional evidence. A valid record shows that a key asserted a step and that digests link inputs to outputs. It does not prove that the command was the only process executed, that the worker was uncompromised, that secrets were not exfiltrated, or that the output is benign. Trusted execution, hermetic builds, policy review, and independent analysis can reduce those risks. The attestation should never be described as a behavior proof.
+
+\subsection{Transparency and consistent views}
+
+Transparency mechanisms make release events publicly or collectively observable. CHAINIAC uses collectively signed skipchains and verified builds to make software-update histories difficult to equivocate about~\cite{chainiac}. Contour applies transparency to binaries~\cite{contour}. Sigstore combines short-lived identity-bound certificates with a transparency log to reduce signing friction and preserve an auditable record~\cite{sigstore}. Verifiable Git repository work similarly targets the integrity and consistency of source histories~\cite{legitimate}.
+
+Transparency addresses a failure mode that ordinary signatures do not: an authorized key can sign different artifacts for different observers. Logging releases and attestations enables monitors to detect inconsistent or omitted events, subject to log availability and monitoring. In an Android setting, a transparency record can bind package name, version, signing identity, APK digest, build provenance, and publication time. It does not decide whether two versions are semantically equivalent or whether a changed permission is appropriate; those remain analysis questions.
+
+Transparency also improves direction evidence. If digest $A$ is logged as the product of a build before digest $B$ appears in a third-party market, and artifact analysis localizes the changes from $A$ to $B$, the combined record supports a stronger derivation narrative than either source alone. Chronology is still not causality by itself, but an authenticated production record plus a later unrecorded derivative eliminates many common-predecessor explanations.
+
+\subsection{Reproducible builds and independent checking}
+
+Reproducible builds ask whether independent parties, given the same declared inputs and build procedure, obtain bit-for-bit identical outputs~\cite{reprobuilds}. Reproducible Containers examines the same principle for containerized environments~\cite{reprocontainers}. For Android, reproducibility can bind a published source revision and dependency set to an APK digest without requiring trust in one builder. It is particularly valuable when release signing is centralized but build verification can be distributed.
+
+Reproducibility is often overstated in two ways. First, equality of independent outputs is evidence that the declared procedure is deterministic and that those executions agree; it does not prove that the declared source is authorized or secure. Second, a failed reproduction is diagnostically ambiguous. The cause may be a malicious hidden input, an undeclared dependency, a timestamp, toolchain variation, environment leakage, or ordinary nondeterminism. The result should therefore be reported with input capture and difference localization.
+
+Reproducibility and artifact similarity occupy adjacent but different levels. A reproducible build provides \claimlevel{0} identity for outputs and supports \claimlevel{4} when inputs and procedure are authenticated. A similarity detector can compare releases that are intentionally non-identical or generated under different toolchains. A mature pipeline uses reproducibility where exact equality is expected and transformation-aware comparison where it is not.
+
+\subsection{CI workflows and build-system attack surface}
+
+Continuous-integration workflows are executable policy. They select dependencies, obtain credentials, invoke third-party actions, build artifacts, and publish releases. The study of GitHub CI workflows identifies security weaknesses in these configurations~\cite{githubci}. A signed attestation emitted by a compromised workflow can faithfully record a malicious process. The trustworthiness of provenance therefore depends on who can modify workflow definitions, which actions are pinned, how secrets are scoped, and whether untrusted contributions can influence privileged steps.
+
+The mobile build adds further attack surfaces: signing keys, store credentials, Gradle plugins, Android SDK components, native toolchains, and remote build caches. A cross-layer assurance case should treat the build configuration and dependency resolver as evidence-bearing artifacts. Their digests and authorization history are part of the lineage of the APK.
+
+A practical implication is that provenance collection must begin before the final packaging step. Recording only the signer and APK digest misses source substitutions, malicious plugins, generated code, and dependency-resolution attacks. At the same time, collecting every event without a policy produces an uninterpretable log. The record should be designed around explicit claims and verification rules.
+
+\subsection{Package ecosystems and transitive risk}
+
+Package-manager research demonstrates that repositories and dependency ecosystems are active attack surfaces. Early work examined attacks on package managers themselves~\cite{packagemanagers}. Measurements of interpreted-language repositories identified malicious packages and supply-chain attack patterns~\cite{duanpackages}. The Backstabber's Knife Collection cataloged real open-source supply-chain attacks~\cite{backstabber}. Studies of npm found dense dependency relations, maintainer concentration, and weak links that allow risk to propagate beyond a directly selected package~\cite{npmworld,weaklinks}.
+
+These findings transfer to Android even when the package managers differ. A mobile application can depend on Maven artifacts, Gradle plugins, JavaScript packages in a hybrid layer, native binaries, model files, and hosted services. An application-level SBOM that lists only direct libraries can omit build-time plugins or generated artifacts. Conversely, listing every transitive package does not establish that its code reached the final APK. Process records and binary component evidence should be reconciled.
+
+Empirical SBOM research reinforces this distinction. Repository-discussion analysis identifies recurring design questions around what to include, how to identify components, and how producers and consumers exchange the resulting records~\cite{bi2024sbom}. Interviews and survey evidence from SBOM stakeholders report practical challenges spanning generation, maintenance, consumption, and incentives~\cite{bomsaway2024}. These studies support the need for explicit object and policy bindings; they do not show that an SBOM entry proves code inclusion, reachability, provenance, authorization, or absence of vulnerable behavior.
+
+The distinction between dependency intent and packaged reality is crucial. A lockfile or resolver log says what the build intended or selected. Binary analysis says what appears in the output. Reachability analysis says what can execute. Runtime observation says what executed under sampled inputs. These are four different evidence layers.
+
+\begin{table}[t]
+\caption{Supply-chain mechanisms and their Android lineage contribution.}
+\label{tab:supply-mechanisms}
+\small
+\begin{tabularx}{\textwidth}{L{2.5cm}Y L{1.35cm}Y}
+\toprule
+Mechanism & Direct contribution & Ceiling & Residual question \\
+\midrule
+Signed repository metadata and delegation~\cite{tuf,diplomat} & Target identity, freshness, version, and policy-scoped publishing roles & \claimlevel{5} & Whether the target was correctly or safely built \\
+Step attestations and layouts~\cite{intoto} & Authenticated relation among materials, functionary, step, and product & \claimlevel{4}--\claimlevel{5} & Completeness of capture and trust in execution \\
+Transparency and collective histories~\cite{chainiac,sigstore,contour,legitimate} & Auditable publication history and resistance to equivocation & \claimlevel{4}--\claimlevel{5} & Semantic relation among versions and artifact behavior \\
+Reproducible builds~\cite{reprobuilds,reprocontainers} & Independent equality check for declared inputs and process & \claimlevel{0}+\claimlevel{4} & Authorization and security of declared inputs \\
+CI-workflow analysis~\cite{githubci} & Security of the machinery that creates attestations and releases & Supports \claimlevel{4} validity & Hidden services, credential compromise, runtime environment \\
+Package-ecosystem measurement~\cite{duanpackages,backstabber,npmworld,weaklinks} & Empirical attack and dependency-risk evidence & \claimlevel{1}+\claimlevel{6} & Exact transfer to the packaged mobile artifact \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{The source-to-APK evidence chain}
+
+Figure~\ref{fig:lifecycle} places the evidence families along a mobile lifecycle. The links are digest and identity bindings. A gap means that records on the two sides may describe different artifacts or principals.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  stage/.style={draw,rounded corners=1pt,text width=1.48cm,minimum height=9mm,align=center,fill=black!5,font=\scriptsize},
+  ev/.style={draw,dashed,rounded corners=1pt,align=center,text width=1.48cm,minimum height=10mm,fill=black!12,font=\scriptsize},
+  arr/.style={-{Latex[length=1.6mm]},thick},
+  node distance=5mm and 3mm
+]
+\node[stage] (src) {source and\\specification};
+\node[stage,right=of src] (dep) {dependency\\resolution};
+\node[stage,right=of dep] (build) {generation, build,\\shrink, package};
+\node[stage,right=of build] (sign) {sign and\\approve};
+\node[stage,right=of sign] (store) {store and\\update};
+\node[stage,right=of store] (run) {installed\\behavior};
+\draw[arr] (src)--(dep);\draw[arr] (dep)--(build);\draw[arr] (build)--(sign);\draw[arr] (sign)--(store);\draw[arr] (store)--(run);
+\node[ev,below=5mm of src] (git) {repository history\\and review};
+\node[ev,below=5mm of dep] (lock) {resolver log, SBOM,\\component evidence};
+\node[ev,below=5mm of build] (att) {attestations and\\reproducibility};
+\node[ev,below=5mm of sign] (auth) {delegation and\\release signature};
+\node[ev,below=5mm of store] (trans) {transparency and\\freshness};
+\node[ev,below=5mm of run] (beh) {static, dynamic,\\policy evidence};
+\draw[arr,dashed] (git)--(src);\draw[arr,dashed] (lock)--(dep);\draw[arr,dashed] (att)--(build);\draw[arr,dashed] (auth)--(sign);\draw[arr,dashed] (trans)--(store);\draw[arr,dashed] (beh)--(run);
+\end{tikzpicture}
+\caption{Cross-layer evidence along an Android lifecycle. Every transition requires an object binding; evidence attached to one stage does not automatically validate another stage.}
+\Description{Six lifecycle stages run left to right from source and specification to installed behavior. Beneath each stage is a corresponding evidence source, including repository history, resolver records, attestations, release authorization, transparency, and behavior analysis.}
+\label{fig:lifecycle}
+\end{figure}
+
+A minimally useful chain records a source revision, resolved dependency set, build and generation configuration, output APK digest, signing identity, release authorization, and publication event. Artifact analysis can then verify the packaged components and compare the output with prior or disputed artifacts. Behavior analysis evaluates the exact digest. This structure does not guarantee security, but it makes disagreements localizable and claims reviewable.

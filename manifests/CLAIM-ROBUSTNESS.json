@@ -1,0 +1,12 @@
+{
+  "claim_ledger": "artifact/data/synthesis_claims.csv",
+  "corpus": "artifact/data/corpus.csv",
+  "claims": 7,
+  "unsupported": 0,
+  "single_source": 0,
+  "single_domain": 2,
+  "shallow_dependent": 0,
+  "multi_source_domain_robust": 5,
+  "temporal_pivot": 2017,
+  "scope": "diagnostic sensitivity; not effect-size estimation or model generalization"
+}

@@ -1,0 +1,16 @@
+{
+  "acmart.cls": {
+    "paper": "paper/acmart.cls",
+    "paper_sha256": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
+    "template_candidates": 1,
+    "byte_identical_to_template": true,
+    "matching_template_file": "acmart.cls"
+  },
+  "ACM-Reference-Format.bst": {
+    "paper": "paper/ACM-Reference-Format.bst",
+    "paper_sha256": "4342d27456645567ef1a027f6474e894715bc31d468f040142fa54540440ad04",
+    "template_candidates": 1,
+    "byte_identical_to_template": true,
+    "matching_template_file": "ACM-Reference-Format.bst"
+  }
+}

@@ -1,0 +1,112 @@
+\section{An Evidence Model for Mobile Software Lineage}
+\label{sec:model}
+
+\subsection{Why lineage is not one relation}
+
+The term \emph{lineage} is used for at least four different relations. A structural relation states that two artifacts share material. A historical relation states that one artifact was derived from another or that both descend from a common source. A procedural relation states that an artifact was produced by a recorded sequence of steps and principals. A normative relation states that the production or release was authorized. Security and policy questions add a fifth relation concerning behavior. These relations can coincide, but none entails all the others.
+
+Let an evidence item be represented as
+\[
+  e=(o,\phi,r,m,q,a),
+\]
+where $o$ is the observed object, $\phi$ is the feature or record extracted from it, $r$ is the relation being inferred, $m$ is the transformation model, $q$ is the oracle or policy against which the inference is evaluated, and $a$ is the set of assumptions. The tuple is not a new detector. It is a discipline for stating what a detector or provenance mechanism actually observes.
+
+For example, a fuzzy code signature may compare methods after identifier normalization. Here, $o$ is DEX method code, $\phi$ is a normalized signature, $m$ includes identifier renaming but may exclude control-flow restructuring, and $q$ may be a corpus of known repackaged pairs. The supported relation is resemblance under $m$. Direction is not part of that observation unless the oracle or auxiliary evidence supplies it. By contrast, an in-toto link observes authenticated step metadata and binds materials to products under a layout~\cite{intoto}. It supports a process relation under key, layout, and metadata assumptions, but does not establish that two programs are semantically equivalent.
+
+\subsection{The seven-level claim ladder}
+
+Figure~\ref{fig:ladder} summarizes seven claim levels. The levels are not a maturity model. They are ordered so that a reader can see which additional proposition is introduced at each step.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  box/.style={draw,rounded corners=1pt,align=left,text width=.77\textwidth,minimum height=8mm,inner sep=4pt},
+  arr/.style={-{Latex[length=2mm]},thick},
+  node distance=2.2mm
+]
+\node[box,fill=black!4] (l0) {\textbf{\claimlevel{0} Identity}: the observed bytes or a cryptographic digest are equal.};
+\node[box,fill=black!7,above=of l0] (l1) {\textbf{\claimlevel{1} Composition}: an artifact contains a component, resource, or recognizable code region.};
+\node[box,fill=black!10,above=of l1] (l2) {\textbf{\claimlevel{2} Resemblance}: two objects share features or behavior under a stated transformation model.};
+\node[box,fill=black!13,above=of l2] (l3) {\textbf{\claimlevel{3} Derivation}: one object was transformed from another, or both share a historical ancestor; direction is explicit.};
+\node[box,fill=black!16,above=of l3] (l4) {\textbf{\claimlevel{4} Process provenance}: recorded principals and steps bind input materials to an output artifact.};
+\node[box,fill=black!19,above=of l4] (l5) {\textbf{\claimlevel{5} Authorization}: a policy-recognized principal approved the transformation or release.};
+\node[box,fill=black!22,above=of l5] (l6) {\textbf{\claimlevel{6} Behavioral assurance}: the artifact satisfies a security, privacy, or functional property in a stated model.};
+\draw[arr] (l0)--(l1);\draw[arr] (l1)--(l2);\draw[arr] (l2)--(l3);\draw[arr] (l3)--(l4);\draw[arr] (l4)--(l5);\draw[arr] (l5)--(l6);
+\node[align=center,rotate=90,anchor=south] at ([xshift=-9mm]l3.west) {additional propositions and assumptions};
+\end{tikzpicture}
+\caption{Claim ladder for Android lineage and assurance. Moving upward adds a different proposition; it is not justified merely by increasing a similarity score. Behavioral assurance is shown last because it often depends on history and policy, but it remains logically distinct from them.}
+\Description{Seven stacked boxes progress from byte identity through composition, resemblance, derivation, process provenance, authorization, and behavioral assurance. An upward arrow indicates that each level adds propositions and assumptions.}
+\label{fig:ladder}
+\end{figure}
+
+\paragraph{\claimlevel{0}: Identity.}
+Cryptographic hashes, package digests, and reproducible-build comparisons can establish equality of the observed bytes with negligible collision probability under the selected hash assumptions. Identity is useful for artifact distribution and cache verification. It does not reveal why the bytes are equal, who authorized them, or whether they are safe. Two parties can distribute the same malicious binary.
+
+\paragraph{\claimlevel{1}: Composition.}
+Component detectors, software bills of materials, package manifests, and static analyses address whether an artifact contains a component or a recognizable region. Android library research shows that composition is itself difficult because package structure can be flattened, names can be changed, dead code can be removed, and a library can be partially embedded~\cite{tpl,libscout,libid,orlis}. Composition also has granularity: identifying a library family is weaker than identifying an exact version, and identifying bytes is weaker than showing that vulnerable code is reachable.
+
+\paragraph{\claimlevel{2}: Resemblance.}
+Most clone and repackaging detectors occupy this level. They establish that code, graphs, resources, UI, or behavior are similar under a threshold and transformation model. DroidMOSS, Juxtapp, AnDarwin, WuKong, SimiDroid, and related systems illustrate different feature choices~\cite{droidmoss,juxtapp,andarwin,wukong,simidroid}. Resemblance can be highly probative, particularly when independent feature families agree, but it does not by itself provide direction.
+
+\paragraph{\claimlevel{3}: Derivation.}
+A derivation claim states that $B$ descends from $A$, that $A$ descends from $B$, or that both descend from a specified ancestor. Direction can come from trusted timestamps, source history, market chronology, embedded marks, authenticated build records, or a curated benchmark whose construction establishes the relationship. Without such evidence, a shared library, template, or predecessor remains an alternative explanation. Repackaging papers often use known pairs or market metadata to operationalize derivation, but the feature detector and the pair-construction oracle should be reported separately~\cite{repack,repackeval}.
+
+\paragraph{\claimlevel{4}: Process provenance.}
+Process provenance binds materials, commands, environments, and principals to products. in-toto links and layouts are a direct example~\cite{intoto}; CI workflow studies show why the integrity of the recording and execution environment also matters~\cite{githubci}. Provenance can make direction explicit because it records a step from inputs to output. It remains conditional on key control, policy, collection completeness, and the absence of unrecorded paths.
+
+\paragraph{\claimlevel{5}: Authorization.}
+Authorization adds a policy judgment: the principal was allowed to perform or approve the step or release. TUF's delegated roles and Diplomat's repository delegations exemplify policy-scoped authority~\cite{tuf,diplomat}. An Android APK signature establishes possession of a signing key for that package artifact; whether the key holder is the rightful publisher is an external identity and policy question. Authorization is therefore not reducible to the presence of any valid signature.
+
+\paragraph{\claimlevel{6}: Behavioral assurance.}
+Security, privacy, and functionality concern what the artifact does. Static taint analysis, malware classification, policy analysis, dynamic testing, and formal verification can support such claims under their models~\cite{flowdroid,drebin,mamadroid}. A provenance record may help select the artifact and inputs to analyze, but it cannot replace the behavior analysis. Conversely, a behavior detector may find malicious functionality without reconstructing the artifact's full history.
+
+\subsection{A worked claim-adjudication example}
+
+Consider two Android packages, $A$ and $B$, collected from different channels. Their digests differ; both contain the same advertising-library family; normalized first-party call graphs, layouts, and images correspond after localization. Package $A$ also has an attested build from a named source revision and a store release under a delegated publisher role. Package $B$ uses another key and lacks an authenticated production record. Dynamic analysis reports that $B$ contacts an additional endpoint. This synthetic example illustrates adjudication rather than reporting a measurement.
+
+The observations license separate statements. Different digests reject \claimlevel{0} identity. The shared library supports family-level \claimlevel{1} composition while leaving version, modification, and reachability unresolved. Agreement across first-party code and resources supports \claimlevel{2} resemblance under the detector's transformation model, but does not select a direction: a common template, common predecessor, authorized fork, and copying either way remain compatible histories. The authenticated record supports \claimlevel{4} only for the materials, steps, principals, and product digest it names; delegation can add scoped \claimlevel{5} authorization for $A$. Neither claim transfers to $B$, and a different valid key is not by itself proof of unauthorized release. The endpoint finding is a \claimlevel{6} observation about the analyzed build and environment, not a derivation oracle.
+
+Later evidence should revise only the subclaim it resolves. An authenticated parent and ordered transformation could establish directional \claimlevel{3} or process-level \claimlevel{4}; a shared authenticated predecessor would instead establish sibling derivation. The correct report therefore preserves competing histories, binds every result to its exact object, and keeps retrieval, historical adjudication, authorization, and behavior distinct even when a store policy combines them into one action.
+
+\subsection{Claim ceilings of common evidence objects}
+
+Table~\ref{tab:claim-ceilings} records typical claim ceilings. ``Typical'' matters: an implementation can combine additional evidence and move beyond the base ceiling. The purpose is to prevent that additional evidence from disappearing inside the name of the base mechanism.
+
+\begin{table}[t]
+\caption{Typical claim ceilings and missing links. The last column names the evidence normally required for a stronger inference.}
+\label{tab:claim-ceilings}
+\small
+\begin{tabularx}{\textwidth}{L{3cm}L{1.25cm}Y Y}
+\toprule
+Evidence object & Ceiling & What it directly supports & Evidence needed for a stronger claim \\
+\midrule
+Exact digest or byte comparison & \claimlevel{0} & Identity of observed bytes & Authenticated origin, policy, or behavior analysis \\
+Component signature or SBOM entry & \claimlevel{1} & Component presence or asserted composition & Exact version, reachability, and authenticated generation \\
+Code, graph, resource, UI, or trace similarity & \claimlevel{2} & Resemblance under a feature and transformation model & Directional oracle, chronology, ownership, or process record \\
+Known original--derivative pair & \claimlevel{3} & Derivation for the constructed pair & Generalization to open-world candidates and authorization \\
+Authenticated step attestation & \claimlevel{4} & Recorded input--step--output relation and principal & Authorization policy, complete capture, and trusted execution \\
+Delegated signature or release approval & \claimlevel{5} & Policy-scoped authorization of metadata or artifact & Semantic equivalence, vulnerability, privacy, and behavior evidence \\
+Static, dynamic, or formal behavior evidence & \claimlevel{6} & Property within the analysis or test model & Broader environment coverage and provenance of analyzed inputs \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Counter-histories as a validity test}
+
+A useful way to evaluate an inference is to construct a counter-history: a plausible history that produces the observation but falsifies the claimed relation. Four counter-histories recur.
+
+\emph{Common-predecessor ambiguity} occurs when two applications inherit code from an earlier version or template. Pairwise similarity cannot establish which is the source. \emph{Component contamination} occurs when a large shared library dominates the feature space and makes otherwise unrelated apps appear close. \emph{authorized divergence} occurs when a legitimate maintainer refactors, obfuscates, localizes, or regenerates an application so heavily that its authorized successor looks dissimilar. \emph{authenticated malice} occurs when a compromised or maliciously authorized pipeline produces a correctly signed artifact. These histories respectively challenge direction, attribution, recall, and security inferences.
+
+Counter-histories do not prove a detector useless. They identify the assumptions under which its output is probative. A marketplace may reasonably combine similarity with publisher identity, upload time, signing history, and user reports. The resulting decision is a fusion system; it should not be described as if the similarity feature alone established plagiarism.
+
+\subsection{Evidence fusion and non-substitutability}
+
+Evidence fusion is strongest when observations are conditionally independent enough to eliminate different counter-histories. Code and UI resemblance can reduce the chance that a shared library alone explains a match. A signed build attestation can establish direction and principal identity. A transparency log can deter equivocation. A dynamic or static analysis can test the behavior of the exact output. The fusion is weaker when several features are derived from the same underlying signal or when they share the same mislabeled oracle.
+
+For an artifact $A$, an assurance case can be expressed as a set of linked claims:
+\[
+ C(A)=\{C_{\mathrm{comp}},C_{\mathrm{rel}},C_{\mathrm{prov}},C_{\mathrm{auth}},C_{\mathrm{beh}}\}.
+\]
+The links are explicit bindings: a digest joins an attestation to an APK; a source revision joins a repository event to a build; a library version joins component detection to a vulnerability record; and a package signature joins an artifact to a release identity. If any binding is missing, the layers can refer to different objects while appearing to support one conclusion.
+
+This model frames the remaining sections. Android repackaging research is rich in \claimlevel{1}--\claimlevel{3} evidence. Supply-chain systems are rich in \claimlevel{4}--\claimlevel{5} evidence. Android program analysis contributes to \claimlevel{6}. AI-mediated development changes the transformations and principals that must be represented across all levels.

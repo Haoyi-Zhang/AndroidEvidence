@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "verification_date": "2026-09-16",
+  "complete_project_clean_extraction": {
+    "single_extracted_root": "ai-era-mobile-software-supply-chain-integrity-repackaging-evidence",
+    "root_entries": [
+      "paper",
+      "artifact",
+      "research-plan.md",
+      "CURRENT-STATE.md"
+    ],
+    "artifact_commands_passed": 5,
+    "unit_tests_passed": 41,
+    "corpus_records": 97,
+    "paper_pages": 35,
+    "bibliography_entries": 97,
+    "unique_cited_entries": 97,
+    "citation_occurrences": 259,
+    "bibtex_warnings": 0,
+    "latex_fatal_findings": 0
+  },
+  "standalone_repository_clean_extraction": {
+    "single_extracted_root": "ai-era-mobile-software",
+    "artifact_commands_passed": 5,
+    "unit_tests_passed": 41,
+    "corpus_records": 97,
+    "paper_dependency": false
+  },
+  "clean_rebuild_comparison": {
+    "renderer": "pdftoppm at 100 DPI",
+    "reference_pages": 35,
+    "rebuilt_pages": 35,
+    "changed_pages": 0,
+    "assessment": "identical page images"
+  },
+  "template_assets": {
+    "acmart_class_byte_identical_to_supplied_template": true,
+    "acm_reference_style_byte_identical_to_supplied_template": true
+  },
+  "boundary": "Successful clean execution establishes the documented code and build invariants for the supplied package. It is not independent source interpretation, a PRISMA-complete search, or an external review verdict."
+}

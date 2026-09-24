@@ -1,0 +1,4 @@
+case_id,left,right,kind,disposition,interpretation
+K1,E02,E03,within_source_textual_tension,preserve_both,Different evidence descriptions occur in the same subsection; do not promote to 100 percent validated ground truth.
+K2,E04,E04,denominator_incompatibility,no_pooling,Distinct analysis subsets do not authorize a common-denominator detector ranking.
+K4,E21,E22,different_output_oracles_not_disagreement,do_not_meta_analyze,Different generated artifacts and behavioral metrics do not define comparable provenance outcomes.

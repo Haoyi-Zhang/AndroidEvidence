@@ -1,0 +1,78 @@
+{
+  "status": "claim_centered_structured_evidence_synthesis_internal_draft",
+  "question_locked": true,
+  "question": "Which observable evidence supports which Android software-lineage or assurance claim, under what transformation and trust assumptions, when applications include third-party components and AI-mediated changes?",
+  "review_type": "bounded claim-centered structured evidence synthesis with a closest-review adversary matrix",
+  "search_cutoff": "2026-09-16",
+  "corpus_records": 97,
+  "primary_or_system": 76,
+  "primary_venue_recorded": 74,
+  "secondary_or_method": 21,
+  "venue_recorded": 93,
+  "active_preprints": 3,
+  "technical_method_reports": 1,
+  "reading_depth": {
+    "full_or_selected_source": 61,
+    "publisher_abstract_or_selected_source": 36
+  },
+  "strata": {
+    "review_and_method": 21,
+    "android_artifact": 34,
+    "third_party_library": 17,
+    "supply_chain": 17,
+    "ai_mediated": 8
+  },
+  "closest_review_matrix_records": 21,
+  "calibration_records": 22,
+  "calibration_groups": {
+    "closest": 12,
+    "influential_method": 5,
+    "adjacent_evidence": 5
+  },
+  "claim_level_extractions": 97,
+  "source_location_records": 97,
+  "retained_record_provenance_records": 97,
+  "bibliography_verification_records": 97,
+  "canonical_doi_records": 82,
+  "excluded_withdrawn_records": 1,
+  "screening_rows": 105,
+  "fresh_source_rechecks": 26,
+  "fresh_source_recheck_fraction": 0.268,
+  "independent_dual_coding": false,
+  "unit_tests": 41,
+  "material_claims": 28,
+  "inclusion": "Android artifact observations; component/version evidence; provenance, signing, transparency, repository, build, or reproducibility mechanisms mappable to an APK lifecycle; empirical supply-chain evidence; AI-mediated mobile generation or software-security evidence; and review/method sources structuring these areas.",
+  "exclusion": "General LLM or GUI-agent work without a software-artifact lineage object; withdrawn or retracted publications from the active synthesis; stronger inferences not supported by the source observation; and cross-study performance pooling across incompatible oracles and denominators.",
+  "coding_dimensions": [
+    "object",
+    "observation",
+    "transformation_model",
+    "oracle_or_policy",
+    "claim_ceiling",
+    "counter_history",
+    "inference_limit"
+  ],
+  "claim_levels": [
+    "L0 identity",
+    "L1 composition",
+    "L2 resemblance",
+    "L3 derivation",
+    "L4 process provenance",
+    "L5 authorization",
+    "L6 behavioral assurance"
+  ],
+  "synthesis_rule": "A mechanism is not promoted beyond the proposition directly observed under its reported assumptions; counter-histories and unknowns are retained.",
+  "gap_result": "In the bounded closest-review matrix, no single coded review directly covers all seven dimensions with a uniform observation-to-claim ceiling and cross-layer binding rule. This is a bounded positioning result, not a proof of worldwide absence.",
+  "publication_status_boundary": "Each active record has a checked scholarly or official locator and a corpus/BibTeX status match. This record-level check is not a comprehensive retraction-registry search. One known withdrawn work is quarantined in excluded_publications.csv and retained only in a historical regression fixture.",
+  "limitations": [
+    "No PRISMA-complete search-hit denominator",
+    "No independent second human coder or agreement statistic",
+    "Publisher-abstract coding is explicitly distinguished from full/selected-source coding",
+    "No pooled detector meta-analysis",
+    "No primary model, malware, device, or human experiment",
+    "Record-level publication checks are not a comprehensive retraction-registry census"
+  ],
+  "reproduction_scope": "Offline scripts validate corpus/bibliography/extraction equality, canonical identifier and publication-status constraints, matrix semantics, calibration and recheck obligations, claim-ledger references, mutation controls, the retained finite bookkeeping oracle, and manuscript-facing counts. They do not validate source interpretation or novelty.",
+  "unresolved_leads": 0,
+  "traceability_note": "Every retained record has a direct scholarly or official locator, source-reading boundary, retrospective retained-record provenance row, and publication-status row. This does not reconstruct a complete database-search denominator."
+}

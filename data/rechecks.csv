@@ -1,0 +1,22 @@
+record_id,obligation_id,value_before,value_after,source_location,date,result,reason,independent
+R01,O1,1,1,Sections 5.4 and 7; complete substantive first-pass reading retained,2026-09-10,retained,Repackaged-app detection and its evidence are reviewed.,false
+R01,O2,1,1,Sections 5.4 and 7; complete substantive first-pass reading retained,2026-09-10,retained,Obfuscation and common-library confounding are discussed.,false
+R01,O3,?,?,Sections 5.4 and 7; complete substantive first-pass reading retained,2026-09-10,retained,"Exact obligation not established by the examined passage; unknown retained, never absence.",false
+R01,O4,?,?,Sections 5.4 and 7; complete substantive first-pass reading retained,2026-09-10,retained,"Exact obligation not established by the examined passage; unknown retained, never absence.",false
+R01,O5,?,?,Sections 5.4 and 7; complete substantive first-pass reading retained,2026-09-10,retained,"Exact obligation not established by the examined passage; unknown retained, never absence.",false
+R01,O6,1,1,Sections 5.4 and 7; complete substantive first-pass reading retained,2026-09-10,retained,Ground truth and comparison limitations are explicitly examined.,false
+R01,O7,?,?,Sections 5.4 and 7; complete substantive first-pass reading retained,2026-09-10,retained,"Exact obligation not established by the examined passage; unknown retained, never absence.",false
+R03,O1,?,?,Sections 2 3 4.1–4.2 and 9,2026-09-10,retained,"Exact obligation not established by the examined passage; unknown retained, never absence.",false
+R03,O2,?,?,Sections 2 3 4.1–4.2 and 9,2026-09-10,retained,"Exact obligation not established by the examined passage; unknown retained, never absence.",false
+R03,O3,1,1,Sections 2 3 4.1–4.2 and 9,2026-09-10,retained,AStRA models artifacts steps resources and principals with causal relations.,false
+R03,O4,1,1,Sections 2 3 4.1–4.2 and 9,2026-09-10,retained,Principal authorization and trust are part of the defense analysis.,false
+R03,O5,1,1,Sections 2 3 4.1–4.2 and 9,2026-09-10,retained,Artifact integrity and expected behavior are distinct objectives.,false
+R03,O6,?,?,Sections 2 3 4.1–4.2 and 9,2026-09-10,retained,"Exact obligation not established by the examined passage; unknown retained, never absence.",false
+R03,O7,?,?,Sections 2 3 4.1–4.2 and 9,2026-09-10,retained,"Exact obligation not established by the examined passage; unknown retained, never absence.",false
+R04,O1,?,?,Sections 1–7; especially 3.2–3.3 and 4.2,2026-09-10,retained,"Exact obligation not established by the examined passage; unknown retained, never absence.",false
+R04,O2,?,?,Sections 1–7; especially 3.2–3.3 and 4.2,2026-09-10,retained,"Exact obligation not established by the examined passage; unknown retained, never absence.",false
+R04,O3,1,1,Sections 1–7; especially 3.2–3.3 and 4.2,2026-09-10,retained,Artifact and operation provenance are analyzed.,false
+R04,O4,1,1,Sections 1–7; especially 3.2–3.3 and 4.2,2026-09-10,retained,Actor identity and validity assumptions constrain defenses.,false
+R04,O5,1,?,Sections 1–7; especially 3.2–3.3 and 4.2,2026-09-10,corrected,Validity includes artifact integrity; the read passage does not establish the exact integrity-versus-expected-behavior distinction required by O5.,false
+R04,O6,?,?,Sections 1–7; especially 3.2–3.3 and 4.2,2026-09-10,retained,"Exact obligation not established by the examined passage; unknown retained, never absence.",false
+R04,O7,?,?,Sections 1–7; especially 3.2–3.3 and 4.2,2026-09-10,retained,"Exact obligation not established by the examined passage; unknown retained, never absence.",false

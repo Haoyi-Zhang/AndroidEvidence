@@ -1,0 +1,23 @@
+extraction_id,record_id,source_location,statement,maturity,evidence_type,numerator,denominator,context,inference_limit
+E01,R01,Sections 2–4,The review reports 57 approaches and searches through 2017.,source_report,reported_count,57,approaches,2017 search cutoff,not an updated corpus
+E02,R01,Section 5.4 p.11,89 of 100 sampled pairs are described as clearly confirmed; 11 are not soundly confirmed by UI.,source_report,validation,89,100 sampled pairs,UI observation,does not establish all labels
+E03,R01,Section 5.4 p.11 right column,The same subsection later describes all sampled pairs as confirmed.,source_report,validation,,100 sampled pairs,combined similarity signature and UI criteria,textual tension with E02 remains
+E04,R01,Section 5.5 p.12 and footnote 9,All-tool comparison uses 8078 pairs; a separate SimiDroid discussion uses 11255; positive-only selection cannot estimate false positives.,source_report,comparison,,distinct denominators,reported positive-only corpus,do not pool percentages
+E05,R01,Section 7 pp.13–14,Timestamp orientation and shared origins complicate direct-derivation interpretation.,source_report,validity,,,originality direction,not proof of direct derivation
+E06,R02,Section V-C,Partial import and transformations complicate library version identification.,source_report,transformation,,,Android libraries,not an end-to-end authorization guarantee
+E07,R03,Section 2,The model covers artifacts steps resources principals and their causal relationships.,source_report,provenance,,,generic supply chains,not proof of Android-specific applicability
+E08,R03,Section 4.1–4.3,The review separates integrity from expected behavior and discusses conflicting objectives.,source_report,assurance,,,generic artifacts,not a new distinction introduced here
+E09,R03,Section 9,AI-generated software security appears as a future research direction.,source_report,ai_scope,,,future direction,not an established mobile evidence-transfer study
+E10,R04,Sections 3 and 5.3,Transparency validity and separation apply across artifacts operations and actors.,source_report,assurance,,,security design properties,not specific to repackaging
+E11,R07,Official arXiv withdrawal record accessed 2026-09-16; no PDF available,The record was withdrawn by its authors and provides no available substantive PDF; it is retained only to test exclusion behavior.,withdrawn_record,exclusion_control,not_applicable,not_applicable,"Publication-status exclusion, not substantive SBOM evidence","No technical, empirical, or review claim is drawn from the withdrawn record."
+E12,R05,Abstract,The review covers neural-model watermarking and fingerprinting.,source_scope,review_scope,,,DNN intellectual property,mobile transfer not established by this abstract
+E13,R06,Abstract and journal reference,The systematization addresses open-source supply-chain attacks; the record identifies IEEE S&P 2023.,source_scope,review_scope,,,open-source chains,not a mobile repackaging study
+E14,R08,Abstract,The review organizes Android malware-detection pipelines including evaluation.,source_scope,review_scope,,,AI as detector,not AI as artifact generator
+E15,R09,Abstract,Static dynamic hybrid and graph features are reviewed for Android malware analysis.,source_scope,review_scope,,,malware analysis,comparative superiority not adopted
+E16,R10,Abstract and comments,General code-generation agents and lifecycle evaluation are surveyed; record says work in progress.,source_scope,boundary,,,general generation,mobile lineage object not established
+E17,R11,Abstract,The review includes agents that operate mobile app interfaces.,source_scope,boundary,,,GUI operation,not sufficient evidence of artifact generation
+E18,R12,Abstract,The multivocal review joins lifecycle phases stakeholder roles and security practices.,source_scope,review_scope,,,critical infrastructure,mobile specialization not established
+E19,R13,Abstract,The review links supply-chain risks and security controls.,source_scope,review_scope,,,generic supply chains,not read beyond abstract
+E20,R14,Abstract,The study combines a review of model-registry reuse with validation of selected qualitative claims.,source_scope,review_scope,,,Hugging Face registry,mobile model deployment not established
+E21,P01,Section 3.2 p.3 and Fig.2,Text2App maps an intermediate representation into App Inventor files and an Android application.,source_report,ai_mobile_bridge,,,generated Android artifacts,peer-reviewed publication not verified here
+E22,P02,Sections 3.2–3.3,AppForge generates Android source files and evaluates compilation functionality and robustness.,source_report,ai_mobile_bridge,,,generated Android artifacts,method passage is not a provenance or authorization oracle
