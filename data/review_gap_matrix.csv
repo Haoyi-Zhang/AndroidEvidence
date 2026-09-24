@@ -1,0 +1,22 @@
+review_id,record_id,bib_key,android_repackaging,component_version,supply_chain_provenance,authorization_policy,behavioral_assurance,ai_mediated_workflow,claim_ceiling_binding,source_basis,bounded_conclusion
+G01,W001,repack,1,P,0,0,P,0,P,source extraction row X001,No single coded review in this bounded set directly covers all seven dimensions with a uniform observation-to-claim and binding rule.
+G02,W002,tpl,P,1,0,0,P,0,P,source extraction row X002,No single coded review in this bounded set directly covers all seven dimensions with a uniform observation-to-claim and binding rule.
+G03,W003,staticandroid,P,P,0,0,P,0,0,source extraction row X003,No single coded review in this bounded set directly covers all seven dimensions with a uniform observation-to-claim and binding rule.
+G04,W004,androidtesting,0,0,0,0,P,0,0,source extraction row X004,No single coded review in this bounded set directly covers all seven dimensions with a uniform observation-to-claim and binding rule.
+G05,W005,sufatrio,P,P,P,P,P,0,0,source extraction row X005,No single coded review in this bounded set directly covers all seven dimensions with a uniform observation-to-claim and binding rule.
+G06,W006,xuandroid,P,P,P,P,P,0,0,source extraction row X006,No single coded review in this bounded set directly covers all seven dimensions with a uniform observation-to-claim and binding rule.
+G07,W007,tamandroid,P,P,0,0,P,0,0,source extraction row X007,No single coded review in this bounded set directly covers all seven dimensions with a uniform observation-to-claim and binding rule.
+G08,W008,brereton,0,0,0,0,0,0,P,source extraction row X008,No single coded review in this bounded set directly covers all seven dimensions with a uniform observation-to-claim and binding rule.
+G09,W009,wohlin,0,0,0,0,0,0,P,source extraction row X009,No single coded review in this bounded set directly covers all seven dimensions with a uniform observation-to-claim and binding rule.
+G10,W010,kitchenham,0,0,0,0,0,0,P,source extraction row X010,No single coded review in this bounded set directly covers all seven dimensions with a uniform observation-to-claim and binding rule.
+G11,W011,blackburn,0,0,0,0,P,0,P,source extraction row X011,No single coded review in this bounded set directly covers all seven dimensions with a uniform observation-to-claim and binding rule.
+G12,W012,astra,0,P,1,1,P,0,P,source extraction row X012,No single coded review in this bounded set directly covers all seven dimensions with a uniform observation-to-claim and binding rule.
+G13,W013,properties,0,P,1,1,P,0,P,source extraction row X013,No single coded review in this bounded set directly covers all seven dimensions with a uniform observation-to-claim and binding rule.
+G14,W014,ladisa,0,P,1,P,P,0,P,source extraction row X014,No single coded review in this bounded set directly covers all seven dimensions with a uniform observation-to-claim and binding rule.
+G15,W015,ohmstuke,0,P,1,P,P,0,P,source extraction row X015,No single coded review in this bounded set directly covers all seven dimensions with a uniform observation-to-claim and binding rule.
+G16,W090,wurepack2026,1,P,0,0,P,0,P,source extraction row X090,No single coded review in this bounded set directly covers all seven dimensions with a uniform observation-to-claim and binding rule.
+G17,W091,zengtpsurvey2024,0,1,P,P,P,0,P,source extraction row X091,No single coded review in this bounded set directly covers all seven dimensions with a uniform observation-to-claim and binding rule.
+G18,W092,reichert2024,0,P,1,P,P,0,P,source extraction row X092,No single coded review in this bounded set directly covers all seven dimensions with a uniform observation-to-claim and binding rule.
+G19,W093,williams2025,0,P,1,P,P,P,P,source extraction row X093,No single coded review in this bounded set directly covers all seven dimensions with a uniform observation-to-claim and binding rule.
+G20,W094,cyberrisk2026,0,P,P,P,P,0,P,source extraction row X094,No single coded review in this bounded set directly covers all seven dimensions with a uniform observation-to-claim and binding rule.
+G21,W095,gokkaya2026,0,P,1,P,P,0,P,source extraction row X095,No single coded review in this bounded set directly covers all seven dimensions with a uniform observation-to-claim and binding rule.
