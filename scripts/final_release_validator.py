@@ -77,7 +77,7 @@ assert openalex['retracted']==0 and openalex['title_mismatch']==0
 assert writing['status']=='PASS' and scientific['status']=='PASS'
 assert all(v.get('byte_identical_to_template') for v in template.values()) if template else True
 if FULL:
-    allowed={'paper','artifact','research-plan.md','CURRENT-STATE.md'}
+    allowed={"README.md", "artifact", "paper"}
     extras={p.name for p in ROOT.iterdir()}-allowed
     assert not extras,extras
 # Reviewer issue matrix
