@@ -59,3 +59,12 @@ A passing run does not prove exhaustive search, a PRISMA denominator, a comprehe
 - `results/tex/*.tex`
 
 The `results/` directory contains reproducible outputs, not an independent review verdict.
+
+## Optional manuscript gate
+
+`scripts/manuscript_quality_gate.py` requires the full project distribution,
+including the sibling `paper/` directory, its PDF and build log. It is not part
+of standalone evidence reproduction. Its 35-page check is the project manuscript
+target, not a claim that the current journal rules have been verified. The
+current confirmed-author manuscript has 36 pages; that editorial target remains
+unmet. Required truthful usage statements are not classified as workflow chatter.
