@@ -46,7 +46,7 @@ Mutation tests ensure that withdrawn-status leakage, duplicate canonical identif
 
 ## What the checks do not establish
 
-A passing run does not prove exhaustive search, a PRISMA denominator, a comprehensive retraction-registry search, independent source interpretation, detector accuracy, prevalence, causal direction, behavioral safety, worldwide novelty, or submission readiness. The same AI-assisted authoring process performed the extraction and recheck passes; `independent=false` is retained and no agreement statistic is reported.
+A passing run does not prove exhaustive search, a PRISMA denominator, a comprehensive retraction-registry search, independent source interpretation, detector accuracy, prevalence, causal direction, behavioral safety, worldwide novelty, or submission readiness. The same authoring process performed the extraction and recheck passes; `independent=false` is retained and no agreement statistic is reported.
 
 ## Main outputs
 

@@ -45,7 +45,7 @@ Twenty-one review or method records are coded across seven dimensions: Android l
 
 ## Source-grounded rule rechecks
 
-Twenty-six of 97 high-load assignments (26.8%) received a fresh source-grounded recheck. The recheck ledger records the prior assignment, inspected location, rule applied, decision, and boundary. The recheck was performed in the same AI-assisted authoring process; it is not independent dual coding, and no agreement statistic is reported.
+Twenty-six of 97 high-load assignments (26.8%) received a fresh source-grounded recheck. The recheck ledger records the prior assignment, inspected location, rule applied, decision, and boundary. The recheck was performed in the same authoring process; it is not independent dual coding, and no agreement statistic is reported.
 
 ## Writing calibration
 
