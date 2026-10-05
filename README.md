@@ -1,6 +1,6 @@
 # AI-era mobile software evidence artifact
 
-This directory is a standalone, standard-library-only audit repository for the internal survey **From Resemblance to Authority: Claim-Bounded Evidence for Android Software Lineage in AI-Mediated Supply Chains**. It checks the delivered evidence ledgers and finite bookkeeping obligations. It does not execute malware, models, devices, external services, or attacks.
+This directory contains the standard-library-only evidence companion to **From Resemblance to Authority: Claim-Bounded Evidence for Android Software Lineage in AI-Mediated Supply Chains**. Its offline scripts check the evidence tables and finite coverage calculations.
 
 ## Reproduce
 
@@ -58,13 +58,6 @@ A passing run does not prove exhaustive search, a PRISMA denominator, a comprehe
 - `results/clean-reproduction.json`
 - `results/tex/*.tex`
 
-The `results/` directory contains reproducible outputs, not an independent review verdict.
-
-## Optional manuscript gate
-
-`scripts/manuscript_quality_gate.py` requires the full project distribution,
-including the sibling `paper/` directory, its PDF and build log. It is not part
-of standalone evidence reproduction. Its 35-page check is the project manuscript
-target, not a claim that the current journal rules have been verified. The
-current confirmed-author manuscript has 36 pages; that editorial target remains
-unmet. Required truthful usage statements are not classified as workflow chatter.
+The retained `results/` describe the recorded run. Source corrections to the
+extraction and robustness tables require regenerating their derived outputs
+before treating those outputs as checks of the current tables.

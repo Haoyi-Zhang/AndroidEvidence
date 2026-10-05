@@ -31,17 +31,20 @@ Figure~\ref{fig:assurance-case} presents a reusable assurance pattern. It is not
   sup/.style={-{Latex[length=1.8mm]},dashed},
   node distance=6mm and 8mm
 ]
-\node[c,text width=8.9cm] (top) {Released APK is an authorized product of process $P$ and satisfies property $Q$};
-\node[c,below left=6mm and 4mm of top.south] (prov) {APK digest is the product of declared source, dependencies, and build steps};
-\node[c,below right=6mm and 4mm of top.south] (beh) {The exact APK digest satisfies property $Q$ in the stated analysis model};
+\node[c,text width=8.9cm] (top) {Released APK is an authorized product\\of process $P$ and satisfies property $Q$};
+\node[c,below left=6mm and 4mm of top.south] (prov) {APK digest is the product\\of declared source,\\dependencies, and build steps};
+\node[c,below right=6mm and 4mm of top.south] (beh) {The exact APK digest\\satisfies property $Q$ in the\\stated analysis model};
 \node[c,below=of prov] (auth) {Principals and release step are authorized by policy};
 \node[c,below=of beh] (rel) {Artifact and component relations are consistent with declared lineage};
 \node[e,below=of auth] (att) {attestations, source and resolver records, reproducible build};
-\node[e,below=of rel] (sim) {code, graph, resource, UI, version, and behavior evidence};
+\node[e,below=of rel] (sim) {code, graph, resource, UI,\\version, and\\behavior evidence};
 \node[e,below=of att] (sig) {delegation, signatures, transparency, and freshness};
 \node[e,below=of sim] (ana) {static, dynamic, formal, and policy analyses};
 \draw[arr] (prov)--(top);\draw[arr] (beh)--(top);\draw[arr] (auth)--(prov);\draw[arr] (rel)--(prov);
-\draw[sup] (att)--(auth);\draw[sup] (sig)--(auth);\draw[sup] (sim)--(rel);\draw[sup] (ana)--(beh);
+\draw[sup] (att.west)--++(-3mm,0)|-(prov.west);
+\draw[sup] (sig.west)--++(-6mm,0)|-(auth.west);
+\draw[sup] (sim.north)--(rel.south);
+\draw[sup] (ana.east)--++(5mm,0)|-(beh.east);
 \end{tikzpicture}
 \caption{Cross-layer assurance pattern. Solid arrows are subclaims; dashed arrows are evidence. Every evidence item must bind to the same artifact digest or to a documented predecessor relation.}
 \Description{A top claim that an APK is authorized and satisfies a property is supported by provenance and behavior branches. Lower boxes show authorization, declared lineage, attestations, signatures, similarity evidence, and program analyses.}
