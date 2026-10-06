@@ -1,0 +1,10 @@
+{
+  "wall_seconds": 0.01115677599999998,
+  "cpu_seconds": 0.011322651000000003,
+  "peak_rss_kib": 14404,
+  "rss_measurement_basis": "RUSAGE_SELF",
+  "workers": 1,
+  "input_selection": "all supplied selected-record tables",
+  "output": "coverage_result.json",
+  "scientific_experiment": false
+}
