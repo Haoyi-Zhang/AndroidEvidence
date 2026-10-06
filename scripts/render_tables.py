@@ -1,5 +1,6 @@
 """Derive manuscript-facing TeX fragments from audited, local ledgers."""
 from pathlib import Path
+import argparse
 import csv
 import json
 
@@ -11,14 +12,17 @@ def read_csv(path):
         return list(csv.DictReader(handle))
 
 
-def main():
-    result = json.loads((ROOT / "results/coverage_result.json").read_text(encoding="utf-8"))
-    corpus_summary = json.loads((ROOT / "results/corpus_summary.json").read_text(encoding="utf-8"))
+def main(results=None):
+    results = Path(results) if results is not None else ROOT / 'results'
+    result = json.loads((results / "coverage_result.json").read_text(encoding="utf-8"))
+    corpus_summary = json.loads((results / "corpus_summary.json").read_text(encoding="utf-8"))
+    if corpus_summary['status'] != 'passed':
+        raise ValueError('failed corpus audit cannot generate manuscript tables')
     records = {r["record_id"]: r for r in read_csv(ROOT / "data/records.csv")}
     cells = {(r["record_id"], r["obligation_id"]): r["value"] for r in read_csv(ROOT / "data/coverage.csv")}
     review_rows = read_csv(ROOT / "data/review_gap_matrix.csv")
 
-    out = ROOT / "results/tex"
+    out = results / "tex"
     out.mkdir(exist_ok=True)
 
     counts = result["record_counts"]
@@ -91,7 +95,7 @@ def main():
             )
     (out / "review_matrix_rows.tex").write_text("\n".join(matrix_lines) + "\n", encoding="utf-8")
 
-    oracle = json.loads((ROOT / "results/oracle_result.json").read_text(encoding="utf-8"))
+    oracle = json.loads((results / "oracle_result.json").read_text(encoding="utf-8"))
     (out / "oracle.tex").write_text(
         "\\newcommand{\\OracleMatrices}{" + format(oracle["ternary_matrices"], ",") + "}\n"
         + "\\newcommand{\\OracleCompletions}{" + format(oracle["binary_completions_across_matrices"], ",") + "}\n",
@@ -107,4 +111,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--results', type=Path)
+    main(parser.parse_args().results)

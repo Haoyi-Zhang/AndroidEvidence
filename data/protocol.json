@@ -39,7 +39,7 @@
   "fresh_source_rechecks": 26,
   "fresh_source_recheck_fraction": 0.268,
   "independent_dual_coding": false,
-  "unit_tests": 41,
+  "unit_tests": 55,
   "material_claims": 28,
   "inclusion": "Android artifact observations; component/version evidence; provenance, signing, transparency, repository, build, or reproducibility mechanisms mappable to an APK lifecycle; empirical supply-chain evidence; AI-mediated mobile generation or software-security evidence; and review/method sources structuring these areas.",
   "exclusion": "General LLM or GUI-agent work without a software-artifact lineage object; withdrawn or retracted publications from the active synthesis; stronger inferences not supported by the source observation; and cross-study performance pooling across incompatible oracles and denominators.",
@@ -74,5 +74,5 @@
   ],
   "reproduction_scope": "Offline scripts validate corpus/bibliography/extraction equality, canonical identifier and publication-status constraints, matrix semantics, calibration and recheck obligations, claim-ledger references, mutation controls, the retained finite bookkeeping oracle, and manuscript-facing counts. They do not validate source interpretation or novelty.",
   "unresolved_leads": 0,
-  "traceability_note": "Every retained record has a direct scholarly or official locator, source-reading boundary, retrospective retained-record provenance row, and publication-status row. This does not reconstruct a complete database-search denominator."
+  "traceability_note": "Every retained record has a direct scholarly or official locator, source-reading boundary, retrospective retained-record provenance row, and publication-status row. This does not reconstruct a complete database-search denominator. The legacy fresh_source_rechecks fields count cumulative dated ledger rows, not a new all-source recheck batch."
 }

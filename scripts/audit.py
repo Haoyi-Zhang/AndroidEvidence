@@ -1,8 +1,9 @@
 """Reproduce the selected-record audit. No network, models, apps, or malware."""
 from __future__ import annotations
-import argparse,csv,json,resource,time
+import argparse,csv,json,time
 from pathlib import Path
 from coverage import summarize,minimal_known_cover
+from resource_usage import usage
 ROOT=Path(__file__).resolve().parents[1]
 MAX_CSV_BYTES=2*1024*1024
 CONFIRMED={'publisher_record','author_archive_publication_statement'}
@@ -104,9 +105,10 @@ def main():
     result=compute();args.out.mkdir(parents=True,exist_ok=True)
     # Semantic result is deterministic; measured run metadata is intentionally separate.
     (args.out/'coverage_result.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
-    r=resource.getrusage(resource.RUSAGE_SELF)
+    r=usage()
     measured={'wall_seconds':time.perf_counter()-start,'cpu_seconds':time.process_time()-cpu,
-              'peak_rss_kib':r.ru_maxrss,'workers':1,'input_selection':'all supplied selected-record tables',
+              'peak_rss_kib':r['peak_rss_kib'],'rss_measurement_basis':r['basis'],
+              'workers':1,'input_selection':'all supplied selected-record tables',
               'output':'coverage_result.json','scientific_experiment':False}
     (args.out/'audit_resources.json').write_text(json.dumps(measured,indent=2)+'\n')
     print(json.dumps({'status':result['status'],'counts':result['record_counts'],

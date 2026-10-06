@@ -5,6 +5,9 @@ import re
 import unittest
 from collections import Counter
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
+from corpus_audit import nonindependent_status
 
 ROOT = Path(__file__).resolve().parents[1]
 LOCKED_CORPUS_SIZE = 97
@@ -92,7 +95,7 @@ class CorpusTests(unittest.TestCase):
             self.assertTrue(row["observation"].strip())
             self.assertTrue(row["counter_history"].strip())
             self.assertTrue(row["inference_limit"].strip())
-            self.assertIn("not_independent", row["verification_status"])
+            self.assertTrue(nonindependent_status(row['verification_status']))
 
     def test_no_retired_template_observations(self):
         prefixes = (

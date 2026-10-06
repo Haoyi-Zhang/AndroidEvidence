@@ -15,27 +15,27 @@ For example, a fuzzy code signature may compare methods after identifier normali
 
 \subsection{The seven-level claim ladder}
 
-Figure~\ref{fig:ladder} summarizes seven claim levels. The levels are not a maturity model. They are ordered so that a reader can see which additional proposition is introduced at each step.
+Figure~\ref{fig:ladder} summarizes seven numbered claim categories. They are neither a maturity model nor an implication chain: a behavior claim can be supported without reconstructing provenance, and authorization does not establish resemblance. The order introduces different propositions, not cumulative guarantees.
 
 \begin{figure}[t]
 \centering
-\begin{tikzpicture}[
-  box/.style={draw,rounded corners=1pt,align=left,text width=.77\textwidth,minimum height=8mm,inner sep=4pt},
+\begin{tikzpicture}[font=\rmfamily\fontsize{9}{10.8}\selectfont,
+  box/.style={draw,rounded corners=1pt,align=left,text width=.77\textwidth,minimum height=8mm,inner sep=4pt,font=\rmfamily\fontsize{9}{10.8}\selectfont},
   arr/.style={-{Latex[length=2mm]},thick},
   node distance=2.2mm
 ]
 \node[box,fill=black!4] (l0) {\textbf{\claimlevel{0} Identity}: the observed bytes or a cryptographic digest are equal.};
 \node[box,fill=black!7,above=of l0] (l1) {\textbf{\claimlevel{1} Composition}: an artifact contains a component, resource, or recognizable code region.};
-\node[box,fill=black!10,above=of l1] (l2) {\textbf{\claimlevel{2} Resemblance}: two objects share features or behavior under a stated transformation model.};
-\node[box,fill=black!13,above=of l2] (l3) {\textbf{\claimlevel{3} Derivation}: one object was transformed from another, or both share a historical ancestor; direction is explicit.};
+\node[box,fill=black!10,above=of l1] (l2) {\textbf{\claimlevel{2} Resemblance}: two objects share features or behavior under a stated\\transformation model.};
+\node[box,fill=black!13,above=of l2] (l3) {\textbf{\claimlevel{3} Derivation}: one object was transformed from another, or both share a\\historical ancestor; direction is explicit.};
 \node[box,fill=black!16,above=of l3] (l4) {\textbf{\claimlevel{4} Process provenance}: recorded principals and steps bind input materials to an output artifact.};
 \node[box,fill=black!19,above=of l4] (l5) {\textbf{\claimlevel{5} Authorization}: a policy-recognized principal approved the transformation or release.};
 \node[box,fill=black!22,above=of l5] (l6) {\textbf{\claimlevel{6} Behavioral assurance}: the artifact satisfies a security, privacy, or functional property in a stated model.};
 \draw[arr] (l0)--(l1);\draw[arr] (l1)--(l2);\draw[arr] (l2)--(l3);\draw[arr] (l3)--(l4);\draw[arr] (l4)--(l5);\draw[arr] (l5)--(l6);
-\node[align=center,rotate=90,anchor=south] at ([xshift=-9mm]l3.west) {additional propositions and assumptions};
+\node[align=center,rotate=90,anchor=south] at ([xshift=-9mm]l3.west) {different propositions and assumptions};
 \end{tikzpicture}
-\caption{Claim ladder for Android lineage and assurance. Moving upward adds a different proposition; it is not justified merely by increasing a similarity score. Behavioral assurance is shown last because it often depends on history and policy, but it remains logically distinct from them.}
-\Description{Seven stacked boxes progress from byte identity through composition, resemblance, derivation, process provenance, authorization, and behavioral assurance. An upward arrow indicates that each level adds propositions and assumptions.}
+\caption{Claim categories for Android lineage and assurance. Arrows order the topics, not logical implications. Each category needs its own evidence and assumptions; a higher number or similarity score does not establish the other propositions.}
+\Description{Seven stacked boxes order identity, composition, resemblance, derivation, process provenance, authorization, and behavioral assurance. The arrows indicate presentation order, not entailment.}
 \label{fig:ladder}
 \end{figure}
 
@@ -49,7 +49,7 @@ Component detectors, software bills of materials, package manifests, and static 
 Most clone and repackaging detectors occupy this level. They establish that code, graphs, resources, UI, or behavior are similar under a threshold and transformation model. DroidMOSS, Juxtapp, AnDarwin, WuKong, SimiDroid, and related systems illustrate different feature choices~\cite{droidmoss,juxtapp,andarwin,wukong,simidroid}. Resemblance can be highly probative, particularly when independent feature families agree, but it does not by itself provide direction.
 
 \paragraph{\claimlevel{3}: Derivation.}
-A derivation claim states that $B$ descends from $A$, that $A$ descends from $B$, or that both descend from a specified ancestor. Direction can come from trusted timestamps, source history, market chronology, embedded marks, authenticated build records, or a curated benchmark whose construction establishes the relationship. Without such evidence, a shared library, template, or predecessor remains an alternative explanation. Repackaging papers often use known pairs or market metadata to operationalize derivation, but the feature detector and the pair-construction oracle should be reported separately~\cite{repack,repackeval}.
+A derivation claim states that $B$ descends from $A$, that $A$ descends from $B$, or that both descend from a specified ancestor. Authenticated input--output records or controlled benchmark construction can establish direction under their trust assumptions. Timestamps, market chronology, ownership, and deployed marks can support adjudication, but order or ownership alone does not exclude a shared predecessor. Repackaging papers often use known pairs or market metadata to operationalize derivation; the feature detector and pair-construction oracle should be reported separately~\cite{repack,repackeval}.
 
 \paragraph{\claimlevel{4}: Process provenance.}
 Process provenance binds materials, commands, environments, and principals to products. in-toto links and layouts are a direct example~\cite{intoto}; CI workflow studies show why the integrity of the recording and execution environment also matters~\cite{githubci}. Provenance can make direction explicit because it records a step from inputs to output. It remains conditional on key control, policy, collection completeness, and the absence of unrecorded paths.
@@ -101,7 +101,7 @@ Counter-histories do not prove a detector useless. They identify the assumptions
 
 \subsection{Evidence fusion and non-substitutability}
 
-Evidence fusion is strongest when observations are conditionally independent enough to eliminate different counter-histories. Code and UI resemblance can reduce the chance that a shared library alone explains a match. A signed build attestation can establish direction and principal identity. A transparency log can deter equivocation. A dynamic or static analysis can test the behavior of the exact output. The fusion is weaker when several features are derived from the same underlying signal or when they share the same mislabeled oracle.
+Evidence fusion is useful when observations challenge different counter-histories under explicit joint assumptions. Code and UI resemblance can weaken a shared-library-only explanation; an authenticated build record can supply direction; transparency can expose inconsistent releases; and behavior analysis can test the exact output. These roles do not require statistical independence. If probabilistic scores are combined, however, dependencies among features and shared label errors must be modeled rather than counting correlated observations as independent corroboration.
 
 For an artifact $A$, an assurance case can be expressed as a set of linked claims:
 \[

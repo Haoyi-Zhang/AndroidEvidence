@@ -6,6 +6,7 @@ that source interpretation is independently correct.
 """
 from pathlib import Path
 from collections import Counter
+import argparse
 import csv
 import json
 import math
@@ -137,7 +138,15 @@ def normalize_bibliographic_text(value):
     return re.sub(r"[^a-z0-9]+", " ", value.lower()).strip()
 
 
-def main() -> int:
+def nonindependent_status(value):
+    """Recognize explicit single-extractor disclosure, not a spelling ritual."""
+    tokens = {t.strip().lower() for t in value.split(';')}
+    if tokens & {'independent', 'independent=true', 'independent_coding', 'dual_coding'}:
+        return False
+    return 'single_extractor' in tokens or any(t.endswith('not_independent') for t in tokens)
+
+
+def main(out=None) -> int:
     corpus, corpus_fields = read_csv("data/corpus.csv")
     extractions, extraction_fields = read_csv("data/study_extractions.csv")
     reviews, _ = read_csv("data/review_gap_matrix.csv")
@@ -192,6 +201,7 @@ def main() -> int:
 
     bib_by_key = {e["key"]: e for e in bib_entries}
     corpus_by_key = {r["bib_key"]: r for r in corpus}
+    extraction_by_key = {r['bib_key']: r for r in extractions}
     corpus_by_id = {r["record_id"]: r for r in corpus}
     for line_no, row in enumerate(corpus, 2):
         missing = nonblank(row, CORPUS_REQUIRED)
@@ -255,7 +265,7 @@ def main() -> int:
             errors.append(f"extraction line {line_no}: stale source locator")
         if any(row.get("observation", "").startswith(prefix) for prefix in GENERIC_OBSERVATION_PREFIXES):
             errors.append(f"extraction line {line_no}: templated observation remains")
-        if "not_independent" not in row.get("verification_status", ""):
+        if not nonindependent_status(row.get("verification_status", "")):
             errors.append(f"extraction line {line_no}: independence boundary missing")
 
     # Exact one-to-one source-location and retrospective-provenance bindings.
@@ -356,6 +366,10 @@ def main() -> int:
 
     if len(reviews) < 12:
         errors.append(f"closest-review matrix has only {len(reviews)} rows")
+    review_keys = [r.get('bib_key', '') for r in reviews]
+    secondary_keys = {r['bib_key'] for r in corpus if r['role'] == 'secondary_or_method'}
+    if duplicates(review_keys) or set(review_keys) != secondary_keys:
+        errors.append('review matrix does not bind one-to-one to secondary/method corpus')
     direct_all = []
     for line_no, row in enumerate(reviews, 2):
         values = [row.get(d, "") for d in MATRIX_DIMS]
@@ -365,6 +379,8 @@ def main() -> int:
             direct_all.append(row.get("bib_key"))
         if row.get("bib_key") not in corpus_by_key:
             errors.append(f"review matrix line {line_no}: unknown bib key")
+        elif row.get('record_id') != corpus_by_key[row['bib_key']]['record_id']:
+            errors.append(f'review matrix line {line_no}: record/key mismatch')
     if direct_all:
         errors.append(f"direct all-dimension prior(s) require repositioning: {direct_all}")
 
@@ -379,6 +395,11 @@ def main() -> int:
     if any(r.get("independent") != "false" for r in rechecks):
         errors.append("same-process rechecks must not be labeled independent")
     for line_no, row in enumerate(rechecks, 2):
+        key = row.get('bib_key', '')
+        if row.get('record_id') != corpus_by_key.get(key, {}).get('record_id'):
+            errors.append(f'source recheck line {line_no}: record/key mismatch')
+        if row.get('rechecked_ceiling') != extraction_by_key.get(key, {}).get('claim_ceiling'):
+            errors.append(f'source recheck line {line_no}: stale rechecked ceiling')
         source = row.get("source_url_or_access_note", "")
         if not source.startswith(("https://", "http://")) or "not recorded" in source.lower():
             errors.append(f"source recheck line {line_no}: direct source locator missing")
@@ -515,8 +536,8 @@ def main() -> int:
             "a comprehensive retraction-registry search, independent source interpretation, detector performance, or worldwide novelty."
         ),
     }
-    results = ROOT / "results"
-    results.mkdir(exist_ok=True)
+    results = Path(out) if out is not None else ROOT / "results"
+    results.mkdir(parents=True, exist_ok=True)
     (results / "corpus_summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     tex = results / "tex"
     tex.mkdir(exist_ok=True)
@@ -537,10 +558,13 @@ def main() -> int:
         f"\\newcommand{{\\FullSelectedWorks}}{{{depths['full_or_selected_source']}}}\n"
         f"\\newcommand{{\\AbstractSelectedWorks}}{{{depths['publisher_abstract_or_selected_source']}}}\n"
     )
-    (tex / "corpus_counts.tex").write_text(macros, encoding="utf-8")
+    if not errors:
+        (tex / "corpus_counts.tex").write_text(macros, encoding="utf-8")
     print(json.dumps(summary, sort_keys=True))
     return 1 if errors else 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--out', type=Path)
+    raise SystemExit(main(parser.parse_args().out))

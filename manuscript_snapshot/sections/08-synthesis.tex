@@ -24,9 +24,9 @@ Figure~\ref{fig:assurance-case} presents a reusable assurance pattern. It is not
 
 \begin{figure}[t]
 \centering
-\begin{tikzpicture}[
-  c/.style={draw,rounded corners=1pt,align=center,text width=4.2cm,minimum height=10mm,fill=black!6,font=\small},
-  e/.style={draw,dashed,rounded corners=1pt,align=center,text width=4.0cm,minimum height=9mm,fill=black!13,font=\small},
+\begin{tikzpicture}[font=\rmfamily\fontsize{9}{10.8}\selectfont,
+  c/.style={draw,rounded corners=1pt,align=center,text width=4.2cm,minimum height=10mm,fill=black!6,font=\fontsize{9}{10.8}\selectfont\rmfamily},
+  e/.style={draw,dashed,rounded corners=1pt,align=center,text width=4.0cm,minimum height=9mm,fill=black!13,font=\fontsize{9}{10.8}\selectfont\rmfamily},
   arr/.style={-{Latex[length=1.8mm]},thick},
   sup/.style={-{Latex[length=1.8mm]},dashed},
   node distance=6mm and 8mm
@@ -51,7 +51,7 @@ Figure~\ref{fig:assurance-case} presents a reusable assurance pattern. It is not
 \label{fig:assurance-case}
 \end{figure}
 
-The top claim has two independent branches. The provenance branch asks whether the APK is the product of the declared process and whether that process was authorized. The behavior branch asks whether the exact APK satisfies property $Q$. Artifact and component analyses cross-check the declared lineage rather than merely repeating it. A mismatch does not automatically select which source is wrong; it triggers investigation.
+The top claim has two logically distinct branches. The provenance branch asks whether the APK is the product of the declared process and whether that process was authorized. The behavior branch asks whether the exact APK satisfies property $Q$. Artifact and component analyses cross-check the declared lineage rather than merely repeating it. A mismatch does not automatically select which source is wrong; it triggers investigation.
 
 This pattern accommodates incomplete provenance. If no trustworthy process record exists, artifact comparison may provide the best available evidence of relationship, but the top claim must be weakened. If the build is fully attested but behavior analysis is absent, the lineage claim can be strong while the security claim remains open. Reporting partial assurance is more informative than forcing a binary verdict.
 

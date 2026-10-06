@@ -27,7 +27,7 @@ Transparency mechanisms make release events publicly or collectively observable.
 
 Transparency addresses a failure mode that ordinary signatures do not: an authorized key can sign different artifacts for different observers. Logging releases and attestations enables monitors to detect inconsistent or omitted events, subject to log availability and monitoring. In an Android setting, a transparency record can bind package name, version, signing identity, APK digest, build provenance, and publication time. It does not decide whether two versions are semantically equivalent or whether a changed permission is appropriate; those remain analysis questions.
 
-Transparency also improves direction evidence. If digest $A$ is logged as the product of a build before digest $B$ appears in a third-party market, and artifact analysis localizes the changes from $A$ to $B$, the combined record supports a stronger derivation narrative than either source alone. Chronology is still not causality by itself, but an authenticated production record plus a later unrecorded derivative eliminates many common-predecessor explanations.
+Transparency can strengthen historical adjudication. If digest $A$ is logged as a build product before candidate $B$ appears in another market, localized resemblance and authenticated chronology support a possible $A\rightarrow B$ history. They do not exclude siblings derived from an earlier source, nor does a missing record for $B$ establish copying. Direction requires a link to the transformation or another oracle that distinguishes these histories.
 
 \subsection{Reproducible builds and independent checking}
 
@@ -65,8 +65,8 @@ Mechanism & Direct contribution & Ceiling & Residual question \\
 \midrule
 Signed repository metadata and delegation~\cite{tuf,diplomat} & Target identity, freshness, version, and policy-scoped publishing roles & \claimlevel{5} & Whether the target was correctly or safely built \\
 Step attestations and layouts~\cite{intoto} & Authenticated relation among materials, functionary, step, and product & \claimlevel{4}--\claimlevel{5} & Completeness of capture and trust in execution \\
-Transparency and collective histories~\cite{chainiac,sigstore,contour,legitimate} & Auditable publication history and resistance to equivocation & \claimlevel{4}--\claimlevel{5} & Semantic relation among versions and artifact behavior \\
-Reproducible builds~\cite{reprobuilds,reprocontainers} & Independent equality check for declared inputs and process & \claimlevel{0}+\claimlevel{4} & Authorization and security of declared inputs \\
+Transparency and collective histories~\cite{chainiac,sigstore,contour,legitimate} & Auditable publication history and resistance to equivocation & \claimlevel{4}/\claimlevel{5} with step/policy evidence & Logging alone proves neither build history nor release authority \\
+Reproducible builds~\cite{reprobuilds,reprocontainers} & Independent equality check for declared inputs and process & \claimlevel{0}; \claimlevel{4} with authenticated inputs & Authorization and security of declared inputs \\
 CI-workflow analysis~\cite{githubci} & Security of the machinery that creates attestations and releases & Supports \claimlevel{4} validity & Hidden services, credential compromise, runtime environment \\
 Package-ecosystem measurement~\cite{duanpackages,backstabber,npmworld,weaklinks} & Empirical attack and dependency-risk evidence & \claimlevel{1}+\claimlevel{6} & Exact transfer to the packaged mobile artifact \\
 \bottomrule
@@ -79,29 +79,36 @@ Figure~\ref{fig:lifecycle} places the evidence families along a mobile lifecycle
 
 \begin{figure}[t]
 \centering
-\begin{tikzpicture}[
-  stage/.style={draw,rounded corners=1pt,text width=1.48cm,minimum height=9mm,align=center,fill=black!5,font=\scriptsize},
-  ev/.style={draw,dashed,rounded corners=1pt,align=center,text width=1.48cm,minimum height=10mm,fill=black!12,font=\scriptsize},
-  arr/.style={-{Latex[length=1.6mm]},thick},
-  node distance=5mm and 3mm
-]
-\node[stage] (src) {source and\\specification};
-\node[stage,right=of src] (dep) {dependency\\resolution};
-\node[stage,right=of dep] (build) {generation, build,\\shrink, package};
-\node[stage,right=of build] (sign) {sign and\\approve};
-\node[stage,right=of sign] (store) {store and\\update};
-\node[stage,right=of store] (run) {installed\\behavior};
-\draw[arr] (src)--(dep);\draw[arr] (dep)--(build);\draw[arr] (build)--(sign);\draw[arr] (sign)--(store);\draw[arr] (store)--(run);
-\node[ev,below=5mm of src] (git) {repository history\\and review};
-\node[ev,below=5mm of dep] (lock) {resolver log, SBOM,\\component evidence};
-\node[ev,below=5mm of build] (att) {attestations and\\reproducibility};
-\node[ev,below=5mm of sign] (auth) {delegation and\\release signature};
-\node[ev,below=5mm of store] (trans) {transparency and\\freshness};
-\node[ev,below=5mm of run] (beh) {static, dynamic,\\policy evidence};
-\draw[arr,dashed] (git)--(src);\draw[arr,dashed] (lock)--(dep);\draw[arr,dashed] (att)--(build);\draw[arr,dashed] (auth)--(sign);\draw[arr,dashed] (trans)--(store);\draw[arr,dashed] (beh)--(run);
+\begin{tikzpicture}[font=\rmfamily\fontsize{9}{10.8}\selectfont,x=1mm,y=1mm,>=Latex,font=\rmfamily\fontsize{9}{10.8}\selectfont\rmfamily,
+ stage/.style={draw,align=center,text width=29mm,minimum height=13mm,inner sep=3pt,fill=black!3},
+ ev/.style={draw,dashed,align=center,text width=29mm,minimum height=16mm,inner sep=3pt},
+ arr/.style={->,line width=.55pt}]
+\node[stage] (src) at (0,0) {source and\\specification};
+\node[stage] (dep) at (40,0) {dependency\\resolution};
+\node[stage] (build) at (80,0) {generation, build,\\shrink, package};
+\node[ev] (git) at (0,-26) {repository history\\and review};
+\node[ev] (lock) at (40,-26) {resolver log, SBOM,\\component evidence};
+\node[ev] (att) at (80,-26) {attestations and\\reproducibility};
+\node[stage] (sign) at (80,-60) {sign and\\approve};
+\node[stage] (store) at (40,-60) {store and\\update};
+\node[stage] (run) at (0,-60) {installed\\behavior};
+\node[ev] (auth) at (80,-86) {delegation and\\release signature};
+\node[ev] (trans) at (40,-86) {transparency and\\freshness};
+\node[ev] (beh) at (0,-86) {static, dynamic,\\policy evidence};
+\draw[arr] (src.east)--(dep.west);
+\draw[arr] (dep.east)--(build.west);
+\draw[arr] (build.east)--(101,0)|-(sign.east);
+\draw[arr] (sign.west)--(store.east);
+\draw[arr] (store.west)--(run.east);
+\draw[arr,dashed] (git.north)--(src.south);
+\draw[arr,dashed] (lock.north)--(dep.south);
+\draw[arr,dashed] (att.north)--(build.south);
+\draw[arr,dashed] (auth.north)--(sign.south);
+\draw[arr,dashed] (trans.north)--(store.south);
+\draw[arr,dashed] (beh.north)--(run.south);
 \end{tikzpicture}
 \caption{Cross-layer evidence along an Android lifecycle. Every transition requires an object binding; evidence attached to one stage does not automatically validate another stage.}
-\Description{Six lifecycle stages run left to right from source and specification to installed behavior. Beneath each stage is a corresponding evidence source, including repository history, resolver records, attestations, release authorization, transparency, and behavior analysis.}
+\Description{Six lifecycle stages follow two rows: source, dependency resolution, and build run left to right above; signing, store, and installed behavior continue right to left below. Each stage has a corresponding evidence source beneath it: repository history, resolver records, attestations, release authorization, transparency, or behavior analysis.}
 \label{fig:lifecycle}
 \end{figure}
 

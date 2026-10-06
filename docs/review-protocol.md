@@ -41,11 +41,11 @@ Claim levels are L0 identity, L1 composition, L2 resemblance, L3 derivation, L4 
 
 ## Closest-review adversary matrix
 
-Twenty-one review or method records are coded across seven dimensions: Android lineage object, transformation model, component/version evidence, process provenance, authorization, behavioral assurance, and AI-mediated development. A direct-coverage value is assigned only when the source itself substantively covers the dimension. No retained row directly covers all seven dimensions under one uniform observation-to-claim and binding rule. This supports bounded positioning only.
+Twenty-one review or method records are coded across seven dimensions: Android repackaging, component/version evidence, process provenance, authorization, behavioral assurance, AI-mediated development, and an explicit claim-ceiling/cross-layer binding rule. These are the seven columns of `review_gap_matrix.csv`; transformation models are separately retained in the claim-level extractions. A direct-coverage value is assigned only when the source itself substantively covers the dimension. No retained row directly covers all seven dimensions under one uniform observation-to-claim and binding rule. This supports bounded positioning only.
 
 ## Source-grounded rule rechecks
 
-Twenty-six of 97 high-load assignments (26.8%) received a fresh source-grounded recheck. The recheck ledger records the prior assignment, inspected location, rule applied, decision, and boundary. The recheck was performed in the same authoring process; it is not independent dual coding, and no agreement statistic is reported.
+Twenty-six of 97 high-load assignments (26.8%) have a recorded source-grounded recheck. This is the cumulative dated ledger, not a claim that all 26 were reread during the current repair. The ledger records the prior assignment, inspected location, rule applied, decision, and boundary. Rechecks belong to the same authoring process; they are not independent dual coding, and no agreement statistic is reported.
 
 ## Writing calibration
 
