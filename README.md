@@ -15,10 +15,10 @@ Use an output path outside the artifact to keep a new local run separate from re
 1. active-corpus, bibliography, publication-status, calibration, screening, extraction, and traceability audit;
 2. retained historical gap-ledger audit;
 3. independent finite completion oracle;
-4. 55 unit and mutation tests;
+4. all discovered unit and mutation tests (61 methods, including six display-row regressions);
 5. deterministic manuscript-table and count-fragment generation.
 
-A passing run ends with a JSON object whose `status` is `passed`, `commands` is `5`, `corpus_records` is `97`, and `unit_tests` is `55`. Test counts come from the completed test summary, not possibly interleaved progress lines. Child CPU and peak RSS are reported as `null` when the platform lacks `getrusage`; missing measurements are not zero-filled.
+A passing run ends with a JSON object whose `status` is `passed`, `commands` is `5`, `corpus_records` is `97`, and `unit_tests` equals the completed discovered suite (61 methods in this source). Test counts come from the completed test summary, not possibly interleaved progress lines. Child CPU and peak RSS are reported as `null` when the platform lacks `getrusage`; missing measurements are not zero-filled.
 
 ## Current evidence inventory
 
@@ -39,6 +39,15 @@ A passing run ends with a JSON object whose `status` is `passed`, `commands` is 
 The retained corpus has 76 primary/empirical/system works and 21 review/method works. Seventy-four primary/system works and 93 works overall have venue publication evidence. Reading depth is 61 full-or-selected-source records and 36 publisher-abstract-or-selected-source records.
 
 ## What the checks establish
+
+The selected ten-row manuscript matrix consumes `paper/generated/review_matrix_rows.tex`.
+Its generator requires exactly one row for each displayed key in a declared
+order and preserves all seven `0/P/1/?` cells. Six portable regressions in
+`tests/test_render_tables.py` compare a named literal fixture and an independent
+scan reference, exercise every selected cell/code, container permutations,
+missing/duplicate keys, and failed-corpus admission. They run in the existing
+discovered suite and scientific workflow; they validate display traceability,
+not the coded interpretation of a publication. No corpus row is recoded.
 
 The scripts enforce exact active key binding across corpus, bibliography, extractions, source locations, provenance, and status ledgers; title/year agreement; canonical DOI form for 82 DOI records; active/excluded quarantine; minimum corpus and review obligations; calibration group counts; explicit reading and independence boundaries; source-recheck coverage; synthesis-source bindings; and deterministic finite bookkeeping.
 

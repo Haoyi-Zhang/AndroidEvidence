@@ -6,6 +6,33 @@ import json
 
 ROOT = Path(__file__).resolve().parents[1]
 
+REVIEW_KEYS = (
+    "repack", "tpl", "astra", "properties", "wurepack2026",
+    "zengtpsurvey2024", "reichert2024", "williams2025", "cyberrisk2026", "gokkaya2026",
+)
+REVIEW_DIMENSIONS = (
+    "android_repackaging", "component_version", "supply_chain_provenance",
+    "authorization_policy", "behavioral_assurance", "ai_mediated_workflow",
+    "claim_ceiling_binding",
+)
+
+
+def review_matrix_lines(review_rows):
+    """Select exactly one coded row per displayed key, in declared order."""
+    selected = {key: [] for key in REVIEW_KEYS}
+    for row in review_rows:
+        if row["bib_key"] in selected:
+            selected[row["bib_key"]].append(row)
+    lines = []
+    for key in REVIEW_KEYS:
+        if len(selected[key]) != 1:
+            raise ValueError("review matrix requires exactly one row for key: " + key)
+        values = [selected[key][0][dimension] for dimension in REVIEW_DIMENSIONS]
+        if any(value not in {"0", "P", "1", "?"} for value in values):
+            raise ValueError("invalid displayed review cell for key: " + key)
+        lines.append(r"\cite{" + key + "} & " + " & ".join(values) + r" \\")
+    return lines
+
 
 def read_csv(path):
     with path.open(newline="", encoding="utf-8") as handle:
@@ -21,6 +48,7 @@ def main(results=None):
     records = {r["record_id"]: r for r in read_csv(ROOT / "data/records.csv")}
     cells = {(r["record_id"], r["obligation_id"]): r["value"] for r in read_csv(ROOT / "data/coverage.csv")}
     review_rows = read_csv(ROOT / "data/review_gap_matrix.csv")
+    matrix_lines = review_matrix_lines(review_rows)
 
     out = results / "tex"
     out.mkdir(exist_ok=True)
@@ -76,23 +104,6 @@ def main(results=None):
 
     # A compact, data-derived adversary table for the paper. The full 21-row
     # matrix remains in data/review_gap_matrix.csv.
-    selected = {
-        "repack", "wurepack2026", "tpl", "zengtpsurvey2024", "astra",
-        "properties", "reichert2024", "williams2025", "cyberrisk2026", "gokkaya2026",
-    }
-    dimensions = [
-        "android_repackaging", "component_version", "supply_chain_provenance",
-        "authorization_policy", "behavioral_assurance", "ai_mediated_workflow",
-        "claim_ceiling_binding",
-    ]
-    matrix_lines = []
-    for row in review_rows:
-        if row["bib_key"] in selected:
-            matrix_lines.append(
-                r"\cite{" + row["bib_key"] + "} & "
-                + " & ".join(row[d] for d in dimensions)
-                + r" \\"
-            )
     (out / "review_matrix_rows.tex").write_text("\n".join(matrix_lines) + "\n", encoding="utf-8")
 
     oracle = json.loads((results / "oracle_result.json").read_text(encoding="utf-8"))
