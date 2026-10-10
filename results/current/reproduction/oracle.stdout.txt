@@ -1,1 +1,1 @@
-{"basis": "RUSAGE_SELF", "cpu_seconds": 1.425641, "peak_rss_kib": 17296}
+{"basis": "getrusage unavailable on this platform", "cpu_seconds": null, "peak_rss_kib": null}

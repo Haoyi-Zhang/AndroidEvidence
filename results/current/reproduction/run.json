@@ -8,16 +8,16 @@
         "-B",
         "scripts/corpus_audit.py",
         "--out",
-        "/home/runner/work/AndroidEvidence/AndroidEvidence/scientific-output"
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\current_followup_repair\\candidate\\P026\\artifact\\results"
       ],
       "cwd": "repository root",
       "timeout_seconds": 45,
       "timed_out": false,
       "exit_code": 0,
       "launch_error": null,
-      "wall_seconds": 0.06414036800000034,
-      "child_cpu_seconds": 0.053708,
-      "cumulative_max_child_rss_kib": 17192
+      "wall_seconds": 0.05940619995817542,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null
     },
     {
       "name": "ledger",
@@ -26,16 +26,16 @@
         "-B",
         "scripts/audit.py",
         "--out",
-        "/home/runner/work/AndroidEvidence/AndroidEvidence/scientific-output"
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\current_followup_repair\\candidate\\P026\\artifact\\results"
       ],
       "cwd": "repository root",
       "timeout_seconds": 45,
       "timed_out": false,
       "exit_code": 0,
       "launch_error": null,
-      "wall_seconds": 0.06432064300000206,
-      "child_cpu_seconds": 0.046919999999999996,
-      "cumulative_max_child_rss_kib": 17192
+      "wall_seconds": 0.058045800018589944,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null
     },
     {
       "name": "oracle",
@@ -44,16 +44,16 @@
         "-B",
         "scripts/oracle_check.py",
         "--out",
-        "/home/runner/work/AndroidEvidence/AndroidEvidence/scientific-output"
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\current_followup_repair\\candidate\\P026\\artifact\\results"
       ],
       "cwd": "repository root",
       "timeout_seconds": 45,
       "timed_out": false,
       "exit_code": 0,
       "launch_error": null,
-      "wall_seconds": 1.4747734689999987,
-      "child_cpu_seconds": 1.4345690000000002,
-      "cumulative_max_child_rss_kib": 17448
+      "wall_seconds": 0.866023100039456,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null
     },
     {
       "name": "tests",
@@ -72,9 +72,9 @@
       "timed_out": false,
       "exit_code": 0,
       "launch_error": null,
-      "wall_seconds": 4.924790719000001,
-      "child_cpu_seconds": 2.2183459999999995,
-      "cumulative_max_child_rss_kib": 30812
+      "wall_seconds": 2.5604672000044957,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null
     },
     {
       "name": "tables",
@@ -83,24 +83,24 @@
         "-B",
         "scripts/render_tables.py",
         "--results",
-        "/home/runner/work/AndroidEvidence/AndroidEvidence/scientific-output"
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\current_followup_repair\\candidate\\P026\\artifact\\results"
       ],
       "cwd": "repository root",
       "timeout_seconds": 45,
       "timed_out": false,
       "exit_code": 0,
       "launch_error": null,
-      "wall_seconds": 0.03202173300000055,
-      "child_cpu_seconds": 0.0302330000000004,
-      "cumulative_max_child_rss_kib": 30812
+      "wall_seconds": 0.041773200035095215,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null
     }
   ],
-  "wall_seconds": 6.567175783,
+  "wall_seconds": 3.58687739999732,
   "whole_run_limit_seconds": 240,
-  "measured_child_cpu_seconds": 3.783776,
+  "measured_child_cpu_seconds": null,
   "workers": 1,
-  "platform": "linux",
-  "resource_measurement_basis": "RUSAGE_CHILDREN running maximum",
+  "platform": "win32",
+  "resource_measurement_basis": "getrusage unavailable on this platform",
   "rss_note": "Running maximum, not simultaneous RSS; unavailable measurements are null.",
   "scope": "Only the five offline checks; no source interpretation, TeX/PDF build, or release-readiness certification."
 }

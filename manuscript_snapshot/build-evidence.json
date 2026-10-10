@@ -3,7 +3,7 @@
   "local_page_budget": 35,
   "pages": 34,
   "page_size": "612 x 792 pts (letter)",
-  "file_size_bytes": 601198,
+  "file_size_bytes": 601765,
   "commands": [
     {
       "command": [
@@ -15,7 +15,7 @@
         "main.tex"
       ],
       "exit_code": 0,
-      "wall_seconds": 2.02263199997833,
+      "wall_seconds": 2.207760600023903,
       "child_cpu_seconds": null,
       "cumulative_max_child_rss_kib": null,
       "accepted_bibliography_warnings": false
@@ -26,7 +26,7 @@
         "build/main"
       ],
       "exit_code": 0,
-      "wall_seconds": 0.07421540003269911,
+      "wall_seconds": 0.07402830000501126,
       "child_cpu_seconds": null,
       "cumulative_max_child_rss_kib": null,
       "accepted_bibliography_warnings": false
@@ -41,7 +41,7 @@
         "main.tex"
       ],
       "exit_code": 0,
-      "wall_seconds": 2.178087799984496,
+      "wall_seconds": 2.07852300000377,
       "child_cpu_seconds": null,
       "cumulative_max_child_rss_kib": null,
       "accepted_bibliography_warnings": false
@@ -56,7 +56,7 @@
         "main.tex"
       ],
       "exit_code": 0,
-      "wall_seconds": 2.209355400002096,
+      "wall_seconds": 2.2113814000040293,
       "child_cpu_seconds": null,
       "cumulative_max_child_rss_kib": null,
       "accepted_bibliography_warnings": false
@@ -71,7 +71,7 @@
         "main.tex"
       ],
       "exit_code": 0,
-      "wall_seconds": 2.1829043999896385,
+      "wall_seconds": 2.1313870000303723,
       "child_cpu_seconds": null,
       "cumulative_max_child_rss_kib": null,
       "accepted_bibliography_warnings": false

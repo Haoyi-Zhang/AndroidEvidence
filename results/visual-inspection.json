@@ -3,6 +3,7 @@
   "page_count": 34,
   "full_size_pages_inspected": [
     1,
+    6,
     7,
     13,
     14,
@@ -15,5 +16,5 @@
     "text_equal": true,
     "raster_72dpi_equal": true
   },
-  "scope": "Inspected listed rendered pages and compared all pages with the registered primary; not independent peer review."
+  "scope": "Inspected listed rendered pages and compared delivered PDFs with the current compiled primary; not independent peer review."
 }

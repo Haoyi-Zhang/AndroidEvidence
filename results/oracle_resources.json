@@ -1,7 +1,8 @@
 {
-  "wall_seconds": 1.06650786900002,
-  "cpu_seconds": 1.066471018,
-  "peak_rss_kib": 93360,
+  "wall_seconds": 0.8062441000365652,
+  "cpu_seconds": 0.8125,
+  "peak_rss_kib": null,
+  "rss_measurement_basis": "getrusage unavailable on this platform",
   "workers": 1,
   "seed": null,
   "enumeration": "all 3^9 ternary inputs and all consistent binary completions"

@@ -20,8 +20,14 @@ test_corpus_title_drift_is_rejected (test_corpus_mutations.CorpusMutationControl
 test_corpus_year_drift_is_rejected (test_corpus_mutations.CorpusMutationControls.test_corpus_year_drift_is_rejected) ... ok
 test_doi_canonical_url_drift_is_rejected (test_corpus_mutations.CorpusMutationControls.test_doi_canonical_url_drift_is_rejected) ... ok
 test_duplicate_canonical_identifier_is_rejected (test_corpus_mutations.CorpusMutationControls.test_duplicate_canonical_identifier_is_rejected) ... ok
+test_duplicate_review_cannot_replace_another_source (test_corpus_mutations.CorpusMutationControls.test_duplicate_review_cannot_replace_another_source) ... ok
 test_excluded_key_cannot_leak_into_active_corpus (test_corpus_mutations.CorpusMutationControls.test_excluded_key_cannot_leak_into_active_corpus) ... ok
+test_failed_audit_does_not_publish_count_fragment (test_corpus_mutations.CorpusMutationControls.test_failed_audit_does_not_publish_count_fragment) ... ok
+test_independent_claim_cannot_override_single_extractor (test_corpus_mutations.CorpusMutationControls.test_independent_claim_cannot_override_single_extractor) ... ok
 test_publication_type_disagreement_is_rejected (test_corpus_mutations.CorpusMutationControls.test_publication_type_disagreement_is_rejected) ... ok
+test_recheck_record_id_must_match_key (test_corpus_mutations.CorpusMutationControls.test_recheck_record_id_must_match_key) ... ok
+test_review_record_id_must_match_key (test_corpus_mutations.CorpusMutationControls.test_review_record_id_must_match_key) ... ok
+test_stale_recheck_ceiling_is_rejected (test_corpus_mutations.CorpusMutationControls.test_stale_recheck_ceiling_is_rejected) ... ok
 test_withdrawn_status_cannot_enter_active_verification_ledger (test_corpus_mutations.CorpusMutationControls.test_withdrawn_status_cannot_enter_active_verification_ledger) ... ok
 test_complete_review_negative_control (test_coverage.Controls.test_complete_review_negative_control) ... ok
 test_disjoint_mosaic (test_coverage.Controls.test_disjoint_mosaic) ... ok
@@ -39,8 +45,24 @@ test_recheck_correction_and_fraction (test_ledger.LedgerControls.test_recheck_co
 test_unknown_to_absence_without_reading_rejected (test_ledger.LedgerControls.test_unknown_to_absence_without_reading_rejected) ... ok
 test_unverified_primary_rejected (test_ledger.LedgerControls.test_unverified_primary_rejected) ... ok
 test_withdrawn_sbom_and_boundary_exclusion (test_ledger.LedgerControls.test_withdrawn_sbom_and_boundary_exclusion) ... ok
+test_complete_generator_outputs_include_reference_rows (test_render_tables.DisplayRowsRegression.test_complete_generator_outputs_include_reference_rows) ... ok
+test_declared_order_is_independent_of_container_order (test_render_tables.DisplayRowsRegression.test_declared_order_is_independent_of_container_order) ... ok
+test_failed_corpus_audit_cannot_emit_fragments (test_render_tables.DisplayRowsRegression.test_failed_corpus_audit_cannot_emit_fragments) ... ok
+test_missing_and_duplicate_selected_rows_fail_closed (test_render_tables.DisplayRowsRegression.test_missing_and_duplicate_selected_rows_fail_closed) ... ok
+test_selected_cells_preserve_all_four_codes (test_render_tables.DisplayRowsRegression.test_selected_cells_preserve_all_four_codes) ... ok
+test_supplied_21_rows_and_literal_display_fixture (test_render_tables.DisplayRowsRegression.test_supplied_21_rows_and_literal_display_fixture) ... ok
+test_darwin_rss_bytes_are_converted_to_kib (test_reproduction.ReproductionControls.test_darwin_rss_bytes_are_converted_to_kib) ... ok
+test_explicit_single_extractor_is_not_independent (test_reproduction.ReproductionControls.test_explicit_single_extractor_is_not_independent) ... ok
+test_linux_resource_units_and_children_selector (test_reproduction.ReproductionControls.test_linux_resource_units_and_children_selector) ... ok
+test_missing_or_contradictory_boundary_is_rejected (test_reproduction.ReproductionControls.test_missing_or_contradictory_boundary_is_rejected) ... ok
+test_runner_counts_completed_summary_not_interleaved_progress (test_reproduction.ReproductionControls.test_runner_counts_completed_summary_not_interleaved_progress) ... ok
+test_runner_records_timeout_without_promoting_results (test_reproduction.ReproductionControls.test_runner_records_timeout_without_promoting_results) ... corpus failed; inspect C:\Users\Administrator\AppData\Local\Temp\tmp7llx009v\reproduction
+ok
+test_runner_retains_failure_and_stops_before_later_checks (test_reproduction.ReproductionControls.test_runner_retains_failure_and_stops_before_later_checks) ... corpus failed; inspect C:\Users\Administrator\AppData\Local\Temp\tmple0jfhr4\reproduction
+ok
+test_unavailable_measurements_are_null (test_reproduction.ReproductionControls.test_unavailable_measurements_are_null) ... ok
 
 ----------------------------------------------------------------------
-Ran 41 tests in 1.444s
+Ran 61 tests in 2.456s
 
 OK

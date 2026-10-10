@@ -1,7 +1,8 @@
 {
-  "wall_seconds": 0.007989995999992061,
-  "cpu_seconds": 0.007988892999999941,
-  "peak_rss_kib": 93232,
+  "wall_seconds": 0.008770900021772832,
+  "cpu_seconds": 0.0,
+  "peak_rss_kib": null,
+  "rss_measurement_basis": "getrusage unavailable on this platform",
   "workers": 1,
   "input_selection": "all supplied selected-record tables",
   "output": "coverage_result.json",
