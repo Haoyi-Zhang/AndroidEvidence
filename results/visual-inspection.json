@@ -1,64 +1,19 @@
 {
-  "status": "passed",
   "pdf": "paper/paper.pdf",
-  "inspection_date": "2026-09-16",
-  "page_count": 35,
-  "primary_render_dpi": 180,
-  "all_pages_inspected": true,
-  "contact_sheet_ranges": [
-    "1-4",
-    "5-8",
-    "9-12",
-    "13-16",
-    "17-20",
-    "21-24",
-    "25-28",
-    "29-32",
-    "33-35"
-  ],
+  "page_count": 34,
   "full_size_pages_inspected": [
-    5,
-    8,
-    21,
-    26,
-    28,
-    35
+    1,
+    7,
+    13,
+    14,
+    34
   ],
-  "full_size_targets": [
-    "closest-review matrix",
-    "claim ladder",
-    "dense table and lifecycle figure",
-    "cross-layer assurance figure",
-    "evaluation table",
-    "final reference baseline"
-  ],
-  "findings": {
-    "clipped_text": 0,
-    "overlaps": 0,
-    "broken_glyphs": 0,
-    "missing_figures": 0,
-    "table_overflow": 0,
-    "unreadable_figure_labels": 0,
-    "blank_or_duplicate_pages": 0
-  },
+  "render_dpi": 108,
   "font_embedding": "all listed fonts embedded",
-  "pdf_properties": {
-    "encrypted": false,
-    "scanned_image_only": false,
-    "page_size_points": [
-      486,
-      720
-    ]
+  "comparison_to_primary": {
+    "pages_compared": 34,
+    "text_equal": true,
+    "raster_72dpi_equal": true
   },
-  "renderer_parity": {
-    "page_sets_aligned_numerically": true,
-    "all_same_dimensions": true,
-    "min_dilated_ink_iou": 0.835626,
-    "mean_dilated_ink_iou": 0.868555,
-    "min_pdftoppm_ink_coverage": 0.999906,
-    "min_pdfium_ink_coverage": 0.995285,
-    "assessment": "consistent",
-    "method": "Numeric page alignment; grayscale ink threshold at 245; one-pixel dilation compensates for rasterizer antialiasing; symmetric original-ink coverage plus dilated-mask IoU."
-  },
-  "review_scope": "Same-process artifact-only visual inspection, not independent blind review or a guarantee of venue acceptance."
+  "scope": "Inspected listed rendered pages and compared all pages with the registered primary; not independent peer review."
 }

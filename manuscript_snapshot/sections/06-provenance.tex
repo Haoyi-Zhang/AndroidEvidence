@@ -65,7 +65,7 @@ Mechanism & Direct contribution & Ceiling & Residual question \\
 \midrule
 Signed repository metadata and delegation~\cite{tuf,diplomat} & Target identity, freshness, version, and policy-scoped publishing roles & \claimlevel{5} & Whether the target was correctly or safely built \\
 Step attestations and layouts~\cite{intoto} & Authenticated relation among materials, functionary, step, and product & \claimlevel{4}--\claimlevel{5} & Completeness of capture and trust in execution \\
-Transparency and collective histories~\cite{chainiac,sigstore,contour,legitimate} & Auditable publication history and resistance to equivocation & \claimlevel{4}/\claimlevel{5} with step/policy evidence & Logging alone proves neither build history nor release authority \\
+Transparency and collective histories~\cite{chainiac,sigstore,contour,legitimate} & Auditable publication history and resistance to equivocation & \claimlevel{4}/\claimlevel{5} with step/\allowbreak policy evidence & Logging alone proves neither build history nor release authority \\
 Reproducible builds~\cite{reprobuilds,reprocontainers} & Independent equality check for declared inputs and process & \claimlevel{0}; \claimlevel{4} with authenticated inputs & Authorization and security of declared inputs \\
 CI-workflow analysis~\cite{githubci} & Security of the machinery that creates attestations and releases & Supports \claimlevel{4} validity & Hidden services, credential compromise, runtime environment \\
 Package-ecosystem measurement~\cite{duanpackages,backstabber,npmworld,weaklinks} & Empirical attack and dependency-risk evidence & \claimlevel{1}+\claimlevel{6} & Exact transfer to the packaged mobile artifact \\

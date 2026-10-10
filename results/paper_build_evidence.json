@@ -1,13 +1,13 @@
 {
   "status": "passed",
-  "target_pages": 35,
-  "pages": 35,
-  "page_size": "486 x 720 pts",
-  "file_size_bytes": 618492,
+  "local_page_budget": 35,
+  "pages": 34,
+  "page_size": "612 x 792 pts (letter)",
+  "file_size_bytes": 601198,
   "commands": [
     {
       "command": [
-        "pdflatex",
+        "pdflatex.EXE",
         "-no-shell-escape",
         "-interaction=nonstopmode",
         "-halt-on-error",
@@ -15,25 +15,25 @@
         "main.tex"
       ],
       "exit_code": 0,
-      "wall_seconds": 1.468411925000055,
-      "child_cpu_seconds": 1.4526309999999998,
-      "cumulative_max_child_rss_kib": 92732,
+      "wall_seconds": 2.210378599993419,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null,
       "accepted_bibliography_warnings": false
     },
     {
       "command": [
-        "bibtex8",
+        "bibtex.EXE",
         "build/main"
       ],
       "exit_code": 0,
-      "wall_seconds": 0.1147220269999707,
-      "child_cpu_seconds": 0.06605000000000011,
-      "cumulative_max_child_rss_kib": 92732,
+      "wall_seconds": 0.04557740001473576,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null,
       "accepted_bibliography_warnings": false
     },
     {
       "command": [
-        "pdflatex",
+        "pdflatex.EXE",
         "-no-shell-escape",
         "-interaction=nonstopmode",
         "-halt-on-error",
@@ -41,14 +41,14 @@
         "main.tex"
       ],
       "exit_code": 0,
-      "wall_seconds": 1.5189902810002422,
-      "child_cpu_seconds": 1.5001360000000001,
-      "cumulative_max_child_rss_kib": 92732,
+      "wall_seconds": 2.143431700009387,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null,
       "accepted_bibliography_warnings": false
     },
     {
       "command": [
-        "pdflatex",
+        "pdflatex.EXE",
         "-no-shell-escape",
         "-interaction=nonstopmode",
         "-halt-on-error",
@@ -56,14 +56,14 @@
         "main.tex"
       ],
       "exit_code": 0,
-      "wall_seconds": 1.6186779780000506,
-      "child_cpu_seconds": 1.608246,
-      "cumulative_max_child_rss_kib": 92732,
+      "wall_seconds": 2.287162799970247,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null,
       "accepted_bibliography_warnings": false
     },
     {
       "command": [
-        "pdflatex",
+        "pdflatex.EXE",
         "-no-shell-escape",
         "-interaction=nonstopmode",
         "-halt-on-error",
@@ -71,9 +71,9 @@
         "main.tex"
       ],
       "exit_code": 0,
-      "wall_seconds": 1.5180443100002776,
-      "child_cpu_seconds": 1.5106899999999992,
-      "cumulative_max_child_rss_kib": 92732,
+      "wall_seconds": 2.1943298999685794,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null,
       "accepted_bibliography_warnings": false
     }
   ],
@@ -88,7 +88,7 @@
     "bibliography_entries": 97,
     "unique_bibliography_entries": 97,
     "unique_cited_entries": 97,
-    "citation_occurrences": 259,
+    "citation_occurrences": 252,
     "duplicates": [],
     "missing_bib_entries": [],
     "uncited_bib_entries": [],
@@ -97,7 +97,7 @@
   },
   "artifact_bibliography_match": true,
   "template_contract": {
-    "documentclass": "acmsmall,screen,review",
+    "documentclass": "manuscript,screen,review",
     "forbidden_source_patterns_found": [],
     "source_contract_passed": true
   },

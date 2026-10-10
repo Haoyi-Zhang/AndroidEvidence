@@ -34,11 +34,9 @@ Reviews and method & \SecondaryWorks & Taxonomies, protocols, benchmark critique
 
 The heterogeneous corpus is not pooled into a detector ranking: candidate generation, transformations, labels, periods, and counting units differ, and benchmark construction can dominate apparent results~\cite{repack,repackeval,blackburn}. The synthesis therefore compares mechanisms and inference validity.
 
-\subsection{Record integrity and writing calibration}
+\subsection{Corpus records}
 
 The evidence package separates the representation consumed for coding from the canonical bibliographic record. Each retained work has a corpus row, BibTeX entry, source-location boundary, retrospective discovery row, and publication-status record. DOI-bearing entries use the DOI as canonical identifier; other records use an official venue, archive, or report locator. Automated checks require title and year agreement, unique identifiers, and consistency between venue/preprint status and entry type. A withdrawn SBOM candidate is preserved only in an exclusion ledger and historical regression fixture. These checks establish record-level consistency, not a comprehensive retraction-registry search or independent confirmation of every interpretation.
-
-Writing and structure were calibrated against 22 full-or-selected-source papers: 12 closest reviews, five influential review/method exemplars, and five adjacent evidence exemplars. The calibration matrix records each paper's motivating problem, organizing principle, evidence argument, practical connection, evaluation breadth, artifact strength, narrative sequence, section pattern, bibliography role, and figure/table function. It informed progression from problem to claim model to evidence synthesis and limits, without copying wording or treating venue style as evidence for the scientific result.
 
 \subsection{Prior-review adversary matrix}
 
@@ -53,16 +51,7 @@ Each of \ReviewMatrixWorks{} review/method records was coded for Android repacka
 \toprule
 Prior synthesis & A & C & P & U & B & G & X \\
 \midrule
-\cite{repack} & 1 & P & 0 & 0 & P & 0 & P \\
-\cite{tpl} & P & 1 & 0 & 0 & P & 0 & P \\
-\cite{astra} & 0 & P & 1 & 1 & P & 0 & P \\
-\cite{properties} & 0 & P & 1 & 1 & P & 0 & P \\
-\cite{wurepack2026} & 1 & P & 0 & 0 & P & 0 & P \\
-\cite{zengtpsurvey2024} & 0 & 1 & P & P & P & 0 & P \\
-\cite{reichert2024} & 0 & P & 1 & P & P & 0 & P \\
-\cite{williams2025} & 0 & P & 1 & P & P & P & P \\
-\cite{cyberrisk2026} & 0 & P & P & P & P & 0 & P \\
-\cite{gokkaya2026} & 0 & P & 1 & P & P & 0 & P \\
+\input generated/review_matrix_rows.tex
 \bottomrule
 \end{tabular}
 \end{table}
@@ -77,19 +66,9 @@ Publication status and evidential role were separate. Preprints may expose emerg
 
 \subsection{Claim-level extraction and recheck}
 
-Each retained work has one extraction with seven substantive fields:
+Each retained work has seven recorded fields: the evidence object, observation, transformation model, oracle or policy, claim ceiling, counter-history, and inference limit. Source-specific statements are distinguished from broad stratum categories: a category such as ``renaming or library reuse'' does not establish that the cited study tested every listed transformation. Counter-histories and inference limits are our analytical classifications, not empirical findings attributed to the source. Similarity alone establishes resemblance; direction requires chronology, source, ownership, or provenance. Authenticated builds do not prove safety, and family, version, and reachability remain distinct.
 
-\begin{enumerate}
-\item \textbf{Object}: source file, method, class, library, DEX, resource, UI, APK, build step, repository metadata, release event, or runtime trace.
-\item \textbf{Observation}: exact hash, fuzzy signature, graph relation, resource or visual similarity, call pattern, watermark, signature, attestation, log entry, rebuild result, or behavioral finding.
-\item \textbf{Transformation model}: renaming, dead-code elimination, control-flow change, packing, library insertion, resource editing, compilation, regeneration, or distribution.
-\item \textbf{Oracle or policy}: curated pair, market metadata, family label, version database, signed policy, independently rebuilt output, human task outcome, or vulnerability check.
-\item \textbf{Claim ceiling}: the strongest lineage or assurance statement directly supported under the reported assumptions.
-\item \textbf{Counter-history}: a plausible history preserving the observation while falsifying a stronger interpretation.
-\item \textbf{Inference limit}: the conclusion that must not be transferred from the record without additional evidence.
-\end{enumerate}
-
-Ceilings are conservative: clone-pair similarity remains resemblance unless direction comes from chronology, source, ownership, or provenance; authenticated builds do not prove safety; and family, version, and reachability remain distinct.
+Three source-specific examples illustrate the distinction. FlowDroid concerns context-, flow-, field-, and object-sensitive taint analysis of Android callbacks and lifecycle behavior~\cite{flowdroid}; it is not a renaming experiment merely because it shares the Android-artifact stratum. LibScout uses dependency analysis and application/library profiles to identify third-party libraries despite transformations addressed by its matching design~\cite{libscout}. ATVHunter combines library identification with version-sensitive analysis, so library presence alone does not establish its version-level conclusion~\cite{atvhunter}. Their extraction rows now name the actual source sections and evaluated conditions. The other broad-category fields organize candidate mechanisms but do not enumerate every transformation tested by each source; this synthesis does not infer a per-operator robustness result from those fields.
 
 \SourceRechecks{} extractions (\SourceRecheckPercent\%) received source-grounded rechecks, prioritizing direct adversaries and high-load assignments. Rechecks record the old and revised ceiling, source, result, and boundary; they are same-process checks, not independent coding.
 
@@ -126,6 +105,12 @@ Synthesis first grouped observation families, then assigned each a ceiling and c
 The standalone artifact checks one-to-one bindings among corpus, bibliography, extraction, source-location, provenance, status, screening, recheck, calibration, and material-claim ledgers. It rejects duplicate keys or canonical identifiers, title/year drift, missing source boundaries, publication-type conflicts, stale leads, generic extraction templates, or leakage of an excluded publication into active synthesis data. Mutation tests deliberately introduce representative faults to confirm that the checks fail rather than merely report success on the supplied files.
 
 A retained historical gap pilot also exercises unknown handling. Its exhaustive $3\times3$ ternary-matrix oracle compares the implemented direct/mosaic classification with an independently expressed completion rule over every small case. This finite check validates bookkeeping semantics only; it does not prove literature completeness, source interpretation, or any detector guarantee. Keeping manuscript totals current requires rerunning the checks and regenerating tables and count macros on the current evidence map before building. The ordinary paper build imports existing fragments; it does not itself enforce their freshness against current inputs.
+
+The Linux reproduction passes 55 unit and mutation tests without skips and
+completes its five commands in 6.57~s. Corpus checks retain all 97 coded records;
+finite oracles cover 19,683 ternary matrices and 262,144 binary completions
+without disagreement. These are record-consistency and bookkeeping checks,
+not an additional source-reading or independent coding pass.
 
 \subsection{Validity limits}
 

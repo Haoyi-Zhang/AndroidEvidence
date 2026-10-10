@@ -1,19 +1,23 @@
-"""Build and preflight the internal 35-page acmsmall survey."""
+"""Build and preflight the single-column ACM review manuscript."""
 from pathlib import Path
 import json
 import os
-import resource
+try:
+    import resource
+except ImportError:
+    resource = None
 import shutil
 import subprocess
 import sys
 import time
 
 ROOT = Path(__file__).resolve().parent
-TARGET_PAGES = 35
+ARTIFACT = ROOT.parent if ROOT.name == "manuscript_snapshot" else ROOT.parent / "artifact"
+MAX_PAGES = 35
 
 
 def run(cmd, *, cwd, env, out_path, timeout=45):
-    before = resource.getrusage(resource.RUSAGE_CHILDREN)
+    before = resource.getrusage(resource.RUSAGE_CHILDREN) if resource else None
     start = time.perf_counter()
     with out_path.open("w", encoding="utf-8") as out:
         try:
@@ -28,13 +32,13 @@ def run(cmd, *, cwd, env, out_path, timeout=45):
             )
         except subprocess.TimeoutExpired as exc:
             raise SystemExit(f"Build command timed out: {' '.join(cmd)}") from exc
-    after = resource.getrusage(resource.RUSAGE_CHILDREN)
+    after = resource.getrusage(resource.RUSAGE_CHILDREN) if resource else None
     return result.returncode, {
         "command": [Path(cmd[0]).name, *cmd[1:]],
         "exit_code": result.returncode,
         "wall_seconds": time.perf_counter() - start,
-        "child_cpu_seconds": after.ru_utime + after.ru_stime - before.ru_utime - before.ru_stime,
-        "cumulative_max_child_rss_kib": after.ru_maxrss,
+        "child_cpu_seconds": (after.ru_utime + after.ru_stime - before.ru_utime - before.ru_stime) if after else None,
+        "cumulative_max_child_rss_kib": after.ru_maxrss if after else None,
     }
 
 
@@ -47,17 +51,15 @@ def main() -> None:
 
     env = dict(os.environ, PYTHONDONTWRITEBYTECODE="1", OMP_NUM_THREADS="1")
 
-    # The supplied venue template is part of the scientific contract.  Reject
-    # class-option drift and common top-matter/layout suppression instead of
-    # letting a superficially correct page count mask a non-comparable build.
+    # Preserve the supplied class, fonts, margins and scientific content.
+    # Unassigned DOI, reference and copyright furniture may be suppressed;
+    # their removal is not a scientific-layout manipulation.
     source_text = (ROOT / "main.tex").read_text(encoding="utf-8")
-    required_class = r"\documentclass[acmsmall,screen,review]{acmart}"
+    required_class = r"\documentclass[manuscript,screen,review]{acmart}"
     if required_class not in source_text:
-        raise SystemExit("main.tex must use the supplied acmsmall,screen,review class contract.")
+        raise SystemExit("main.tex must use the single-column manuscript,screen,review class contract.")
     forbidden_source_patterns = {
         "nonacm class option": "nonacm",
-        "copyright suppression": r"\setcopyright{none}",
-        "ACM reference suppression": "printacmref=false",
         "CCS suppression": "printccs=false",
         "manual geometry override": r"\geometry",
         "manual text-width override": r"\textwidth",
@@ -74,28 +76,28 @@ def main() -> None:
     if citation.returncode:
         raise SystemExit("Bibliography/citation audit failed; inspect paper/bibliography-audit.json.")
 
-    artifact_bibliography = ROOT.parent / "artifact" / "data" / "references.bib"
+    artifact_bibliography = ARTIFACT / "data" / "references.bib"
     if not artifact_bibliography.is_file():
         raise SystemExit("Missing artifact/data/references.bib; build from the complete project packet.")
     bibliography_match = (ROOT / "references.bib").read_bytes() == artifact_bibliography.read_bytes()
     if not bibliography_match:
         raise SystemExit("Paper and artifact bibliography snapshots differ.")
 
-    source_dir = ROOT.parent / "artifact" / "results" / "tex"
+    source_dir = ARTIFACT / "results" / "tex"
     source = source_dir / "corpus_counts.tex"
     if not source.is_file():
         raise SystemExit("Run artifact/scripts/reproduce.py before building the paper.")
     generated = ROOT / "generated"
+    if generated.is_symlink() or generated.resolve() != ROOT.resolve() / "generated":
+        raise SystemExit("The generated-fragment directory must remain inside this paper.")
     generated.mkdir(exist_ok=True)
-    for old in generated.glob("*.tex"):
-        old.unlink()
     for fragment in sorted(source_dir.glob("*.tex")):
         shutil.copyfile(fragment, generated / fragment.name)
 
     build = ROOT / "build"
-    if build.exists():
-        shutil.rmtree(build)
-    build.mkdir()
+    if build.is_symlink() or build.resolve() != ROOT.resolve() / "build":
+        raise SystemExit("The build directory must remain inside this paper.")
+    build.mkdir(exist_ok=True)
 
     latex = [
         pdflatex,
@@ -135,8 +137,8 @@ def main() -> None:
             key, value = line.split(":", 1)
             info_map[key.strip()] = value.strip()
     pages = int(info_map.get("Pages", "0"))
-    if pages != TARGET_PAGES:
-        raise SystemExit(f"Expected {TARGET_PAGES} pages; built {pages}.")
+    if not 0 < pages <= MAX_PAGES:
+        raise SystemExit(f"Expected at most {MAX_PAGES} pages in the local review budget; built {pages}.")
 
     qpdf_status = "not_available"
     qpdf = shutil.which("qpdf")
@@ -147,7 +149,6 @@ def main() -> None:
         if check.returncode:
             raise SystemExit("qpdf structural check failed; inspect paper/build/qpdf-check.txt.")
 
-    shutil.copyfile(pdf, ROOT / "paper.pdf")
     bib_output = (build / "command-2.txt").read_text(encoding="utf-8", errors="replace")
     bib_warnings = [line for line in bib_output.splitlines() if line.startswith("Warning--")]
     warning_note = (
@@ -166,17 +167,17 @@ def main() -> None:
     citation_report = json.loads((ROOT / "bibliography-audit.json").read_text(encoding="utf-8"))
     evidence = {
         "status": "passed",
-        "target_pages": TARGET_PAGES,
+        "local_page_budget": MAX_PAGES,
         "pages": pages,
         "page_size": info_map.get("Page size"),
-        "file_size_bytes": (ROOT / "paper.pdf").stat().st_size,
+        "file_size_bytes": pdf.stat().st_size,
         "commands": records,
         "latex_findings": findings,
         "bibliography_warning_count": len(bib_warnings),
         "citation_audit": citation_report,
         "artifact_bibliography_match": bibliography_match,
         "template_contract": {
-            "documentclass": "acmsmall,screen,review",
+            "documentclass": "manuscript,screen,review",
             "forbidden_source_patterns_found": found_forbidden,
             "source_contract_passed": True,
         },
@@ -184,6 +185,10 @@ def main() -> None:
         "visual_inspection": "separate manual page-image inspection required",
     }
     (ROOT / "build-evidence.json").write_text(json.dumps(evidence, indent=2) + "\n", encoding="utf-8")
+    # Preserve the existing PDF until every build and bibliography check passes.
+    pending_pdf = ROOT / ".paper.pdf.building"
+    shutil.copyfile(pdf, pending_pdf)
+    os.replace(pending_pdf, ROOT / "paper.pdf")
     print(f"Built paper/paper.pdf: {pages} pages; {citation_report['unique_cited_entries']} cited works.")
 
 

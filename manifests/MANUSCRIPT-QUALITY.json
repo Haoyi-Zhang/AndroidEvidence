@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "main_tex": "paper\\main.tex",
+  "abstract_words": 262,
+  "sections": 9,
+  "subsections": 57,
+  "labels": 21,
+  "references_to_labels": 12,
+  "pages": 34,
+  "local_page_budget": 35,
+  "scope": "Structural and rhetorical gate; not a substitute for independent copyediting or peer judgment."
+}

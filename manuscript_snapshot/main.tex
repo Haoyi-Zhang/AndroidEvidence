@@ -1,4 +1,4 @@
-\documentclass[acmsmall,screen,review]{acmart}
+\documentclass[manuscript,screen,review]{acmart}
 \usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{tabularx}
@@ -12,14 +12,16 @@
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 \newcommand{\claimlevel}[1]{\textsf{L#1}}
 \newcommand{\evidence}[1]{\textsf{E#1}}
-\title{From Resemblance to Authority: Claim-Bounded Evidence for Android Software Lineage in AI-Mediated Supply Chains}
-\author{Haoyi Zhang}
-\affiliation{\institution{Xi'an Jiaotong-Liverpool University}\city{Suzhou}\country{China}}
-\email{hyeliozhang@gmail.com}
-\author{Huaijin Ran}
-\affiliation{\institution{Nanyang Technological University}\city{Singapore}\country{Singapore}}
-\email{huaijin003@e.ntu.edu.sg}
-\renewcommand{\shortauthors}{Zhang and Ran}
+\title[Claim-Bounded Android Lineage Evidence]{From Resemblance to Authority: Claim-Bounded Evidence for Android Software Lineage in AI-Mediated Supply Chains}
+\settopmatter{authorsperrow=4}
+\input{current-authors.tex}
+
+
+
+
+
+
+
 \IfFileExists{generated/corpus_counts.tex}{\input{generated/corpus_counts}}{%
   \newcommand{\CorpusWorks}{97}\newcommand{\UniqueCitedWorks}{97}%
   \newcommand{\VenueRecordedWorks}{93}\newcommand{\PrimaryWorks}{76}%
@@ -28,6 +30,11 @@
   \newcommand{\AbstractSelectedWorks}{36}\newcommand{\AndroidWorks}{34}%
   \newcommand{\TPLWorks}{17}\newcommand{\SupplyWorks}{17}%
   \newcommand{\AIWorks}{8}}
+\usepackage{xurl}
+\setcopyright{none}
+\settopmatter{printacmref=false}
+\acmDOI{}
+\renewcommand{\footnotetextcopyrightpermission}[1]{}
 \begin{document}
 \begin{abstract}
 Android lineage questions are often phrased as one detection problem even though byte identity, component presence, resemblance, derivation, build provenance, release authorization, and behavioral assurance are different propositions. Existing surveys separately cover Android repackaging, third-party libraries, software-supply-chain security, and software bills of materials; this review therefore does not claim an uncovered detector literature. Instead, it asks which observation licenses which claim, under what transformation and trust assumptions, and which bindings are required when evidence is composed across layers. We code \CorpusWorks{} scholarly works, including \PrimaryWorks{} primary, empirical, or system studies, and adversarially compare \ReviewMatrixWorks{} review or method records across seven coverage dimensions. Every retained work has a claim-level extraction with an explicit counter-history and inference limit; \SourceRechecks{} load-bearing assignments have dated source-grounded recheck records within the same authoring process. The synthesis introduces a seven-level ladder spanning identity, composition, resemblance, derivation, process provenance, authorization, and behavioral assurance. It shows that most repackaging and component mechanisms establish resemblance or composition; derivation direction normally requires temporal, ownership, source, or authenticated process evidence. Signing, transparency, and provenance can bind principals, steps, and artifacts, but do not establish semantic equivalence or benign behavior. AI-mediated development adds sibling generations, synthesized dependencies, hidden retrieval and tool context, and model drift, making source-to-APK binding more important rather than making artifact analysis obsolete. We derive a cross-layer assurance pattern that binds transformation-aware comparison, component/version evidence, authenticated step records, release policy, and behavior-specific analysis to the same digest or documented predecessor relation. The contribution is a bounded structured evidence synthesis and evaluation blueprint, not a universal detector ranking, pooled meta-analysis, or proof of worldwide novelty.
@@ -44,6 +51,8 @@ Android lineage questions are often phrased as one detection problem even though
 \input{sections/07-ai-mediated}
 \input{sections/08-synthesis}
 \input{sections/09-agenda}
+
+\input{project-repository.tex}
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{references}

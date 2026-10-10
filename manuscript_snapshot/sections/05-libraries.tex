@@ -33,7 +33,9 @@ Library-region discovery~\cite{libradar,libd,orlis} & Package structure, class r
 Family identification~\cite{libscout,libid,tplprecision} & Signatures compared with an indexed corpus & \claimlevel{1} & Forks, unknown libraries, signature collisions, database coverage \\
 Version attribution~\cite{atvhunter,osspolice} & Version-discriminating code or graph features & \claimlevel{1} & Shrinking, patches, republishing, indistinguishable adjacent releases \\
 Cross-platform detection~\cite{libdx,libroad} & Binary or online features across packaging forms & \claimlevel{1} & Compiler and architecture variation, native stripping \\
-Update and maintenance studies~\cite{keepupdated,developersupdate,originsvuln,appcommune} & App versions, release histories, dependency changes & \claimlevel{3} for observed update history & Store coverage, hidden source decisions, unresolved component versions \\
+Library-update studies~\cite{keepupdated,developersupdate} & Bundled library versions and changes across app releases & \claimlevel{1} & Release order alone does not establish derivation; component versions may remain unresolved \\
+Vulnerability-source studies~\cite{originsvuln} & Attribution to app or library code with security observations & \claimlevel{1}; \claimlevel{6} for observed behavior & Component presence, exposure, and exploitability need separate evidence \\
+De-duplication and updating~\cite{appcommune} & Library separation, compatibility, storage, and update effects & \claimlevel{1}; \claimlevel{6} for evaluated behavior & Tested updates do not establish ancestry or behavior in other configurations \\
 Potentially malicious libraries~\cite{malicioustpl} & Library attribution plus security or behavior analysis & \claimlevel{1}+\claimlevel{6} & Attribution and maliciousness have separate oracles \\
 \bottomrule
 \end{tabularx}
