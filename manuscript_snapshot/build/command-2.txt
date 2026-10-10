@@ -1,4 +1,4 @@
-The 8-bit codepage and sorting file: 88591lat.csf
+This is BibTeX, Version 0.99d (TeX Live 2024)
 The top-level auxiliary file: build/main.aux
 The style file: ACM-Reference-Format.bst
 Database file #1: references.bib
