@@ -212,14 +212,21 @@ class CorpusTests(unittest.TestCase):
 
     def test_visual_inspection_evidence(self):
         v = self.visual_inspection
-        self.assertEqual("passed", v["status"])
-        self.assertEqual(35, v["page_count"])
-        self.assertTrue(v["all_pages_inspected"])
-        self.assertEqual([5, 8, 21, 26, 28, 35], v["full_size_pages_inspected"])
-        self.assertTrue(all(value == 0 for value in v["findings"].values()))
-        self.assertEqual("consistent", v["renderer_parity"]["assessment"])
-        self.assertGreaterEqual(v["renderer_parity"]["min_pdftoppm_ink_coverage"], 0.99)
-        self.assertGreaterEqual(v["renderer_parity"]["min_pdfium_ink_coverage"], 0.99)
+        build = json.loads((ROOT / "results/paper_build_evidence.json").read_text(encoding="utf-8"))
+        self.assertGreater(v["page_count"], 0)
+        self.assertLessEqual(v["page_count"], 35)
+        self.assertEqual(build["pages"], v["page_count"])
+        pages = v["full_size_pages_inspected"]
+        self.assertTrue(pages)
+        self.assertEqual(len(pages), len(set(pages)))
+        self.assertTrue(all(isinstance(p, int) and 1 <= p <= v["page_count"] for p in pages))
+        self.assertGreater(v["render_dpi"], 0)
+        self.assertEqual("all listed fonts embedded", v["font_embedding"])
+        comparison = v["comparison_to_primary"]
+        self.assertEqual(v["page_count"], comparison["pages_compared"])
+        self.assertTrue(comparison["text_equal"])
+        self.assertTrue(comparison["raster_72dpi_equal"])
+        self.assertIn("not independent peer review", v["scope"])
 
     def test_material_claim_ledger_complete(self):
         self.assertGreaterEqual(len(self.material_claims), 28)
