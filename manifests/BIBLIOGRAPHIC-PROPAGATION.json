@@ -1,4 +1,28 @@
 {
-  "changed": [],
-  "active_entries": 97
+  "changed": [
+    {
+      "bib_key": "ohmstuke",
+      "record_id": "W015",
+      "field": "author",
+      "before": "Marc Ohm and Christopher Stuke",
+      "after": "Marc Ohm and Charlene Stuke"
+    },
+    {
+      "bib_key": "libdx",
+      "record_id": "W058",
+      "field": "author",
+      "before": "Wei Tang and Peng Luo and Jingwei Fu and Dinghao Zhang",
+      "after": "Wei Tang and Ping Luo and Jialiang Fu and Dan Zhang"
+    }
+  ],
+  "active_entries": 97,
+  "bibliography_copies": [
+    "../paper/references.bib",
+    "data/references.bib",
+    "manuscript_snapshot/references.bib"
+  ],
+  "bibliography_sha256": "b6067323d7ae368a4a5df86f1644ee74d782cdbeed97dfe477f1d7f33fbb3a0c",
+  "verification_basis": "Direct publisher-deposited Crossref records; user also verified the Ohm/Stuke institutional publication list.",
+  "body_read_statuses_changed": false,
+  "scope": "Verified author metadata only; all ten legacy_not_reverified source/version statuses remain unchanged."
 }

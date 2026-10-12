@@ -1,44 +1,104 @@
 {
   "status": "passed",
   "pdf": "build/main.pdf",
-  "pdf_path_basis": "manuscript-directory relative; one current PDF output per tree",
-  "pdf_sha256": "180512af351c24ef79d906f4f621c864a326357ef9f1c244e832d4a8e1b2c9c9",
+  "pdf_sha256": "e939fe5e214d9201ad0a60fa7aa2e29bad537be12e893e9169717861079e592c",
   "source_sha256": {
-    "main.tex": "bf78ba24b2617fdcf1e855d8161d4bdf3adff6eb858de3cabc6f1689fa96ba6c",
+    "ACM-Reference-Format.bst": "4342d27456645567ef1a027f6474e894715bc31d468f040142fa54540440ad04",
+    "acmart.cls": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
     "current-authors.tex": "2397fbf049bf5504e5c4139f571a84f8cd7b25651a3c582213746026297f3123",
-    "generated/corpus_counts.tex": "bc5aef9720c52889459cebebed0d3d4f1f03b1c981343a69fb4b499f2a9d4c19",
+    "generated/corpus_counts.tex": "feaf5b6dee650739f723137b76f51243aa78e1cf454b58f9b7d7507dde5c1b86",
+    "generated/review_matrix_rows.tex": "9fbd5a05c7787a73a16659228afd42dbd7ee251936804ce823e55cbe69ba6f36",
+    "main.tex": "824c2b0fba3a2495d13961bd67cd6426ef59966c6a6e1528f80e5b97179944b6",
+    "project-repository.tex": "2aa62a0e37901fc136908f005ed46a41b340d60e3fb9dedd91ef70f009a6869e",
+    "references.bib": "b6067323d7ae368a4a5df86f1644ee74d782cdbeed97dfe477f1d7f33fbb3a0c",
     "sections/01-introduction.tex": "cffb82b5f6aa02b428739c8690e154a6e38e25301533741ec6295afd61553468",
     "sections/02-method.tex": "9e9812e1ff9b11ae32714e0c84cf59003fed9867cb3c596b1a8b1539cf390d02",
-    "generated/review_matrix_rows.tex": "7744fb2d9244bc7cd7125b7876e1d30f43435c8decf48c5ba6a9f549e5d4f078",
     "sections/03-evidence-model.tex": "1dd7aecce4e245179fe642e59490e9dea6f6da744252e5e20eb9e386bc24e03d",
     "sections/04-repackaging.tex": "b296080c7e967cc7f9fc41f3b363d490561075b94824afe8a3c712aba7351121",
     "sections/05-libraries.tex": "05d27a27cb383cc158257e1819052566c2f7925bfc7a596bf368cfefa012e702",
     "sections/06-provenance.tex": "fdf52a6bf6b65694c7e09875e8e233a1290ef9c7ba7b46d30a04d909b52d8f0c",
     "sections/07-ai-mediated.tex": "8ab3edc8081f727f5d45db493476cf174fe47b9a7b2ec8a7c0d8f03a38d508c5",
     "sections/08-synthesis.tex": "84f9179bbba419ffb0a89b3c7a3d77cf9f5f4a4d6aabcc394457fa9af9490f54",
-    "sections/09-agenda.tex": "d37e1538c4415141ea5e07b6f09077fc0d01a286e317bb196b26b5d4edfbd8ea",
-    "project-repository.tex": "2aa62a0e37901fc136908f005ed46a41b340d60e3fb9dedd91ef70f009a6869e",
-    "references.bib": "ec96cf369cb9f3e35a67c3a4419a10e9eb69cd92d0d3035d243bca2914afd3d0",
-    "acmart.cls": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
-    "ACM-Reference-Format.bst": "4342d27456645567ef1a027f6474e894715bc31d468f040142fa54540440ad04"
+    "sections/09-agenda.tex": "d37e1538c4415141ea5e07b6f09077fc0d01a286e317bb196b26b5d4edfbd8ea"
   },
-  "log_sha256": "1b5845a22867279d0aed4093715a2788931a693ceac69c6bf21c7dd60e710046",
+  "log_sha256": "96e93f33d537328baa6e1bb4546a80d70d45622b6387594537b340c60d526d74",
   "local_page_budget": 36,
   "pages": 36,
   "page_size": "612 x 792 pts (letter)",
-  "file_size_bytes": 582904,
-  "build_basis": "Existing receipt-selected compiler output; packaging repair did not invoke TeX or measure build resources.",
-  "compiler_receipt": {
-    "id": "P026",
-    "exit_code": 0,
-    "pages": 36,
-    "previous_pages": 35,
-    "paper_pdf": "build/main.pdf",
-    "receipt_file": "build-P026.json",
-    "receipt_sha256": "82de648a7787877a7577b97e3fbe1f47ffb8754ee66fb6374e15311657c1065d"
-  },
-  "commands": [],
-  "command_measurements": "Not measured in packaging repair; earlier manuscript-only command transcripts archived privately.",
+  "file_size_bytes": 583869,
+  "commands": [
+    {
+      "command": [
+        "pdflatex.EXE",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-output-directory=build",
+        "main.tex"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.2856587000023865,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null,
+      "accepted_bibliography_warnings": false
+    },
+    {
+      "command": [
+        "bibtex.EXE",
+        "build/main"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.04486380000162171,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null,
+      "accepted_bibliography_warnings": false
+    },
+    {
+      "command": [
+        "pdflatex.EXE",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-output-directory=build",
+        "main.tex"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.2796484999998938,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null,
+      "accepted_bibliography_warnings": false
+    },
+    {
+      "command": [
+        "pdflatex.EXE",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-output-directory=build",
+        "main.tex"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.3038640000013402,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null,
+      "accepted_bibliography_warnings": false
+    },
+    {
+      "command": [
+        "pdflatex.EXE",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-output-directory=build",
+        "main.tex"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.2816292000024987,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null,
+      "accepted_bibliography_warnings": false
+    }
+  ],
   "latex_findings": {
     "overfull_boxes": 0,
     "overfull_vboxes": 0,
@@ -64,12 +124,8 @@
     "forbidden_source_patterns_found": [],
     "source_contract_passed": true
   },
-  "font_embedding": "all listed fonts embedded",
-  "qpdf_check": "not_run_for_receipt_selected_pdf",
-  "visual_inspection": "Supplied all-36-page image inspection, bound separately in visual-inspection.json; no new inspection performed.",
-  "scope": "Current build/delivery consistency only; not renewed source readings, independent scientific validation, or official CSUR submission certification.",
-  "compiler_source_match": {
-    "files_compared": 21,
-    "byte_identical_to_existing_compiler_snapshot": true
-  }
+  "qpdf_check": "not_available",
+  "visual_inspection": "separate manual page-image inspection required",
+  "delivery_basis": "Byte-identical PDF/final engine log/BibTeX output mirrored from the genuine sibling paper/build.py CCS rebuild; commands and resources were measured once in paper/, not in a separate snapshot compilation.",
+  "command_execution_root": "../../paper"
 }
