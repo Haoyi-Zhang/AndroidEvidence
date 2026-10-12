@@ -2,13 +2,13 @@
 
 ## What is being positioned
 
-The paper does not position itself as the first Android-repackaging survey or the first software-supply-chain review. It asks whether the retained closest reviews already provide one uniform rule linking observations to seven claim types and the bindings needed to compose evidence across artifact, component, process, authorization, behavior, and AI-mediated development.
+The paper does not position itself as the first Android-repackaging survey or the first software-supply-chain review. It compares the retained closest reviews' treatment of evidence objects and the bindings needed to compose artifact, component, process, authorization, behavior, and AI-mediated observations. Prior artifact/operation/actor and supply-chain frameworks are antecedents; the incomplete matrix cannot certify absence of an integrated predecessor.
 
 ## Current retained-set result
 
-The 21-row closest-review matrix contains no source coded as directly covering all seven dimensions under that uniform rule. The strongest Android-repackaging reviews cover detection features, datasets, metrics, and open problems. TPL surveys cover component discovery, family/version attribution, and security implications. Supply-chain reviews and SoKs cover threats, practices, provenance, SBOMs, or mitigations. AI-era sources characterize new generation and dependency risks. Their combined coverage motivates a cross-layer synthesis, but pointwise mosaic coverage is not itself proof that the proposed organization is novel.
+The 21-row matrix has 96 unresolved cells. Located readings justify 49 direct/partial cells and two scoped absences. Seventeen records have content checks (including four method records with unresolved coverage); four remain substantively unchecked. The checked cells establish no all-dimension witness, but an unresolved row could supply one.
 
-The reported result is therefore **bounded positioning**: no direct all-dimension source was found in the retained adversary set. It is not a claim that no such source exists worldwide.
+The reported result is therefore **undetermined direct coverage**, not a retained-set gap or a worldwide absence claim. The organizing framework is an analytical proposal; these incomplete coverage data do not establish its novelty.
 
 ## Historical pilot
 
@@ -16,7 +16,7 @@ The 16-record direct/mosaic pilot is retained solely as a regression fixture. It
 
 ## Unknown and absence
 
-`unknown` means the inspected representation did not justify either presence or complete-scope absence. It cannot be recoded as absence without a reading basis adequate to the dimension. The audit rejects abstract-only positive coding presented as body evidence and absence assignments without the required complete-scope basis.
+`unknown` means the inspected representation did not justify either presence or complete-scope absence. It cannot be recoded as absence without a reading basis adequate to the dimension. Both the historical pilot and the active review matrix guard against unsupported promotion: active positive cells require a checked fulltext row and specific page/section basis; active absence cells require complete scoped reading, not merely selected sections.
 
 ## Sensitivity and contradiction
 

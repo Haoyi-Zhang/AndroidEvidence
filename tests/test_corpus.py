@@ -7,10 +7,16 @@ from collections import Counter
 from pathlib import Path
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from corpus_audit import nonindependent_status
+from corpus_audit import nonindependent_status, review_coverage_status, content_check_counts, specific_content_locator
 
 ROOT = Path(__file__).resolve().parents[1]
 LOCKED_CORPUS_SIZE = 97
+
+
+def dimensions_for_review():
+    return ('android_repackaging', 'component_version', 'supply_chain_provenance',
+            'authorization_policy', 'behavioral_assurance', 'ai_mediated_workflow',
+            'claim_ceiling_binding')
 
 
 def read_csv(name):
@@ -176,9 +182,45 @@ class CorpusTests(unittest.TestCase):
             "claim_ceiling_binding",
         ]
         self.assertFalse(any(all(row[d] == "1" for d in dimensions) for row in self.reviews))
+        self.assertEqual('undetermined', review_coverage_status(self.reviews))
+
+    def test_content_checks_are_distinct_from_legacy_depth_labels(self):
+        checked = [r for r in self.source_locations if r['content_check_status'] in
+                   {'selected_fulltext_checked', 'complete_scope_checked'}]
+        protocol = json.loads((ROOT / 'data/protocol.json').read_text(encoding='utf-8'))
+        counts = content_check_counts(self.source_locations)
+        self.assertEqual(protocol['content_checked'], len(checked))
+        self.assertEqual(protocol['selected_fulltext_checked'], counts['selected_fulltext_checked_records'])
+        self.assertEqual(protocol['complete_scope_checked'], counts['complete_scope_checked_records'])
+        self.assertEqual(protocol['legacy_not_reverified'], counts['legacy_not_reverified_records'])
+        self.assertEqual(LOCKED_CORPUS_SIZE, len(checked) + counts['legacy_not_reverified_records'])
+        for row in checked:
+            self.assertTrue(row['fulltext_url'].startswith('https://'))
+            self.assertTrue(specific_content_locator(row['locations']))
+        by_key = {r['bib_key']: r for r in self.source_locations}
+        for row in self.reviews:
+            if any(row[d] in {'1', 'P'} for d in dimensions_for_review()):
+                self.assertIn(by_key[row['bib_key']]['content_check_status'],
+                              {'selected_fulltext_checked', 'complete_scope_checked'})
+
+    def test_specific_content_locators_do_not_require_fabricated_pdf_pages(self):
+        self.assertTrue(specific_content_locator('Author PDF pp. 3-4: Section 2'))
+        self.assertTrue(specific_content_locator('Publisher HTML Sections 1 (Introduction), 4.5 (TPL detection)'))
+        for locator in ('DOI record', 'full text checked', 'Publisher HTML abstract',
+                        'PDF pp. unspecified', 'linked full text or selected PDF pp. 3'):
+            self.assertFalse(specific_content_locator(locator))
+
+    def test_scoped_readings_count_as_checked_without_upgrading_unknowns(self):
+        rows = [{'content_check_status': value} for value in
+                ('selected_fulltext_checked', 'complete_scope_checked', 'legacy_not_reverified')]
+        self.assertEqual({'selected_fulltext_checked_records': 1, 'complete_scope_checked_records': 1,
+                          'content_checked_records': 2, 'legacy_not_reverified_records': 1},
+                         content_check_counts(rows))
 
     def test_recheck_fraction_and_same_process_disclosure(self):
-        self.assertEqual(26, len(self.rechecks))
+        protocol = json.loads((ROOT / 'data/protocol.json').read_text(encoding='utf-8'))
+        self.assertEqual(protocol['fresh_source_rechecks'], len(self.rechecks))
+        self.assertGreaterEqual(len(self.rechecks), 28)
         self.assertGreaterEqual(len(self.rechecks), math.ceil(0.15 * len(self.extractions)))
         self.assertTrue(all(r["independent"] == "false" for r in self.rechecks))
         self.assertEqual(len(self.rechecks), len({r["bib_key"] for r in self.rechecks}))

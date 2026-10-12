@@ -117,6 +117,31 @@ class CorpusMutationControls(unittest.TestCase):
             self.assertTrue((out / 'corpus_summary.json').is_file())
             self.assertFalse((out / 'tex/corpus_counts.tex').exists())
 
+    def test_generic_locator_cannot_be_promoted_to_checked_content(self):
+        def mutate(rows):
+            rows[0]['locations'] = 'linked full text or selected substantive source passages'
+        self.run_mutation('data/source_locations.csv', mutate)
+
+    def test_checked_content_requires_actual_fulltext_url(self):
+        def mutate(rows):
+            rows[0]['fulltext_url'] = ''
+        self.run_mutation('data/source_locations.csv', mutate)
+
+    def test_positive_review_cannot_use_unverified_fulltext(self):
+        def mutate(rows):
+            # Keep the existing positive matrix cell, but remove its content
+            # certificate in the disposable fixture. Source-reading progress
+            # must not silently turn this negative control into a valid case.
+            row = next(r for r in rows if r['bib_key'] == 'repack')
+            self.assertEqual('selected_fulltext_checked', row['content_check_status'])
+            row['content_check_status'] = 'legacy_not_reverified'
+        self.run_mutation('data/source_locations.csv', mutate)
+
+    def test_selected_sections_cannot_certify_absence(self):
+        def mutate(rows):
+            rows[0]['supply_chain_provenance'] = '0'
+        self.run_mutation('data/review_gap_matrix.csv', mutate)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

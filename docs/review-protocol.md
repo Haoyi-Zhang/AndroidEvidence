@@ -37,19 +37,19 @@ Every retained work is coded once in `study_extractions.csv` using:
 
 `(object, observation, transformation model, oracle or policy, claim ceiling, counter-history, inference limit)`.
 
-Claim levels are L0 identity, L1 composition, L2 resemblance, L3 derivation, L4 process provenance, L5 authorization, and L6 behavioral assurance. Reading depth is recorded as either full-or-selected-source (61 records) or publisher-abstract-or-selected-source (36 records). The lighter category is not represented as cover-to-cover full-text coding.
+Claim levels are L0 identity, L1 composition, L2 resemblance, L3 derivation, L4 process provenance, L5 authorization, and L6 behavioral assurance. Legacy reading depth is recorded as full-or-selected-source (61 records) or publisher-abstract-or-selected-source (36 records). These labels are not substantive content certificates. The source-location ledger separately identifies 87 content checks: 84 selected readings and three complete scoped readings, each with actual PDF pages/sections or numbered primary-HTML sections. Ten legacy records remain not reverified. Complete scoped reading names its boundary (for example, substantive body rather than references); selected reading is not cover-to-cover.
 
 ## Closest-review adversary matrix
 
-Twenty-one review or method records are coded across seven dimensions: Android repackaging, component/version evidence, process provenance, authorization, behavioral assurance, AI-mediated development, and an explicit claim-ceiling/cross-layer binding rule. These are the seven columns of `review_gap_matrix.csv`; transformation models are separately retained in the claim-level extractions. A direct-coverage value is assigned only when the source itself substantively covers the dimension. No retained row directly covers all seven dimensions under one uniform observation-to-claim and binding rule. This supports bounded positioning only.
+Twenty-one review or method records are coded across seven dimensions: Android repackaging, component/version evidence, process provenance, authorization, behavioral assurance, AI-mediated development, and an explicit claim-ceiling/cross-layer binding rule. These are the seven columns of `review_gap_matrix.csv`; transformation models are separately retained in the claim-level extractions. A direct-coverage value is assigned only when the source itself substantively covers the dimension. Located readings justify 49 direct/partial cells and two scoped absences. Seventeen records have content checks, including four method records whose coverage remains unresolved; four records are not substantively reverified. There are 96 unknown cells. Direct all-dimension coverage is undetermined, so the matrix establishes no retained-set gap.
 
 ## Source-grounded rule rechecks
 
-Twenty-six of 97 high-load assignments (26.8%) have a recorded source-grounded recheck. This is the cumulative dated ledger, not a claim that all 26 were reread during the current repair. The ledger records the prior assignment, inspected location, rule applied, decision, and boundary. Rechecks belong to the same authoring process; they are not independent dual coding, and no agreement statistic is reported.
+Ninety of 97 assignments (92.8%) have cumulative dated recheck entries. The current content ledger checks 87 works; the other three recheck entries retain historical or non-paper readings. The cumulative total is not a new 90-source reading pass or independent verification. The ledger records the prior assignment, inspected location, rule applied, decision, and boundary. Rechecks belong to the same authoring process; they are not independent dual coding, and no agreement statistic is reported.
 
 ## Writing calibration
 
-`calibration_papers.csv` contains 22 papers at full-or-selected-source depth: 12 closest papers, five influential/method papers, and five adjacent evidence papers. It records explanatory and evidence-organization patterns only; wording, claims, and paper-specific structure are not reused.
+`calibration_papers.csv` retains 22 historical calibration entries with full-or-selected-source depth labels: 12 closest papers, five influential/method papers, and five adjacent evidence papers. It records explanatory and evidence-organization patterns only; wording, claims, and paper-specific structure are not reused.
 
 ## Synthesis rule
 

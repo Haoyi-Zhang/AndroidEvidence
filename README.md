@@ -15,28 +15,28 @@ Use an output path outside the artifact to keep a new local run separate from re
 1. active-corpus, bibliography, publication-status, calibration, screening, extraction, and traceability audit;
 2. retained historical gap-ledger audit;
 3. independent finite completion oracle;
-4. all discovered unit and mutation tests (61 methods, including six display-row regressions);
+4. all discovered unit and mutation tests (69 methods, including six display-row regressions);
 5. deterministic manuscript-table and count-fragment generation.
 
-A passing run ends with a JSON object whose `status` is `passed`, `commands` is `5`, `corpus_records` is `97`, and `unit_tests` equals the completed discovered suite (61 methods in this source). Test counts come from the completed test summary, not possibly interleaved progress lines. Child CPU and peak RSS are reported as `null` when the platform lacks `getrusage`; missing measurements are not zero-filled.
+A passing run ends with a JSON object whose `status` is `passed`, `commands` is `5`, `corpus_records` is `97`, and `unit_tests` equals the completed discovered suite (69 methods in this source). Test counts come from the completed test summary, not possibly interleaved progress lines. Child CPU and peak RSS are reported as `null` when the platform lacks `getrusage`; missing measurements are not zero-filled.
 
 ## Current evidence inventory
 
 - `data/corpus.csv` - 97 included scholarly records.
 - `data/references.bib` - 97-entry standalone bibliography snapshot.
-- `data/study_extractions.csv` - one source-specific claim-level extraction per record.
-- `data/source_locations.csv` - one consumed-source and reading-boundary row per record.
+- `data/study_extractions.csv` - one populated claim-level row per record; current source-specific checks are identified separately.
+- `data/source_locations.csv` - canonical record bindings, actual checked primary-fulltext URLs and PDF-page/numbered-HTML-section locators, reading boundaries and explicit content-check statuses.
 - `data/search_provenance.csv` - one retrospective retained-record discovery trace per record.
 - `data/bibliography_verification.csv` - one canonical identifier and publication-status row per record.
 - `data/excluded_publications.csv` - excluded/superseded publication-status quarantine, including one withdrawn work.
 - `data/review_gap_matrix.csv` - 21 closest review/method records coded across seven dimensions.
 - `data/calibration_papers.csv` - 22 writing-calibration papers: 12 closest, five influential/method, five adjacent.
-- `data/source_rechecks.csv` - 26 cumulative disclosed same-process source-grounded rechecks (26.8%), with dates and reading boundaries. This is not a new all-source recheck batch.
+- `data/source_rechecks.csv` - 90 cumulative disclosed same-process recheck records (92.8%), with dates and reading boundaries. The content ledger checks 87 works; three recheck entries retain historical/non-paper readings. The cumulative count is not a count of newly read papers.
 - `data/screening_ledger.csv` - 105 retained and excluded screening decisions.
 - `data/synthesis_claims.csv` - seven synthesis rules with supporting sources, counter-histories, and boundaries.
 - `claim_evidence_ledger.csv` - 28 material paper/artifact claims and their evidence paths.
 
-The retained corpus has 76 primary/empirical/system works and 21 review/method works. Seventy-four primary/system works and 93 works overall have venue publication evidence. Reading depth is 61 full-or-selected-source records and 36 publisher-abstract-or-selected-source records.
+The retained corpus has 76 primary/empirical/system works and 21 review/method works. Seventy-four primary/system works and 93 works overall have venue publication evidence. Legacy reading-depth labels are 61 full-or-selected-source and 36 publisher-abstract-or-selected-source records. Current content checks cover 87 works: 84 selected readings and three complete scoped readings. Ten legacy records remain not reverified. The 21-row review matrix has 49 located direct/partial cells, two scoped absences and 96 unresolved cells and its direct all-dimension coverage is undetermined.
 
 ## What the checks establish
 
@@ -47,11 +47,11 @@ order and preserves all seven `0/P/1/?` cells. Six portable regressions in
 scan reference, exercise every selected cell/code, container permutations,
 missing/duplicate keys, and failed-corpus admission. They run in the existing
 discovered suite and scientific workflow; they validate display traceability,
-not the coded interpretation of a publication. No corpus row is recoded.
+not the coded interpretation of a publication. The literal display fixture follows the coded cells; formatting tests do not validate source interpretation.
 
 The scripts enforce exact active key binding across corpus, bibliography, extractions, source locations, provenance, and status ledgers; title/year agreement; canonical DOI form for 82 DOI records; active/excluded quarantine; minimum corpus and review obligations; calibration group counts; explicit reading and independence boundaries; source-recheck coverage; synthesis-source bindings; and deterministic finite bookkeeping.
 
-Mutation tests ensure that withdrawn-status leakage, duplicate canonical identifiers, corpus/BibTeX title or year drift, DOI URL drift, publication-type mismatch, calibration-count drift, excluded-key leakage, review-key/record drift, stale recheck ceilings, and contradictory independence declarations make reproduction fail. Each corpus mutation first passes an unmutated positive control. A failed corpus audit retains its error JSON but cannot generate a new count fragment.
+Additional controls reject checked-content promotion using generic page locators or missing primary-fulltext URLs, positive review coverage from unverified fulltexts, and absence coding based only on selected sections. Mutation tests ensure that withdrawn-status leakage, duplicate canonical identifiers, corpus/BibTeX title or year drift, DOI URL drift, publication-type mismatch, calibration-count drift, excluded-key leakage, review-key/record drift, stale recheck ceilings, and contradictory independence declarations make reproduction fail. Each corpus mutation first passes an unmutated positive control. A failed corpus audit retains its error JSON but cannot generate a new count fragment.
 
 ## What the checks do not establish
 
@@ -67,6 +67,6 @@ A passing run does not prove exhaustive search, a PRISMA denominator, a comprehe
 - `results/clean-reproduction.json`
 - `results/tex/*.tex`
 
-The retained `results/`, build evidence, PDFs, and visual-inspection files describe earlier recorded runs, not the repaired source state. A new `--out` run produces its own summaries, raw command logs, and `tex/` fragments. Regenerate and import those fragments before rebuilding the paper; historical CPU/RSS or PDF-layout measurements must not be attributed to a new local run.
+The retained raw results, build evidence, PDFs and visual-inspection files describe earlier runs, not the current source state. Only `results/tex/corpus_counts.tex` and `results/tex/review_matrix_rows.tex` have been refreshed from the current audited ledgers for manuscript import; refreshing fragments does not refresh a PDF or its measurements. A new `--out` run produces its own summaries, raw command logs and `tex/` fragments. Regenerate and import those fragments before rebuilding the paper; historical CPU/RSS or PDF-layout measurements must not be attributed to a new local run.
 
-When this directory is the repository root, `.github/workflows/scientific-checks.yml` runs these owned offline checks on Ubuntu 24.04 and uploads raw output even on failure. The supplied local Windows run in `results/current/` completes all five commands, with 61 passing tests and no skips; measured timing and platform details are recorded in `reproduction/run.json`. All 97 corpus records pass their consistency checks, and 19,683 ternary matrices plus 262,144 binary completions have no oracle disagreement. Generated count fragments describe this same retained corpus, not a new literature-search or source-reading pass.
+When this directory is the repository root, `.github/workflows/scientific-checks.yml` runs these owned offline checks on Ubuntu 24.04 and uploads raw output even on failure. The retained local Windows run in `results/current/` records the earlier 61-test suite; its timing and platform details remain historical. The current source suite has 69 tests; retained raw runs do not describe current execution. All 97 corpus records pass their consistency checks, and 19,683 ternary matrices plus 262,144 binary completions have no oracle disagreement. Generated count fragments describe this same retained corpus, not a new literature-search or source-reading pass.

@@ -3,11 +3,14 @@
 The repository contains original bibliographic metadata, brief source-grounded
 paraphrases and original audit software. Cited publications remain under their
 own licenses; none of their PDFs, code, data sets, malware or models is bundled.
-Stable scholarly identifiers and passage locators appear in data/records.csv
-and data/extractions.csv. Retrieval through the browser succeeded for these
-records, but direct scholarly PDF downloads into this runtime failed. Offline
-reproduction therefore covers the supplied ledger and algorithms, not source
-reacquisition or independent full-text recoding.
+The retained historical pilot records identifiers and locators in data/records.csv
+and data/extractions.csv; its original acquisition relied on browser retrieval
+after direct PDF downloads failed. The active 97-record map separately records
+consumed primary-fulltext URLs, actual page/section boundaries and content-check
+status in data/source_locations.csv and data/study_extractions.csv. Later private
+reading caches are outside this standalone artifact and are not licensed for
+redistribution by these notices. Offline reproduction checks ledgers and
+algorithms, not source reacquisition or independent interpretation.
 
 The paper directory uses the unmodified user-supplied ACM class and bibliography
 style. This standalone artifact also retains copies in manuscript_snapshot/;

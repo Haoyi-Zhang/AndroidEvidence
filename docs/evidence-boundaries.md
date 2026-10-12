@@ -24,9 +24,9 @@ These are claim ceilings, not a universal total order of detector quality. A mec
 
 ## Current evidence map
 
-The active map contains 97 works: 76 primary/empirical/system and 21 review/method records. It includes 97 claim-level extractions, 97 direct locators, 97 source-location rows, 97 retrospective provenance rows, 97 publication-status rows, a 21-row review adversary matrix, a 22-paper calibration matrix, and 26 same-process source rechecks. Reading depth is 61 full-or-selected-source and 36 publisher-abstract-or-selected-source.
+The active map contains 97 works: 76 primary/empirical/system and 21 review/method records. It includes 97 claim-level extractions, 97 direct locators, 97 source-location rows, 97 retrospective provenance rows, 97 publication-status rows, a 21-row review adversary matrix, a 22-entry historical calibration matrix, and 90 cumulative same-process recheck entries. Legacy depth labels are 61 full-or-selected-source and 36 publisher-abstract-or-selected-source. Eighty-seven works have current content checks (84 selected readings and three complete scoped readings); 10 remain legacy-not-reverified. The prior-review matrix has 96 unresolved cells and cannot establish a gap.
 
-These data support a bounded mechanism synthesis. They do not support an exhaustive census, PRISMA denominator, prevalence estimate, pooled accuracy estimate, independent coding claim, or worldwide novelty proof.
+The checked passages support a bounded mechanism analysis; populated legacy rows do not independently verify the full 97-record synthesis. They do not support an exhaustive census, PRISMA denominator, prevalence estimate, pooled accuracy estimate, independent coding claim, or worldwide novelty proof.
 
 ## Publication-status boundary
 

@@ -9,10 +9,16 @@ from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import resource_usage
 import reproduce
-from corpus_audit import nonindependent_status
+from corpus_audit import nonindependent_status, review_coverage_status, MATRIX_DIMS
 
 
 class ReproductionControls(unittest.TestCase):
+    def test_unknown_review_does_not_become_a_gap(self):
+        row = dict.fromkeys(MATRIX_DIMS, '?')
+        self.assertEqual('undetermined', review_coverage_status([row]))
+        self.assertEqual('covered', review_coverage_status([dict.fromkeys(MATRIX_DIMS, '1')]))
+        self.assertEqual('gap', review_coverage_status([dict.fromkeys(MATRIX_DIMS, '0')]))
+
     def test_runner_counts_completed_summary_not_interleaved_progress(self):
         stderr = 'test_control ... owned checker failed as expected\nok\nRan 55 tests in 1.0s\n\nOK\n'
         self.assertEqual(reproduce.completed_test_count(stderr), 55)

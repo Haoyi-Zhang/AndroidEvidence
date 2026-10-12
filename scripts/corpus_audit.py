@@ -32,6 +32,7 @@ SOURCE_LOCATION_REQUIRED = {
     "record_id", "bib_key", "title", "consumed_source_url", "representation",
     "locations", "reading_boundary", "publication_or_version_evidence",
     "access_date", "offline_full_text", "verification_route", "boundary_note",
+    "content_check_status", "fulltext_url", "content_check_date",
 }
 SEARCH_PROVENANCE_REQUIRED = {
     "record_id", "bib_key", "title", "discovery_route", "seed_or_slice",
@@ -144,6 +145,40 @@ def nonindependent_status(value):
     if tokens & {'independent', 'independent=true', 'independent_coding', 'dual_coding'}:
         return False
     return 'single_extractor' in tokens or any(t.endswith('not_independent') for t in tokens)
+
+
+def review_coverage_status(rows):
+    """Direct means all seven cells are 1; P is partial, ? is unresolved.
+
+    Empty observed witnesses do not imply a gap when an unresolved row could
+    become a witness. This is bookkeeping, not source-content validation.
+    """
+    values = [[r[d] for d in MATRIX_DIMS] for r in rows]
+    if any(v not in {'0', 'P', '1', '?'} for row in values for v in row):
+        raise ValueError('invalid review coverage cell')
+    lower = any(all(v == '1' for v in row) for row in values)
+    upper = any(all(v in {'1', '?'} for v in row) for row in values)
+    return 'covered' if lower else ('undetermined' if upper else 'gap')
+
+
+def specific_content_locator(locator):
+    """Accept numbered PDF pages or numbered primary-HTML sections, not access claims."""
+    if 'linked full text or selected' in locator:
+        return False
+    return bool(re.search(r'PDF pp?\.\s*\d|HTML Sections?\s+\d', locator))
+
+
+def content_check_counts(rows):
+    """Count scoped and selected readings without upgrading legacy depth labels."""
+    statuses = Counter(r.get('content_check_status') for r in rows)
+    selected = statuses['selected_fulltext_checked']
+    scoped = statuses['complete_scope_checked']
+    return {
+        'selected_fulltext_checked_records': selected,
+        'complete_scope_checked_records': scoped,
+        'content_checked_records': selected + scoped,
+        'legacy_not_reverified_records': statuses['legacy_not_reverified'],
+    }
 
 
 def main(out=None) -> int:
@@ -282,7 +317,10 @@ def main(out=None) -> int:
         if set(ledger_keys) != active_key_set or set(ledger_ids) != set(ids):
             errors.append(f"{label} ledger does not bind exactly to the retained corpus")
         for line_no, row in enumerate(ledger, 2):
-            missing = nonblank(row, required)
+            # Unknown content has no invented PDF URL or inspection date.
+            # The columns are required by the schema; values are conditional.
+            value_required = required - {'fulltext_url', 'content_check_date'} if label == 'source-location' else required
+            missing = nonblank(row, value_required)
             if missing:
                 errors.append(f"{label} line {line_no}: blank fields {missing}")
             c = corpus_by_key.get(row.get("bib_key", ""), {})
@@ -294,6 +332,19 @@ def main(out=None) -> int:
                 boundary = row.get("reading_boundary", "")
                 if "not necessarily cover-to-cover" not in boundary and "no full-text completeness claim" not in boundary:
                     errors.append(f"source-location line {line_no}: reading boundary is not explicit")
+                content_status = row.get('content_check_status')
+                if content_status not in {'legacy_not_reverified', 'selected_fulltext_checked', 'complete_scope_checked'}:
+                    errors.append(f'source-location line {line_no}: invalid content-check status')
+                if content_status != 'legacy_not_reverified':
+                    if not row.get('fulltext_url', '').startswith('https://'):
+                        errors.append(f'source-location line {line_no}: checked full-text URL missing')
+                    if not re.fullmatch(r'\d{4}-\d{2}-\d{2}', row.get('content_check_date', '')):
+                        errors.append(f'source-location line {line_no}: checked date missing')
+                    locator = row.get('locations', '')
+                    if not specific_content_locator(locator):
+                        errors.append(f'source-location line {line_no}: checked content has no specific page/section locator')
+                    if extraction_by_key.get(row['bib_key'], {}).get('verification_date') != row.get('content_check_date'):
+                        errors.append(f'source-location line {line_no}: extraction/check date mismatch')
             else:
                 if "not a complete database-search hit denominator" not in row.get("denominator_scope", ""):
                     errors.append(f"search-provenance line {line_no}: denominator boundary missing")
@@ -371,6 +422,7 @@ def main(out=None) -> int:
     if duplicates(review_keys) or set(review_keys) != secondary_keys:
         errors.append('review matrix does not bind one-to-one to secondary/method corpus')
     direct_all = []
+    location_by_key = {r['bib_key']: r for r in source_locations}
     for line_no, row in enumerate(reviews, 2):
         values = [row.get(d, "") for d in MATRIX_DIMS]
         if any(v not in {"0", "P", "1", "?"} for v in values):
@@ -381,6 +433,11 @@ def main(out=None) -> int:
             errors.append(f"review matrix line {line_no}: unknown bib key")
         elif row.get('record_id') != corpus_by_key[row['bib_key']]['record_id']:
             errors.append(f'review matrix line {line_no}: record/key mismatch')
+        source_status = location_by_key.get(row.get('bib_key'), {}).get('content_check_status')
+        if any(v in {'1', 'P'} for v in values) and source_status == 'legacy_not_reverified':
+            errors.append(f'review matrix line {line_no}: positive coverage lacks checked full-text basis')
+        if '0' in values and source_status != 'complete_scope_checked':
+            errors.append(f'review matrix line {line_no}: absence lacks complete scoped reading')
     if direct_all:
         errors.append(f"direct all-dimension prior(s) require repositioning: {direct_all}")
 
@@ -506,6 +563,11 @@ def main(out=None) -> int:
         "calibration_records": len(calibration),
         "calibration_groups": dict(sorted(Counter(r["group"] for r in calibration).items())),
         "direct_all_dimension_reviews": direct_all,
+        "review_direct_coverage_status": review_coverage_status(reviews) if all(
+            r.get(d) in {'0', 'P', '1', '?'} for r in reviews for d in MATRIX_DIMS
+        ) else 'invalid',
+        "review_unknown_cells": sum(r.get(d) == '?' for r in reviews for d in MATRIX_DIMS),
+        **content_check_counts(source_locations),
         "source_rechecks": len(rechecks),
         "source_recheck_fraction": len(rechecks) / len(extractions) if extractions else 0,
         "source_rechecks_independent": False,
@@ -534,6 +596,7 @@ def main(out=None) -> int:
             "The checks validate supplied ledgers, exact active/excluded key quarantine, record-level publication-status metadata, "
             "review/calibration obligations, recheck coverage, and minimum corpus obligations. They do not prove search exhaustiveness, "
             "a comprehensive retraction-registry search, independent source interpretation, detector performance, or worldwide novelty."
+            " A source URL, complete row, legacy reading-depth label or lack of an observed all-dimension row does not certify content or a gap."
         ),
     }
     results = Path(out) if out is not None else ROOT / "results"
@@ -557,6 +620,8 @@ def main(out=None) -> int:
         f"\\newcommand{{\\UniqueCitedWorks}}{{{len(corpus)}}}\n"
         f"\\newcommand{{\\FullSelectedWorks}}{{{depths['full_or_selected_source']}}}\n"
         f"\\newcommand{{\\AbstractSelectedWorks}}{{{depths['publisher_abstract_or_selected_source']}}}\n"
+        f"\\newcommand{{\\SourceCheckedWorks}}{{{summary['content_checked_records']}}}\n"
+        f"\\newcommand{{\\SourceUncheckedWorks}}{{{summary['legacy_not_reverified_records']}}}\n"
     )
     if not errors:
         (tex / "corpus_counts.tex").write_text(macros, encoding="utf-8")

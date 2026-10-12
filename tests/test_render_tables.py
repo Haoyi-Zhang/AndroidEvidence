@@ -16,11 +16,11 @@ import render_tables
 # Named independent fixture of the ten displayed key/cell vectors. This checks
 # formatting and selection only, not correctness of literature interpretation.
 DISPLAY = (
-    ("repack", "1 P 0 0 P 0 P"), ("tpl", "P 1 0 0 P 0 P"),
-    ("astra", "0 P 1 1 P 0 P"), ("properties", "0 P 1 1 P 0 P"),
-    ("wurepack2026", "1 P 0 0 P 0 P"), ("zengtpsurvey2024", "0 1 P P P 0 P"),
-    ("reichert2024", "0 P 1 P P 0 P"), ("williams2025", "0 P 1 P P P P"),
-    ("cyberrisk2026", "0 P P P P 0 P"), ("gokkaya2026", "0 P 1 P P 0 P"),
+    ("repack", "1 P ? ? P ? ?"), ("tpl", "P 1 ? ? P ? ?"),
+    ("astra", "? P 1 1 1 ? 1"), ("properties", "0 P 1 1 P 0 P"),
+    ("wurepack2026", "1 1 ? ? P ? P"), ("zengtpsurvey2024", "? 1 ? ? P ? ?"),
+    ("reichert2024", "? ? ? ? ? ? ?"), ("williams2025", "? 1 1 1 P 1 P"),
+    ("cyberrisk2026", "? P P P P ? ?"), ("gokkaya2026", "? ? ? ? ? ? ?"),
 )
 COLUMNS = ("android_repackaging", "component_version", "supply_chain_provenance",
            "authorization_policy", "behavioral_assurance", "ai_mediated_workflow",
