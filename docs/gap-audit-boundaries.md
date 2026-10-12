@@ -21,7 +21,3 @@ The 16-record direct/mosaic pilot is retained solely as a regression fixture. It
 ## Sensitivity and contradiction
 
 The artifact retains alternative filters for publication evidence and reading basis, counter-histories in every extraction, and explicit contradiction records where studies differ in object, oracle, candidate set, or transformation assumptions. These checks bound interpretation; they do not create a statistical confidence interval for literature completeness.
-
-## External-use limitation
-
-Before external use, accountable authors must recheck the highest-load-bearing sources, current publication statuses, live venue rules, authorship and AI-use declarations, and originality. Internal self-audit is not independent peer review.
