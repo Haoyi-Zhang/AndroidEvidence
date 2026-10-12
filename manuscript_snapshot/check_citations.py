@@ -1,13 +1,15 @@
 """Check that the manuscript cites a large, internally consistent bibliography."""
 from pathlib import Path
 import re,json,sys
+from build import source_binding
 ROOT=Path(__file__).resolve().parent
 bib=(ROOT/'references.bib').read_text(encoding='utf-8')
 keys=re.findall(r'^@\w+\{([^,]+),',bib,re.M)
 duplicates=sorted({k for k in keys if keys.count(k)>1})
 tex_parts=[]
-for p in [ROOT/'main.tex',*sorted((ROOT/'sections').glob('*.tex'))]:
-    tex_parts.append(p.read_text(encoding='utf-8'))
+for name in source_binding(ROOT):
+    if name.endswith('.tex'):
+        tex_parts.append((ROOT/name).read_text(encoding='utf-8'))
 tex='\n'.join(tex_parts)
 cited=[]
 for m in re.finditer(r'\\cite[a-zA-Z*]*\s*\{([^}]+)\}',tex):

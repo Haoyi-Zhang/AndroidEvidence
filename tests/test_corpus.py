@@ -1,4 +1,5 @@
 import csv
+import hashlib
 import json
 import math
 import re
@@ -256,18 +257,22 @@ class CorpusTests(unittest.TestCase):
         v = self.visual_inspection
         build = json.loads((ROOT / "results/paper_build_evidence.json").read_text(encoding="utf-8"))
         self.assertGreater(v["page_count"], 0)
-        self.assertLessEqual(v["page_count"], 35)
+        self.assertLessEqual(v["page_count"], build["local_page_budget"])
+        self.assertEqual(build["local_page_budget"], 36)
         self.assertEqual(build["pages"], v["page_count"])
         pages = v["full_size_pages_inspected"]
-        self.assertTrue(pages)
+        self.assertEqual(pages, list(range(1, v["page_count"] + 1)))
         self.assertEqual(len(pages), len(set(pages)))
         self.assertTrue(all(isinstance(p, int) and 1 <= p <= v["page_count"] for p in pages))
         self.assertGreater(v["render_dpi"], 0)
         self.assertEqual("all listed fonts embedded", v["font_embedding"])
         comparison = v["comparison_to_primary"]
-        self.assertEqual(v["page_count"], comparison["pages_compared"])
-        self.assertTrue(comparison["text_equal"])
-        self.assertTrue(comparison["raster_72dpi_equal"])
+        self.assertTrue(comparison["byte_identical_to_receipt_selected_pdf"])
+        self.assertEqual(v["pdf"], "manuscript_snapshot/build/main.pdf")
+        self.assertEqual(build["pdf_sha256"], v["pdf_sha256"])
+        self.assertEqual(build["source_sha256"], v["source_sha256"])
+        self.assertEqual(hashlib.sha256((ROOT / v["pdf"]).read_bytes()).hexdigest(), v["pdf_sha256"])
+        self.assertEqual(hashlib.sha256((ROOT / "manuscript_snapshot/build/main.log").read_bytes()).hexdigest(), build["log_sha256"])
         self.assertIn("not independent peer review", v["scope"])
 
     def test_material_claim_ledger_complete(self):

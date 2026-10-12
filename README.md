@@ -67,6 +67,17 @@ A passing run does not prove exhaustive search, a PRISMA denominator, a comprehe
 - `results/clean-reproduction.json`
 - `results/tex/*.tex`
 
-The retained raw results, build evidence, PDFs and visual-inspection files describe earlier runs, not the current source state. Only `results/tex/corpus_counts.tex` and `results/tex/review_matrix_rows.tex` have been refreshed from the current audited ledgers for manuscript import; refreshing fragments does not refresh a PDF or its measurements. A new `--out` run produces its own summaries, raw command logs and `tex/` fragments. Regenerate and import those fragments before rebuilding the paper; historical CPU/RSS or PDF-layout measurements must not be attributed to a new local run.
+The retained corpus, coverage, oracle and execution/resource results under `results/` describe earlier research runs, not a new run. The manuscript-only `paper_build_evidence.json`, `manuscript_bibliography_audit.json` and `visual-inspection.json` instead bind the current receipt-selected PDF, actual final engine log, current source and supplied existing 36-page inspection; no engine invocation, new visual review or source-reading pass is asserted. Their older process fixtures are preserved privately. Only `results/tex/corpus_counts.tex` and `results/tex/review_matrix_rows.tex` have been refreshed from the current audited ledgers for manuscript import. A new `--out` run produces its own summaries, raw command logs and `tex/` fragments; historical CPU/RSS must not be attributed to that new run.
+
+`manuscript_snapshot/` contains the synchronized active source for the current
+36-page manuscript, with the same 36-page internal budget and a single
+`build/main.pdf` output per build. In the complete packet the canonical delivery
+is `paper/build/main.pdf`; current page/source bindings are in
+`manifests/PAGE-COUNT.json`, `manuscript_snapshot/build-evidence.json` and
+`manuscript_snapshot/visual-inspection.json`. The delivered snapshot PDF and actual final engine log
+are byte-identical current mirrors for artifact-only use. Its current metadata
+is in `manuscript_snapshot/` and `results/`; the older manuscript-only PDF/logs
+are privately archived. See `manuscript_snapshot/README.md`. This packaging
+alignment neither upgrades source-reading coverage nor certifies CSUR policy.
 
 When this directory is the repository root, `.github/workflows/scientific-checks.yml` runs these owned offline checks on Ubuntu 24.04 and uploads raw output even on failure. The retained local Windows run in `results/current/` records the earlier 61-test suite; its timing and platform details remain historical. The current source suite has 69 tests; retained raw runs do not describe current execution. All 97 corpus records pass their consistency checks, and 19,683 ternary matrices plus 262,144 binary completions have no oracle disagreement. Generated count fragments describe this same retained corpus, not a new literature-search or source-reading pass.

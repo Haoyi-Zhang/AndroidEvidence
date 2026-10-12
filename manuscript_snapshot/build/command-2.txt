@@ -1,4 +1,0 @@
-This is BibTeX, Version 0.99d (TeX Live 2024)
-The top-level auxiliary file: build/main.aux
-The style file: ACM-Reference-Format.bst
-Database file #1: references.bib

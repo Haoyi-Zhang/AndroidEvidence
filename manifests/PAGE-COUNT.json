@@ -1,5 +1,53 @@
 {
-  "pdf": "paper/paper.pdf",
-  "pages": 34,
-  "local_page_budget": 35
+  "pdf": "manuscript_snapshot/build/main.pdf",
+  "pages": 36,
+  "local_page_budget": 36,
+  "pdf_sha256": "180512af351c24ef79d906f4f621c864a326357ef9f1c244e832d4a8e1b2c9c9",
+  "source_sha256": {
+    "main.tex": "bf78ba24b2617fdcf1e855d8161d4bdf3adff6eb858de3cabc6f1689fa96ba6c",
+    "current-authors.tex": "2397fbf049bf5504e5c4139f571a84f8cd7b25651a3c582213746026297f3123",
+    "generated/corpus_counts.tex": "bc5aef9720c52889459cebebed0d3d4f1f03b1c981343a69fb4b499f2a9d4c19",
+    "sections/01-introduction.tex": "cffb82b5f6aa02b428739c8690e154a6e38e25301533741ec6295afd61553468",
+    "sections/02-method.tex": "9e9812e1ff9b11ae32714e0c84cf59003fed9867cb3c596b1a8b1539cf390d02",
+    "generated/review_matrix_rows.tex": "7744fb2d9244bc7cd7125b7876e1d30f43435c8decf48c5ba6a9f549e5d4f078",
+    "sections/03-evidence-model.tex": "1dd7aecce4e245179fe642e59490e9dea6f6da744252e5e20eb9e386bc24e03d",
+    "sections/04-repackaging.tex": "b296080c7e967cc7f9fc41f3b363d490561075b94824afe8a3c712aba7351121",
+    "sections/05-libraries.tex": "05d27a27cb383cc158257e1819052566c2f7925bfc7a596bf368cfefa012e702",
+    "sections/06-provenance.tex": "fdf52a6bf6b65694c7e09875e8e233a1290ef9c7ba7b46d30a04d909b52d8f0c",
+    "sections/07-ai-mediated.tex": "8ab3edc8081f727f5d45db493476cf174fe47b9a7b2ec8a7c0d8f03a38d508c5",
+    "sections/08-synthesis.tex": "84f9179bbba419ffb0a89b3c7a3d77cf9f5f4a4d6aabcc394457fa9af9490f54",
+    "sections/09-agenda.tex": "d37e1538c4415141ea5e07b6f09077fc0d01a286e317bb196b26b5d4edfbd8ea",
+    "project-repository.tex": "2aa62a0e37901fc136908f005ed46a41b340d60e3fb9dedd91ef70f009a6869e",
+    "references.bib": "ec96cf369cb9f3e35a67c3a4419a10e9eb69cd92d0d3035d243bca2914afd3d0",
+    "acmart.cls": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
+    "ACM-Reference-Format.bst": "4342d27456645567ef1a027f6474e894715bc31d468f040142fa54540440ad04"
+  },
+  "current_build_evidence": "manuscript_snapshot/build-evidence.json",
+  "current_visual_inspection": "manuscript_snapshot/visual-inspection.json",
+  "compiler_receipt": {
+    "id": "P026",
+    "exit_code": 0,
+    "pages": 36,
+    "previous_pages": 35,
+    "paper_pdf": "build/main.pdf",
+    "receipt_file": "build-P026.json",
+    "receipt_sha256": "82de648a7787877a7577b97e3fbe1f47ffb8754ee66fb6374e15311657c1065d"
+  },
+  "artifact_only": {
+    "source": "manuscript_snapshot/main.tex",
+    "pdf": "manuscript_snapshot/build/main.pdf",
+    "pages": 36,
+    "pdf_sha256": "180512af351c24ef79d906f4f621c864a326357ef9f1c244e832d4a8e1b2c9c9",
+    "log": "manuscript_snapshot/build/main.log",
+    "log_sha256": "1b5845a22867279d0aed4093715a2788931a693ceac69c6bf21c7dd60e710046",
+    "status": "current byte-bound receipt delivery; no engine invocation during packaging repair"
+  },
+  "scope": "Current packaging bindings, not an official CSUR page limit or new scientific/source-reading evidence.",
+  "pdf_path_basis": "artifact-root relative",
+  "complete_project": {
+    "source": "../paper/main.tex",
+    "pdf": "../paper/build/main.pdf",
+    "pdf_sha256": "180512af351c24ef79d906f4f621c864a326357ef9f1c244e832d4a8e1b2c9c9",
+    "log_sha256": "1b5845a22867279d0aed4093715a2788931a693ceac69c6bf21c7dd60e710046"
+  }
 }

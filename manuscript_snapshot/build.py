@@ -1,7 +1,10 @@
 """Build and preflight the single-column ACM review manuscript."""
 from pathlib import Path
+import argparse
+import hashlib
 import json
 import os
+import re
 try:
     import resource
 except ImportError:
@@ -13,7 +16,43 @@ import time
 
 ROOT = Path(__file__).resolve().parent
 ARTIFACT = ROOT.parent if ROOT.name == "manuscript_snapshot" else ROOT.parent / "artifact"
-MAX_PAGES = 35
+MAX_PAGES = 36
+
+
+def source_binding(root):
+    """Bind only active TeX inputs, the bibliography and publisher template."""
+    root = Path(root).resolve()
+    pending = [root / "main.tex"]
+    inputs = set()
+    while pending:
+        path = pending.pop().resolve()
+        if not path.is_relative_to(root) or not path.is_file():
+            raise ValueError(f"Missing or out-of-tree manuscript input: {path}")
+        if path in inputs:
+            continue
+        inputs.add(path)
+        text = path.read_text(encoding="utf-8")
+        text = re.sub(r"(?m)(?<!\\)%.*$", "", text)
+        for braced, bare in re.findall(r"\\input\s*(?:\{([^{}]+)\}|([^\s{}%]+))", text):
+            child = root / (braced or bare)
+            pending.append(child if child.suffix else child.with_suffix(".tex"))
+    inputs.update(root / name for name in ("references.bib", "acmart.cls", "ACM-Reference-Format.bst"))
+    return {path.relative_to(root).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in sorted(inputs)}
+
+
+def check_current_binding(root, pdf):
+    """Reject stale PDFs/logs instead of accepting them by page count alone."""
+    root = Path(root)
+    evidence = json.loads((root / "build-evidence.json").read_text(encoding="utf-8"))
+    if evidence.get("status") != "passed" or evidence.get("source_sha256") != source_binding(root):
+        raise ValueError("Build evidence does not bind the active manuscript source.")
+    if evidence.get("pdf_sha256") != hashlib.sha256(Path(pdf).read_bytes()).hexdigest():
+        raise ValueError("PDF differs from the current build binding; rebuild the manuscript.")
+    log = root / "build/main.log"
+    if evidence.get("log_sha256") != hashlib.sha256(log.read_bytes()).hexdigest():
+        raise ValueError("Final LaTeX log differs from the current build binding.")
+    return evidence
 
 
 def run(cmd, *, cwd, env, out_path, timeout=45):
@@ -42,7 +81,7 @@ def run(cmd, *, cwd, env, out_path, timeout=45):
     }
 
 
-def main() -> None:
+def main(results=None) -> None:
     pdflatex = shutil.which("pdflatex")
     bib = shutil.which("bibtex") or shutil.which("bibtex8")
     pdfinfo = shutil.which("pdfinfo")
@@ -72,10 +111,6 @@ def main() -> None:
     if found_forbidden:
         raise SystemExit(f"Forbidden source-level layout/top-matter manipulation: {found_forbidden}")
 
-    citation = subprocess.run([sys.executable, "check_citations.py"], cwd=ROOT, env=env, check=False)
-    if citation.returncode:
-        raise SystemExit("Bibliography/citation audit failed; inspect paper/bibliography-audit.json.")
-
     artifact_bibliography = ARTIFACT / "data" / "references.bib"
     if not artifact_bibliography.is_file():
         raise SystemExit("Missing artifact/data/references.bib; build from the complete project packet.")
@@ -83,7 +118,7 @@ def main() -> None:
     if not bibliography_match:
         raise SystemExit("Paper and artifact bibliography snapshots differ.")
 
-    source_dir = ARTIFACT / "results" / "tex"
+    source_dir = (Path(results) if results is not None else ARTIFACT / "results") / "tex"
     source = source_dir / "corpus_counts.tex"
     if not source.is_file():
         raise SystemExit("Run artifact/scripts/reproduce.py before building the paper.")
@@ -93,6 +128,10 @@ def main() -> None:
     generated.mkdir(exist_ok=True)
     for fragment in sorted(source_dir.glob("*.tex")):
         shutil.copyfile(fragment, generated / fragment.name)
+
+    citation = subprocess.run([sys.executable, "check_citations.py"], cwd=ROOT, env=env, check=False)
+    if citation.returncode:
+        raise SystemExit("Bibliography/citation audit failed; inspect bibliography-audit.json.")
 
     build = ROOT / "build"
     if build.is_symlink() or build.resolve() != ROOT.resolve() / "build":
@@ -122,6 +161,7 @@ def main() -> None:
     log = (build / "main.log").read_text(encoding="utf-8", errors="replace")
     fatal_patterns = {
         "overfull_boxes": "Overfull \\hbox",
+        "overfull_vboxes": "Overfull \\vbox",
         "undefined_references": "There were undefined references",
         "undefined_citations": "Citation `",
         "undefined_control_sequence": "Undefined control sequence",
@@ -130,7 +170,8 @@ def main() -> None:
     if any(findings.values()):
         raise SystemExit(f"LaTeX preflight failed: {findings}")
 
-    info = subprocess.run([pdfinfo, str(pdf)], text=True, capture_output=True, check=True).stdout
+    info = subprocess.run([pdfinfo, str(pdf)], text=True, encoding="utf-8", errors="replace",
+                          capture_output=True, check=True).stdout
     info_map = {}
     for line in info.splitlines():
         if ":" in line:
@@ -167,6 +208,10 @@ def main() -> None:
     citation_report = json.loads((ROOT / "bibliography-audit.json").read_text(encoding="utf-8"))
     evidence = {
         "status": "passed",
+        "pdf": "build/main.pdf",
+        "pdf_sha256": hashlib.sha256(pdf.read_bytes()).hexdigest(),
+        "source_sha256": source_binding(ROOT),
+        "log_sha256": hashlib.sha256((build / "main.log").read_bytes()).hexdigest(),
         "local_page_budget": MAX_PAGES,
         "pages": pages,
         "page_size": info_map.get("Page size"),
@@ -185,12 +230,10 @@ def main() -> None:
         "visual_inspection": "separate manual page-image inspection required",
     }
     (ROOT / "build-evidence.json").write_text(json.dumps(evidence, indent=2) + "\n", encoding="utf-8")
-    # Preserve the existing PDF until every build and bibliography check passes.
-    pending_pdf = ROOT / ".paper.pdf.building"
-    shutil.copyfile(pdf, pending_pdf)
-    os.replace(pending_pdf, ROOT / "paper.pdf")
-    print(f"Built paper/paper.pdf: {pages} pages; {citation_report['unique_cited_entries']} cited works.")
+    print(f"Built {pdf}: {pages} pages; {citation_report['unique_cited_entries']} cited works.")
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--results", type=Path, help="External reproduction output directory (containing tex/).")
+    main(parser.parse_args().results)

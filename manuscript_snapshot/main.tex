@@ -10,8 +10,8 @@
 \renewcommand{\arraystretch}{1.12}
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
-\newcommand{\claimlevel}[1]{\textsf{L#1}}
-\newcommand{\evidence}[1]{\textsf{E#1}}
+\newcommand{\claimlevel}[1]{\textnormal{L#1}}
+\newcommand{\evidence}[1]{\textnormal{E#1}}
 \title[Claim-Bounded Android Lineage Evidence]{From Resemblance to Authority: Claim-Bounded Evidence for Android Software Lineage in AI-Mediated Supply Chains}
 \settopmatter{authorsperrow=4}
 \input{current-authors.tex}
@@ -26,10 +26,11 @@
   \newcommand{\CorpusWorks}{97}\newcommand{\UniqueCitedWorks}{97}%
   \newcommand{\VenueRecordedWorks}{93}\newcommand{\PrimaryWorks}{76}%
   \newcommand{\PrimaryVenueWorks}{74}\newcommand{\SecondaryWorks}{21}\newcommand{\ReviewMatrixWorks}{21}%
-  \newcommand{\SourceRechecks}{26}\newcommand{\SourceRecheckPercent}{26.8}\newcommand{\FullSelectedWorks}{61}%
+  \newcommand{\SourceRechecks}{90}\newcommand{\SourceRecheckPercent}{92.8}\newcommand{\FullSelectedWorks}{61}%
   \newcommand{\AbstractSelectedWorks}{36}\newcommand{\AndroidWorks}{34}%
   \newcommand{\TPLWorks}{17}\newcommand{\SupplyWorks}{17}%
-  \newcommand{\AIWorks}{8}}
+  \newcommand{\AIWorks}{8}%
+  \newcommand{\SourceCheckedWorks}{87}\newcommand{\SourceUncheckedWorks}{10}}
 \usepackage{xurl}
 \setcopyright{none}
 \settopmatter{printacmref=false}
@@ -37,7 +38,7 @@
 \renewcommand{\footnotetextcopyrightpermission}[1]{}
 \begin{document}
 \begin{abstract}
-Android lineage questions are often phrased as one detection problem even though byte identity, component presence, resemblance, derivation, build provenance, release authorization, and behavioral assurance are different propositions. Existing surveys separately cover Android repackaging, third-party libraries, software-supply-chain security, and software bills of materials; this review therefore does not claim an uncovered detector literature. Instead, it asks which observation licenses which claim, under what transformation and trust assumptions, and which bindings are required when evidence is composed across layers. We code \CorpusWorks{} scholarly works, including \PrimaryWorks{} primary, empirical, or system studies, and adversarially compare \ReviewMatrixWorks{} review or method records across seven coverage dimensions. Every retained work has a claim-level extraction with an explicit counter-history and inference limit; \SourceRechecks{} load-bearing assignments have dated source-grounded recheck records within the same authoring process. The synthesis introduces a seven-level ladder spanning identity, composition, resemblance, derivation, process provenance, authorization, and behavioral assurance. It shows that most repackaging and component mechanisms establish resemblance or composition; derivation direction normally requires temporal, ownership, source, or authenticated process evidence. Signing, transparency, and provenance can bind principals, steps, and artifacts, but do not establish semantic equivalence or benign behavior. AI-mediated development adds sibling generations, synthesized dependencies, hidden retrieval and tool context, and model drift, making source-to-APK binding more important rather than making artifact analysis obsolete. We derive a cross-layer assurance pattern that binds transformation-aware comparison, component/version evidence, authenticated step records, release policy, and behavior-specific analysis to the same digest or documented predecessor relation. The contribution is a bounded structured evidence synthesis and evaluation blueprint, not a universal detector ranking, pooled meta-analysis, or proof of worldwide novelty.
+Android lineage questions are often phrased as one detection problem even though byte identity, component presence, resemblance, derivation, build provenance, release authorization, and behavioral assurance are different propositions. Existing surveys separately cover Android repackaging, third-party libraries, software-supply-chain security, and software bills of materials; this review therefore does not claim an uncovered detector literature. Instead, it asks which observation licenses which claim, under what transformation and trust assumptions, and which bindings are required when evidence is composed across layers. The retained map contains \CorpusWorks{} scholarly records, including \PrimaryWorks{} primary, empirical, or system studies. Selected or scoped full-text readings of \SourceCheckedWorks{} works support source-specific extractions; \SourceUncheckedWorks{} records retain legacy coding that is not content-verified by record structure or DOI identity. Coverage of \ReviewMatrixWorks{} review or method records across seven dimensions remains incomplete, so the matrix does not establish a literature gap. The synthesis organizes these distinctions in a seven-level ladder spanning identity, composition, resemblance, derivation, process provenance, authorization, and behavioral assurance. It separates resemblance and composition from directional history; a common predecessor can remain compatible with similarity and chronology. Signing, transparency, and provenance can bind principals, steps, and artifacts, but do not establish semantic equivalence or benign behavior. AI-mediated development motivates counter-histories involving sibling generations, synthesized dependencies, hidden context and model drift; these require explicit accepted-output and source-to-APK bindings. We propose a cross-layer assurance pattern that binds transformation-aware comparison, component/version evidence, authenticated step records, release policy, and behavior-specific analysis to the same digest or documented predecessor relation. The contribution is a claim-centered organizing framework and evaluation blueprint, not a detector ranking or empirical validation of the combined architecture.
 \end{abstract}
 \keywords{Android, software lineage, application repackaging, software supply chain, provenance, third-party libraries, code generation, evidence validity}
 \maketitle

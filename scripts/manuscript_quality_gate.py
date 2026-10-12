@@ -1,9 +1,17 @@
 from pathlib import Path
-import re,json,subprocess,sys
-ART=Path(__file__).resolve().parents[1]; ROOT=ART.parent; PAPER=ROOT/'paper'; MAN=ART/'manifests'
+import argparse,re,json,subprocess,sys,runpy
+ART=Path(__file__).resolve().parents[1]; MAN=ART/'manifests'
+parser=argparse.ArgumentParser(description='Check the current manuscript PDF/source/log without compiling or rerunning scientific experiments.')
+parser.add_argument('--snapshot',action='store_true',help='Select the artifact-only manuscript even when a sibling paper exists.')
+parser.add_argument('--out',type=Path,default=MAN/'MANUSCRIPT-QUALITY.json',help='Quality JSON output path.')
+args=parser.parse_args()
+FULL=(ART.parent/'paper').is_dir() and not args.snapshot
+ROOT=ART.parent if FULL else ART
+PAPER=ART.parent/'paper' if FULL else ART/'manuscript_snapshot'
 if not PAPER.is_dir():
- raise SystemExit('Full-project input required: the manuscript gate needs the sibling paper tree and compiled PDF/log. Run scripts/reproduce.py for standalone evidence checks.')
+ raise SystemExit('Current manuscript source and compiled PDF/log are required in paper/ or manuscript_snapshot/.')
 main=PAPER/'main.tex'
+build_config=runpy.run_path(str(PAPER/'build.py'))
 assert main.is_file(), 'paper/main.tex is missing'
 tex=main.read_text(encoding='utf-8',errors='ignore')
 sources=[]; pending=[main]; visited=set()
@@ -14,7 +22,8 @@ while pending:
  visited.add(p)
  content=p.read_text(encoding='utf-8')
  sources.append(content)
- for name in re.findall(r'\\input\{([^{}]+)\}',content):
+ for braced,bare in re.findall(r'\\input\s*(?:\{([^{}]+)\}|([^\s{}%]+))',content):
+  name=braced or bare
   path=PAPER/name
   if not path.suffix:path=path.with_suffix('.tex')
   assert path.is_file(), f'Missing TeX input: {name}'
@@ -62,22 +71,25 @@ for env in ('figure','figure*','table','table*'):
   if '\\caption' not in b or '\\label' not in b:float_issues.append(env)
 assert not float_issues,float_issues
 # Build log checks.
-logs=sorted(PAPER.rglob('*.log'),key=lambda p:p.stat().st_mtime,reverse=True)
-assert logs,'no LaTeX log'
-log=logs[0].read_text(encoding='utf-8',errors='ignore')
+logpath=PAPER/'build/main.log'
+assert logpath.is_file(),'no final LaTeX log'
+log=logpath.read_text(encoding='utf-8',errors='ignore')
 for bad in ['Undefined control sequence','There were undefined references','Citation `','multiply defined','Overfull \\hbox','Overfull \\vbox']:
  assert bad not in log,bad
 # PDF page count.
 pdf=PAPER/'build'/'main.pdf'
-if not pdf.is_file():pdf=PAPER/'paper.pdf'
 assert pdf.is_file(), 'Compiled main PDF is missing'
+evidence=build_config['check_current_binding'](PAPER,pdf)
 try:
  import fitz
  with fitz.open(pdf) as document:n=document.page_count
 except Exception:
- o=subprocess.check_output(['pdfinfo',str(pdf)],text=True);n=int(re.search(r'^Pages:\s+(\d+)',o,re.M).group(1))
-budget=35
+ o=subprocess.check_output(['pdfinfo',str(pdf)],text=True,encoding='utf-8',errors='replace');n=int(re.search(r'^Pages:\s+(\d+)',o,re.M).group(1))
+budget=build_config['MAX_PAGES']
 assert 0<n<=budget,f'Local manuscript budget is at most {budget} pages; the PDF has {n}.'
-out={'status':'PASS','main_tex':str(main.relative_to(ROOT)),'abstract_words':len(abstract_words),'sections':len(sections),'subsections':len(subsections),'labels':len(labels),'references_to_labels':len(refs),'pages':n,'local_page_budget':budget,'scope':'Structural and rhetorical gate; not a substitute for independent copyediting or peer judgment.'}
-(MAN/'MANUSCRIPT-QUALITY.json').write_text(json.dumps(out,indent=2),encoding='utf-8')
+assert evidence['pages']==n,'Build-evidence page count differs from the PDF'
+out={'status':'PASS','main_tex':main.relative_to(ROOT).as_posix(),'abstract_words':len(abstract_words),'sections':len(sections),'subsections':len(subsections),'labels':len(labels),'references_to_labels':len(refs),'pages':n,'local_page_budget':budget,'scope':'Structural and rhetorical gate; not a substitute for independent copyediting or peer judgment.'}
+out.update(pdf=pdf.relative_to(ROOT).as_posix(),pdf_sha256=evidence['pdf_sha256'],source_sha256=evidence['source_sha256'],log_sha256=evidence['log_sha256'],manuscript_mode='sibling-paper' if FULL else 'artifact-only-snapshot')
+args.out.parent.mkdir(parents=True,exist_ok=True)
+args.out.write_text(json.dumps(out,indent=2),encoding='utf-8')
 print('MANUSCRIPT QUALITY GATE: PASS');print(json.dumps(out,sort_keys=True))
