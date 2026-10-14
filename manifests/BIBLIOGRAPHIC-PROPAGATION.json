@@ -24,5 +24,5 @@
   "bibliography_sha256": "b6067323d7ae368a4a5df86f1644ee74d782cdbeed97dfe477f1d7f33fbb3a0c",
   "verification_basis": "Direct publisher-deposited Crossref records; user also verified the Ohm/Stuke institutional publication list.",
   "body_read_statuses_changed": false,
-  "scope": "Verified author metadata only; all ten legacy_not_reverified source/version statuses remain unchanged."
+  "scope": "Historical author-metadata propagation only; those corrections did not change source/version body-reading status. Current reading state is recorded in source_locations.csv and semantic_readings.csv."
 }

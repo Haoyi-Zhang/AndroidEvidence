@@ -24,11 +24,20 @@ class SemanticReadingBindings(unittest.TestCase):
     def check(self, rows=None):
         return semantic_reading_summary(self.rows if rows is None else rows, self.extractions, self.sources)
 
-    def test_declared_subset_is_not_all_acquired_sources(self):
+    def test_current_assessments_cover_acquired_not_all_corpus_sources(self):
         result = self.check()
         self.assertEqual(result['declared_complete_seven_field_codings'], len(self.rows))
         self.assertEqual(result['acquired_records_without_complete_coding'], len(self.sources) - len(self.rows))
-        self.assertGreater(result['acquired_records_without_complete_coding'], 0)
+        self.assertEqual(result['acquired_records_without_complete_coding'], 0)
+        self.assertLess(len(self.rows), len(self.extractions))
+        self.assertIs(result['semantic_interpretation_verified_by_code'], False)
+        self.assertIs(result['independent_second_coder'], False)
+
+    def test_partial_assessments_remain_partial_without_promotion(self):
+        partial = self.rows[:-1]
+        result = self.check(partial)
+        self.assertEqual(result['declared_complete_seven_field_codings'], len(partial))
+        self.assertEqual(result['acquired_records_without_complete_coding'], 1)
         self.assertIs(result['semantic_interpretation_verified_by_code'], False)
         self.assertIs(result['independent_second_coder'], False)
 

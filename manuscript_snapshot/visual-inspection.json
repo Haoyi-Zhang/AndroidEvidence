@@ -4,27 +4,27 @@
   "pdf_path_basis": "manuscript-directory relative",
   "page_count": 38,
   "local_page_budget": 39,
-  "pdf_sha256": "7be20f73de1a62accee831b7cc646764df2d929abd2a94b9c9bb3f86a94d7013",
+  "pdf_sha256": "2fe9d79be05ca77b61bf5263cd7c87a48e8fa83e2e4fd3eaef665483c7d81d6c",
   "source_sha256": {
     "ACM-Reference-Format.bst": "4342d27456645567ef1a027f6474e894715bc31d468f040142fa54540440ad04",
     "acmart.cls": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
     "current-authors.tex": "2397fbf049bf5504e5c4139f571a84f8cd7b25651a3c582213746026297f3123",
-    "generated/corpus_counts.tex": "595d107dcc7318e9ecc280cba0f9b2fb13043406041fc40dbfdb0d6cd97c47ff",
-    "generated/review_matrix_rows.tex": "b3eedff8dcf143a0674008e5338a3c83b466883e3f13209a9cdd8e44bf5597a8",
+    "generated/corpus_counts.tex": "62467009d3afa850dbfc47fa71a774f457c3715da9e48ca85694af94c1a790e0",
+    "generated/review_matrix_rows.tex": "57402ac8dd7933ab594357f0abb3874b8f751bf570bde7652f9de616b00b6ec9",
     "main.tex": "fb9528f1e46af75c0e12b23d9ab8709f6ce69566836b652c6d2f9d10259cee0b",
     "project-repository.tex": "2aa62a0e37901fc136908f005ed46a41b340d60e3fb9dedd91ef70f009a6869e",
     "references.bib": "b6067323d7ae368a4a5df86f1644ee74d782cdbeed97dfe477f1d7f33fbb3a0c",
-    "sections/01-introduction.tex": "5075f5c582df39c3176a8b2f98fe8df31e5e0f4f9f225f64a053cd558a2dbd8c",
-    "sections/02-method.tex": "38a07cac4a8da56bf7ea33fa3803c27fb28a8109de219b939987bae60c04ee6d",
+    "sections/01-introduction.tex": "d0d2ddae58a08cb050d748f1a5cfb60647574c21e190d35efdc2a713c2127f04",
+    "sections/02-method.tex": "fd83ac2930aff56ebd25a68bfa13a1c077bba08626fef640a2b925f94c93ad22",
     "sections/03-evidence-model.tex": "d316e7b4cc518a6ef545c07f3745dcdf743f4f621b5498ae38502363acbae278",
-    "sections/04-repackaging.tex": "26db6f80846b5a2935f3b80d840806aaf80f2d1d8d57fb0b0c17627b8503cec2",
-    "sections/05-libraries.tex": "af05e955e59b578d18a8f107236a9522fc30c49b29eaebfb42884ddd04381708",
-    "sections/06-provenance.tex": "00fe9b06f7a8ac2ad4e00d5a905caaa6b22c70aca9b9c5ea5cbaa23ec8bea801",
+    "sections/04-repackaging.tex": "4a30056020d48392ad7967a725adced97302747209b741779cca223131497ba5",
+    "sections/05-libraries.tex": "340dff1a6b6429d70749beb22d2b702e9dfc32910f79d68014f620f711b41041",
+    "sections/06-provenance.tex": "f1ba8f617f28d11c4304bcd670cbff84821feb2603e6bfe2ed11f675fdecee94",
     "sections/07-ai-mediated.tex": "f79c23164f7def666bdd8cb5b3ded06697b8465494950f344ca8a6f84f3a0d1c",
-    "sections/08-synthesis.tex": "6534aa18b022931d6e78f6d98c4648481b331432152c4208fff5b00195cbccf7",
+    "sections/08-synthesis.tex": "f5fbded9d2699ee84cb293d7b2689bed0d90684b2243d735ee3050e026a45161",
     "sections/09-agenda.tex": "1c2e6bff0863be4a4237791bb50153cf48d59c5e24ecda1478bb7ce5f4ea8b5c"
   },
-  "log_sha256": "1bb5e3f9a984e66c0948b59570baba74ea766dddafa61dceff70f9933f407c1d",
+  "log_sha256": "666a8c9e517b9430bd425f8c406db70b61dcdb3d5ed48cbc07a1b35b663c308e",
   "full_size_pages_inspected": [
     1,
     2,
@@ -108,30 +108,24 @@
   "pending_parent_all_page_inspection": false,
   "render_dpi": 180,
   "font_embedding": "all listed fonts embedded",
-  "font_embedding_basis": "pdffonts on the exact staged PDF lists embedded Type 1 fonts; no Type 3 or Nimbus Sans L Regular.",
-  "inspection_basis": "Branch main directly viewed exact new 180-dpi pages 1,5,6,7. Other 34 pages are pixel-identical to the previously fully viewed 38-page build; their visual scope is carried forward, not a new all-source reading.",
+  "font_embedding_basis": "pdffonts on the exact staged PDF lists embedded Type1 fonts; no Type3 or Nimbus Sans L Regular.",
+  "inspection_basis": "Branch main directly viewed pages4,6-13; reader-b pages14-20; reader-c pages21-38. Pages1,2,3,5 are exact pixel-identical carries from previously fully covered builds. Scientific source reading and visual review remain separate.",
   "layout_findings": [
-    "No visible clipping, missing glyphs, table overflow, or disproportionate table fonts in the inspected pages.",
-    "All ten table captions occupy one or two lines and their cells are readable.",
-    "The final body and References heading share page 34; the last citation [97] ends on page 38 without an orphan page."
+    "No blocking clipping, overlap, missing glyph or table/figure defect observed.",
+    "Table captions remain at most two lines; narrow ceiling cells remain readable without shrinking fonts.",
+    "All97 reference entries retained; current final reference page ends onpage38 after prose compression."
   ],
   "comparison_to_primary": {
     "byte_identical_to_current_primary": true,
     "byte_identical_to_receipt_selected_pdf": true,
-    "receipt_selected_pdf_sha256": "7be20f73de1a62accee831b7cc646764df2d929abd2a94b9c9bb3f86a94d7013"
+    "receipt_selected_pdf_sha256": "2fe9d79be05ca77b61bf5263cd7c87a48e8fa83e2e4fd3eaef665483c7d81d6c"
   },
-  "inspected_at": "2026-10-14T21:34:42.877370+00:00",
-  "scope": "Exact build layout and reused identical-page visual evidence; not independent peer review, source coding, scientific acceptance or venue certification.",
+  "inspected_at": "2026-10-14T23:26:28.863925+00:00",
+  "scope": "Exact combined page-layout and pixel-identical carry-forward coverage; not independent peer review, scientific acceptance, source-coding independence or venue certification.",
   "newly_viewed_full_size_pages": [
-    1,
-    5,
-    6,
-    7
-  ],
-  "pixel_identical_prior_review_carried_forward_pages": [
-    2,
-    3,
     4,
+    6,
+    7,
     8,
     9,
     10,
@@ -164,5 +158,11 @@
     37,
     38
   ],
-  "prior_visual_receipt_sha256": "58b81c850214c21f70c5967adfdb36db259a77b64bf925a997ae9734c1f2efce"
+  "pixel_identical_prior_review_carried_forward_pages": [
+    1,
+    2,
+    3,
+    5
+  ],
+  "prior_visual_receipt_sha256": "1a9b71086697e9b1c371b8f86a049be0884745a2f90fc86845ee21409b2c21b0"
 }

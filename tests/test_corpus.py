@@ -299,6 +299,30 @@ class CorpusTests(unittest.TestCase):
         for row in self.material_claims:
             self.assertTrue(all(row[field].strip() for field in required))
 
+    def test_current_material_claim_counts_match_data_and_build(self):
+        claims = {r['claim_id']: r for r in self.material_claims}
+        normalized = lambda value: re.sub(r'\s+', '', value.lower())
+        counts = content_check_counts(self.source_locations)
+        cells = Counter(r[d] for r in self.reviews for d in dimensions_for_review())
+        semantic = read_csv('data/semantic_readings.csv')
+        field_rows = read_csv('data/field_evidence.csv')
+        checks = {
+            'C04': (f"{counts['content_checked_records']} records", f"{counts['selected_fulltext_checked_records']} selected HTML", f"{counts['complete_scope_checked_records']} complete-scoped PDF"),
+            'C05': (f"{len(self.reviews)}-record", f"{cells['?']} unresolved cells"),
+            'C06': (f"{len(self.rechecks)} entries", f"checks {counts['content_checked_records']} works"),
+            'C17': (f"cover {counts['content_checked_records']} records",),
+            'C29': (f"{len(semantic)} complete", f"{len(field_rows)} supplementary", f"{7*len(self.extractions)} possible fields"),
+        }
+        for claim_id, parts in checks.items():
+            for part in parts:
+                with self.subTest(claim=claim_id, part=part):
+                    self.assertIn(normalized(part), normalized(claims[claim_id]['claim']))
+        snapshot = ROOT / 'manuscript_snapshot'
+        config = runpy.run_path(str(snapshot / 'build.py'))
+        build = json.loads((snapshot / 'build-evidence.json').read_text(encoding='utf-8'))
+        self.assertIn(normalized(f"upper bound of {config['MAX_PAGES']} pages"), normalized(claims['C27']['claim']))
+        self.assertIn(normalized(f"{build['pages']}-page PDF"), normalized(claims['C28']['claim']))
+
     def test_synthesis_claim_sources_are_bound(self):
         known = set(self.bib_keys)
         self.assertEqual(7, len(self.claims))

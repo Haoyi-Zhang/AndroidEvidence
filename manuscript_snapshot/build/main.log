@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2026.10.3)  15 OCT 2026 05:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2026.10.3)  15 OCT 2026 07:20
 entering extended mode
  %&-line parsing enabled.
 **main.tex
@@ -1454,9 +1454,6 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 9.0pt on input line 18.
 
-Underfull \vbox (badness 5939) has occurred while \output is active []
-
-
 
 [2.2{d:/LaTeXTools/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_7gruk
 w.enc}]) (./sections/02-method.tex
@@ -1472,10 +1469,16 @@ y ma-trix. A=Android repack-ag-ing, C=component/version, P=process prove-nance,
  []
 
 (./generated/review_matrix_rows.tex)
+Underfull \vbox (badness 1142) has occurred while \output is active []
+
+
 
 [4.4]
 
 [5.5]
+Underfull \vbox (badness 6047) has occurred while \output is active []
+
+
 
 [6.6]
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
@@ -1511,7 +1514,7 @@ LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 (Font)              scaled to size 6.6pt on input line 114.
 ) (./sections/03-evidence-model.tex
-Underfull \vbox (badness 4366) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
@@ -1519,26 +1522,29 @@ Underfull \vbox (badness 4366) has occurred while \output is active []
 f.enc}]
 
 [8.8]
-Underfull \vbox (badness 1199) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 [9.9]
 
 [10.10]) (./sections/04-repackaging.tex
+Underfull \vbox (badness 2951) has occurred while \output is active []
+
+
 
 [11.11]
 
 [12.12]
 
 [13.13]
-Underfull \vbox (badness 2073) has occurred while \output is active []
-
-
 
 [14.14]
 
 [15.15]) (./sections/05-libraries.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 [16.16]
 Underfull \vbox (badness 4048) has occurred while \output is active []
@@ -1562,6 +1568,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [21.21]
 
 [22.22]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 [23.23]) (./sections/07-ai-mediated.tex
 
@@ -1574,20 +1583,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [27.27]) (./sections/08-synthesis.tex
 
 [28.28]
+Underfull \vbox (badness 1231) has occurred while \output is active []
+
+
 
 [29.29]
-Underfull \vbox (badness 2828) has occurred while \output is active []
-
-
 
 [30.30]
-Underfull \vbox (badness 6758) has occurred while \output is active []
 
+[31.31]
 
-
-[31.31]) (./sections/09-agenda.tex
-
-[32.32]
+[32.32]) (./sections/09-agenda.tex
 
 [33.33]) (./project-repository.tex) (build/main.bbl
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
@@ -1626,11 +1632,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  33096 strings out of 475129
  602879 string characters out of 5764261
- 1050142 words of memory out of 5000000
+ 1050872 words of memory out of 5000000
  54454 multiletter control sequences out of 15000+600000
  746385 words of font info for 530 fonts, out of 8000000 for 9000
  197 hyphenation exceptions out of 8191
- 90i,17n,131p,1310b,901s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,17n,131p,1224b,901s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <d:/LaTeXTools/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMath
 MI.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinB
 iolinumT.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/fonts/type1/public/libertin
@@ -1640,10 +1646,10 @@ ublic/libertine/LinLibertineTB.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/fonts
 /type1/public/libertine/LinLibertineTI.pfb><d:/LaTeXTools/texlive/2024/texmf-di
 st/fonts/type1/public/newtx/txmiaX.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/f
 onts/type1/public/newtx/txsys.pfb>
-Output written on build/main.pdf (38 pages, 598171 bytes).
+Output written on build/main.pdf (38 pages, 597757 bytes).
 PDF statistics:
- 1288 PDF objects out of 1440 (max. 8388607)
- 1111 compressed objects within 12 object streams
+ 1287 PDF objects out of 1440 (max. 8388607)
+ 1110 compressed objects within 12 object streams
  237 named destinations out of 1000 (max. 500000)
  92729 words of extra memory for PDF output out of 106986 (max. 10000000)
 
