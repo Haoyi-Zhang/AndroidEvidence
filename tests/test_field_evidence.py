@@ -26,8 +26,8 @@ class LocatedFieldControls(unittest.TestCase):
                                      self.readings if evidence != [] else [])
 
     def test_exact_denominators_without_semantic_promotion(self):
-        self.assertEqual(self.summary(), dict(located_field_rows=588, located_recoded_records=84,
-                         total_coding_fields=679, records_without_supplementary_field_bindings=13,
+        self.assertEqual(self.summary(), dict(located_field_rows=595, located_recoded_records=85,
+                         total_coding_fields=679, records_without_supplementary_field_bindings=12,
                          semantic_interpretation_verified_by_code=False))
 
     def test_empty_supplement_is_zero_not_all_inherited_readings(self):

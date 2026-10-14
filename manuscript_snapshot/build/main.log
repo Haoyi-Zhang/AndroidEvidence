@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2026.10.3)  15 OCT 2026 00:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2026.10.3)  15 OCT 2026 05:31
 entering extended mode
  %&-line parsing enabled.
 **main.tex
@@ -1474,9 +1474,6 @@ y ma-trix. A=Android repack-ag-ing, C=component/version, P=process prove-nance,
 (./generated/review_matrix_rows.tex)
 
 [4.4]
-Underfull \vbox (badness 2846) has occurred while \output is active []
-
-
 
 [5.5]
 
@@ -1627,11 +1624,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: AA631B6AD8BBD8BA494FA80DAB3E162A;18084.
  ) 
 Here is how much of TeX's memory you used:
- 33097 strings out of 475129
- 602918 string characters out of 5764261
- 1050133 words of memory out of 5000000
- 54452 multiletter control sequences out of 15000+600000
- 746658 words of font info for 532 fonts, out of 8000000 for 9000
+ 33096 strings out of 475129
+ 602879 string characters out of 5764261
+ 1050142 words of memory out of 5000000
+ 54454 multiletter control sequences out of 15000+600000
+ 746385 words of font info for 530 fonts, out of 8000000 for 9000
  197 hyphenation exceptions out of 8191
  90i,17n,131p,1310b,901s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <d:/LaTeXTools/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMath
@@ -1643,7 +1640,7 @@ ublic/libertine/LinLibertineTB.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/fonts
 /type1/public/libertine/LinLibertineTI.pfb><d:/LaTeXTools/texlive/2024/texmf-di
 st/fonts/type1/public/newtx/txmiaX.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/f
 onts/type1/public/newtx/txsys.pfb>
-Output written on build/main.pdf (38 pages, 597997 bytes).
+Output written on build/main.pdf (38 pages, 598171 bytes).
 PDF statistics:
  1288 PDF objects out of 1440 (max. 8388607)
  1111 compressed objects within 12 object streams

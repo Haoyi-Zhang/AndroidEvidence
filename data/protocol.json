@@ -66,17 +66,24 @@
   "reproduction_scope": "Offline scripts validate corpus/bibliography/extraction equality, canonical identifier and publication-status constraints, source-version/page and historical-to-current recoding bindings, matrix semantics, claim-ledger references, mutation controls, the retained finite bookkeeping oracle, and manuscript-facing counts. They do not validate source interpretation or novelty.",
   "unresolved_leads": 0,
   "traceability_note": "Every retained record has a direct scholarly or official locator, source-reading boundary, retrospective retained-record provenance row, and publication-status row. This does not reconstruct a complete database-search denominator. The legacy fresh_source_rechecks fields count cumulative dated ledger rows, not a new all-source recheck batch. Legacy reading-depth labels are not content certificates; selected fulltext checks and legacy-not-reverified records are counted separately.",
-  "selected_fulltext_checked": 4,
-  "complete_scope_checked": 84,
+  "selected_fulltext_checked": 3,
+  "complete_scope_checked": 85,
   "content_checked": 88,
   "legacy_not_reverified": 9,
   "review_unknown_cells": 73,
   "review_direct_coverage_status": "undetermined",
   "supplementary_field_coding": {
-    "records": 84,
-    "fields": 588,
+    "records": 85,
+    "fields": 595,
     "total_fields": 679,
-    "without_supplementary_bindings": 13,
+    "without_supplementary_bindings": 12,
     "boundary": "Located coding is AI-assisted and same-process. Software checks bindings and calculations, not semantic understanding."
+  },
+  "semantic_reading": {
+    "declared_complete_seven_field_codings": 13,
+    "acquired_records_without_complete_coding": 72,
+    "records_without_acquired_pdf": 12,
+    "independent_second_coder": false,
+    "boundary": "Explicit same-process reading assessments bind the seven coded fields and exact retrieved source. Software verifies identities and counts, not understanding or final-publication equivalence."
   }
 }

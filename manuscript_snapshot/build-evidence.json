@@ -1,18 +1,18 @@
 {
   "status": "passed",
   "pdf": "build/main.pdf",
-  "pdf_sha256": "96bbb84eebbd815bf97e88360bbe18bb4620f07e217c4dc4a3767d4d57244ad9",
+  "pdf_sha256": "7be20f73de1a62accee831b7cc646764df2d929abd2a94b9c9bb3f86a94d7013",
   "source_sha256": {
     "ACM-Reference-Format.bst": "4342d27456645567ef1a027f6474e894715bc31d468f040142fa54540440ad04",
     "acmart.cls": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
     "current-authors.tex": "2397fbf049bf5504e5c4139f571a84f8cd7b25651a3c582213746026297f3123",
-    "generated/corpus_counts.tex": "a5fc92762978f156fd39d7533512b7de850117f246f6ae57a45a25997a86e3f0",
+    "generated/corpus_counts.tex": "595d107dcc7318e9ecc280cba0f9b2fb13043406041fc40dbfdb0d6cd97c47ff",
     "generated/review_matrix_rows.tex": "b3eedff8dcf143a0674008e5338a3c83b466883e3f13209a9cdd8e44bf5597a8",
-    "main.tex": "5689171641d298e44ccf3e1fd94cd162e2bc6a84b892af27a69c6c9fc0b9e97d",
+    "main.tex": "fb9528f1e46af75c0e12b23d9ab8709f6ce69566836b652c6d2f9d10259cee0b",
     "project-repository.tex": "2aa62a0e37901fc136908f005ed46a41b340d60e3fb9dedd91ef70f009a6869e",
     "references.bib": "b6067323d7ae368a4a5df86f1644ee74d782cdbeed97dfe477f1d7f33fbb3a0c",
     "sections/01-introduction.tex": "5075f5c582df39c3176a8b2f98fe8df31e5e0f4f9f225f64a053cd558a2dbd8c",
-    "sections/02-method.tex": "84b925c7eb8db459b7b3623c1fb09ca47d2acf1db681834be3289a4ff33238c8",
+    "sections/02-method.tex": "38a07cac4a8da56bf7ea33fa3803c27fb28a8109de219b939987bae60c04ee6d",
     "sections/03-evidence-model.tex": "d316e7b4cc518a6ef545c07f3745dcdf743f4f621b5498ae38502363acbae278",
     "sections/04-repackaging.tex": "26db6f80846b5a2935f3b80d840806aaf80f2d1d8d57fb0b0c17627b8503cec2",
     "sections/05-libraries.tex": "af05e955e59b578d18a8f107236a9522fc30c49b29eaebfb42884ddd04381708",
@@ -21,11 +21,11 @@
     "sections/08-synthesis.tex": "6534aa18b022931d6e78f6d98c4648481b331432152c4208fff5b00195cbccf7",
     "sections/09-agenda.tex": "1c2e6bff0863be4a4237791bb50153cf48d59c5e24ecda1478bb7ce5f4ea8b5c"
   },
-  "log_sha256": "e774c152a8b859f8a764e6e05f9dd77792682b5da7310275e080649aea7922aa",
+  "log_sha256": "1bb5e3f9a984e66c0948b59570baba74ea766dddafa61dceff70f9933f407c1d",
   "local_page_budget": 39,
   "pages": 38,
   "page_size": "612 x 792 pts (letter)",
-  "file_size_bytes": 597997,
+  "file_size_bytes": 598171,
   "commands": [
     {
       "command": [
@@ -37,7 +37,7 @@
         "main.tex"
       ],
       "exit_code": 0,
-      "wall_seconds": 1.3839804000017466,
+      "wall_seconds": 1.3203859999994165,
       "child_cpu_seconds": null,
       "cumulative_max_child_rss_kib": null,
       "accepted_bibliography_warnings": false
@@ -48,7 +48,7 @@
         "build/main"
       ],
       "exit_code": 0,
-      "wall_seconds": 0.04809470000327565,
+      "wall_seconds": 0.04603320000023814,
       "child_cpu_seconds": null,
       "cumulative_max_child_rss_kib": null,
       "accepted_bibliography_warnings": false
@@ -63,7 +63,7 @@
         "main.tex"
       ],
       "exit_code": 0,
-      "wall_seconds": 1.3998761999973794,
+      "wall_seconds": 1.489892300000065,
       "child_cpu_seconds": null,
       "cumulative_max_child_rss_kib": null,
       "accepted_bibliography_warnings": false
@@ -78,7 +78,7 @@
         "main.tex"
       ],
       "exit_code": 0,
-      "wall_seconds": 1.3837505000010424,
+      "wall_seconds": 1.3589559999963967,
       "child_cpu_seconds": null,
       "cumulative_max_child_rss_kib": null,
       "accepted_bibliography_warnings": false
@@ -93,7 +93,7 @@
         "main.tex"
       ],
       "exit_code": 0,
-      "wall_seconds": 1.3331433999992441,
+      "wall_seconds": 1.334958799998276,
       "child_cpu_seconds": null,
       "cumulative_max_child_rss_kib": null,
       "accepted_bibliography_warnings": false

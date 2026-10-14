@@ -9,6 +9,7 @@ from collections import Counter
 import argparse
 import csv
 import json
+import hashlib
 import math
 import re
 import unicodedata
@@ -268,11 +269,38 @@ def recoding_transition_summary(transitions, rechecks, extractions, source_readi
     return bound
 
 
+def semantic_reading_summary(rows, extractions, source_readings):
+    """Bind explicit reader assessments to sources/fields, not certify understanding."""
+    extracted = {r['bib_key']: r for r in extractions}
+    sources = {r['bib_key']: r for r in source_readings}
+    seen = set()
+    for row in rows:
+        key = row.get('bib_key')
+        if key in seen or key not in extracted or key not in sources:
+            raise ValueError('duplicate or unbound semantic-reading assessment')
+        seen.add(key)
+        digest = hashlib.sha256('\x1f'.join(extracted[key][f] for f in CODING_FIELDS).encode('utf-8')).hexdigest()
+        if (row.get('source_sha256') != sources[key]['source_sha256'] or
+                row.get('fields_sha256') != digest):
+            raise ValueError('stale semantic-reading source or fields: ' + key)
+        date = row.get('assessment_date', '')
+        if (not re.fullmatch(r'\d{4}-\d{2}-\d{2}', date) or
+                date < sources[key]['read_date'] or
+                row.get('reading_extent') != 'complete_retrieved_pdf_and_seven_fields' or
+                row.get('independent') != 'false'):
+            raise ValueError('invalid semantic-reading boundary: ' + key)
+    return {'declared_complete_seven_field_codings': len(seen),
+            'acquired_records_without_complete_coding': len(sources) - len(seen),
+            'semantic_interpretation_verified_by_code': False,
+            'independent_second_coder': False}
+
+
 def main(out=None) -> int:
     corpus, corpus_fields = read_csv("data/corpus.csv")
     extractions, extraction_fields = read_csv("data/study_extractions.csv")
     field_evidence, _ = read_csv('data/field_evidence.csv')
     source_readings, _ = read_csv('data/source_readings.csv')
+    semantic_readings, _ = read_csv('data/semantic_readings.csv')
     recoding_transitions, _ = read_csv('data/recoding_transitions.csv')
     reviews, _ = read_csv("data/review_gap_matrix.csv")
     rechecks, _ = read_csv("data/source_rechecks.csv")
@@ -633,6 +661,11 @@ def main(out=None) -> int:
     except (ValueError, KeyError) as exc:
         errors.append(str(exc))
         located_coding = {'status': 'invalid', 'semantic_interpretation_verified_by_code': False}
+    try:
+        semantic_coding = semantic_reading_summary(semantic_readings, extractions, source_readings)
+    except (ValueError, KeyError) as exc:
+        errors.append(str(exc))
+        semantic_coding = {'status': 'invalid', 'semantic_interpretation_verified_by_code': False}
     summary = {
         "status": "passed" if not errors else "failed",
         "records": len(corpus),
@@ -649,6 +682,7 @@ def main(out=None) -> int:
         "review_unknown_cells": sum(r.get(d) == '?' for r in reviews for d in MATRIX_DIMS),
         **content_check_counts(source_locations),
         'supplementary_located_coding': located_coding,
+        'declared_semantic_coding': semantic_coding,
         'historical_to_current_recoding_transitions': len(recoding_bindings),
         "source_rechecks": len(rechecks),
         "source_recheck_fraction": len(rechecks) / len(extractions) if extractions else 0,
@@ -708,6 +742,8 @@ def main(out=None) -> int:
         f"\\newcommand{{\\LocatedCodingFields}}{{{located_coding.get('located_field_rows', 0)}}}\n"
         f"\\newcommand{{\\TotalCodingFields}}{{{located_coding.get('total_coding_fields', 0)}}}\n"
         f"\\newcommand{{\\WithoutLocatedCoding}}{{{located_coding.get('records_without_supplementary_field_bindings', 0)}}}\n"
+        f"\\newcommand{{\\SemanticReadWorks}}{{{semantic_coding.get('declared_complete_seven_field_codings', 0)}}}\n"
+        f"\\newcommand{{\\AcquiredUnreadWorks}}{{{semantic_coding.get('acquired_records_without_complete_coding', 0)}}}\n"
     )
     if not errors:
         (tex / "corpus_counts.tex").write_text(macros, encoding="utf-8")
