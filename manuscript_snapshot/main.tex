@@ -22,15 +22,7 @@
 
 
 
-\IfFileExists{generated/corpus_counts.tex}{\input{generated/corpus_counts}}{%
-  \newcommand{\CorpusWorks}{97}\newcommand{\UniqueCitedWorks}{97}%
-  \newcommand{\VenueRecordedWorks}{93}\newcommand{\PrimaryWorks}{76}%
-  \newcommand{\PrimaryVenueWorks}{74}\newcommand{\SecondaryWorks}{21}\newcommand{\ReviewMatrixWorks}{21}%
-  \newcommand{\SourceRechecks}{90}\newcommand{\SourceRecheckPercent}{92.8}\newcommand{\FullSelectedWorks}{61}%
-  \newcommand{\AbstractSelectedWorks}{36}\newcommand{\AndroidWorks}{34}%
-  \newcommand{\TPLWorks}{17}\newcommand{\SupplyWorks}{17}%
-  \newcommand{\AIWorks}{8}%
-  \newcommand{\SourceCheckedWorks}{87}\newcommand{\SourceUncheckedWorks}{10}}
+\input{generated/corpus_counts}
 \usepackage{xurl}
 \setcopyright{none}
 \settopmatter{printacmref=false}
@@ -38,7 +30,7 @@
 \renewcommand{\footnotetextcopyrightpermission}[1]{}
 \begin{document}
 \begin{abstract}
-Android lineage questions are often phrased as one detection problem even though byte identity, component presence, resemblance, derivation, build provenance, release authorization, and behavioral assurance are different propositions. Existing surveys separately cover Android repackaging, third-party libraries, software-supply-chain security, and software bills of materials; this review therefore does not claim an uncovered detector literature. Instead, it asks which observation licenses which claim, under what transformation and trust assumptions, and which bindings are required when evidence is composed across layers. The retained map contains \CorpusWorks{} scholarly records, including \PrimaryWorks{} primary, empirical, or system studies. Selected or scoped full-text readings of \SourceCheckedWorks{} works support source-specific extractions; \SourceUncheckedWorks{} records retain legacy coding that is not content-verified by record structure or DOI identity. Coverage of \ReviewMatrixWorks{} review or method records across seven dimensions remains incomplete, so the matrix does not establish a literature gap. The synthesis organizes these distinctions in a seven-level ladder spanning identity, composition, resemblance, derivation, process provenance, authorization, and behavioral assurance. It separates resemblance and composition from directional history; a common predecessor can remain compatible with similarity and chronology. Signing, transparency, and provenance can bind principals, steps, and artifacts, but do not establish semantic equivalence or benign behavior. AI-mediated development motivates counter-histories involving sibling generations, synthesized dependencies, hidden context and model drift; these require explicit accepted-output and source-to-APK bindings. We propose a cross-layer assurance pattern that binds transformation-aware comparison, component/version evidence, authenticated step records, release policy, and behavior-specific analysis to the same digest or documented predecessor relation. The contribution is a claim-centered organizing framework and evaluation blueprint, not a detector ranking or empirical validation of the combined architecture.
+Android lineage involves distinct claims about identity, composition, resemblance, derivation, process provenance, authorization, and behavior. This claim-centered review maps \CorpusWorks{} works, including \PrimaryWorks{} primary/system studies, to their observations and assumptions, with complete seven-field coding for ten works and provisional records for the rest. Our seven-level ladder separates resemblance from directional history, which similarity and chronology alone may leave ambiguous. Component matches depend on reference coverage and discriminating features; authenticated process records bind steps and products without proving benign behavior. AI-mediated development adds sibling-generation and context-recording ambiguities. An evaluation blueprint joins artifact, component, process, release-policy, and behavior evidence by APK digest or documented predecessor. For each claim, it identifies the observation, measurement, governing record, and plausible counter-history that an evaluation must distinguish. The resulting framework assigns explicit evidence obligations to each lineage claim.
 \end{abstract}
 \ccsdesc[500]{General and reference~Surveys and overviews}
 \keywords{Android, software lineage, application repackaging, software supply chain, provenance, third-party libraries, code generation, evidence validity}

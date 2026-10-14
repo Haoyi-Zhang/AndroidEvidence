@@ -6,7 +6,7 @@ The paper does not position itself as the first Android-repackaging survey or th
 
 ## Current retained-set result
 
-The 21-row matrix has 96 unresolved cells. Located readings justify 49 direct/partial cells and two scoped absences. Seventeen records have content checks (including four method records with unresolved coverage); four remain substantively unchecked. The checked cells establish no all-dimension witness, but an unresolved row could supply one.
+The 21-row matrix has 73 unresolved cells. Located readings justify 63 direct/partial cells and eleven scoped absences. Eighteen records have content checks (including four method records with unresolved coverage); three remain substantively unchecked. The TPL review already treats component privilege policies and stage-specific detection limits; these are partial authorization/ceiling antecedents rather than release-history mechanisms. AStRA v2's future-work AI discussion supplies partial G treatment, not certification of its expanded final version. Williams et al. directly treat LLM supply chains but not Android repackaging within their complete published scope. The checked cells establish no all-dimension witness, but an unresolved row could supply one.
 
 The reported result is therefore **undetermined direct coverage**, not a retained-set gap or a worldwide absence claim. The organizing framework is an analytical proposal; these incomplete coverage data do not establish its novelty.
 

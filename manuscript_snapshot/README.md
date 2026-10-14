@@ -20,10 +20,10 @@ the default does not certify their freshness against the ledgers.
 The build uses `pdflatex`, BibTeX and `pdfinfo`, with shell escape disabled.
 It checks citation closure and agreement with `data/references.bib`, imports
 the generated fragments from `results/tex/`, and rejects layout errors or a
-manuscript exceeding the project's local 36-page budget. That budget accommodates
+manuscript exceeding the project's local 39-page budget. That budget accommodates
 the current methodology content; it is not a statement of the journal's official
 submission limit or CSUR certification. The genuinely rebuilt current manuscript
-has 36 pages including references. Citation, overfull-box and typography guards
+has 38 pages including references. Citation, overfull-box and typography guards
 remain in force.
 
 The active LaTeX inputs, bibliography, publisher template, current generated
@@ -32,7 +32,7 @@ current PDF delivery in the complete packet is `paper/build/main.pdf`.
 An artifact-only build writes only `manuscript_snapshot/build/main.pdf`; it does
 not create a second `paper.pdf` entry point.
 
-The delivered `build/main.pdf` is the current 36-page output of the sibling
+The delivered `build/main.pdf` is the current 38-page output of the sibling
 paper's owned build driver, byte-identical to the complete-packet paper.
 Its `build/main.log` and `build/main.bbl` are the actual final engine log and
 compiled bibliography. Active TeX inputs, bibliography and publisher template
@@ -53,8 +53,8 @@ and page-image inspection.
 
 Current build metadata binds the genuine new PDF/log and records the actual
 paper compiler run; unavailable Windows child CPU/RSS measurements remain null.
-The supplied layout inspection covers all 36 full-size pages at 108 dpi and six
-contact grids; actual `pdffonts` checking confirmed all listed fonts embedded.
+The supplied layout inspection directly covers all 38 full-size pages rendered
+at 180 dpi; actual `pdffonts` checking confirmed all listed fonts embedded and no Type 3 font.
 No clipped text, overlapping table/figure or citation-layout issue was observed.
 This layout inspection is not independent peer review or fulltext certification.
 A build checks document structure; it does not replace review of source

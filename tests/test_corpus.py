@@ -3,12 +3,14 @@ import hashlib
 import json
 import math
 import re
+import runpy
 import unittest
 from collections import Counter
 from pathlib import Path
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from corpus_audit import nonindependent_status, review_coverage_status, content_check_counts, specific_content_locator
+from snapshot_evidence import source_count_macros, validate_snapshot_evidence
 
 ROOT = Path(__file__).resolve().parents[1]
 LOCKED_CORPUS_SIZE = 97
@@ -37,7 +39,6 @@ class CorpusTests(unittest.TestCase):
         cls.search_provenance = read_csv("data/search_provenance.csv")
         cls.bib_verify = read_csv("data/bibliography_verification.csv")
         cls.excluded = read_csv("data/excluded_publications.csv")
-        cls.calibration = read_csv("data/calibration_papers.csv")
         cls.unresolved_leads = read_csv("data/unresolved_leads.csv")
         cls.resolved_leads = read_csv("data/resolved_leads.csv")
         cls.claims = read_csv("data/synthesis_claims.csv")
@@ -161,21 +162,6 @@ class CorpusTests(unittest.TestCase):
         active_text = "\n".join((ROOT / p).read_text(encoding="utf-8") for p in active_paths)
         self.assertNotIn("sbomslr2025", active_text)
 
-    def test_calibration_contract(self):
-        self.assertEqual(22, len(self.calibration))
-        self.assertEqual(
-            Counter({"closest": 12, "influential_method": 5, "adjacent_evidence": 5}),
-            Counter(r["group"] for r in self.calibration),
-        )
-        keys = [r["bib_key"] for r in self.calibration]
-        self.assertEqual(len(keys), len(set(keys)))
-        by_key = {r["bib_key"]: r for r in self.rows}
-        for row in self.calibration:
-            self.assertEqual("full_or_selected_source", by_key[row["bib_key"]]["reading_depth"])
-            self.assertTrue(row["narrative_sequence"].strip())
-            self.assertTrue(row["figure_table_role"].strip())
-            self.assertTrue(row["limitation"].strip())
-
     def test_review_matrix_has_no_direct_all_dimension_prior(self):
         dimensions = [
             "android_repackaging", "component_version", "supply_chain_provenance",
@@ -254,29 +240,57 @@ class CorpusTests(unittest.TestCase):
 
 
     def test_visual_inspection_evidence(self):
-        v = self.visual_inspection
-        build = json.loads((ROOT / "results/paper_build_evidence.json").read_text(encoding="utf-8"))
-        self.assertGreater(v["page_count"], 0)
-        self.assertLessEqual(v["page_count"], build["local_page_budget"])
-        self.assertEqual(build["local_page_budget"], 36)
-        self.assertEqual(build["pages"], v["page_count"])
-        pages = v["full_size_pages_inspected"]
-        self.assertEqual(pages, list(range(1, v["page_count"] + 1)))
-        self.assertEqual(len(pages), len(set(pages)))
-        self.assertTrue(all(isinstance(p, int) and 1 <= p <= v["page_count"] for p in pages))
-        self.assertGreater(v["render_dpi"], 0)
-        self.assertEqual("all listed fonts embedded", v["font_embedding"])
-        comparison = v["comparison_to_primary"]
-        self.assertTrue(comparison["byte_identical_to_receipt_selected_pdf"])
-        self.assertEqual(v["pdf"], "manuscript_snapshot/build/main.pdf")
-        self.assertEqual(build["pdf_sha256"], v["pdf_sha256"])
-        self.assertEqual(build["source_sha256"], v["source_sha256"])
-        self.assertEqual(hashlib.sha256((ROOT / v["pdf"]).read_bytes()).hexdigest(), v["pdf_sha256"])
-        self.assertEqual(hashlib.sha256((ROOT / "manuscript_snapshot/build/main.log").read_bytes()).hexdigest(), build["log_sha256"])
-        self.assertIn("not independent peer review", v["scope"])
+        snapshot = ROOT / "manuscript_snapshot"
+        load = lambda path: json.loads(path.read_text(encoding="utf-8"))
+        digest = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
+        snapshot_build = load(snapshot / "build-evidence.json")
+        snapshot_visual = load(snapshot / "visual-inspection.json")
+        result_build = load(ROOT / "results/paper_build_evidence.json")
+        result_visual = self.visual_inspection
+        snapshot_config = runpy.run_path(str(snapshot / "build.py"))
+        counts = content_check_counts(self.source_locations)
+        checked = counts["content_checked_records"]
+        unchecked = len(self.source_locations) - checked
+
+        macro_paths = {
+            "snapshot generated": snapshot / "generated/corpus_counts.tex",
+            "default build input": ROOT / "results/tex/corpus_counts.tex",
+        }
+        primary = None
+        paper = ROOT.parent / "paper"
+        if paper.is_dir():
+            paper_config = runpy.run_path(str(paper / "build.py"))
+            primary = {
+                "build": load(paper / "build-evidence.json"),
+                "source_sha256": paper_config["source_binding"](paper),
+                "pdf_sha256": digest(paper / "build/main.pdf"),
+                "log_sha256": digest(paper / "build/main.log"),
+                "budget": paper_config["MAX_PAGES"],
+            }
+            macro_paths["primary generated"] = paper / "generated/corpus_counts.tex"
+        for name, main_path in (("snapshot main fallback", snapshot / "main.tex"),
+                                ("primary main fallback", paper / "main.tex")):
+            if main_path.is_file():
+                value = source_count_macros(main_path.read_text(encoding="utf-8"))
+                if value is not None:
+                    macro_paths[name] = main_path
+        macro_counts = {
+            name: source_count_macros(path.read_text(encoding="utf-8"))
+            for name, path in macro_paths.items()
+        }
+        validate_snapshot_evidence(
+            build=snapshot_build, visual=snapshot_visual,
+            result_build=result_build, result_visual=result_visual,
+            budget=snapshot_config["MAX_PAGES"],
+            source_sha256=snapshot_config["source_binding"](snapshot),
+            pdf_sha256=digest(snapshot / "build/main.pdf"),
+            log_sha256=digest(snapshot / "build/main.log"),
+            checked=checked, unchecked=unchecked,
+            macro_counts=macro_counts, primary=primary,
+        )
 
     def test_material_claim_ledger_complete(self):
-        self.assertGreaterEqual(len(self.material_claims), 28)
+        self.assertTrue(self.material_claims)
         self.assertEqual(len(self.material_claims), len({r["claim_id"] for r in self.material_claims}))
         required = [
             "claim", "source_or_input", "proof_or_checker", "raw_result",

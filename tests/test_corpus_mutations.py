@@ -1,6 +1,7 @@
 import contextlib
 import csv
 import io
+import json
 import shutil
 import tempfile
 import unittest
@@ -14,7 +15,7 @@ import corpus_audit  # noqa: E402
 
 
 class CorpusMutationControls(unittest.TestCase):
-    def run_mutation(self, relative_path, mutate):
+    def run_mutation(self, relative_path, mutate, expected_error=None):
         with tempfile.TemporaryDirectory(prefix="mobile-corpus-") as folder:
             temp = Path(folder) / "artifact"
             shutil.copytree(ROOT, temp)
@@ -29,8 +30,12 @@ class CorpusMutationControls(unittest.TestCase):
                 writer = csv.DictWriter(handle, fieldnames=fields)
                 writer.writeheader()
                 writer.writerows(rows)
-            with patch.object(corpus_audit, "ROOT", temp), contextlib.redirect_stdout(io.StringIO()):
+            captured = io.StringIO()
+            with patch.object(corpus_audit, "ROOT", temp), contextlib.redirect_stdout(captured):
                 self.assertEqual(1, corpus_audit.main())
+            if expected_error is not None:
+                errors = json.loads(captured.getvalue())['errors']
+                self.assertTrue(any(expected_error in error for error in errors), errors)
 
     def test_withdrawn_status_cannot_enter_active_verification_ledger(self):
         def mutate(rows):
@@ -46,11 +51,6 @@ class CorpusMutationControls(unittest.TestCase):
         def mutate(rows):
             rows[0]["bib_key"] = "sbomslr2025"
         self.run_mutation("data/corpus.csv", mutate)
-
-    def test_calibration_group_count_is_locked(self):
-        def mutate(rows):
-            rows[0]["group"] = "adjacent_evidence"
-        self.run_mutation("data/calibration_papers.csv", mutate)
 
     def test_publication_type_disagreement_is_rejected(self):
         def mutate(rows):
@@ -127,20 +127,72 @@ class CorpusMutationControls(unittest.TestCase):
             rows[0]['fulltext_url'] = ''
         self.run_mutation('data/source_locations.csv', mutate)
 
+    def test_checked_extraction_must_use_its_bound_content_locator(self):
+        def mutate(rows):
+            row = next(r for r in rows if r['bib_key'] == 'libscout')
+            row['source_location'] = 'Publisher record and category-level library summary'
+        self.run_mutation('data/study_extractions.csv', mutate)
+
+    def test_checked_extraction_cannot_point_to_another_primary_pdf(self):
+        def mutate(rows):
+            row = next(r for r in rows if r['bib_key'] == 'libscout')
+            row['source_location'] += '; https://example.org/another-owned-fixture.pdf'
+        self.run_mutation('data/study_extractions.csv', mutate)
+
+    def test_coding_value_drift_requires_field_evidence_update(self):
+        def mutate(rows):
+            next(r for r in rows if r['bib_key'] == 'libscout')['observation'] += ' extra unsupported conclusion'
+        self.run_mutation('data/study_extractions.csv', mutate)
+
+    def test_duplicate_field_evidence_is_rejected_in_full_workflow(self):
+        self.run_mutation('data/field_evidence.csv', lambda rows: rows.append(dict(rows[0])))
+
+    def test_incomplete_field_evidence_is_rejected_in_full_workflow(self):
+        self.run_mutation('data/field_evidence.csv', lambda rows: rows.pop())
+
     def test_positive_review_cannot_use_unverified_fulltext(self):
         def mutate(rows):
             # Keep the existing positive matrix cell, but remove its content
             # certificate in the disposable fixture. Source-reading progress
             # must not silently turn this negative control into a valid case.
             row = next(r for r in rows if r['bib_key'] == 'repack')
-            self.assertEqual('selected_fulltext_checked', row['content_check_status'])
+            self.assertIn(row['content_check_status'], {'selected_fulltext_checked', 'complete_scope_checked'})
             row['content_check_status'] = 'legacy_not_reverified'
         self.run_mutation('data/source_locations.csv', mutate)
 
     def test_selected_sections_cannot_certify_absence(self):
         def mutate(rows):
-            rows[0]['supply_chain_provenance'] = '0'
-        self.run_mutation('data/review_gap_matrix.csv', mutate)
+            # Explicitly downgrade a complete-scope absence source in the owned
+            # disposable fixture. This does not depend on a real paper remaining
+            # unread, or on the supplement's separate complete-reading guard.
+            row = next(r for r in rows if r['bib_key'] == 'repack')
+            self.assertEqual('complete_scope_checked', row['content_check_status'])
+            row['content_check_status'] = 'selected_fulltext_checked'
+        self.run_mutation('data/source_locations.csv', mutate,
+                          expected_error='absence lacks complete scoped reading')
+
+    def test_historical_transition_cannot_rewrite_the_old_ceiling(self):
+        def mutate(rows):
+            rows[0]['previous_ceiling'] += ' invented past'
+        self.run_mutation('data/recoding_transitions.csv', mutate)
+
+    def test_historical_transition_requires_exact_current_ceiling(self):
+        def mutate(rows):
+            rows[0]['current_ceiling'] += ' unsupported current'
+        self.run_mutation('data/recoding_transitions.csv', mutate)
+
+    def test_transition_requires_the_read_source_version(self):
+        def mutate(rows):
+            rows[0]['source_sha256'] = '0' * 64
+        self.run_mutation('data/recoding_transitions.csv', mutate)
+
+    def test_transition_cannot_backdate_new_reading(self):
+        def mutate(rows):
+            rows[0]['recoding_date'] = '2026-10-11'
+        self.run_mutation('data/recoding_transitions.csv', mutate)
+
+    def test_duplicate_transition_is_rejected(self):
+        self.run_mutation('data/recoding_transitions.csv', lambda rows: rows.append(dict(rows[0])))
 
 
 if __name__ == "__main__":

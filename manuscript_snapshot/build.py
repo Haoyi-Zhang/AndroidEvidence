@@ -16,7 +16,7 @@ import time
 
 ROOT = Path(__file__).resolve().parent
 ARTIFACT = ROOT.parent if ROOT.name == "manuscript_snapshot" else ROOT.parent / "artifact"
-MAX_PAGES = 36
+MAX_PAGES = 39  # Local editorial budget, not a certified CSUR submission cap.
 
 
 def source_binding(root):

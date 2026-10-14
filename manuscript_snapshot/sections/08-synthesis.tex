@@ -9,14 +9,14 @@ Six recurring substitutions expose the missing premise between available evidenc
 
 \begin{enumerate}
 \item \textbf{Similarity for direction.} A match cannot by itself distinguish $A\rightarrow B$, $B\rightarrow A$, or a common predecessor. Chronology and ownership can contribute evidence, but a directional oracle must distinguish these histories; an authenticated parent--transformation relation can supply that binding.
-\item \textbf{Signer for authorized publisher.} A signature binds an artifact to a key. Authorization additionally binds that key to a scoped role, validity interval, and policy; delegation and transparency systems provide such context~\cite{tuf,diplomat}.
-\item \textbf{Provenance for benign behavior.} An attestation can bind declared inputs and a build to a digest while faithfully recording a vulnerable or malicious result. The exact artifact still requires behavior-specific analysis.
+\item \textbf{Signer for authorized publisher.} A signature binds an artifact to a key. DroidEagle already rejects certificate presence alone as authenticity evidence~\cite{droideagle}. Its trusted-reference fingerprint comparison does not supply the scoped role, validity interval and policy needed for authorization; delegation and transparency systems provide such context~\cite{tuf,diplomat}.
+\item \textbf{Metadata for benign behavior.} An attestation can bind declared inputs and a build to a digest while recording a vulnerable result. Trusted layout inspections add their configured property checks~\cite{intoto}, not unrestricted benign behavior.
 \item \textbf{Component presence for exploitability.} A family, version, or SBOM match does not establish that affected code is present, reachable, configured, and exposed; non-detection also does not prove absence after shading, shrinking, patching, or dynamic loading.
 \item \textbf{Reproducibility for approval.} Independent builders can reproduce an unauthorized output from unauthorized declared inputs. Reproducibility strengthens equality and source-to-binary binding, not input policy.
 \item \textbf{Generation log for complete causal history.} Prompts and responses may omit retrieval, tool state, rejected candidates, manual edits, or downstream transforms. The record must bind the accepted output, parent, and final artifact at the granularity required by the claim.
 \end{enumerate}
 
-These are evaluation errors, not merely wording errors. An oracle can already encode direction, an honest-functionary prototype can hide compromised behavior, and full upstream packages can make versioning appear easier than partially packaged code. Reporting the missing premise identifies the hard negatives a study must include.
+These are evaluation errors, not merely wording. Android surveys distinguish privacy and detection~\cite{xuandroid,tamandroid}; analysis and testing reviews delimit their own coverage~\cite{staticandroid,androidtesting}. APPraiser and SimiDroid already discuss common builders and multi-level change evidence~\cite{appraiser,simidroid}. Independent generator outputs still require a process record to distinguish them from copying. Direction can be encoded in an oracle, compromised behavior can survive honest-functionary assumptions, and full upstream packages can make versioning easier than partial code. Those are hard negatives, not novelty by absence.
 
 \subsection{A cross-layer assurance pattern}
 
@@ -51,9 +51,7 @@ Figure~\ref{fig:assurance-case} presents an Android-focused assurance pattern bu
 \label{fig:assurance-case}
 \end{figure}
 
-The top claim has two logically distinct branches. The provenance branch asks whether the APK is the product of the declared process and whether that process was authorized. The behavior branch asks whether the exact APK satisfies property $Q$. Artifact and component analyses cross-check the declared lineage rather than merely repeating it. A mismatch does not automatically select which source is wrong; it triggers investigation.
-
-This pattern accommodates incomplete provenance. If no trustworthy process record exists, artifact comparison may provide the best available evidence of relationship, but the top claim must be weakened. If the build is fully attested but behavior analysis is absent, the lineage claim can be strong while the security claim remains open. Reporting partial assurance is more informative than forcing a binary verdict.
+The top claim separates authorized production from property $Q$ of the exact APK. Artifact and component analyses cross-check the declared lineage; disagreement requires investigation, not automatic preference for either record. Without trustworthy process evidence, comparison may support a weaker relationship claim. Without behavior analysis, even a fully attested build leaves $Q$ open.
 
 \subsection{Binding rules}
 
@@ -66,28 +64,11 @@ Cross-layer evidence is useful only when records refer to the same objects. Four
 \item \textbf{Policy binding.} Authorization and behavior conclusions should name the policy version or property definition. A decision can change when the policy changes even if the artifact does not.
 \end{enumerate}
 
-These rules also improve reproducibility. A later reviewer can determine whether two analyses disagree because they used different APKs, different component databases, different policies, or different environments. Without the bindings, disagreement is difficult to localize.
+The bindings localize disagreements to APK, component database, policy or environment.
 
 \subsection{Contradiction patterns}
 
-A synthesis should preserve contradictions rather than averaging them away. Five patterns are particularly important.
-
-\paragraph{Incompatible denominators.}
-One study may report the fraction of known positive pairs detected, another the fraction of returned pairs judged positive, and a third classification accuracy on balanced data. The numbers cannot be ranked without reconstructing the denominators. This issue is prominent in repackaging evaluations and motivates the RePack effort~\cite{repack}.
-
-\paragraph{Different transformation distributions.}
-A method may appear robust because its benchmark contains renaming and packing but not control-flow restructuring or resource replacement. Another may target a different set. The correct synthesis is a coverage matrix, not a single robustness ordering.
-
-\paragraph{Different objects.}
-A library detector can report classes, modules, families, or versions. A clone detector can report methods, applications, pairs, or clusters. A supply-chain system can report steps, targets, or releases. Claims using different objects should not be counted as direct replications.
-
-\paragraph{Different oracle provenance.}
-Controlled transformations provide precise lineage labels but limited realism. Market-derived labels provide realism but uncertain ground truth. Authenticated process records provide direct history for participating projects but may not exist for adversarial artifacts. Each oracle closes one gap and opens another.
-
-\paragraph{Different threat models.}
-A signature scheme can be correct when keys are uncompromised; a delegation system may tolerate some compromised roles; a transparency system targets equivocation; a detector targets transformed copies; and a behavior analysis targets malicious functionality. Calling all of them ``supply-chain security'' does not make their guarantees interchangeable.
-
-Table~\ref{tab:contradictions} turns these patterns into reporting obligations.
+A synthesis preserves incompatible contracts rather than averaging their numbers. Denominators range from known-positive recall to returned-pair precision and balanced accuracy~\cite{repack}; AppForge conditions test-pass and crash rates on compiled apps but functional success on all tasks~\cite{appforge}. DetTrace excludes unsupported builds and timeouts, with inconsistent unsupported totals in Table~1~\cite{reprocontainers}. Transformation sets, output objects (classes, pairs, steps), and threat models also differ. Controlled transformations establish constructed direction but have limited realism; market labels improve realism with uncertain history. ViewDroid accepts shared-builder apps under its criterion whereas ResDroid reports template false alerts~\cite{viewdroid,resourcedriven}. Authenticated histories bind participating projects, not every adversarial artifact. Table~\ref{tab:contradictions} states the information required to compare these cases.
 
 \begin{table}[t]
 \caption{Contradiction patterns and the information needed to resolve or bound them.}
@@ -111,7 +92,7 @@ Generated output cannot be reproduced & Nondeterminism, model drift, retrieval c
 
 A cross-layer evaluation should be organized around falsification. It must name the object and proposition; retain positive, hard-negative, and unknown cases; separate candidate retrieval from verification; include ordered transformation compositions; split by family, developer, market, and time; and recheck a sample of all label states. For generated artifacts, outputs from one prompt family, seed project, or trajectory belong in one partition. For component and vulnerability claims, presence, exact version, reachability, and observed exploit conditions remain separate.
 
-Operational reporting must include candidate volume, abstention, explanation size, and adjudication effort. Every downstream component, behavior, provenance, or authorization result must bind to the same APK digest or a documented predecessor relation. Table~\ref{tab:checklist} turns these requirements into a minimum report; it is a floor rather than a complete domain-specific protocol.
+Operational comparison must define a common object and workload before ranking cost: bootstrap/reference construction, per-app extraction, candidate retrieval, pair verification, update insertion, memory, storage, and human adjudication are different stages. Workload, host/runtime, memory load and warm-up can reverse rankings~\cite{blackburn}. Incremental and multi-stage measurements already exist in the centroid system, AnDarwin and FSquaDRA~\cite{accuracyclone,andarwin,fsquadra}; their different oracle samples and stage boundaries preclude a universal speed ranking. FSquaDRA's legitimate shared-library clusters also show that detector agreement is not independent copy-history validation. Report candidate volume, abstention, explanations and review effort; bind every downstream result to an APK digest or documented predecessor. Table~\ref{tab:checklist} is a reporting floor, not a complete protocol.
 
 \begin{table}[t]
 \caption{Minimum reporting checklist for evidence-centered Android lineage evaluation.}
@@ -143,6 +124,6 @@ Evidence profiles also expose combinations. A deployment can select complementar
 
 \subsection{What the combined literature supports}
 
-The checked mechanisms motivate four organizing conclusions; the full 97-record synthesis has not been substantively verified. First, multiple Android studies leave origin assignment dependent on market, certificate, timestamp or reference-presence heuristics~\cite{repack,droidmoss,adrob,wukong,appraiser,piggybacking}. Second, library family, version, invocation and reachability are distinct propositions, and library filtering can erase integrity evidence~\cite{libid,originsvuln,piggybacking,tpl}. Third, authenticated steps, delegated updates, transparent publication and reproducibility close different obligations under key, policy, initial-state and monitoring assumptions~\cite{tuf,intoto,diplomat,chainiac,contour,reprocontainers}. Fourth, historical assistant studies measure task-specific security or output association, while mobile generation benchmarks measure specified functional tests; neither observation authenticates lineage or establishes universal safety~\cite{pearce,perry,sandoval,codexleaks,appforge}.
+The framework draws on origin-oracle qualifications in RePack, DroidMOSS and AdRob~\cite{repack,droidmoss,adrob}, extended by WuKong, APPraiser and piggybacking~\cite{wukong,appraiser,piggybacking}; and on the distinction among family, version and vulnerability reach~\cite{libid,originsvuln,tpl}. Steps and delegation close different obligations~\cite{tuf,intoto,diplomat}, as do transparency and reproducibility~\cite{chainiac,contour,reprocontainers}. Assistant-security studies are task-specific~\cite{pearce,perry,sandoval}, while output association and mobile functional tests address other objects~\cite{codexleaks,appforge}. Their key, policy, coverage and oracle assumptions remain necessary. Support across the full 97-record map is not yet semantically verified.
 
-The checked evidence provides no basis for treating one detector, signature, SBOM, attestation, or AI-disclosure field as a complete mobile-lineage solution. It supports a layered case in which each observation is limited to the proposition it measures and the cross-layer bindings are evaluated explicitly.
+These observations support a layered case: each contributes its measured proposition, and explicit cross-layer bindings connect those propositions to the analyzed artifact.

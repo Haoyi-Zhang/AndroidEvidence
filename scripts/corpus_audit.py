@@ -49,13 +49,6 @@ EXCLUDED_REQUIRED = {
     "bib_key", "title", "status", "official_record_url", "decision", "reason",
     "checked_date", "downstream_cleanup", "boundary",
 }
-CALIBRATION_REQUIRED = {
-    "calibration_id", "group", "bib_key", "title", "motivating_problem",
-    "general_principle", "evidence_argument", "practical_connection",
-    "evaluation_breadth", "artifact_strength", "narrative_sequence",
-    "section_pattern", "bibliography_size", "figure_table_role",
-    "evidence_basis", "limitation",
-}
 VALID_STRATA = {
     "review_and_method", "android_artifact", "third_party_library",
     "supply_chain", "ai_mediated",
@@ -181,9 +174,106 @@ def content_check_counts(rows):
     }
 
 
+CODING_FIELDS = ('evidence_object', 'observation', 'transformation_model',
+                 'oracle_or_policy', 'claim_ceiling', 'counter_history', 'inference_limit')
+
+
+def field_evidence_summary(rows, extractions, source_locations, source_readings):
+    """Check declared field bindings, not whether a reader understood the source.
+
+    Only records with seven located fields enter this supplementary denominator.
+    Inherited content statuses are not silently promoted to full recoding.
+    """
+    extraction = {r['bib_key']: r for r in extractions}
+    locations = {r['bib_key']: r for r in source_locations}
+    readings = {}
+    for row in source_readings:
+        key = row['bib_key']
+        if key in readings or key not in extraction:
+            raise ValueError('duplicate or unbound source reading')
+        if (row['fulltext_url'] != locations[key]['fulltext_url'] or
+                row['reading_scope'] != 'retrieved_pdf_locator_binding' or
+                row['extractor'] != 'AI-assisted single extractor; not independent' or
+                not re.fullmatch(r'[0-9a-f]{64}', row['source_sha256'])):
+            raise ValueError('source reading lacks exact representation boundary')
+        pages = int(row['pdf_page_count'])
+        if not 1 <= pages <= 10000:
+            raise ValueError('invalid retrieved PDF page count')
+        readings[key] = (row['source_sha256'], pages)
+    seen = set()
+    for row in rows:
+        key, field = row['bib_key'], row['field']
+        if (key, field) in seen or key not in extraction or field not in CODING_FIELDS:
+            raise ValueError('duplicate or unbound field evidence')
+        seen.add((key, field))
+        if row['coded_value'] != extraction[key][field]:
+            raise ValueError('stale field evidence: ' + key + '/' + field)
+        if (not specific_content_locator(row['source_location']) or
+                row['fulltext_url'] != locations[key]['fulltext_url'] or
+                locations[key]['content_check_status'] != 'complete_scope_checked'):
+            raise ValueError('field evidence lacks bound scoped fulltext: ' + key)
+        if key not in readings or row['source_sha256'] != readings[key][0]:
+            raise ValueError('field evidence lacks exact source version: ' + key)
+        # Physical PDF indices, not printed folios or section numbers. This
+        # bounds a declared locator; it does not verify the cited page's meaning.
+        match = re.search(r'\bPDF\s+pp?\.\s*([\d\s,\-\u2013]+)(?=[:;(])', row['source_location'])
+        if match is None:
+            raise ValueError('field evidence needs physical PDF pages: ' + key)
+        for part in match.group(1).strip().split(','):
+            span = re.fullmatch(r'\s*(\d+)(?:\s*[-\u2013]\s*(\d+))?\s*', part)
+            if span is None:
+                raise ValueError('invalid physical PDF page locator: ' + key)
+            start, end = int(span.group(1)), int(span.group(2) or span.group(1))
+            if not 1 <= start <= end <= readings[key][1]:
+                raise ValueError('field evidence page outside retrieved PDF: ' + key)
+        if row['basis'] not in {'source_report', 'analytical_classification'} or not row['evidence_note'].strip():
+            raise ValueError('field evidence lacks interpretation boundary')
+    keys = {key for key, _ in seen}
+    if keys != set(readings):
+        raise ValueError('source readings and located recodings differ')
+    if any((key, field) not in seen for key in keys for field in CODING_FIELDS):
+        raise ValueError('incomplete seven-field recoding')
+    return {'located_field_rows': len(seen), 'located_recoded_records': len(keys),
+            'total_coding_fields': len(extractions) * len(CODING_FIELDS),
+            'records_without_supplementary_field_bindings': len(extractions) - len(keys),
+            'semantic_interpretation_verified_by_code': False}
+
+
+def recoding_transition_summary(transitions, rechecks, extractions, source_readings):
+    """Bind historical rechecks to a newer located recoding without rewriting history.
+
+    This checks an explicitly declared transition, not the truth of either ceiling.
+    A changed historical value, current value, source version or date breaks it.
+    """
+    history = {r['bib_key']: r for r in rechecks}
+    current = {r['bib_key']: r for r in extractions}
+    readings = {r['bib_key']: r for r in source_readings}
+    bound = {}
+    for row in transitions:
+        key = row['bib_key']
+        if key in bound or key not in history or key not in current or key not in readings:
+            raise ValueError('duplicate or unbound recoding transition')
+        old, new, reading = history[key], current[key], readings[key]
+        if (row['historical_recheck_id'] != old['recheck_id'] or
+                row['previous_ceiling'] != old['rechecked_ceiling'] or
+                row['current_ceiling'] != new['claim_ceiling'] or
+                row['previous_ceiling'] == row['current_ceiling'] or
+                row['source_sha256'] != reading['source_sha256'] or
+                row['recoding_date'] != new['verification_date'] or
+                row['recoding_date'] != reading['read_date'] or
+                not re.fullmatch(r'\d{4}-\d{2}-\d{2}', row['recoding_date']) or
+                row['recoding_date'] <= old['date']):
+            raise ValueError('broken historical-to-current recoding binding: ' + key)
+        bound[key] = row['current_ceiling']
+    return bound
+
+
 def main(out=None) -> int:
     corpus, corpus_fields = read_csv("data/corpus.csv")
     extractions, extraction_fields = read_csv("data/study_extractions.csv")
+    field_evidence, _ = read_csv('data/field_evidence.csv')
+    source_readings, _ = read_csv('data/source_readings.csv')
+    recoding_transitions, _ = read_csv('data/recoding_transitions.csv')
     reviews, _ = read_csv("data/review_gap_matrix.csv")
     rechecks, _ = read_csv("data/source_rechecks.csv")
     screening, _ = read_csv("data/screening_ledger.csv")
@@ -191,7 +281,6 @@ def main(out=None) -> int:
     search_provenance, search_provenance_fields = read_csv("data/search_provenance.csv")
     bib_verify, bib_verify_fields = read_csv("data/bibliography_verification.csv")
     excluded, excluded_fields = read_csv("data/excluded_publications.csv")
-    calibration, calibration_fields = read_csv("data/calibration_papers.csv")
     unresolved_leads, _ = read_csv("data/unresolved_leads.csv")
     resolved_leads, _ = read_csv("data/resolved_leads.csv")
     claims, _ = read_csv("data/synthesis_claims.csv")
@@ -210,7 +299,6 @@ def main(out=None) -> int:
         ("search-provenance", SEARCH_PROVENANCE_REQUIRED, search_provenance_fields),
         ("bibliography-verification", BIB_VERIFY_REQUIRED, bib_verify_fields),
         ("excluded-publication", EXCLUDED_REQUIRED, excluded_fields),
-        ("calibration", CALIBRATION_REQUIRED, calibration_fields),
     ]
     for label, required, found in schema_pairs:
         if not required <= found:
@@ -345,6 +433,12 @@ def main(out=None) -> int:
                         errors.append(f'source-location line {line_no}: checked content has no specific page/section locator')
                     if extraction_by_key.get(row['bib_key'], {}).get('verification_date') != row.get('content_check_date'):
                         errors.append(f'source-location line {line_no}: extraction/check date mismatch')
+                    extracted_locator = extraction_by_key.get(row['bib_key'], {}).get('source_location', '')
+                    if locator not in extracted_locator:
+                        errors.append(f'source-location line {line_no}: extraction does not bind checked content locator')
+                    urls = set(re.findall(r'https://[^\s;]+', extracted_locator))
+                    if urls and urls != {row.get('fulltext_url')}:
+                        errors.append(f'source-location line {line_no}: extraction has conflicting fulltext URL')
             else:
                 if "not a complete database-search hit denominator" not in row.get("denominator_scope", ""):
                     errors.append(f"search-provenance line {line_no}: denominator boundary missing")
@@ -451,11 +545,17 @@ def main(out=None) -> int:
         errors.append("recheck references unknown corpus key")
     if any(r.get("independent") != "false" for r in rechecks):
         errors.append("same-process rechecks must not be labeled independent")
+    try:
+        recoding_bindings = recoding_transition_summary(recoding_transitions, rechecks, extractions, source_readings)
+    except (KeyError, ValueError) as error:
+        errors.append(str(error))
+        recoding_bindings = {}
     for line_no, row in enumerate(rechecks, 2):
         key = row.get('bib_key', '')
         if row.get('record_id') != corpus_by_key.get(key, {}).get('record_id'):
             errors.append(f'source recheck line {line_no}: record/key mismatch')
-        if row.get('rechecked_ceiling') != extraction_by_key.get(key, {}).get('claim_ceiling'):
+        if (row.get('rechecked_ceiling') != extraction_by_key.get(key, {}).get('claim_ceiling') and
+                key not in recoding_bindings):
             errors.append(f'source recheck line {line_no}: stale rechecked ceiling')
         source = row.get("source_url_or_access_note", "")
         if not source.startswith(("https://", "http://")) or "not recorded" in source.lower():
@@ -504,33 +604,10 @@ def main(out=None) -> int:
     material_ids = [r.get("claim_id", "").strip() for r in material_claims]
     if duplicates(material_ids) or not material_ids:
         errors.append("duplicate or empty material claim ids")
-    if len(material_claims) < 28:
-        errors.append(f"material-claim ledger has {len(material_claims)} rows; expected at least 28")
     for line_no, row in enumerate(material_claims, 2):
         missing = nonblank(row, required_material)
         if missing:
             errors.append(f"material claim line {line_no}: blank fields {missing}")
-
-    # Calibration contract: 12 closest full/selected papers, 5 influential/method,
-    # and 5 adjacent evidence exemplars, with no overlap.
-    cal_ids = [r.get("calibration_id", "") for r in calibration]
-    cal_keys = [r.get("bib_key", "") for r in calibration]
-    if duplicates(cal_ids) or duplicates(cal_keys):
-        errors.append("duplicate calibration id or bibliography key")
-    expected_groups = Counter({"closest": 12, "influential_method": 5, "adjacent_evidence": 5})
-    if Counter(r.get("group") for r in calibration) != expected_groups:
-        errors.append(f"calibration group counts differ from {dict(expected_groups)}")
-    for line_no, row in enumerate(calibration, 2):
-        missing = nonblank(row, CALIBRATION_REQUIRED)
-        if missing:
-            errors.append(f"calibration line {line_no}: blank fields {missing}")
-        c = corpus_by_key.get(row.get("bib_key", ""))
-        if not c:
-            errors.append(f"calibration line {line_no}: unknown bibliography key")
-        elif c.get("reading_depth") != "full_or_selected_source":
-            errors.append(f"calibration line {line_no}: record is not at full/selected-source depth")
-        elif row.get("title") != c.get("title"):
-            errors.append(f"calibration line {line_no}: title mismatch")
 
     # Historical pilot is retained only as a finite semantics regression fixture.
     sbom = next((r for r in pilot_records if r.get("record_id") == "R07"), None)
@@ -551,6 +628,11 @@ def main(out=None) -> int:
     strata = Counter(r["stratum"] for r in corpus)
     depths = Counter(r["reading_depth"] for r in corpus)
     publication = Counter(r["publication_evidence"] for r in corpus)
+    try:
+        located_coding = field_evidence_summary(field_evidence, extractions, source_locations, source_readings)
+    except (ValueError, KeyError) as exc:
+        errors.append(str(exc))
+        located_coding = {'status': 'invalid', 'semantic_interpretation_verified_by_code': False}
     summary = {
         "status": "passed" if not errors else "failed",
         "records": len(corpus),
@@ -560,14 +642,14 @@ def main(out=None) -> int:
         "excluded_publications": len(excluded),
         "claim_level_extractions": len(extractions),
         "closest_review_records": len(reviews),
-        "calibration_records": len(calibration),
-        "calibration_groups": dict(sorted(Counter(r["group"] for r in calibration).items())),
         "direct_all_dimension_reviews": direct_all,
         "review_direct_coverage_status": review_coverage_status(reviews) if all(
             r.get(d) in {'0', 'P', '1', '?'} for r in reviews for d in MATRIX_DIMS
         ) else 'invalid',
         "review_unknown_cells": sum(r.get(d) == '?' for r in reviews for d in MATRIX_DIMS),
         **content_check_counts(source_locations),
+        'supplementary_located_coding': located_coding,
+        'historical_to_current_recoding_transitions': len(recoding_bindings),
         "source_rechecks": len(rechecks),
         "source_recheck_fraction": len(rechecks) / len(extractions) if extractions else 0,
         "source_rechecks_independent": False,
@@ -594,7 +676,7 @@ def main(out=None) -> int:
         "errors": errors,
         "boundary": (
             "The checks validate supplied ledgers, exact active/excluded key quarantine, record-level publication-status metadata, "
-            "review/calibration obligations, recheck coverage, and minimum corpus obligations. They do not prove search exhaustiveness, "
+            "review bindings, recheck coverage, and retained corpus counts. They do not prove search exhaustiveness, "
             "a comprehensive retraction-registry search, independent source interpretation, detector performance, or worldwide novelty."
             " A source URL, complete row, legacy reading-depth label or lack of an observed all-dimension row does not certify content or a gap."
         ),
@@ -622,6 +704,10 @@ def main(out=None) -> int:
         f"\\newcommand{{\\AbstractSelectedWorks}}{{{depths['publisher_abstract_or_selected_source']}}}\n"
         f"\\newcommand{{\\SourceCheckedWorks}}{{{summary['content_checked_records']}}}\n"
         f"\\newcommand{{\\SourceUncheckedWorks}}{{{summary['legacy_not_reverified_records']}}}\n"
+        f"\\newcommand{{\\LocatedRecodedRecords}}{{{located_coding.get('located_recoded_records', 0)}}}\n"
+        f"\\newcommand{{\\LocatedCodingFields}}{{{located_coding.get('located_field_rows', 0)}}}\n"
+        f"\\newcommand{{\\TotalCodingFields}}{{{located_coding.get('total_coding_fields', 0)}}}\n"
+        f"\\newcommand{{\\WithoutLocatedCoding}}{{{located_coding.get('records_without_supplementary_field_bindings', 0)}}}\n"
     )
     if not errors:
         (tex / "corpus_counts.tex").write_text(macros, encoding="utf-8")

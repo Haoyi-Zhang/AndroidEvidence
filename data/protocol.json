@@ -1,6 +1,5 @@
 {
-  "status": "claim_centered_structured_evidence_synthesis_internal_draft",
-  "question_locked": true,
+  "status": "bounded_claim_centered_evidence_synthesis",
   "question": "Which observable evidence supports which Android software-lineage or assurance claim, under what transformation and trust assumptions, when applications include third-party components and AI-mediated changes?",
   "review_type": "bounded claim-centered structured evidence synthesis with a closest-review adversary matrix",
   "search_cutoff": "2026-09-16",
@@ -23,12 +22,6 @@
     "ai_mediated": 8
   },
   "closest_review_matrix_records": 21,
-  "calibration_records": 22,
-  "calibration_groups": {
-    "closest": 12,
-    "influential_method": 5,
-    "adjacent_evidence": 5
-  },
   "claim_level_extractions": 97,
   "source_location_records": 97,
   "retained_record_provenance_records": 97,
@@ -39,8 +32,6 @@
   "fresh_source_rechecks": 90,
   "fresh_source_recheck_fraction": 0.9278350515463918,
   "independent_dual_coding": false,
-  "unit_tests": 69,
-  "material_claims": 28,
   "inclusion": "Android artifact observations; component/version evidence; provenance, signing, transparency, repository, build, or reproducibility mechanisms mappable to an APK lifecycle; empirical supply-chain evidence; AI-mediated mobile generation or software-security evidence; and review/method sources structuring these areas.",
   "exclusion": "General LLM or GUI-agent work without a software-artifact lineage object; withdrawn or retracted publications from the active synthesis; stronger inferences not supported by the source observation; and cross-study performance pooling across incompatible oracles and denominators.",
   "coding_dimensions": [
@@ -62,7 +53,7 @@
     "L6 behavioral assurance"
   ],
   "synthesis_rule": "A mechanism is not promoted beyond the proposition directly observed under its reported assumptions; counter-histories and unknowns are retained.",
-  "gap_result": "Located readings support 49 direct/partial cells and two scoped absences; 96 cells remain unresolved across 21 records. Direct all-dimension coverage is undetermined. No retained-set or worldwide absence is established.",
+  "gap_result": "63 located direct/partial cells, 11 scoped absences and 73 unresolved cells across 21 records. Direct all-dimension coverage remains undetermined.",
   "publication_status_boundary": "Each active record has a checked scholarly or official locator and a corpus/BibTeX status match. This record-level check is not a comprehensive retraction-registry search. One known withdrawn work is quarantined in excluded_publications.csv and retained only in a historical regression fixture.",
   "limitations": [
     "No PRISMA-complete search-hit denominator",
@@ -72,13 +63,20 @@
     "No primary model, malware, device, or human experiment",
     "Record-level publication checks are not a comprehensive retraction-registry census"
   ],
-  "reproduction_scope": "Offline scripts validate corpus/bibliography/extraction equality, canonical identifier and publication-status constraints, matrix semantics, calibration and recheck obligations, claim-ledger references, mutation controls, the retained finite bookkeeping oracle, and manuscript-facing counts. They do not validate source interpretation or novelty.",
+  "reproduction_scope": "Offline scripts validate corpus/bibliography/extraction equality, canonical identifier and publication-status constraints, source-version/page and historical-to-current recoding bindings, matrix semantics, claim-ledger references, mutation controls, the retained finite bookkeeping oracle, and manuscript-facing counts. They do not validate source interpretation or novelty.",
   "unresolved_leads": 0,
   "traceability_note": "Every retained record has a direct scholarly or official locator, source-reading boundary, retrospective retained-record provenance row, and publication-status row. This does not reconstruct a complete database-search denominator. The legacy fresh_source_rechecks fields count cumulative dated ledger rows, not a new all-source recheck batch. Legacy reading-depth labels are not content certificates; selected fulltext checks and legacy-not-reverified records are counted separately.",
-  "selected_fulltext_checked": 84,
-  "complete_scope_checked": 3,
-  "content_checked": 87,
-  "legacy_not_reverified": 10,
-  "review_unknown_cells": 96,
-  "review_direct_coverage_status": "undetermined"
+  "selected_fulltext_checked": 4,
+  "complete_scope_checked": 84,
+  "content_checked": 88,
+  "legacy_not_reverified": 9,
+  "review_unknown_cells": 73,
+  "review_direct_coverage_status": "undetermined",
+  "supplementary_field_coding": {
+    "records": 84,
+    "fields": 588,
+    "total_fields": 679,
+    "without_supplementary_bindings": 13,
+    "boundary": "Located coding is AI-assisted and same-process. Software checks bindings and calculations, not semantic understanding."
+  }
 }
