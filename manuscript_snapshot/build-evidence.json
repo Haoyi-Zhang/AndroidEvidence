@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "pdf": "build/main.pdf",
-  "pdf_sha256": "02a52cbc4aeaaad94b1b3e7e783a46409429ff69e9dca4bd99a168b2c1dc6d89",
+  "pdf_sha256": "3efeb4741cf5e8ff5fa4e2db4d20aa3f4733f4ce17081216db56d3ea03ff0370",
   "source_sha256": {
     "ACM-Reference-Format.bst": "4342d27456645567ef1a027f6474e894715bc31d468f040142fa54540440ad04",
     "acmart.cls": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
@@ -9,7 +9,7 @@
     "generated/corpus_counts.tex": "62467009d3afa850dbfc47fa71a774f457c3715da9e48ca85694af94c1a790e0",
     "generated/review_matrix_rows.tex": "b5ca58dc2162cc365d435f9d21845499f09f80d10993f661a12164be4988be80",
     "main.tex": "fb9528f1e46af75c0e12b23d9ab8709f6ce69566836b652c6d2f9d10259cee0b",
-    "project-repository.tex": "2aa62a0e37901fc136908f005ed46a41b340d60e3fb9dedd91ef70f009a6869e",
+    "project-repository.tex": "a9cbcf7c0e634f512a9fc6e297ae38730618c06f676e14ee61bce71a0c69243b",
     "references.bib": "b6067323d7ae368a4a5df86f1644ee74d782cdbeed97dfe477f1d7f33fbb3a0c",
     "sections/01-introduction.tex": "d0d2ddae58a08cb050d748f1a5cfb60647574c21e190d35efdc2a713c2127f04",
     "sections/02-method.tex": "7c7eee40f452c434d169788ecb7c0f8ede75b1d6f5244a4eb6d3a8886a6b826a",
@@ -21,82 +21,25 @@
     "sections/08-synthesis.tex": "f5fbded9d2699ee84cb293d7b2689bed0d90684b2243d735ee3050e026a45161",
     "sections/09-agenda.tex": "1c2e6bff0863be4a4237791bb50153cf48d59c5e24ecda1478bb7ce5f4ea8b5c"
   },
-  "log_sha256": "0840ae4b0148e590c311088413acfae5d8416005c0e2242c34a461bff6d458ea",
+  "log_sha256": "c3cc68ea8cefb3726656afb513f3c5342e35a4eb020dd67ab58ef3601468d431",
   "local_page_budget": 39,
   "pages": 38,
   "page_size": "612 x 792 pts (letter)",
-  "file_size_bytes": 598294,
+  "file_size_bytes": 598282,
   "commands": [
     {
       "command": [
-        "pdflatex.EXE",
-        "-no-shell-escape",
-        "-interaction=nonstopmode",
-        "-halt-on-error",
-        "-output-directory=build",
-        "main.tex"
+        "python",
+        "-B",
+        "compile_current.py",
+        "--source",
+        "<manuscript>/main.tex",
+        "--outdir",
+        "<isolated-build>"
       ],
       "exit_code": 0,
-      "wall_seconds": 1.367959700000938,
-      "child_cpu_seconds": null,
-      "cumulative_max_child_rss_kib": null,
-      "accepted_bibliography_warnings": false
-    },
-    {
-      "command": [
-        "bibtex.EXE",
-        "build/main"
-      ],
-      "exit_code": 0,
-      "wall_seconds": 0.046898000000510365,
-      "child_cpu_seconds": null,
-      "cumulative_max_child_rss_kib": null,
-      "accepted_bibliography_warnings": false
-    },
-    {
-      "command": [
-        "pdflatex.EXE",
-        "-no-shell-escape",
-        "-interaction=nonstopmode",
-        "-halt-on-error",
-        "-output-directory=build",
-        "main.tex"
-      ],
-      "exit_code": 0,
-      "wall_seconds": 1.3700282999998308,
-      "child_cpu_seconds": null,
-      "cumulative_max_child_rss_kib": null,
-      "accepted_bibliography_warnings": false
-    },
-    {
-      "command": [
-        "pdflatex.EXE",
-        "-no-shell-escape",
-        "-interaction=nonstopmode",
-        "-halt-on-error",
-        "-output-directory=build",
-        "main.tex"
-      ],
-      "exit_code": 0,
-      "wall_seconds": 1.3991620000015246,
-      "child_cpu_seconds": null,
-      "cumulative_max_child_rss_kib": null,
-      "accepted_bibliography_warnings": false
-    },
-    {
-      "command": [
-        "pdflatex.EXE",
-        "-no-shell-escape",
-        "-interaction=nonstopmode",
-        "-halt-on-error",
-        "-output-directory=build",
-        "main.tex"
-      ],
-      "exit_code": 0,
-      "wall_seconds": 1.3503498999998556,
-      "child_cpu_seconds": null,
-      "cumulative_max_child_rss_kib": null,
-      "accepted_bibliography_warnings": false
+      "wall_seconds": 8.25,
+      "path_basis": "Placeholders represent actual isolated build locations retained in the private execution receipt; this is the wrapper invocation, not a native experiment."
     }
   ],
   "latex_findings": {
@@ -125,5 +68,6 @@
     "source_contract_passed": true
   },
   "qpdf_check": "not_available",
-  "visual_inspection": "separate manual page-image inspection required"
+  "visual_inspection": "Pixel-identical carry-forward from the preceding 38-page inspection; link destination checked separately.",
+  "current_rebuild_scope": "Repository URL destination only; scientific experiments and source-coding judgments unchanged."
 }

@@ -1,5 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2026.10.3)  15 OCT 2026 13:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2026.10.3)  15 OCT 2026 20:53
 entering extended mode
+ file:line:error style messages enabled.
  %&-line parsing enabled.
 **main.tex
 (./main.tex
@@ -1081,14 +1082,15 @@ Include comment 'anonsuppress'
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count345
 \l__pdf_internal_box=\box76
-) (build/main.aux)
+)
+(D:/LaTeXTools/builds/editor/canonical-repository-links/P026/main-f6709830/main
+.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/nxlmi/m/it on input line 31.
 LaTeX Font Info:    Trying to load font information for OML+nxlmi on input line
  31.
-
-(d:/LaTeXTools/texlive/2024/texmf-dist/tex/latex/newtx/omlnxlmi.fd
+ (d:/LaTeXTools/texlive/2024/texmf-dist/tex/latex/newtx/omlnxlmi.fd
 File: omlnxlmi.fd 2013/11/19 Fontinst v1.933 font definitions for OML/nxlmi.
 )
 LaTeX Font Info:    ... okay on input line 31.
@@ -1228,7 +1230,10 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 Package hyperref Info: Link coloring ON on input line 31.
 
-(build/main.out) (build/main.out)
+(D:/LaTeXTools/builds/editor/canonical-repository-links/P026/main-f6709830/main
+.out)
+(D:/LaTeXTools/builds/editor/canonical-repository-links/P026/main-f6709830/main
+.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
@@ -1589,7 +1594,9 @@ Underfull \vbox (badness 1231) has occurred while \output is active []
 
 [32.32]) (./sections/09-agenda.tex
 
-[33.33]) (./project-repository.tex) (build/main.bbl
+[33.33]) (./project-repository.tex)
+(D:/LaTeXTools/builds/editor/canonical-repository-links/P026/main-f6709830/main
+.bbl
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 7.0pt on input line 50.
 
@@ -1615,7 +1622,9 @@ File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 (d:/LaTeXTools/texlive/2024/texmf-dist/tex/generic/stringenc/se-utf8.def
 File: se-utf8.def 2019/11/29 v1.12 stringenc: UTF-8
 )
-[38.38] (build/main.aux)
+[38.38]
+(D:/LaTeXTools/builds/editor/canonical-repository-links/P026/main-f6709830/main
+.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1625,7 +1634,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  33096 strings out of 475129
- 602879 string characters out of 5764261
+ 603763 string characters out of 5764261
  1050873 words of memory out of 5000000
  54454 multiletter control sequences out of 15000+600000
  746385 words of font info for 530 fonts, out of 8000000 for 9000
@@ -1640,7 +1649,8 @@ ublic/libertine/LinLibertineTB.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/fonts
 /type1/public/libertine/LinLibertineTI.pfb><d:/LaTeXTools/texlive/2024/texmf-di
 st/fonts/type1/public/newtx/txmiaX.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/f
 onts/type1/public/newtx/txsys.pfb>
-Output written on build/main.pdf (38 pages, 598294 bytes).
+Output written on D:/LaTeXTools/builds/editor/canonical-repository-links/P026/m
+ain-f6709830/main.pdf (38 pages, 598282 bytes).
 PDF statistics:
  1289 PDF objects out of 1440 (max. 8388607)
  1112 compressed objects within 12 object streams
