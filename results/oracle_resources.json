@@ -1,6 +1,6 @@
 {
-  "wall_seconds": 0.8062441000365652,
-  "cpu_seconds": 0.8125,
+  "wall_seconds": 0.8335825999965891,
+  "cpu_seconds": 0.828125,
   "peak_rss_kib": null,
   "rss_measurement_basis": "getrusage unavailable on this platform",
   "workers": 1,

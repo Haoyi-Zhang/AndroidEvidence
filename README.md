@@ -15,10 +15,10 @@ Use an output path outside the artifact to keep a new local run separate from re
 1. active-corpus, bibliography, publication-status, screening, extraction, and traceability audit;
 2. retained historical gap-ledger audit;
 3. independent finite completion oracle;
-4. all discovered unit and mutation tests (103 methods, including six display-row and seven reader-assessment regressions);
+4. all discovered unit and mutation tests, including display-row, reader-assessment and matrix-admission regressions;
 5. deterministic manuscript-table and count-fragment generation.
 
-A passing run ends with a JSON object whose `status` is `passed`, `commands` is `5`, `corpus_records` is `97`, and `unit_tests` equals the completed discovered suite (103 methods in this source). This count is distinct from the 88 source-location checks and 85 complete seven-field assessments. Test counts come from the completed test summary, not interleaved progress lines. Child CPU and peak RSS are reported as `null` when the platform lacks `getrusage`; missing measurements are not zero-filled.
+A passing run ends with a JSON object whose `status` is `passed`, `commands` is `5`, `corpus_records` is `97`, and `unit_tests` equals the completed discovered suite. This count is distinct from the 88 source-location checks and 85 complete seven-field assessments. Test counts come from the completed test summary, not interleaved progress lines. Child CPU and peak RSS are reported as `null` when the platform lacks `getrusage`; missing measurements are not zero-filled.
 
 ## Current evidence inventory
 
@@ -38,7 +38,7 @@ A passing run ends with a JSON object whose `status` is `passed`, `commands` is 
 - `data/synthesis_claims.csv` - seven synthesis rules with supporting sources, counter-histories, and boundaries.
 - `claim_evidence_ledger.csv` - 27 material paper/artifact claims and their evidence paths.
 
-The retained corpus has 76 primary/empirical/system works and 21 review/method works. Seventy-four primary/system works and 93 works overall have venue publication evidence. Legacy reading-depth labels remain 61 full-or-selected-source and 36 publisher-abstract-or-selected-source records. Locator entries cover 88 works: three selected HTML readings and 85 complete-scoped PDF rows. The separate reader ledger records complete retrieved-PDF/seven-field coding for all 85 acquired PDFs. Twelve records have no acquired PDF through attempted routes, although some have selected HTML readings; nine lack the locator check. The 21-row review matrix has 73 direct/partial cells, 27 scoped absences and 47 unresolved cells, leaving direct all-dimension coverage undetermined. The TPL review's component-policy coverage, AStRA v2's prospective AI discussion and Williams et al.'s direct AI-workflow treatment retain their distinct scopes. Complete retrieved-source reading does not certify an uncompared final publication or independent human coding.
+The retained corpus has 76 primary/empirical/system works and 21 review/method works. Seventy-four primary/system works and 93 works overall have venue publication evidence. Legacy reading-depth labels remain 61 full-or-selected-source and 36 publisher-abstract-or-selected-source records. Locator entries cover 88 works: three selected HTML readings and 85 complete-scoped PDF rows. The separate reader ledger records complete retrieved-PDF/seven-field coding for all 85 acquired PDFs. Twelve records have no acquired PDF through attempted routes, although some have selected HTML readings; nine lack the locator check. The 21-row review matrix has 75 direct/partial cells, 41 scoped absences and 31 unresolved cells, leaving direct all-dimension coverage undetermined. Brereton's seven cells await representation-aware admission; the other 24 unresolved cells require further original-source support. The TPL review's component-policy coverage, AStRA v2's prospective AI discussion and Williams et al.'s direct AI-workflow treatment retain their distinct scopes. Complete retrieved-source reading does not certify an uncompared final publication or independent human coding.
 
 ## What the checks establish
 
@@ -50,6 +50,14 @@ scan reference, exercise every selected cell/code, container permutations,
 missing/duplicate keys, and failed-corpus admission. They run in the existing
 discovered suite and scientific workflow; they validate display traceability,
 not the coded interpretation of a publication. The literal display fixture follows the coded cells; formatting tests do not validate source interpretation.
+
+`tests/test_review_matrix_admissions.py` binds the 16 TPL/Wohlin/Kitchenham
+matrix decisions to their exact retrieved source versions, physical page
+locators, existing complete reader assessments and seven-field bindings.
+Negative controls remove or downgrade those prerequisites and alter cell/page
+values. These are consistency controls for declared source-based judgments,
+not a new source-reading pass or a second human interpretation. The matrix CSV
+schema and the 85/595 reading/field denominators are unchanged.
 
 The scripts enforce exact active key binding across corpus, bibliography, extractions, source locations, provenance, and status ledgers; title/year agreement; canonical DOI form for 82 DOI records; active/excluded quarantine; retained corpus and review bindings; explicit reading and independence boundaries; source-recheck coverage; synthesis-source bindings; and deterministic finite bookkeeping.
 
@@ -77,7 +85,7 @@ final engine log, compiled bibliography, build evidence and directly inspected
 The sibling `paper/` remains the primary source; the snapshot is an artifact-only
 delivery mirror, not a second compilation. Earlier evidence is retained privately.
 
-When this directory is the repository root, `.github/workflows/scientific-checks.yml` is configured to run these owned offline checks on Ubuntu 24.04 and upload raw output even on failure; that configuration does not establish a current CI execution. The retained local Windows run in `results/current/` records the earlier 61-test suite; its timing and platform details remain historical. The current source suite has 103 tests; its fresh run is separate from retained raw results. The retained runs show all 97 corpus records passing their consistency checks, and 19,683 ternary matrices plus 262,144 binary completions have no oracle disagreement. Regenerated fragments describe current coded inputs, not search completeness or independent source interpretation.
+When this directory is the repository root, `.github/workflows/scientific-checks.yml` runs these owned offline checks on Ubuntu 24.04 and uploads raw output even on failure. Exact-commit workflow results provide CI execution evidence separately from this configuration. The current local reproduction in `results/current/` records the completed 112-test suite and its actual platform and timing fields. Earlier runs are retained outside the delivery tree. All 97 corpus records pass their consistency checks; 19,683 ternary matrices and 262,144 binary completions have no oracle disagreement. Regenerated fragments describe the coded inputs, not search completeness or independent source interpretation.
 
 ## Located coding and reading boundaries
 

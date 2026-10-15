@@ -53,7 +53,7 @@
     "L6 behavioral assurance"
   ],
   "synthesis_rule": "A mechanism is not promoted beyond the proposition directly observed under its reported assumptions; counter-histories and unknowns are retained.",
-  "gap_result": "73 located direct/partial cells, 27 scoped absences and 47 unresolved cells across21 records. Direct all-dimension coverage remains undetermined.",
+  "gap_result": "75 located direct/partial cells, 41 scoped absences and 31 unresolved cells across 21 records. Seven Brereton cells await representation-aware admission; 24 other cells remain source-unresolved. Direct all-dimension coverage remains undetermined.",
   "publication_status_boundary": "Each active record has a checked scholarly or official locator and a corpus/BibTeX status match. This record-level check is not a comprehensive retraction-registry search. One known withdrawn work is quarantined in excluded_publications.csv and retained only in a historical regression fixture.",
   "limitations": [
     "No PRISMA-complete search-hit denominator",
@@ -70,7 +70,7 @@
   "complete_scope_checked": 85,
   "content_checked": 88,
   "legacy_not_reverified": 9,
-  "review_unknown_cells": 47,
+  "review_unknown_cells": 31,
   "review_direct_coverage_status": "undetermined",
   "supplementary_field_coding": {
     "records": 85,

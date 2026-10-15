@@ -16,7 +16,7 @@ import render_tables
 # Named independent fixture of the ten displayed key/cell vectors. This checks
 # formatting and selection only, not correctness of literature interpretation.
 DISPLAY = (
-    ("repack", "1 P 0 0 P 0 P"), ("tpl", "P 1 ? P P ? P"),
+    ("repack", "1 P 0 0 P 0 P"), ("tpl", "P 1 0 P P 0 P"),
     ("astra", "0 P 1 1 1 P 1"), ("properties", "0 P 1 1 P 0 P"),
     ("wurepack2026", "1 1 ? ? P ? P"), ("zengtpsurvey2024", "P 1 P P P 0 P"),
     ("reichert2024", "? ? ? ? ? ? ?"), ("williams2025", "0 1 1 1 P 1 P"),

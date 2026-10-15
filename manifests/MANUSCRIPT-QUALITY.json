@@ -10,18 +10,18 @@
   "local_page_budget": 39,
   "scope": "Structural and rhetorical gate; not a substitute for independent copyediting or peer judgment.",
   "pdf": "manuscript_snapshot/build/main.pdf",
-  "pdf_sha256": "4cddd26871af18f6870f1c5f25ad29c31bbc5cd4037513fcdad421603e7a83cf",
+  "pdf_sha256": "02a52cbc4aeaaad94b1b3e7e783a46409429ff69e9dca4bd99a168b2c1dc6d89",
   "source_sha256": {
     "ACM-Reference-Format.bst": "4342d27456645567ef1a027f6474e894715bc31d468f040142fa54540440ad04",
     "acmart.cls": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
     "current-authors.tex": "2397fbf049bf5504e5c4139f571a84f8cd7b25651a3c582213746026297f3123",
     "generated/corpus_counts.tex": "62467009d3afa850dbfc47fa71a774f457c3715da9e48ca85694af94c1a790e0",
-    "generated/review_matrix_rows.tex": "57402ac8dd7933ab594357f0abb3874b8f751bf570bde7652f9de616b00b6ec9",
+    "generated/review_matrix_rows.tex": "b5ca58dc2162cc365d435f9d21845499f09f80d10993f661a12164be4988be80",
     "main.tex": "fb9528f1e46af75c0e12b23d9ab8709f6ce69566836b652c6d2f9d10259cee0b",
     "project-repository.tex": "2aa62a0e37901fc136908f005ed46a41b340d60e3fb9dedd91ef70f009a6869e",
     "references.bib": "b6067323d7ae368a4a5df86f1644ee74d782cdbeed97dfe477f1d7f33fbb3a0c",
     "sections/01-introduction.tex": "d0d2ddae58a08cb050d748f1a5cfb60647574c21e190d35efdc2a713c2127f04",
-    "sections/02-method.tex": "824d02e3f39bed22e7b7845b3bc87a8e9a1cc10ba048e5c7d0de00744a82eacc",
+    "sections/02-method.tex": "7c7eee40f452c434d169788ecb7c0f8ede75b1d6f5244a4eb6d3a8886a6b826a",
     "sections/03-evidence-model.tex": "d316e7b4cc518a6ef545c07f3745dcdf743f4f621b5498ae38502363acbae278",
     "sections/04-repackaging.tex": "4a30056020d48392ad7967a725adced97302747209b741779cca223131497ba5",
     "sections/05-libraries.tex": "340dff1a6b6429d70749beb22d2b702e9dfc32910f79d68014f620f711b41041",
@@ -30,6 +30,6 @@
     "sections/08-synthesis.tex": "f5fbded9d2699ee84cb293d7b2689bed0d90684b2243d735ee3050e026a45161",
     "sections/09-agenda.tex": "1c2e6bff0863be4a4237791bb50153cf48d59c5e24ecda1478bb7ce5f4ea8b5c"
   },
-  "log_sha256": "1bf555a7cc3bde278ae94fab86bfc23ea6eb5b5a20f111d7a609a6d4d329a4b9",
+  "log_sha256": "0840ae4b0148e590c311088413acfae5d8416005c0e2242c34a461bff6d458ea",
   "manuscript_mode": "artifact-only-snapshot"
 }

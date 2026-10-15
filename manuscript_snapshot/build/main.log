@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2026.10.3)  15 OCT 2026 10:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2026.10.3)  15 OCT 2026 13:56
 entering extended mode
  %&-line parsing enabled.
 **main.tex
@@ -1462,57 +1462,51 @@ LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
 
 
 [3.3]
-Underfull \hbox (badness 4060) in paragraph at lines 46--46
+Underfull \hbox (badness 4060) in paragraph at lines 48--48
 []\T1/LinuxBiolinumT-TLF/m/n/8 (+20) Table 2.|Se-lected prior-review ad-ver-sar
 y ma-trix. A=Android repack-ag-ing, C=component/version, P=process prove-nance,
 
  []
 
 (./generated/review_matrix_rows.tex)
-Underfull \vbox (badness 1142) has occurred while \output is active []
-
-
 
 [4.4]
 
 [5.5]
-Underfull \vbox (badness 6047) has occurred while \output is active []
-
-
 
 [6.6]
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 114.
+(Font)              scaled to size 9.0pt on input line 116.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.6pt on input line 114.
+(Font)              scaled to size 6.6pt on input line 116.
 LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 9.0pt on input line 114.
+(Font)              scaled to size 9.0pt on input line 116.
 LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 6.6pt on input line 114.
+(Font)              scaled to size 6.6pt on input line 116.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 9.0pt on input line 114.
+(Font)              scaled to size 9.0pt on input line 116.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 6.6pt on input line 114.
+(Font)              scaled to size 6.6pt on input line 116.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 9.0pt on input line 114.
+(Font)              scaled to size 9.0pt on input line 116.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 6.6pt on input line 114.
+(Font)              scaled to size 6.6pt on input line 116.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 9.0pt on input line 114.
+(Font)              scaled to size 9.0pt on input line 116.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 6.6pt on input line 114.
+(Font)              scaled to size 6.6pt on input line 116.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 9.0pt on input line 114.
+(Font)              scaled to size 9.0pt on input line 116.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 6.6pt on input line 114.
+(Font)              scaled to size 6.6pt on input line 116.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 9.0pt on input line 114.
+(Font)              scaled to size 9.0pt on input line 116.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 6.6pt on input line 114.
+(Font)              scaled to size 6.6pt on input line 116.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 9.0pt on input line 114.
+(Font)              scaled to size 9.0pt on input line 116.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 6.6pt on input line 114.
+(Font)              scaled to size 6.6pt on input line 116.
 ) (./sections/03-evidence-model.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1646,10 +1640,10 @@ ublic/libertine/LinLibertineTB.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/fonts
 /type1/public/libertine/LinLibertineTI.pfb><d:/LaTeXTools/texlive/2024/texmf-di
 st/fonts/type1/public/newtx/txmiaX.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/f
 onts/type1/public/newtx/txsys.pfb>
-Output written on build/main.pdf (38 pages, 597782 bytes).
+Output written on build/main.pdf (38 pages, 598294 bytes).
 PDF statistics:
- 1287 PDF objects out of 1440 (max. 8388607)
- 1110 compressed objects within 12 object streams
+ 1289 PDF objects out of 1440 (max. 8388607)
+ 1112 compressed objects within 12 object streams
  237 named destinations out of 1000 (max. 500000)
  92729 words of extra memory for PDF output out of 106986 (max. 10000000)
 

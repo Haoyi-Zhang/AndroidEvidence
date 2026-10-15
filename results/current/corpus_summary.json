@@ -7,15 +7,29 @@
   "excluded_publications": 1,
   "claim_level_extractions": 97,
   "closest_review_records": 21,
-  "calibration_records": 22,
-  "calibration_groups": {
-    "adjacent_evidence": 5,
-    "closest": 12,
-    "influential_method": 5
-  },
   "direct_all_dimension_reviews": [],
-  "source_rechecks": 26,
-  "source_recheck_fraction": 0.26804123711340205,
+  "review_direct_coverage_status": "undetermined",
+  "review_unknown_cells": 31,
+  "selected_fulltext_checked_records": 3,
+  "complete_scope_checked_records": 85,
+  "content_checked_records": 88,
+  "legacy_not_reverified_records": 9,
+  "supplementary_located_coding": {
+    "located_field_rows": 595,
+    "located_recoded_records": 85,
+    "total_coding_fields": 679,
+    "records_without_supplementary_field_bindings": 12,
+    "semantic_interpretation_verified_by_code": false
+  },
+  "declared_semantic_coding": {
+    "declared_complete_seven_field_codings": 85,
+    "acquired_records_without_complete_coding": 0,
+    "semantic_interpretation_verified_by_code": false,
+    "independent_second_coder": false
+  },
+  "historical_to_current_recoding_transitions": 82,
+  "source_rechecks": 90,
+  "source_recheck_fraction": 0.9278350515463918,
   "source_rechecks_independent": false,
   "screening_rows": 105,
   "source_location_records": 97,
@@ -24,7 +38,7 @@
   "resolved_leads": 3,
   "templated_observations": 0,
   "placeholder_source_locators": 0,
-  "material_claims": 28,
+  "material_claims": 27,
   "venue_recorded": 93,
   "active_preprints": 3,
   "technical_method_reports": 1,
@@ -44,5 +58,5 @@
   },
   "bibliography_optional_metadata_warnings": [],
   "errors": [],
-  "boundary": "The checks validate supplied ledgers, exact active/excluded key quarantine, record-level publication-status metadata, review/calibration obligations, recheck coverage, and minimum corpus obligations. They do not prove search exhaustiveness, a comprehensive retraction-registry search, independent source interpretation, detector performance, or worldwide novelty."
+  "boundary": "The checks validate supplied ledgers, exact active/excluded key quarantine, record-level publication-status metadata, review bindings, recheck coverage, and retained corpus counts. They do not prove search exhaustiveness, a comprehensive retraction-registry search, independent source interpretation, detector performance, or worldwide novelty. A source URL, complete row, legacy reading-depth label or lack of an observed all-dimension row does not certify content or a gap."
 }
