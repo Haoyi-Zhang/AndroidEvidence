@@ -4,7 +4,7 @@
   "pdf_path_basis": "artifact-root relative",
   "page_count": 38,
   "local_page_budget": 39,
-  "pdf_sha256": "2fe9d79be05ca77b61bf5263cd7c87a48e8fa83e2e4fd3eaef665483c7d81d6c",
+  "pdf_sha256": "4cddd26871af18f6870f1c5f25ad29c31bbc5cd4037513fcdad421603e7a83cf",
   "source_sha256": {
     "ACM-Reference-Format.bst": "4342d27456645567ef1a027f6474e894715bc31d468f040142fa54540440ad04",
     "acmart.cls": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
@@ -15,7 +15,7 @@
     "project-repository.tex": "2aa62a0e37901fc136908f005ed46a41b340d60e3fb9dedd91ef70f009a6869e",
     "references.bib": "b6067323d7ae368a4a5df86f1644ee74d782cdbeed97dfe477f1d7f33fbb3a0c",
     "sections/01-introduction.tex": "d0d2ddae58a08cb050d748f1a5cfb60647574c21e190d35efdc2a713c2127f04",
-    "sections/02-method.tex": "fd83ac2930aff56ebd25a68bfa13a1c077bba08626fef640a2b925f94c93ad22",
+    "sections/02-method.tex": "824d02e3f39bed22e7b7845b3bc87a8e9a1cc10ba048e5c7d0de00744a82eacc",
     "sections/03-evidence-model.tex": "d316e7b4cc518a6ef545c07f3745dcdf743f4f621b5498ae38502363acbae278",
     "sections/04-repackaging.tex": "4a30056020d48392ad7967a725adced97302747209b741779cca223131497ba5",
     "sections/05-libraries.tex": "340dff1a6b6429d70749beb22d2b702e9dfc32910f79d68014f620f711b41041",
@@ -24,7 +24,7 @@
     "sections/08-synthesis.tex": "f5fbded9d2699ee84cb293d7b2689bed0d90684b2243d735ee3050e026a45161",
     "sections/09-agenda.tex": "1c2e6bff0863be4a4237791bb50153cf48d59c5e24ecda1478bb7ce5f4ea8b5c"
   },
-  "log_sha256": "666a8c9e517b9430bd425f8c406db70b61dcdb3d5ed48cbc07a1b35b663c308e",
+  "log_sha256": "1bf555a7cc3bde278ae94fab86bfc23ea6eb5b5a20f111d7a609a6d4d329a4b9",
   "full_size_pages_inspected": [
     1,
     2,
@@ -106,23 +106,28 @@
     38
   ],
   "pending_parent_all_page_inspection": false,
-  "render_dpi": 180,
+  "render_dpi": 150,
   "font_embedding": "all listed fonts embedded",
   "font_embedding_basis": "pdffonts on the exact staged PDF lists embedded Type1 fonts; no Type3 or Nimbus Sans L Regular.",
-  "inspection_basis": "Branch main directly viewed pages4,6-13; reader-b pages14-20; reader-c pages21-38. Pages1,2,3,5 are exact pixel-identical carries from previously fully covered builds. Scientific source reading and visual review remain separate.",
+  "inspection_basis": "Current classification repair: main directly viewed changed page5 at150dpi;remaining37pages are exact100dpi RGB pixel-identical to prior fully reviewed38-page build. Source reading is separate.",
   "layout_findings": [
-    "No blocking clipping, overlap, missing glyph or table/figure defect observed.",
-    "Table captions remain at most two lines; narrow ceiling cells remain readable without shrinking fonts.",
-    "All97 reference entries retained; current final reference page ends onpage38 after prose compression."
+    "Changed method paragraph and matrix page are readable without clipping or overlap.",
+    "Current source and artifact snapshot agree."
   ],
   "comparison_to_primary": {
     "byte_identical_to_current_primary": true,
     "byte_identical_to_receipt_selected_pdf": true,
-    "receipt_selected_pdf_sha256": "2fe9d79be05ca77b61bf5263cd7c87a48e8fa83e2e4fd3eaef665483c7d81d6c"
+    "receipt_selected_pdf_sha256": "4cddd26871af18f6870f1c5f25ad29c31bbc5cd4037513fcdad421603e7a83cf"
   },
-  "inspected_at": "2026-10-14T23:26:28.863925+00:00",
+  "inspected_at": "2026-10-15T02:47:28.634422+00:00",
   "scope": "Exact combined page-layout and pixel-identical carry-forward coverage; not independent peer review, scientific acceptance, source-coding independence or venue certification.",
   "newly_viewed_full_size_pages": [
+    5
+  ],
+  "pixel_identical_prior_review_carried_forward_pages": [
+    1,
+    2,
+    3,
     4,
     6,
     7,
@@ -158,11 +163,5 @@
     37,
     38
   ],
-  "pixel_identical_prior_review_carried_forward_pages": [
-    1,
-    2,
-    3,
-    5
-  ],
-  "prior_visual_receipt_sha256": "1a9b71086697e9b1c371b8f86a049be0884745a2f90fc86845ee21409b2c21b0"
+  "prior_visual_receipt_sha256": "6437318f7feb9e75503df01b9df55b882e045066a397bd6f0c743025154252c0"
 }

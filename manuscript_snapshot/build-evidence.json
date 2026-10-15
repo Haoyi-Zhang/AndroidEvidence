@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "pdf": "build/main.pdf",
-  "pdf_sha256": "2fe9d79be05ca77b61bf5263cd7c87a48e8fa83e2e4fd3eaef665483c7d81d6c",
+  "pdf_sha256": "4cddd26871af18f6870f1c5f25ad29c31bbc5cd4037513fcdad421603e7a83cf",
   "source_sha256": {
     "ACM-Reference-Format.bst": "4342d27456645567ef1a027f6474e894715bc31d468f040142fa54540440ad04",
     "acmart.cls": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
@@ -12,7 +12,7 @@
     "project-repository.tex": "2aa62a0e37901fc136908f005ed46a41b340d60e3fb9dedd91ef70f009a6869e",
     "references.bib": "b6067323d7ae368a4a5df86f1644ee74d782cdbeed97dfe477f1d7f33fbb3a0c",
     "sections/01-introduction.tex": "d0d2ddae58a08cb050d748f1a5cfb60647574c21e190d35efdc2a713c2127f04",
-    "sections/02-method.tex": "fd83ac2930aff56ebd25a68bfa13a1c077bba08626fef640a2b925f94c93ad22",
+    "sections/02-method.tex": "824d02e3f39bed22e7b7845b3bc87a8e9a1cc10ba048e5c7d0de00744a82eacc",
     "sections/03-evidence-model.tex": "d316e7b4cc518a6ef545c07f3745dcdf743f4f621b5498ae38502363acbae278",
     "sections/04-repackaging.tex": "4a30056020d48392ad7967a725adced97302747209b741779cca223131497ba5",
     "sections/05-libraries.tex": "340dff1a6b6429d70749beb22d2b702e9dfc32910f79d68014f620f711b41041",
@@ -21,11 +21,11 @@
     "sections/08-synthesis.tex": "f5fbded9d2699ee84cb293d7b2689bed0d90684b2243d735ee3050e026a45161",
     "sections/09-agenda.tex": "1c2e6bff0863be4a4237791bb50153cf48d59c5e24ecda1478bb7ce5f4ea8b5c"
   },
-  "log_sha256": "666a8c9e517b9430bd425f8c406db70b61dcdb3d5ed48cbc07a1b35b663c308e",
+  "log_sha256": "1bf555a7cc3bde278ae94fab86bfc23ea6eb5b5a20f111d7a609a6d4d329a4b9",
   "local_page_budget": 39,
   "pages": 38,
   "page_size": "612 x 792 pts (letter)",
-  "file_size_bytes": 597757,
+  "file_size_bytes": 597782,
   "commands": [
     {
       "command": [
@@ -37,7 +37,7 @@
         "main.tex"
       ],
       "exit_code": 0,
-      "wall_seconds": 1.3406357000058051,
+      "wall_seconds": 1.273882199995569,
       "child_cpu_seconds": null,
       "cumulative_max_child_rss_kib": null,
       "accepted_bibliography_warnings": false
@@ -48,7 +48,7 @@
         "build/main"
       ],
       "exit_code": 0,
-      "wall_seconds": 0.0454022999983863,
+      "wall_seconds": 0.04439699999784352,
       "child_cpu_seconds": null,
       "cumulative_max_child_rss_kib": null,
       "accepted_bibliography_warnings": false
@@ -63,7 +63,7 @@
         "main.tex"
       ],
       "exit_code": 0,
-      "wall_seconds": 1.3077631999985897,
+      "wall_seconds": 1.2853764000028605,
       "child_cpu_seconds": null,
       "cumulative_max_child_rss_kib": null,
       "accepted_bibliography_warnings": false
@@ -78,7 +78,7 @@
         "main.tex"
       ],
       "exit_code": 0,
-      "wall_seconds": 1.293453900005261,
+      "wall_seconds": 1.2810800000006566,
       "child_cpu_seconds": null,
       "cumulative_max_child_rss_kib": null,
       "accepted_bibliography_warnings": false
@@ -93,7 +93,7 @@
         "main.tex"
       ],
       "exit_code": 0,
-      "wall_seconds": 1.322831600002246,
+      "wall_seconds": 1.3211813000016264,
       "child_cpu_seconds": null,
       "cumulative_max_child_rss_kib": null,
       "accepted_bibliography_warnings": false
