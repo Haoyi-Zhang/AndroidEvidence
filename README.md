@@ -1,6 +1,8 @@
 # AI-era mobile software evidence artifact
 
-This directory contains the standard-library-only evidence companion to **From Resemblance to Authority: Claim-Bounded Evidence for Android Software Lineage in AI-Mediated Supply Chains**. Its offline scripts check the evidence tables and finite coverage calculations.
+This directory contains the evidence companion to **From Resemblance to Authority: Claim-Bounded Evidence for Android Software Lineage in AI-Mediated Supply Chains**. Its offline ledger scripts use the standard library to check the evidence tables and finite coverage calculations. The optional manuscript diagrams use Matplotlib.
+
+`figures/build_figures.py` draws the claim ladder, mobile lifecycle and assurance pattern directly as embedded-font vector PDFs. These figures encode the manuscript's conceptual relations, not measurements. The sibling manuscript build regenerates them; `python -B figures/build_figures.py --outdir /path/to/figures` can also generate them independently.
 
 ## Reproduce
 
@@ -77,15 +79,15 @@ A passing run does not prove exhaustive search, a PRISMA denominator, a comprehe
 - `results/clean-reproduction.json`
 - `results/tex/*.tex`
 
-Most retained results under `results/` describe earlier offline runs. The exceptions are `corpus_summary.json`, `paper_build_evidence.json`, `visual-inspection.json`, and the six default `tex/` fragments, which describe current coded inputs or mirror the owned 38-page manuscript build. A new `--out` run produces separate summaries, raw command logs and `tex/` fragments; historical CPU/RSS must not be attributed to that new run. The visual-evidence regression compares the current snapshot receipt, result mirrors, active source/PDF/log and dynamic content-check counts; it does not certify source interpretation.
+Most retained results under `results/` describe earlier offline runs. The exceptions are `corpus_summary.json`, `paper_build_evidence.json`, `visual-inspection.json`, and the six default `tex/` fragments, which describe current coded inputs or mirror the owned 39-page manuscript build. A new `--out` run produces separate summaries, raw command logs and `tex/` fragments; historical CPU/RSS must not be attributed to that new run. The visual-evidence regression compares the current snapshot receipt, result mirrors, active source/PDF/log and dynamic content-check counts; it does not certify source interpretation.
 
-`manuscript_snapshot/` mirrors the current sibling `paper/` source, 38-page PDF,
-final engine log, compiled bibliography, build evidence and directly inspected
-180-dpi visual receipt. The local budget is 39 pages, not a certified CSUR cap.
+`manuscript_snapshot/` mirrors the current sibling `paper/` source, 39-page PDF,
+final engine log, compiled bibliography, build evidence and the 104.4-dpi all-page
+visual receipt (individual diagrams at 180 dpi). The local budget is 39 pages, not a certified CSUR cap.
 The sibling `paper/` remains the primary source; the snapshot is an artifact-only
 delivery mirror, not a second compilation. Earlier evidence is retained privately.
 
-When this directory is the repository root, `.github/workflows/scientific-checks.yml` runs these owned offline checks on Ubuntu 24.04 and uploads raw output even on failure. Exact-commit workflow results provide CI execution evidence separately from this configuration. The current local reproduction in `results/current/` records the completed 112-test suite and its actual platform and timing fields. Earlier runs are retained outside the delivery tree. All 97 corpus records pass their consistency checks; 19,683 ternary matrices and 262,144 binary completions have no oracle disagreement. Regenerated fragments describe the coded inputs, not search completeness or independent source interpretation.
+When this directory is the repository root, `.github/workflows/scientific-checks.yml` runs the owned offline checks on Ubuntu 24.04 and uploads raw output even on failure. Exact-commit workflow results provide execution evidence separately from this configuration. The retained local run in `results/current/` records the earlier 112-test suite and its actual platform and timing fields; the discovered suite now also includes the figure-input binding regression. All 97 corpus records pass their consistency checks; 19,683 ternary matrices and 262,144 binary completions have no oracle disagreement. Regenerated fragments describe the coded inputs, not search completeness or independent source interpretation.
 
 ## Located coding and reading boundaries
 

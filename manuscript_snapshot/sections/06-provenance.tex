@@ -83,37 +83,10 @@ Figure~\ref{fig:lifecycle} places the evidence families along a mobile lifecycle
 
 \begin{figure}[t]
 \centering
-\begin{tikzpicture}[font=\rmfamily\fontsize{9}{10.8}\selectfont,x=1mm,y=1mm,>=Latex,font=\rmfamily\fontsize{9}{10.8}\selectfont\rmfamily,
- stage/.style={draw,align=center,text width=29mm,minimum height=13mm,inner sep=3pt,fill=black!3},
- ev/.style={draw,dashed,align=center,text width=29mm,minimum height=16mm,inner sep=3pt},
- arr/.style={->,line width=.55pt}]
-\node[stage] (src) at (0,0) {source and\\specification};
-\node[stage] (dep) at (40,0) {dependency\\resolution};
-\node[stage] (build) at (80,0) {generation, build,\\shrink, package};
-\node[ev] (git) at (0,-26) {repository history\\and review};
-\node[ev] (lock) at (40,-26) {resolver log, SBOM,\\component evidence};
-\node[ev] (att) at (80,-26) {attestations and\\reproducibility};
-\node[stage] (sign) at (80,-60) {sign and\\approve};
-\node[stage] (store) at (40,-60) {store and\\update};
-\node[stage] (run) at (0,-60) {installed\\behavior};
-\node[ev] (auth) at (80,-86) {delegation and\\release signature};
-\node[ev] (trans) at (40,-86) {transparency and\\freshness};
-\node[ev] (beh) at (0,-86) {static, dynamic,\\policy evidence};
-\draw[arr] (src.east)--(dep.west);
-\draw[arr] (dep.east)--(build.west);
-\draw[arr] (build.east)--(101,0)|-(sign.east);
-\draw[arr] (sign.west)--(store.east);
-\draw[arr] (store.west)--(run.east);
-\draw[arr,dashed] (git.north)--(src.south);
-\draw[arr,dashed] (lock.north)--(dep.south);
-\draw[arr,dashed] (att.north)--(build.south);
-\draw[arr,dashed] (auth.north)--(sign.south);
-\draw[arr,dashed] (trans.north)--(store.south);
-\draw[arr,dashed] (beh.north)--(run.south);
-\end{tikzpicture}
-\caption{Cross-layer evidence along an Android lifecycle. Every transition requires an object binding; evidence attached to one stage does not automatically validate another stage.}
+\includegraphics[width=\linewidth]{figures/mobile-lifecycle.pdf}
+\caption{Android lifecycle and the evidence bound to each stage.}
 \Description{Six lifecycle stages follow two rows: source, dependency resolution, and build run left to right above; signing, store, and installed behavior continue right to left below. Each stage has a corresponding evidence source beneath it: repository history, resolver records, attestations, release authorization, transparency, or behavior analysis.}
 \label{fig:lifecycle}
 \end{figure}
 
-A minimally useful chain records a source revision, resolved dependency set, build and generation configuration, output APK digest, signing identity, release authorization, and publication event. Artifact analysis can then verify the packaged components and compare the output with prior or disputed artifacts. Behavior analysis evaluates the exact digest. This structure does not guarantee security, but it makes disagreements localizable and claims reviewable.
+A minimally useful chain records a source revision, resolved dependency set, build and generation configuration, output APK digest, signing identity, release authorization, and publication event. Artifact analysis can then verify the packaged components and compare the output with prior or disputed artifacts. Behavior analysis evaluates the exact digest. These bindings localize disagreements to a particular artifact, transformation, principal or property check.

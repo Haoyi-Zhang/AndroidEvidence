@@ -20,33 +20,12 @@ These are evaluation errors, not merely wording. Android surveys distinguish pri
 
 \subsection{A cross-layer assurance pattern}
 
-Figure~\ref{fig:assurance-case} presents an Android-focused assurance pattern building on existing artifact/operation/actor properties and supply-chain frameworks~\cite{properties,astra,williams2025}. It is not a mandatory architecture. It is a claim graph that identifies the minimum bindings needed when an analyst wants to assert that a released Android artifact is an authorized product of a declared process and satisfies a stated property.
+Figure~\ref{fig:assurance-case} presents an Android-focused assurance pattern building on existing artifact/operation/actor properties and supply-chain frameworks~\cite{properties,astra,williams2025}. The claim graph identifies the bindings needed to establish that a released Android artifact is an authorized product of a declared process and satisfies a stated property.
 
 \begin{figure}[t]
 \centering
-\begin{tikzpicture}[font=\rmfamily\fontsize{9}{10.8}\selectfont,
-  c/.style={draw,rounded corners=1pt,align=center,text width=4.2cm,minimum height=10mm,fill=black!6,font=\fontsize{9}{10.8}\selectfont\rmfamily},
-  e/.style={draw,dashed,rounded corners=1pt,align=center,text width=4.0cm,minimum height=9mm,fill=black!13,font=\fontsize{9}{10.8}\selectfont\rmfamily},
-  arr/.style={-{Latex[length=1.8mm]},thick},
-  sup/.style={-{Latex[length=1.8mm]},dashed},
-  node distance=6mm and 8mm
-]
-\node[c,text width=8.9cm] (top) {Released APK is an authorized product\\of process $P$ and satisfies property $Q$};
-\node[c,below left=6mm and 4mm of top.south] (prov) {APK digest is the product\\of declared source,\\dependencies, and build steps};
-\node[c,below right=6mm and 4mm of top.south] (beh) {The exact APK digest\\satisfies property $Q$ in the\\stated analysis model};
-\node[c,below=of prov] (auth) {Principals and release step are authorized by policy};
-\node[c,below=of beh] (rel) {Artifact and component relations are consistent with declared lineage};
-\node[e,below=of auth] (att) {attestations, source and resolver records, reproducible build};
-\node[e,below=of rel] (sim) {code, graph, resource, UI,\\version, and\\behavior evidence};
-\node[e,below=of att] (sig) {delegation, signatures, transparency, and freshness};
-\node[e,below=of sim] (ana) {static, dynamic, formal, and policy analyses};
-\draw[arr] (prov)--(top);\draw[arr] (beh)--(top);\draw[arr] (auth)--(prov);\draw[arr] (rel)--(prov);
-\draw[sup] (att.west)--++(-3mm,0)|-(prov.west);
-\draw[sup] (sig.west)--++(-6mm,0)|-(auth.west);
-\draw[sup] (sim.north)--(rel.south);
-\draw[sup] (ana.east)--++(5mm,0)|-(beh.east);
-\end{tikzpicture}
-\caption{Cross-layer assurance pattern. Solid arrows are subclaims; dashed arrows are evidence. Every evidence item must bind to the same artifact digest or to a documented predecessor relation.}
+\includegraphics[width=\linewidth]{figures/assurance-pattern.pdf}
+\caption{Cross-layer assurance pattern: solid subclaim arrows and dashed evidence arrows.}
 \Description{A top claim that an APK is authorized and satisfies a property is supported by provenance and behavior branches. Lower boxes show authorization, declared lineage, attestations, signatures, similarity evidence, and program analyses.}
 \label{fig:assurance-case}
 \end{figure}
@@ -124,6 +103,6 @@ Evidence profiles also expose combinations. A deployment can select complementar
 
 \subsection{What the combined literature supports}
 
-The framework draws on origin-oracle qualifications in RePack, DroidMOSS and AdRob~\cite{repack,droidmoss,adrob}, extended by WuKong, APPraiser and piggybacking~\cite{wukong,appraiser,piggybacking}; and on the distinction among family, version and vulnerability reach~\cite{libid,originsvuln,tpl}. Steps and delegation close different obligations~\cite{tuf,intoto,diplomat}, as do transparency and reproducibility~\cite{chainiac,contour,reprocontainers}. Assistant-security studies are task-specific~\cite{pearce,perry,sandoval}, while output association and mobile functional tests address other objects~\cite{codexleaks,appforge}. Their key, policy, coverage and oracle assumptions remain necessary. Support across the full 97-record map is not yet semantically verified.
+The framework draws on origin-oracle qualifications in RePack, DroidMOSS and AdRob~\cite{repack,droidmoss,adrob}, extended by WuKong, APPraiser and piggybacking~\cite{wukong,appraiser,piggybacking}; and on the distinction among family, version and vulnerability reach~\cite{libid,originsvuln,tpl}. Steps and delegation close different obligations~\cite{tuf,intoto,diplomat}, as do transparency and reproducibility~\cite{chainiac,contour,reprocontainers}. Assistant-security studies are task-specific~\cite{pearce,perry,sandoval}, while output association and mobile functional tests address other objects~\cite{codexleaks,appforge}. Their key, policy, coverage and oracle assumptions determine the supported proposition. Section~\ref{sec:method} records the interpretation boundaries of the corpus.
 
 These observations support a layered case: each contributes its measured proposition, and explicit cross-layer bindings connect those propositions to the analyzed artifact.

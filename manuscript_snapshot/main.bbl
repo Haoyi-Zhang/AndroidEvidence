@@ -1,0 +1,1402 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{97}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{} and \showURL{}.  The latter does
+%%% not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showURL}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showURL #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+\makeatletter
+\@ifundefined{NAT@parse@date}{}{\let\NAT@parse@date@orig\NAT@parse@date}
+\@ifundefined{NAT@parse@date}{}{\def\NAT@parse@date#1#2#3#4#5#6@@{\NAT@parse@date@orig#1#2#3#4#5#6@@\def\NAT@tempyear{0000}\def\NAT@tempexlab{{?}}\ifx\NAT@year\NAT@tempyear\ifx\NAT@exlab\NAT@tempexlab\def\NAT@date{[n.\,d.]}\else\edef\NAT@date{[n.\,d.]\NAT@exlab}\fi\fi}}
+\makeatother
+
+\bibitem[Afzali et~al\mbox{.}(2018)]%
+        {legitimate}
+\bibfield{author}{\bibinfo{person}{Hammad Afzali}, \bibinfo{person}{Santiago
+  Torres-Arias}, \bibinfo{person}{Reza Curtmola}, {and} \bibinfo{person}{Justin
+  Cappos}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{Le-git-imate: Towards Verifiable Web-Based Git
+  Repositories}. In \bibinfo{booktitle}{\emph{ACM Asia Conference on Computer
+  and Communications Security}}. \bibinfo{publisher}{Association for Computing
+  Machinery}, \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{469--482}.
+\newblock
+\href{https://doi.org/10.1145/3196494.3196523}{doi:\nolinkurl{10.1145/3196494.3196523}}
+
+
+\bibitem[Al-Bassam and Meiklejohn(2018)]%
+        {contour}
+\bibfield{author}{\bibinfo{person}{Mustafa Al-Bassam} {and}
+  \bibinfo{person}{Sarah Meiklejohn}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{Contour: A Practical System for Binary
+  Transparency}. In \bibinfo{booktitle}{\emph{Data Privacy Management,
+  Cryptocurrencies and Blockchain Technology}} \emph{(\bibinfo{series}{Lecture
+  Notes in Computer Science}, Vol.~\bibinfo{volume}{11025})}.
+  \bibinfo{publisher}{Springer}, \bibinfo{address}{Cham, Switzerland},
+  \bibinfo{pages}{94--110}.
+\newblock
+\href{https://doi.org/10.1007/978-3-030-00305-0_8}{doi:\nolinkurl{10.1007/978-3-030-00305-0_8}}
+
+
+\bibitem[Allix et~al\mbox{.}(2016)]%
+        {androzoo}
+\bibfield{author}{\bibinfo{person}{Kevin Allix},
+  \bibinfo{person}{Tegawend{\'e}~F. Bissyand{\'e}}, \bibinfo{person}{Jacques
+  Klein}, {and} \bibinfo{person}{Yves~Le Traon}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{AndroZoo: Collecting Millions of Android Apps for
+  the Research Community}. In \bibinfo{booktitle}{\emph{IEEE/ACM International
+  Conference on Mining Software Repositories}}. \bibinfo{publisher}{IEEE},
+  \bibinfo{address}{Piscataway, NJ, USA}, \bibinfo{pages}{468--471}.
+\newblock
+\href{https://doi.org/10.1145/2901739.2903508}{doi:\nolinkurl{10.1145/2901739.2903508}}
+
+
+\bibitem[Arp et~al\mbox{.}(2014)]%
+        {drebin}
+\bibfield{author}{\bibinfo{person}{Daniel Arp}, \bibinfo{person}{Michael
+  Spreitzenbarth}, \bibinfo{person}{Malte Hubner}, \bibinfo{person}{Hugo
+  Gascon}, {and} \bibinfo{person}{Konrad Rieck}.}
+  \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{DREBIN: Effective and Explainable Detection of
+  Android Malware in Your Pocket}. In \bibinfo{booktitle}{\emph{Network and
+  Distributed System Security Symposium}}. \bibinfo{publisher}{Internet
+  Society}, \bibinfo{address}{Reston, VA, USA}, \bibinfo{numpages}{15}~pages.
+\newblock
+
+
+\bibitem[Arzt et~al\mbox{.}(2014)]%
+        {flowdroid}
+\bibfield{author}{\bibinfo{person}{Steven Arzt}, \bibinfo{person}{Siegfried
+  Rasthofer}, \bibinfo{person}{Christian Fritz}, \bibinfo{person}{Eric Bodden},
+  \bibinfo{person}{Alexandre Bartel}, \bibinfo{person}{Jacques Klein},
+  \bibinfo{person}{Yves~Le Traon}, \bibinfo{person}{Damien Octeau}, {and}
+  \bibinfo{person}{Patrick McDaniel}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{FlowDroid: Precise Context, Flow, Field,
+  Object-Sensitive and Lifecycle-Aware Taint Analysis for Android Apps}. In
+  \bibinfo{booktitle}{\emph{ACM SIGPLAN Conference on Programming Language
+  Design and Implementation}}. \bibinfo{publisher}{Association for Computing
+  Machinery}, \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{259--269}.
+\newblock
+\href{https://doi.org/10.1145/2594291.2594299}{doi:\nolinkurl{10.1145/2594291.2594299}}
+
+
+\bibitem[Backes et~al\mbox{.}(2016)]%
+        {libscout}
+\bibfield{author}{\bibinfo{person}{Michael Backes}, \bibinfo{person}{Sven
+  Bugiel}, {and} \bibinfo{person}{Erik Derr}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Reliable Third-Party Library Detection in Android
+  and Its Security Applications}. In \bibinfo{booktitle}{\emph{ACM Conference
+  on Computer and Communications Security}}. \bibinfo{publisher}{Association
+  for Computing Machinery}, \bibinfo{address}{New York, NY, USA},
+  \bibinfo{pages}{356--367}.
+\newblock
+\href{https://doi.org/10.1145/2976749.2978333}{doi:\nolinkurl{10.1145/2976749.2978333}}
+
+
+\bibitem[Bi et~al\mbox{.}(2024)]%
+        {bi2024sbom}
+\bibfield{author}{\bibinfo{person}{Tingting Bi}, \bibinfo{person}{Boming Xia},
+  \bibinfo{person}{Zhenchang Xing}, \bibinfo{person}{Qinghua Lu}, {and}
+  \bibinfo{person}{Liming Zhu}.} \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{On the Way to SBOMs: Investigating Design Issues
+  and Solutions in Practice}.
+\newblock \bibinfo{journal}{\emph{ACM Transactions on Software Engineering and
+  Methodology}} \bibinfo{volume}{33}, \bibinfo{number}{6}, Article
+  \bibinfo{articleno}{149} (\bibinfo{year}{2024}),
+  \bibinfo{numpages}{25}~pages.
+\newblock
+\href{https://doi.org/10.1145/3654442}{doi:\nolinkurl{10.1145/3654442}}
+
+
+\bibitem[Blackburn et~al\mbox{.}(2008)]%
+        {blackburn}
+\bibfield{author}{\bibinfo{person}{Stephen~M. Blackburn},
+  \bibinfo{person}{Kathryn~S. McKinley}, \bibinfo{person}{Robin Garner},
+  \bibinfo{person}{Chris Hoffmann}, \bibinfo{person}{Asjad~M. Khan},
+  \bibinfo{person}{Rotem Bentzur}, \bibinfo{person}{Amer Diwan},
+  \bibinfo{person}{Daniel Feinberg}, \bibinfo{person}{Daniel Frampton},
+  \bibinfo{person}{Samuel~Z. Guyer}, \bibinfo{person}{Martin Hirzel},
+  \bibinfo{person}{Antony~L. Hosking}, \bibinfo{person}{Maria Jump},
+  \bibinfo{person}{Han Lee}, \bibinfo{person}{J.~Eliot~B. Moss},
+  \bibinfo{person}{Aashish Phansalkar}, \bibinfo{person}{Darko Stefanovic},
+  \bibinfo{person}{Thomas VanDrunen}, \bibinfo{person}{Daniel von Dincklage},
+  {and} \bibinfo{person}{Ben Wiedermann}.} \bibinfo{year}{2008}\natexlab{}.
+\newblock \showarticletitle{Wake Up and Smell the Coffee: Evaluation
+  Methodology for the 21st Century}.
+\newblock \bibinfo{journal}{\emph{Commun. ACM}} \bibinfo{volume}{51},
+  \bibinfo{number}{8} (\bibinfo{year}{2008}), \bibinfo{pages}{83--89}.
+\newblock
+\href{https://doi.org/10.1145/1378704.1378723}{doi:\nolinkurl{10.1145/1378704.1378723}}
+
+
+\bibitem[Brereton et~al\mbox{.}(2007)]%
+        {brereton}
+\bibfield{author}{\bibinfo{person}{Pearl Brereton}, \bibinfo{person}{Barbara~A.
+  Kitchenham}, \bibinfo{person}{David Budgen}, \bibinfo{person}{Mark Turner},
+  {and} \bibinfo{person}{Mohamed Khalil}.} \bibinfo{year}{2007}\natexlab{}.
+\newblock \showarticletitle{Lessons from Applying the Systematic Literature
+  Review Process within the Software Engineering Domain}.
+\newblock \bibinfo{journal}{\emph{Journal of Systems and Software}}
+  \bibinfo{volume}{80}, \bibinfo{number}{4} (\bibinfo{year}{2007}),
+  \bibinfo{pages}{571--583}.
+\newblock
+\href{https://doi.org/10.1016/j.jss.2006.07.009}{doi:\nolinkurl{10.1016/j.jss.2006.07.009}}
+
+
+\bibitem[Cappos et~al\mbox{.}(2008)]%
+        {packagemanagers}
+\bibfield{author}{\bibinfo{person}{Justin Cappos}, \bibinfo{person}{Justin
+  Samuel}, \bibinfo{person}{Scott Baker}, {and} \bibinfo{person}{John~H.
+  Hartman}.} \bibinfo{year}{2008}\natexlab{}.
+\newblock \showarticletitle{A Look in the Mirror: Attacks on Package Managers}.
+  In \bibinfo{booktitle}{\emph{ACM Conference on Computer and Communications
+  Security}}. \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{565--574}.
+\newblock
+\href{https://doi.org/10.1145/1455770.1455841}{doi:\nolinkurl{10.1145/1455770.1455841}}
+
+
+\bibitem[Chen et~al\mbox{.}(2014)]%
+        {accuracyclone}
+\bibfield{author}{\bibinfo{person}{Kai Chen}, \bibinfo{person}{Peng Liu}, {and}
+  \bibinfo{person}{Yingjun Zhang}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{Achieving Accuracy and Scalability Simultaneously
+  in Detecting Application Clones on Android Markets}. In
+  \bibinfo{booktitle}{\emph{International Conference on Software Engineering}}.
+  \bibinfo{publisher}{IEEE}, \bibinfo{address}{Piscataway, NJ, USA},
+  \bibinfo{pages}{175--186}.
+\newblock
+\href{https://doi.org/10.1145/2568225.2568286}{doi:\nolinkurl{10.1145/2568225.2568286}}
+
+
+\bibitem[Chen et~al\mbox{.}(2015)]%
+        {massvet}
+\bibfield{author}{\bibinfo{person}{Kai Chen}, \bibinfo{person}{Peng Wang},
+  \bibinfo{person}{Yeonjoon Lee}, \bibinfo{person}{Xiaofeng Wang},
+  \bibinfo{person}{Nan Zhang}, \bibinfo{person}{Heqing Huang},
+  \bibinfo{person}{Wei Zou}, {and} \bibinfo{person}{Peng Liu}.}
+  \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{Finding Unknown Malice in 10 Seconds: Mass Vetting
+  for New Threats at the Google-Play Scale}. In
+  \bibinfo{booktitle}{\emph{USENIX Security Symposium}}.
+  \bibinfo{publisher}{USENIX Association}, \bibinfo{address}{Berkeley, CA,
+  USA}, \bibinfo{pages}{659--674}.
+\newblock
+
+
+\bibitem[Crussell et~al\mbox{.}(2012)]%
+        {attackclones}
+\bibfield{author}{\bibinfo{person}{Jonathan Crussell}, \bibinfo{person}{Clint
+  Gibler}, {and} \bibinfo{person}{Hao Chen}.} \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{Attack of the Clones: Detecting Cloned Applications
+  on Android Markets}. In \bibinfo{booktitle}{\emph{European Symposium on
+  Research in Computer Security}}. \bibinfo{publisher}{Springer},
+  \bibinfo{address}{Cham, Switzerland}, \bibinfo{pages}{37--54}.
+\newblock
+\href{https://doi.org/10.1007/978-3-642-33167-1_3}{doi:\nolinkurl{10.1007/978-3-642-33167-1_3}}
+
+
+\bibitem[Crussell et~al\mbox{.}(2015)]%
+        {andarwin}
+\bibfield{author}{\bibinfo{person}{Jonathan Crussell}, \bibinfo{person}{Clint
+  Gibler}, {and} \bibinfo{person}{Hao Chen}.} \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{Andarwin: Scalable Detection of Android Application
+  Clones Based on Semantics}.
+\newblock \bibinfo{journal}{\emph{IEEE Transactions on Mobile Computing}}
+  \bibinfo{volume}{14}, \bibinfo{number}{10} (\bibinfo{year}{2015}),
+  \bibinfo{pages}{2007--2019}.
+\newblock
+\href{https://doi.org/10.1109/TMC.2014.2381212}{doi:\nolinkurl{10.1109/TMC.2014.2381212}}
+
+
+\bibitem[Derr et~al\mbox{.}(2017)]%
+        {keepupdated}
+\bibfield{author}{\bibinfo{person}{Erik Derr}, \bibinfo{person}{Sven Bugiel},
+  \bibinfo{person}{Sascha Fahl}, \bibinfo{person}{Yasemin Acar}, {and}
+  \bibinfo{person}{Michael Backes}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{Keep Me Updated: An Empirical Study of Third-Party
+  Library Updatability on Android}. In \bibinfo{booktitle}{\emph{ACM Conference
+  on Computer and Communications Security}}. \bibinfo{publisher}{Association
+  for Computing Machinery}, \bibinfo{address}{New York, NY, USA},
+  \bibinfo{pages}{2187--2200}.
+\newblock
+\href{https://doi.org/10.1145/3133956.3134059}{doi:\nolinkurl{10.1145/3133956.3134059}}
+
+
+\bibitem[Duan et~al\mbox{.}(2021)]%
+        {duanpackages}
+\bibfield{author}{\bibinfo{person}{Ruian Duan}, \bibinfo{person}{Omar Alrawi},
+  \bibinfo{person}{Ranjita~Pai Kasturi}, \bibinfo{person}{Ryan Elder},
+  \bibinfo{person}{Brendan Saltaformaggio}, {and} \bibinfo{person}{Wenke Lee}.}
+  \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{Towards Measuring Supply Chain Attacks on Package
+  Managers for Interpreted Languages}. In \bibinfo{booktitle}{\emph{Network and
+  Distributed System Security Symposium}}. \bibinfo{publisher}{Internet
+  Society}, \bibinfo{address}{Reston, VA, USA}, \bibinfo{numpages}{18}~pages.
+\newblock
+\href{https://doi.org/10.14722/ndss.2021.23055}{doi:\nolinkurl{10.14722/ndss.2021.23055}}
+
+
+\bibitem[Duan et~al\mbox{.}(2017)]%
+        {osspolice}
+\bibfield{author}{\bibinfo{person}{Ruian Duan}, \bibinfo{person}{Ashish
+  Bijlani}, \bibinfo{person}{Meng Xu}, \bibinfo{person}{Taesoo Kim}, {and}
+  \bibinfo{person}{Wenke Lee}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{Identifying Open-Source License Violation and 1-Day
+  Security Risk at Large Scale}. In \bibinfo{booktitle}{\emph{ACM Conference on
+  Computer and Communications Security}}. \bibinfo{publisher}{Association for
+  Computing Machinery}, \bibinfo{address}{New York, NY, USA},
+  \bibinfo{pages}{2169--2185}.
+\newblock
+\href{https://doi.org/10.1145/3133956.3134048}{doi:\nolinkurl{10.1145/3133956.3134048}}
+
+
+\bibitem[Fan et~al\mbox{.}(2017)]%
+        {dapasa}
+\bibfield{author}{\bibinfo{person}{Ming Fan}, \bibinfo{person}{Jun Liu},
+  \bibinfo{person}{Wei Wang}, \bibinfo{person}{Haifei Li},
+  \bibinfo{person}{Zhenzhou Tian}, {and} \bibinfo{person}{Ting Liu}.}
+  \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{DAPASA: Detecting Android Piggybacked Apps through
+  Sensitive Subgraph Analysis}.
+\newblock \bibinfo{journal}{\emph{IEEE Transactions on Information Forensics
+  and Security}} \bibinfo{volume}{12}, \bibinfo{number}{8}
+  (\bibinfo{year}{2017}), \bibinfo{pages}{1772--1785}.
+\newblock
+\href{https://doi.org/10.1109/TIFS.2017.2687880}{doi:\nolinkurl{10.1109/TIFS.2017.2687880}}
+
+
+\bibitem[Faruki et~al\mbox{.}(2015)]%
+        {androsimilar}
+\bibfield{author}{\bibinfo{person}{Parvez Faruki}, \bibinfo{person}{Vijay
+  Laxmi}, \bibinfo{person}{Ammar Bharmal}, \bibinfo{person}{Manoj~Singh Gaur},
+  {and} \bibinfo{person}{Vijay Ganmoor}.} \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{AndroSimilar: Robust Signature for Detecting
+  Variants of Android Malware}.
+\newblock \bibinfo{journal}{\emph{Journal of Information Security and
+  Applications}}  \bibinfo{volume}{22} (\bibinfo{year}{2015}),
+  \bibinfo{pages}{66--80}.
+\newblock
+\href{https://doi.org/10.1016/j.jisa.2014.10.011}{doi:\nolinkurl{10.1016/j.jisa.2014.10.011}}
+
+
+\bibitem[Gadyatskaya et~al\mbox{.}(2016)]%
+        {resourceeval}
+\bibfield{author}{\bibinfo{person}{Olga Gadyatskaya},
+  \bibinfo{person}{Andra-Lidia Lezza}, {and} \bibinfo{person}{Yury
+  Zhauniarovich}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Evaluation of Resource-Based App Repackaging
+  Detection in Android}. In \bibinfo{booktitle}{\emph{Nordic Conference on
+  Secure IT Systems}}. \bibinfo{publisher}{Springer}, \bibinfo{address}{Cham,
+  Switzerland}, \bibinfo{pages}{135--151}.
+\newblock
+\href{https://doi.org/10.1007/978-3-319-47560-8_9}{doi:\nolinkurl{10.1007/978-3-319-47560-8_9}}
+
+
+\bibitem[Gibler et~al\mbox{.}(2013)]%
+        {adrob}
+\bibfield{author}{\bibinfo{person}{Clint Gibler}, \bibinfo{person}{Ryan
+  Stevens}, \bibinfo{person}{Jonathan Crussell}, \bibinfo{person}{Hao Chen},
+  \bibinfo{person}{Hui Zang}, {and} \bibinfo{person}{Heesook Choi}.}
+  \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{AdRob: Examining the Landscape and Impact of
+  Android Application Plagiarism}. In \bibinfo{booktitle}{\emph{International
+  Conference on Mobile Systems, Applications, and Services}}.
+  \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{431--444}.
+\newblock
+\href{https://doi.org/10.1145/2462456.2464461}{doi:\nolinkurl{10.1145/2462456.2464461}}
+
+
+\bibitem[Glanz et~al\mbox{.}(2017)]%
+        {codematch}
+\bibfield{author}{\bibinfo{person}{Leonid Glanz}, \bibinfo{person}{Sven Amann},
+  \bibinfo{person}{Michael Eichberg}, \bibinfo{person}{Michael Reif},
+  \bibinfo{person}{Ben Hermann}, \bibinfo{person}{Johannes Lerch}, {and}
+  \bibinfo{person}{Mira Mezini}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{CodeMatch: Obfuscation Won't Conceal Your
+  Repackaged App}. In \bibinfo{booktitle}{\emph{ACM Joint European Software
+  Engineering Conference and Symposium on the Foundations of Software
+  Engineering}}. \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{638--648}.
+\newblock
+\href{https://doi.org/10.1145/3106237.3106305}{doi:\nolinkurl{10.1145/3106237.3106305}}
+
+
+\bibitem[Gokkaya et~al\mbox{.}(2026)]%
+        {gokkaya2026}
+\bibfield{author}{\bibinfo{person}{Betul Gokkaya}, \bibinfo{person}{Leonardo
+  Aniello}, {and} \bibinfo{person}{Basel Halak}.}
+  \bibinfo{year}{2026}\natexlab{}.
+\newblock \showarticletitle{Software Supply Chain: A Taxonomy of Attacks,
+  Mitigations and Risk Assessment Strategies}.
+\newblock \bibinfo{journal}{\emph{Journal of Information Security and
+  Applications}}  \bibinfo{volume}{97} (\bibinfo{year}{2026}),
+  \bibinfo{pages}{104324}.
+\newblock
+\href{https://doi.org/10.1016/j.jisa.2025.104324}{doi:\nolinkurl{10.1016/j.jisa.2025.104324}}
+
+
+\bibitem[Gonzalez et~al\mbox{.}(2014)]%
+        {droidkin}
+\bibfield{author}{\bibinfo{person}{Hugo Gonzalez}, \bibinfo{person}{Natalia
+  Stakhanova}, {and} \bibinfo{person}{Ali~A. Ghorbani}.}
+  \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{DroidKin: Lightweight Detection of Android Apps
+  Similarity}. In \bibinfo{booktitle}{\emph{International Conference on
+  Security and Privacy in Communication Systems}}.
+  \bibinfo{publisher}{Springer}, \bibinfo{address}{Cham, Switzerland},
+  \bibinfo{pages}{436--453}.
+\newblock
+\href{https://doi.org/10.1007/978-3-319-23829-6_30}{doi:\nolinkurl{10.1007/978-3-319-23829-6_30}}
+
+
+\bibitem[Guan et~al\mbox{.}(2016)]%
+        {semanticsrepack}
+\bibfield{author}{\bibinfo{person}{Quanlong Guan}, \bibinfo{person}{Heqing
+  Huang}, \bibinfo{person}{Weiqi Luo}, {and} \bibinfo{person}{Sencun Zhu}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Semantics-Based Repackaging Detection for Mobile
+  Apps}. In \bibinfo{booktitle}{\emph{International Symposium on Engineering
+  Secure Software and Systems}}. \bibinfo{publisher}{Springer},
+  \bibinfo{address}{Cham, Switzerland}, \bibinfo{pages}{89--105}.
+\newblock
+\href{https://doi.org/10.1007/978-3-319-30806-7_6}{doi:\nolinkurl{10.1007/978-3-319-30806-7_6}}
+
+
+\bibitem[Hanna et~al\mbox{.}(2012)]%
+        {juxtapp}
+\bibfield{author}{\bibinfo{person}{Steve Hanna}, \bibinfo{person}{Ling Huang},
+  \bibinfo{person}{Edward Wu}, \bibinfo{person}{Saung Li},
+  \bibinfo{person}{Charles Chen}, {and} \bibinfo{person}{Dawn Song}.}
+  \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{Juxtapp: A Scalable System for Detecting Code Reuse
+  among Android Applications}. In \bibinfo{booktitle}{\emph{Detection of
+  Intrusions and Malware, and Vulnerability Assessment}}.
+  \bibinfo{publisher}{Springer}, \bibinfo{address}{Cham, Switzerland},
+  \bibinfo{pages}{62--81}.
+\newblock
+\href{https://doi.org/10.1007/978-3-642-37300-8_4}{doi:\nolinkurl{10.1007/978-3-642-37300-8_4}}
+
+
+\bibitem[Hasan et~al\mbox{.}(2021)]%
+        {text2app}
+\bibfield{author}{\bibinfo{person}{Masum Hasan}, \bibinfo{person}{Kazi~Sajeed
+  Mehrab}, \bibinfo{person}{Wasi~Uddin Ahmad}, {and} \bibinfo{person}{Rifat
+  Shahriyar}.} \bibinfo{year}{2021}\natexlab{}.
+\newblock \bibinfo{title}{Text2App: A Framework for Creating Android Apps from
+  Text Descriptions}.
+\newblock \bibinfo{howpublished}{arXiv:2104.08301}.
+\newblock
+\newblock
+\shownote{Presented in the NLP4Prog 2021 workshop program; no archival
+  proceedings record was verified}.
+
+
+\bibitem[Huang et~al\mbox{.}(2013)]%
+        {repackeval}
+\bibfield{author}{\bibinfo{person}{Heqing Huang}, \bibinfo{person}{Sencun Zhu},
+  \bibinfo{person}{Peng Liu}, {and} \bibinfo{person}{Dinghao Wu}.}
+  \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{A Framework for Evaluating Mobile App Repackaging
+  Detection Algorithms}. In \bibinfo{booktitle}{\emph{International Conference
+  on Trust and Trustworthy Computing}}. \bibinfo{publisher}{Springer},
+  \bibinfo{address}{Cham, Switzerland}, \bibinfo{pages}{169--186}.
+\newblock
+\href{https://doi.org/10.1007/978-3-642-38908-5_13}{doi:\nolinkurl{10.1007/978-3-642-38908-5_13}}
+
+
+\bibitem[Ishgair et~al\mbox{.}(2026)]%
+        {astra}
+\bibfield{author}{\bibinfo{person}{Eman~Abu Ishgair}, \bibinfo{person}{Juanita
+  Gomez}, \bibinfo{person}{Marcela~S. Melara}, \bibinfo{person}{Alvaro
+  Cardenas}, {and} \bibinfo{person}{Santiago Torres-Arias}.}
+  \bibinfo{year}{2026}\natexlab{}.
+\newblock \showarticletitle{SoK: A Defense-Oriented Evaluation of Software
+  Supply Chain Security}. In \bibinfo{booktitle}{\emph{2026 IEEE 11th European
+  Symposium on Security and Privacy (EuroS\&P)}}. \bibinfo{publisher}{IEEE},
+  \bibinfo{address}{Piscataway, NJ, USA}, \bibinfo{pages}{836--859}.
+\newblock
+\href{https://doi.org/10.1109/EuroSP68448.2026.00059}{doi:\nolinkurl{10.1109/EuroSP68448.2026.00059}}
+
+
+\bibitem[Ishii et~al\mbox{.}(2017)]%
+        {appraiser}
+\bibfield{author}{\bibinfo{person}{Yuta Ishii}, \bibinfo{person}{Takuya
+  Watanabe}, \bibinfo{person}{Mitsuaki Akiyama}, {and} \bibinfo{person}{Tatsuya
+  Mori}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{Appraiser: A Large Scale Analysis of Android Clone
+  Apps}.
+\newblock \bibinfo{journal}{\emph{IEICE Transactions on Information and
+  Systems}} \bibinfo{volume}{E100-D}, \bibinfo{number}{8}
+  (\bibinfo{year}{2017}), \bibinfo{pages}{1703--1713}.
+\newblock
+\href{https://doi.org/10.1587/transinf.2016ICP0012}{doi:\nolinkurl{10.1587/transinf.2016ICP0012}}
+
+
+\bibitem[Khoury et~al\mbox{.}(2023)]%
+        {khoury}
+\bibfield{author}{\bibinfo{person}{Rapha{\"e}l Khoury},
+  \bibinfo{person}{Anderson~R. Avila}, \bibinfo{person}{Jacob Brunelle}, {and}
+  \bibinfo{person}{Baba~Mamadou Camara}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{How Secure Is Code Generated by ChatGPT?}. In
+  \bibinfo{booktitle}{\emph{2023 IEEE International Conference on Systems, Man,
+  and Cybernetics (SMC)}}. \bibinfo{publisher}{IEEE},
+  \bibinfo{address}{Piscataway, NJ, USA}, \bibinfo{pages}{2445--2451}.
+\newblock
+\href{https://doi.org/10.1109/SMC53992.2023.10394237}{doi:\nolinkurl{10.1109/SMC53992.2023.10394237}}
+
+
+\bibitem[Kitchenham(2004)]%
+        {kitchenham}
+\bibfield{author}{\bibinfo{person}{Barbara Kitchenham}.}
+  \bibinfo{year}{2004}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Procedures for Performing Systematic
+  Reviews}}.
+\newblock \bibinfo{type}{{T}echnical {R}eport}. \bibinfo{institution}{Keele
+  University}.
+\newblock
+
+
+\bibitem[Koishybayev et~al\mbox{.}(2022)]%
+        {githubci}
+\bibfield{author}{\bibinfo{person}{Igibek Koishybayev},
+  \bibinfo{person}{Aleksandr Nahapetyan}, \bibinfo{person}{Raima Zachariah},
+  \bibinfo{person}{Siddharth Muralee}, \bibinfo{person}{Bradley Reaves},
+  \bibinfo{person}{Alexandros Kapravelos}, {and} \bibinfo{person}{Aravind
+  Machiry}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{Characterizing the Security of GitHub CI
+  Workflows}. In \bibinfo{booktitle}{\emph{USENIX Security Symposium}}.
+  \bibinfo{publisher}{USENIX Association}, \bibinfo{address}{Berkeley, CA,
+  USA}, \bibinfo{pages}{2747--2763}.
+\newblock
+
+
+\bibitem[Kong et~al\mbox{.}(2019)]%
+        {androidtesting}
+\bibfield{author}{\bibinfo{person}{Pingfan Kong}, \bibinfo{person}{Li Li},
+  \bibinfo{person}{Jun Gao}, \bibinfo{person}{Kui Liu},
+  \bibinfo{person}{Tegawend{\'e}~F. Bissyand{\'e}}, {and}
+  \bibinfo{person}{Jacques Klein}.} \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{Automated Testing of Android Apps: A Systematic
+  Literature Review}.
+\newblock \bibinfo{journal}{\emph{IEEE Transactions on Reliability}}
+  \bibinfo{volume}{68}, \bibinfo{number}{1} (\bibinfo{year}{2019}),
+  \bibinfo{pages}{45--66}.
+\newblock
+\href{https://doi.org/10.1109/TR.2018.2865733}{doi:\nolinkurl{10.1109/TR.2018.2865733}}
+
+
+\bibitem[Kuppusamy et~al\mbox{.}(2016)]%
+        {diplomat}
+\bibfield{author}{\bibinfo{person}{Trishank~Karthik Kuppusamy},
+  \bibinfo{person}{Santiago Torres-Arias}, \bibinfo{person}{Vladimir Diaz},
+  {and} \bibinfo{person}{Justin Cappos}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Diplomat: Using Delegations to Protect Community
+  Repositories}. In \bibinfo{booktitle}{\emph{USENIX Symposium on Networked
+  Systems Design and Implementation}}. \bibinfo{publisher}{USENIX Association},
+  \bibinfo{address}{Berkeley, CA, USA}, \bibinfo{pages}{567--581}.
+\newblock
+
+
+\bibitem[Ladisa et~al\mbox{.}(2023)]%
+        {ladisa}
+\bibfield{author}{\bibinfo{person}{Piergiorgio Ladisa}, \bibinfo{person}{Henrik
+  Plate}, \bibinfo{person}{Matias Martinez}, {and} \bibinfo{person}{Olivier
+  Barais}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{SoK: Taxonomy of Attacks on Open-Source Software
+  Supply Chains}. In \bibinfo{booktitle}{\emph{IEEE Symposium on Security and
+  Privacy}}. \bibinfo{publisher}{IEEE}, \bibinfo{address}{Piscataway, NJ, USA},
+  \bibinfo{pages}{1509--1526}.
+\newblock
+\href{https://doi.org/10.1109/SP46215.2023.10179304}{doi:\nolinkurl{10.1109/SP46215.2023.10179304}}
+
+
+\bibitem[Lamb and Zacchiroli(2022)]%
+        {reprobuilds}
+\bibfield{author}{\bibinfo{person}{Chris Lamb} {and} \bibinfo{person}{Stefano
+  Zacchiroli}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{Reproducible Builds: Increasing the Integrity of
+  Software Supply Chains}.
+\newblock \bibinfo{journal}{\emph{IEEE Software}} \bibinfo{volume}{39},
+  \bibinfo{number}{2} (\bibinfo{year}{2022}), \bibinfo{pages}{62--70}.
+\newblock
+\href{https://doi.org/10.1109/MS.2021.3073045}{doi:\nolinkurl{10.1109/MS.2021.3073045}}
+
+
+\bibitem[Latsiou and Lambrinoudakis(2026)]%
+        {cyberrisk2026}
+\bibfield{author}{\bibinfo{person}{Aikaterina Latsiou} {and}
+  \bibinfo{person}{Costas Lambrinoudakis}.} \bibinfo{year}{2026}\natexlab{}.
+\newblock \showarticletitle{Cyber Supply Chain Risk Management: From Threats to
+  Treatment}.
+\newblock \bibinfo{journal}{\emph{International Journal of Information
+  Security}} \bibinfo{volume}{25}, \bibinfo{number}{1}, Article
+  \bibinfo{articleno}{40} (\bibinfo{year}{2026}), \bibinfo{numpages}{11}~pages.
+\newblock
+\href{https://doi.org/10.1007/s10207-025-01207-9}{doi:\nolinkurl{10.1007/s10207-025-01207-9}}
+
+
+\bibitem[Leija et~al\mbox{.}(2020)]%
+        {reprocontainers}
+\bibfield{author}{\bibinfo{person}{Omar S.~Navarro Leija},
+  \bibinfo{person}{Kelly Shiptoski}, \bibinfo{person}{Ryan~G. Scott},
+  \bibinfo{person}{Baojun Wang}, \bibinfo{person}{Nicholas Renner},
+  \bibinfo{person}{Ryan~R. Newton}, {and} \bibinfo{person}{Joseph Devietti}.}
+  \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{Reproducible Containers}. In
+  \bibinfo{booktitle}{\emph{ACM International Conference on Architectural
+  Support for Programming Languages and Operating Systems}}.
+  \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{167--182}.
+\newblock
+\href{https://doi.org/10.1145/3373376.3378519}{doi:\nolinkurl{10.1145/3373376.3378519}}
+
+
+\bibitem[Li et~al\mbox{.}(2019)]%
+        {appcommune}
+\bibfield{author}{\bibinfo{person}{Bowen Li}, \bibinfo{person}{Yiming Zhang},
+  \bibinfo{person}{Jing Li}, \bibinfo{person}{Ruitao Feng}, {and}
+  \bibinfo{person}{Dawu Gu}.} \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{AppCommune: Automated Third-Party Libraries
+  De-Duplicating and Updating for Android Apps}. In
+  \bibinfo{booktitle}{\emph{IEEE International Conference on Software Analysis,
+  Evolution and Reengineering}}. \bibinfo{publisher}{IEEE},
+  \bibinfo{address}{Piscataway, NJ, USA}, \bibinfo{pages}{344--354}.
+\newblock
+\href{https://doi.org/10.1109/SANER.2019.8668009}{doi:\nolinkurl{10.1109/SANER.2019.8668009}}
+
+
+\bibitem[Li et~al\mbox{.}(2017a)]%
+        {simidroid}
+\bibfield{author}{\bibinfo{person}{Li Li}, \bibinfo{person}{Tegawend{\'e}~F.
+  Bissyand{\'e}}, {and} \bibinfo{person}{Jacques Klein}.}
+  \bibinfo{year}{2017}\natexlab{a}.
+\newblock \showarticletitle{SimiDroid: Identifying and Explaining Similarities
+  in Android Apps}. In \bibinfo{booktitle}{\emph{IEEE International Conference
+  on Trust, Security and Privacy in Computing and Communications}}.
+  \bibinfo{publisher}{IEEE}, \bibinfo{address}{Piscataway, NJ, USA},
+  \bibinfo{pages}{136--143}.
+\newblock
+\href{https://doi.org/10.1109/Trustcom/BigDataSE/ICESS.2017.230}{doi:\nolinkurl{10.1109/Trustcom/BigDataSE/ICESS.2017.230}}
+
+
+\bibitem[Li et~al\mbox{.}(2021)]%
+        {repack}
+\bibfield{author}{\bibinfo{person}{Li Li}, \bibinfo{person}{Tegawend{\'e}~F.
+  Bissyand{\'e}}, {and} \bibinfo{person}{Jacques Klein}.}
+  \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{Rebooting Research on Detecting Repackaged Android
+  Apps: Literature Review and Benchmark}.
+\newblock \bibinfo{journal}{\emph{IEEE Transactions on Software Engineering}}
+  \bibinfo{volume}{47}, \bibinfo{number}{4} (\bibinfo{year}{2021}),
+  \bibinfo{pages}{676--693}.
+\newblock
+\href{https://doi.org/10.1109/TSE.2019.2901679}{doi:\nolinkurl{10.1109/TSE.2019.2901679}}
+
+
+\bibitem[Li et~al\mbox{.}(2016)]%
+        {commonlibraries}
+\bibfield{author}{\bibinfo{person}{Li Li}, \bibinfo{person}{Tegawend{\'e}~F.
+  Bissyand{\'e}}, \bibinfo{person}{Jacques Klein}, {and}
+  \bibinfo{person}{Yves~Le Traon}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{An Investigation into the Use of Common Libraries
+  in Android Apps}. In \bibinfo{booktitle}{\emph{IEEE International Conference
+  on Software Analysis, Evolution, and Reengineering}}.
+  \bibinfo{publisher}{IEEE}, \bibinfo{address}{Piscataway, NJ, USA},
+  \bibinfo{pages}{403--414}.
+\newblock
+\href{https://doi.org/10.1109/SANER.2016.52}{doi:\nolinkurl{10.1109/SANER.2016.52}}
+
+
+\bibitem[Li et~al\mbox{.}(2017b)]%
+        {staticandroid}
+\bibfield{author}{\bibinfo{person}{Li Li}, \bibinfo{person}{Tegawend{\'e}~F.
+  Bissyand{\'e}}, \bibinfo{person}{Mike Papadakis}, \bibinfo{person}{Siegfried
+  Rasthofer}, \bibinfo{person}{Alexandre Bartel}, \bibinfo{person}{Damien
+  Octeau}, \bibinfo{person}{Jacques Klein}, {and} \bibinfo{person}{Yves~Le
+  Traon}.} \bibinfo{year}{2017}\natexlab{b}.
+\newblock \showarticletitle{Static Analysis of Android Apps: A Systematic
+  Literature Review}.
+\newblock \bibinfo{journal}{\emph{Information and Software Technology}}
+  \bibinfo{volume}{88} (\bibinfo{year}{2017}), \bibinfo{pages}{67--95}.
+\newblock
+\href{https://doi.org/10.1016/j.infsof.2017.04.001}{doi:\nolinkurl{10.1016/j.infsof.2017.04.001}}
+
+
+\bibitem[Li et~al\mbox{.}(2017c)]%
+        {piggybacking}
+\bibfield{author}{\bibinfo{person}{Li Li}, \bibinfo{person}{Daoyuan Li},
+  \bibinfo{person}{Tegawende~F. Bissyande}, \bibinfo{person}{Jacques Klein},
+  \bibinfo{person}{Yves Le~Traon}, \bibinfo{person}{David Lo}, {and}
+  \bibinfo{person}{Lorenzo Cavallaro}.} \bibinfo{year}{2017}\natexlab{c}.
+\newblock \showarticletitle{Understanding Android App Piggybacking: A
+  Systematic Study of Malicious Code Grafting}.
+\newblock \bibinfo{journal}{\emph{IEEE Transactions on Information Forensics
+  and Security}} \bibinfo{volume}{12}, \bibinfo{number}{6}
+  (\bibinfo{year}{2017}), \bibinfo{pages}{1269--1284}.
+\newblock
+\href{https://doi.org/10.1109/TIFS.2017.2656460}{doi:\nolinkurl{10.1109/TIFS.2017.2656460}}
+
+
+\bibitem[Li et~al\mbox{.}(2017d)]%
+        {libd}
+\bibfield{author}{\bibinfo{person}{Menghao Li}, \bibinfo{person}{Wei Wang},
+  \bibinfo{person}{Pei Wang}, \bibinfo{person}{Shuai Wang},
+  \bibinfo{person}{Dinghao Wu}, \bibinfo{person}{Jian Liu},
+  \bibinfo{person}{Rui Xue}, {and} \bibinfo{person}{Wei Huo}.}
+  \bibinfo{year}{2017}\natexlab{d}.
+\newblock \showarticletitle{LibD: Scalable and Precise Third-Party Library
+  Detection in Android Markets}. In \bibinfo{booktitle}{\emph{International
+  Conference on Software Engineering}}. \bibinfo{publisher}{IEEE},
+  \bibinfo{address}{Piscataway, NJ, USA}, \bibinfo{pages}{335--346}.
+\newblock
+\href{https://doi.org/10.1109/ICSE.2017.38}{doi:\nolinkurl{10.1109/ICSE.2017.38}}
+
+
+\bibitem[Linares-Vasquez et~al\mbox{.}(2016)]%
+        {similarapps}
+\bibfield{author}{\bibinfo{person}{Mario Linares-Vasquez},
+  \bibinfo{person}{Andrew Holtzhauer}, {and} \bibinfo{person}{Denys
+  Poshyvanyk}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{On Automatically Detecting Similar Android Apps}.
+  In \bibinfo{booktitle}{\emph{IEEE International Conference on Program
+  Comprehension}}. \bibinfo{publisher}{IEEE}, \bibinfo{address}{Piscataway, NJ,
+  USA}, \bibinfo{pages}{1--10}.
+\newblock
+\href{https://doi.org/10.1109/ICPC.2016.7503721}{doi:\nolinkurl{10.1109/ICPC.2016.7503721}}
+
+
+\bibitem[Ma et~al\mbox{.}(2016)]%
+        {libradar}
+\bibfield{author}{\bibinfo{person}{Ziang Ma}, \bibinfo{person}{Haoyu Wang},
+  \bibinfo{person}{Yao Guo}, {and} \bibinfo{person}{Xiangqun Chen}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{LibRadar: Fast and Accurate Detection of
+  Third-Party Libraries in Android Apps}. In
+  \bibinfo{booktitle}{\emph{International Conference on Software Engineering
+  Companion}}. \bibinfo{publisher}{IEEE}, \bibinfo{address}{Piscataway, NJ,
+  USA}, \bibinfo{pages}{653--656}.
+\newblock
+\href{https://doi.org/10.1145/2889160.2889178}{doi:\nolinkurl{10.1145/2889160.2889178}}
+
+
+\bibitem[Mariconti et~al\mbox{.}(2017)]%
+        {mamadroid}
+\bibfield{author}{\bibinfo{person}{Enrico Mariconti}, \bibinfo{person}{Lucky
+  Onwuzurike}, \bibinfo{person}{Panagiotis Andriotis},
+  \bibinfo{person}{Emiliano~De Cristofaro}, \bibinfo{person}{Gordon Ross},
+  {and} \bibinfo{person}{Gianluca Stringhini}.}
+  \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{MaMaDroid: Detecting Android Malware by Building
+  Markov Chains of Behavioral Models}. In \bibinfo{booktitle}{\emph{Network and
+  Distributed System Security Symposium}}. \bibinfo{publisher}{Internet
+  Society}, \bibinfo{address}{Reston, VA, USA}, \bibinfo{numpages}{15}~pages.
+\newblock
+
+
+\bibitem[Newman et~al\mbox{.}(2022)]%
+        {sigstore}
+\bibfield{author}{\bibinfo{person}{Zachary Newman}, \bibinfo{person}{John~Speed
+  Meyers}, {and} \bibinfo{person}{Santiago Torres-Arias}.}
+  \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{Sigstore: Software Signing for Everybody}. In
+  \bibinfo{booktitle}{\emph{ACM Conference on Computer and Communications
+  Security}}. \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{2353--2367}.
+\newblock
+\href{https://doi.org/10.1145/3548606.3560596}{doi:\nolinkurl{10.1145/3548606.3560596}}
+
+
+\bibitem[Nikitin et~al\mbox{.}(2017)]%
+        {chainiac}
+\bibfield{author}{\bibinfo{person}{Kirill Nikitin},
+  \bibinfo{person}{Eleftherios Kokoris-Kogias}, \bibinfo{person}{Philipp
+  Jovanovic}, \bibinfo{person}{Nicolas Gailly}, \bibinfo{person}{Linus Gasser},
+  \bibinfo{person}{Ismail Khoffi}, \bibinfo{person}{Justin Cappos}, {and}
+  \bibinfo{person}{Bryan Ford}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{CHAINIAC: Proactive Software-Update Transparency
+  via Collectively Signed Skipchains and Verified Builds}. In
+  \bibinfo{booktitle}{\emph{USENIX Security Symposium}}.
+  \bibinfo{publisher}{USENIX Association}, \bibinfo{address}{Berkeley, CA,
+  USA}, \bibinfo{numpages}{17}~pages.
+\newblock
+
+
+\bibitem[Niu et~al\mbox{.}(2023)]%
+        {codexleaks}
+\bibfield{author}{\bibinfo{person}{Liang Niu}, \bibinfo{person}{Shujaat Mirza},
+  \bibinfo{person}{Zayd Maradni}, {and} \bibinfo{person}{Christina
+  P{\"o}pper}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{CodexLeaks: Privacy Leaks from Code Generation
+  Language Models in GitHub Copilot}. In \bibinfo{booktitle}{\emph{USENIX
+  Security Symposium}}. \bibinfo{publisher}{USENIX Association},
+  \bibinfo{address}{Berkeley, CA, USA}, \bibinfo{pages}{2133--2150}.
+\newblock
+
+
+\bibitem[Ohm et~al\mbox{.}(2020)]%
+        {backstabber}
+\bibfield{author}{\bibinfo{person}{Marc Ohm}, \bibinfo{person}{Henrik Plate},
+  \bibinfo{person}{Arnold Sykosch}, {and} \bibinfo{person}{Michael Meier}.}
+  \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{Backstabber's Knife Collection: A Review of Open
+  Source Software Supply Chain Attacks}. In \bibinfo{booktitle}{\emph{Detection
+  of Intrusions and Malware, and Vulnerability Assessment}}.
+  \bibinfo{publisher}{Springer}, \bibinfo{address}{Cham, Switzerland},
+  \bibinfo{pages}{23--43}.
+\newblock
+\href{https://doi.org/10.1007/978-3-030-52683-2_2}{doi:\nolinkurl{10.1007/978-3-030-52683-2_2}}
+
+
+\bibitem[Ohm and Stuke(2023)]%
+        {ohmstuke}
+\bibfield{author}{\bibinfo{person}{Marc Ohm} {and} \bibinfo{person}{Charlene
+  Stuke}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{SoK: Practical Detection of Software Supply Chain
+  Attacks}. In \bibinfo{booktitle}{\emph{International Conference on
+  Availability, Reliability and Security}}. \bibinfo{publisher}{Association for
+  Computing Machinery}, \bibinfo{address}{New York, NY, USA},
+  \bibinfo{pages}{1--11}.
+\newblock
+\href{https://doi.org/10.1145/3600160.3600162}{doi:\nolinkurl{10.1145/3600160.3600162}}
+
+
+\bibitem[Okafor et~al\mbox{.}(2022)]%
+        {properties}
+\bibfield{author}{\bibinfo{person}{Chinenye Okafor}, \bibinfo{person}{Taylor~R.
+  Schorlemmer}, \bibinfo{person}{Santiago Torres-Arias}, {and}
+  \bibinfo{person}{James~C. Davis}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{SoK: Analysis of Software Supply Chain Security by
+  Establishing Secure Design Properties}. In \bibinfo{booktitle}{\emph{ACM
+  Workshop on Software Supply Chain Offensive Research and Ecosystem
+  Defenses}}. \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{15--24}.
+\newblock
+\href{https://doi.org/10.1145/3560835.3564556}{doi:\nolinkurl{10.1145/3560835.3564556}}
+
+
+\bibitem[Pearce et~al\mbox{.}(2022)]%
+        {pearce}
+\bibfield{author}{\bibinfo{person}{Hammond Pearce}, \bibinfo{person}{Baleegh
+  Ahmad}, \bibinfo{person}{Benjamin Tan}, \bibinfo{person}{Brendan
+  Dolan-Gavitt}, {and} \bibinfo{person}{Ramesh Karri}.}
+  \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{Asleep at the Keyboard? Assessing the Security of
+  GitHub Copilot's Code Contributions}. In \bibinfo{booktitle}{\emph{IEEE
+  Symposium on Security and Privacy}}. \bibinfo{publisher}{IEEE},
+  \bibinfo{address}{Piscataway, NJ, USA}, \bibinfo{pages}{754--768}.
+\newblock
+\href{https://doi.org/10.1109/SP46214.2022.9833571}{doi:\nolinkurl{10.1109/SP46214.2022.9833571}}
+
+
+\bibitem[Perry et~al\mbox{.}(2023)]%
+        {perry}
+\bibfield{author}{\bibinfo{person}{Neil Perry}, \bibinfo{person}{Megha
+  Srivastava}, \bibinfo{person}{Deepak Kumar}, {and} \bibinfo{person}{Dan
+  Boneh}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{Do Users Write More Insecure Code with AI
+  Assistants?}. In \bibinfo{booktitle}{\emph{ACM Conference on Computer and
+  Communications Security}}. \bibinfo{publisher}{Association for Computing
+  Machinery}, \bibinfo{address}{New York, NY, USA},
+  \bibinfo{pages}{2785--2799}.
+\newblock
+\href{https://doi.org/10.1145/3576915.3623157}{doi:\nolinkurl{10.1145/3576915.3623157}}
+
+
+\bibitem[Potharaju et~al\mbox{.}(2012)]%
+        {plagiarizing}
+\bibfield{author}{\bibinfo{person}{Rahul Potharaju}, \bibinfo{person}{Andrew
+  Newell}, \bibinfo{person}{Cristina Nita-Rotaru}, {and}
+  \bibinfo{person}{Xiangyu Zhang}.} \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{Plagiarizing Smartphone Applications: Attack
+  Strategies and Defense Techniques}. In
+  \bibinfo{booktitle}{\emph{International Symposium on Engineering Secure
+  Software and Systems}}. \bibinfo{publisher}{Springer},
+  \bibinfo{address}{Cham, Switzerland}, \bibinfo{pages}{106--120}.
+\newblock
+\href{https://doi.org/10.1007/978-3-642-28166-2_11}{doi:\nolinkurl{10.1007/978-3-642-28166-2_11}}
+
+
+\bibitem[Ran et~al\mbox{.}(2025)]%
+        {appforge}
+\bibfield{author}{\bibinfo{person}{Dezhi Ran}, \bibinfo{person}{Yuan Cao},
+  \bibinfo{person}{Mengzhou Wu}, \bibinfo{person}{Simin Chen},
+  \bibinfo{person}{Yuzhe Guo}, \bibinfo{person}{Jun Ren}, \bibinfo{person}{Zihe
+  Song}, \bibinfo{person}{Hao Yu}, \bibinfo{person}{Jialei Wei},
+  \bibinfo{person}{Linyi Li}, \bibinfo{person}{Wei Yang},
+  \bibinfo{person}{Baishakhi Ray}, {and} \bibinfo{person}{Tao Xie}.}
+  \bibinfo{year}{2025}\natexlab{}.
+\newblock \bibinfo{title}{AppForge: From Assistant to Independent
+  Developer---Are GPTs Ready for Software Development?}
+\newblock \bibinfo{howpublished}{arXiv:2510.07740}.
+\newblock
+
+
+\bibitem[Rastogi et~al\mbox{.}(2013)]%
+        {droidchameleon}
+\bibfield{author}{\bibinfo{person}{Vaibhav Rastogi}, \bibinfo{person}{Yan
+  Chen}, {and} \bibinfo{person}{Xuxian Jiang}.}
+  \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{DroidChameleon: Evaluating Android Anti-Malware
+  against Transformation Attacks}. In \bibinfo{booktitle}{\emph{ACM Asia
+  Conference on Computer and Communications Security}}.
+  \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{329--334}.
+\newblock
+\href{https://doi.org/10.1145/2484313.2484355}{doi:\nolinkurl{10.1145/2484313.2484355}}
+
+
+\bibitem[Reichert and Obelheiro(2024)]%
+        {reichert2024}
+\bibfield{author}{\bibinfo{person}{Beatriz~M. Reichert} {and}
+  \bibinfo{person}{Rafael~R. Obelheiro}.} \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{Software Supply Chain Security: A Systematic
+  Literature Review}.
+\newblock \bibinfo{journal}{\emph{International Journal of Computers and
+  Applications}} \bibinfo{volume}{46}, \bibinfo{number}{10}
+  (\bibinfo{year}{2024}), \bibinfo{pages}{853--867}.
+\newblock
+\href{https://doi.org/10.1080/1206212X.2024.2390978}{doi:\nolinkurl{10.1080/1206212X.2024.2390978}}
+
+
+\bibitem[Ren et~al\mbox{.}(2014)]%
+        {droidmarking}
+\bibfield{author}{\bibinfo{person}{Chuangang Ren}, \bibinfo{person}{Kai Chen},
+  {and} \bibinfo{person}{Peng Liu}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{DroidMarking: Resilient Software Watermarking for
+  Impeding Android Application Repackaging}. In
+  \bibinfo{booktitle}{\emph{IEEE/ACM International Conference on Automated
+  Software Engineering}}. \bibinfo{publisher}{Association for Computing
+  Machinery}, \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{635--646}.
+\newblock
+\href{https://doi.org/10.1145/2642937.2642977}{doi:\nolinkurl{10.1145/2642937.2642977}}
+
+
+\bibitem[Ruiz et~al\mbox{.}(2012)]%
+        {reuseandroid}
+\bibfield{author}{\bibinfo{person}{Israel J.~Mojica Ruiz},
+  \bibinfo{person}{Meiyappan Nagappan}, \bibinfo{person}{Bram Adams}, {and}
+  \bibinfo{person}{Ahmed~E. Hassan}.} \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{Understanding Reuse in the Android Market}. In
+  \bibinfo{booktitle}{\emph{IEEE International Conference on Program
+  Comprehension}}. \bibinfo{publisher}{IEEE}, \bibinfo{address}{Piscataway, NJ,
+  USA}, \bibinfo{pages}{113--122}.
+\newblock
+\href{https://doi.org/10.1109/ICPC.2012.6240477}{doi:\nolinkurl{10.1109/ICPC.2012.6240477}}
+
+
+\bibitem[Salza et~al\mbox{.}(2018)]%
+        {developersupdate}
+\bibfield{author}{\bibinfo{person}{Pasquale Salza}, \bibinfo{person}{Fabio
+  Palomba}, \bibinfo{person}{Dario~Di Nucci}, \bibinfo{person}{Cosmo D'Uva},
+  \bibinfo{person}{Andrea~De Lucia}, {and} \bibinfo{person}{Filomena
+  Ferrucci}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{Do Developers Update Third-Party Libraries in
+  Mobile Apps?}. In \bibinfo{booktitle}{\emph{IEEE International Conference on
+  Program Comprehension}}. \bibinfo{publisher}{IEEE},
+  \bibinfo{address}{Piscataway, NJ, USA}, \bibinfo{pages}{255--265}.
+\newblock
+\href{https://doi.org/10.1145/3196321.3196341}{doi:\nolinkurl{10.1145/3196321.3196341}}
+
+
+\bibitem[Samuel et~al\mbox{.}(2010)]%
+        {tuf}
+\bibfield{author}{\bibinfo{person}{Justin Samuel}, \bibinfo{person}{Nick
+  Mathewson}, \bibinfo{person}{Justin Cappos}, {and} \bibinfo{person}{Roger
+  Dingledine}.} \bibinfo{year}{2010}\natexlab{}.
+\newblock \showarticletitle{Survivable Key Compromise in Software Update
+  Systems}. In \bibinfo{booktitle}{\emph{ACM Conference on Computer and
+  Communications Security}}. \bibinfo{publisher}{Association for Computing
+  Machinery}, \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{61--72}.
+\newblock
+\href{https://doi.org/10.1145/1866307.1866315}{doi:\nolinkurl{10.1145/1866307.1866315}}
+
+
+\bibitem[Sandoval et~al\mbox{.}(2023)]%
+        {sandoval}
+\bibfield{author}{\bibinfo{person}{Gustavo Sandoval}, \bibinfo{person}{Hammond
+  Pearce}, \bibinfo{person}{Teo Nys}, \bibinfo{person}{Ramesh Karri},
+  \bibinfo{person}{Siddharth Garg}, {and} \bibinfo{person}{Brendan
+  Dolan-Gavitt}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{Lost at C: A User Study on the Security
+  Implications of Large Language Model Code Assistants}. In
+  \bibinfo{booktitle}{\emph{USENIX Security Symposium}}.
+  \bibinfo{publisher}{USENIX Association}, \bibinfo{address}{Berkeley, CA,
+  USA}, \bibinfo{pages}{2205--2222}.
+\newblock
+
+
+\bibitem[Shao et~al\mbox{.}(2014)]%
+        {resourcedriven}
+\bibfield{author}{\bibinfo{person}{Yuru Shao}, \bibinfo{person}{Xiapu Luo},
+  \bibinfo{person}{Chenxiong Qian}, \bibinfo{person}{Pengfei Zhu}, {and}
+  \bibinfo{person}{Lei Zhang}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{Towards a Scalable Resource-Driven Approach for
+  Detecting Repackaged Android Applications}. In
+  \bibinfo{booktitle}{\emph{Annual Computer Security Applications Conference}}.
+  \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{56--65}.
+\newblock
+\href{https://doi.org/10.1145/2664243.2664275}{doi:\nolinkurl{10.1145/2664243.2664275}}
+
+
+\bibitem[Spracklen et~al\mbox{.}(2025)]%
+        {spracklen}
+\bibfield{author}{\bibinfo{person}{Joseph Spracklen}, \bibinfo{person}{Raveen
+  Wijewickrama}, \bibinfo{person}{A~H M~Nazmus Sakib}, \bibinfo{person}{Anindya
+  Maiti}, \bibinfo{person}{Bimal Viswanath}, {and} \bibinfo{person}{Murtuza
+  Jadliwala}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \showarticletitle{We Have a Package for You! A Comprehensive Analysis
+  of Package Hallucinations by Code Generating LLMs}. In
+  \bibinfo{booktitle}{\emph{USENIX Security Symposium}}.
+  \bibinfo{publisher}{USENIX Association}, \bibinfo{address}{Berkeley, CA,
+  USA}, \bibinfo{pages}{3687--3706}.
+\newblock
+
+
+\bibitem[Stalnaker et~al\mbox{.}(2024)]%
+        {bomsaway2024}
+\bibfield{author}{\bibinfo{person}{Trevor Stalnaker}, \bibinfo{person}{Nathan
+  Wintersgill}, \bibinfo{person}{Oscar Chaparro},
+  \bibinfo{person}{Massimiliano~Di Penta}, \bibinfo{person}{Daniel~M. German},
+  {and} \bibinfo{person}{Denys Poshyvanyk}.} \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{BOMs Away! Inside the Minds of Stakeholders: A
+  Comprehensive Study of Bills of Materials for Software Systems}. In
+  \bibinfo{booktitle}{\emph{2024 IEEE/ACM 46th International Conference on
+  Software Engineering (ICSE)}}. \bibinfo{publisher}{Association for Computing
+  Machinery}, \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{1--13}.
+\newblock
+\href{https://doi.org/10.1145/3597503.3623347}{doi:\nolinkurl{10.1145/3597503.3623347}}
+
+
+\bibitem[Sufatrio et~al\mbox{.}(2015)]%
+        {sufatrio}
+\bibfield{author}{\bibinfo{person}{Sufatrio}, \bibinfo{person}{Darell J.~J.
+  Tan}, \bibinfo{person}{Tong-Wei Chua}, {and} \bibinfo{person}{Vrizlynn L.~L.
+  Thing}.} \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{Securing Android: A Survey, Taxonomy, and
+  Challenges}.
+\newblock \bibinfo{journal}{\emph{Comput. Surveys}} \bibinfo{volume}{47},
+  \bibinfo{number}{4} (\bibinfo{year}{2015}), \bibinfo{pages}{58:1--58:45}.
+\newblock
+\href{https://doi.org/10.1145/2733306}{doi:\nolinkurl{10.1145/2733306}}
+
+
+\bibitem[Sun et~al\mbox{.}(2015)]%
+        {droideagle}
+\bibfield{author}{\bibinfo{person}{Mingshen Sun}, \bibinfo{person}{Mengmeng
+  Li}, {and} \bibinfo{person}{John C.~S. Lui}.}
+  \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{DroidEagle: Seamless Detection of Visually Similar
+  Android Apps}. In \bibinfo{booktitle}{\emph{ACM Conference on Security and
+  Privacy in Wireless and Mobile Networks}}. \bibinfo{publisher}{Association
+  for Computing Machinery}, \bibinfo{address}{New York, NY, USA},
+  \bibinfo{pages}{1--12}.
+\newblock
+\href{https://doi.org/10.1145/2766498.2766508}{doi:\nolinkurl{10.1145/2766498.2766508}}
+
+
+\bibitem[Tam et~al\mbox{.}(2017)]%
+        {tamandroid}
+\bibfield{author}{\bibinfo{person}{Kimberly Tam}, \bibinfo{person}{Ali
+  Feizollah}, \bibinfo{person}{Nor~Badrul Anuar}, \bibinfo{person}{Rosli
+  Salleh}, {and} \bibinfo{person}{Lorenzo Cavallaro}.}
+  \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{The Evolution of Android Malware and Android
+  Analysis Techniques}.
+\newblock \bibinfo{journal}{\emph{Comput. Surveys}} \bibinfo{volume}{49},
+  \bibinfo{number}{4} (\bibinfo{year}{2017}), \bibinfo{pages}{76:1--76:41}.
+\newblock
+\href{https://doi.org/10.1145/3017427}{doi:\nolinkurl{10.1145/3017427}}
+
+
+\bibitem[Tang et~al\mbox{.}(2020)]%
+        {libdx}
+\bibfield{author}{\bibinfo{person}{Wei Tang}, \bibinfo{person}{Ping Luo},
+  \bibinfo{person}{Jialiang Fu}, {and} \bibinfo{person}{Dan Zhang}.}
+  \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{LibDX: A Cross-Platform and Accurate System to
+  Detect Third-Party Libraries in Binary Code}. In
+  \bibinfo{booktitle}{\emph{IEEE International Conference on Software Analysis,
+  Evolution and Reengineering}}. \bibinfo{publisher}{IEEE},
+  \bibinfo{address}{Piscataway, NJ, USA}, \bibinfo{pages}{104--115}.
+\newblock
+\href{https://doi.org/10.1109/SANER48275.2020.9054845}{doi:\nolinkurl{10.1109/SANER48275.2020.9054845}}
+
+
+\bibitem[Tian et~al\mbox{.}(2020)]%
+        {heterogeneity}
+\bibfield{author}{\bibinfo{person}{Ke Tian}, \bibinfo{person}{Danfeng Yao},
+  \bibinfo{person}{Barbara~G. Ryder}, \bibinfo{person}{Gang Tan}, {and}
+  \bibinfo{person}{Guojun Peng}.} \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{Detection of Repackaged Android Malware with
+  Code-Heterogeneity Features}.
+\newblock \bibinfo{journal}{\emph{IEEE Transactions on Dependable and Secure
+  Computing}} \bibinfo{volume}{17}, \bibinfo{number}{1} (\bibinfo{year}{2020}),
+  \bibinfo{pages}{64--77}.
+\newblock
+\href{https://doi.org/10.1109/TDSC.2017.2745575}{doi:\nolinkurl{10.1109/TDSC.2017.2745575}}
+
+
+\bibitem[Torres-Arias et~al\mbox{.}(2019)]%
+        {intoto}
+\bibfield{author}{\bibinfo{person}{Santiago Torres-Arias},
+  \bibinfo{person}{Hammad Afzali}, \bibinfo{person}{Trishank~Karthik
+  Kuppusamy}, \bibinfo{person}{Reza Curtmola}, {and} \bibinfo{person}{Justin
+  Cappos}.} \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{in-toto: Providing Farm-to-Table Guarantees for
+  Bits and Bytes}. In \bibinfo{booktitle}{\emph{USENIX Security Symposium}}.
+  \bibinfo{publisher}{USENIX Association}, \bibinfo{address}{Berkeley, CA,
+  USA}, \bibinfo{pages}{1393--1410}.
+\newblock
+
+
+\bibitem[Wang et~al\mbox{.}(2015)]%
+        {wukong}
+\bibfield{author}{\bibinfo{person}{Haoyu Wang}, \bibinfo{person}{Yao Guo},
+  \bibinfo{person}{Ziang Ma}, {and} \bibinfo{person}{Xiangqun Chen}.}
+  \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{WuKong: A Scalable and Accurate Two-Phase Approach
+  to Android App Clone Detection}. In \bibinfo{booktitle}{\emph{ACM SIGSOFT
+  International Symposium on Software Testing and Analysis}}.
+  \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{71--82}.
+\newblock
+\href{https://doi.org/10.1145/2771783.2771795}{doi:\nolinkurl{10.1145/2771783.2771795}}
+
+
+\bibitem[Wang et~al\mbox{.}(2018)]%
+        {orlis}
+\bibfield{author}{\bibinfo{person}{Yan Wang}, \bibinfo{person}{Haowei Wu},
+  \bibinfo{person}{Hailong Zhang}, {and} \bibinfo{person}{Atanas Rountev}.}
+  \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{ORLIS: Obfuscation-Resilient Library Detection for
+  Android}. In \bibinfo{booktitle}{\emph{IEEE/ACM International Conference on
+  Mobile Software Engineering and Systems}}. \bibinfo{publisher}{Association
+  for Computing Machinery}, \bibinfo{address}{New York, NY, USA},
+  \bibinfo{pages}{13--23}.
+\newblock
+\href{https://doi.org/10.1145/3197231.3197248}{doi:\nolinkurl{10.1145/3197231.3197248}}
+
+
+\bibitem[Watanabe et~al\mbox{.}(2017)]%
+        {originsvuln}
+\bibfield{author}{\bibinfo{person}{Takuya Watanabe}, \bibinfo{person}{Mitsuaki
+  Akiyama}, \bibinfo{person}{Fumihiro Kanei}, \bibinfo{person}{Eitaro Shioji},
+  \bibinfo{person}{Yohei Takata}, \bibinfo{person}{Bo Sun},
+  \bibinfo{person}{Yuta Ishii}, \bibinfo{person}{Toshiki Shibahara},
+  \bibinfo{person}{Takeshi Yagi}, {and} \bibinfo{person}{Tatsuya Mori}.}
+  \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{Understanding the Origins of Mobile App
+  Vulnerabilities: A Large-Scale Measurement Study of Free and Paid Apps}. In
+  \bibinfo{booktitle}{\emph{IEEE/ACM International Conference on Mining
+  Software Repositories}}. \bibinfo{publisher}{IEEE},
+  \bibinfo{address}{Piscataway, NJ, USA}, \bibinfo{pages}{14--24}.
+\newblock
+\href{https://doi.org/10.1109/MSR.2017.23}{doi:\nolinkurl{10.1109/MSR.2017.23}}
+
+
+\bibitem[Williams et~al\mbox{.}(2025)]%
+        {williams2025}
+\bibfield{author}{\bibinfo{person}{Laurie Williams}, \bibinfo{person}{Giacomo
+  Benedetti}, \bibinfo{person}{Sivana Hamer}, \bibinfo{person}{Ranindya
+  Paramitha}, \bibinfo{person}{Imranur Rahman}, \bibinfo{person}{Mahzabin
+  Tamanna}, \bibinfo{person}{Greg Tystahl}, \bibinfo{person}{Nusrat Zahan},
+  \bibinfo{person}{Patrick Morrison}, \bibinfo{person}{Yasemin Acar},
+  \bibinfo{person}{Michel Cukier}, \bibinfo{person}{Christian K{\"a}stner},
+  \bibinfo{person}{Alexandros Kapravelos}, \bibinfo{person}{Dominik Wermke},
+  {and} \bibinfo{person}{William Enck}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \showarticletitle{Research Directions in Software Supply Chain
+  Security}.
+\newblock \bibinfo{journal}{\emph{ACM Transactions on Software Engineering and
+  Methodology}} \bibinfo{volume}{34}, \bibinfo{number}{5}
+  (\bibinfo{year}{2025}), \bibinfo{pages}{146:1--146:38}.
+\newblock
+\href{https://doi.org/10.1145/3714464}{doi:\nolinkurl{10.1145/3714464}}
+
+
+\bibitem[Wohlin(2014)]%
+        {wohlin}
+\bibfield{author}{\bibinfo{person}{Claes Wohlin}.}
+  \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{Guidelines for Snowballing in Systematic Literature
+  Studies and a Replication in Software Engineering}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the International Conference on
+  Evaluation and Assessment in Software Engineering}}.
+  \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{1--10}.
+\newblock
+\href{https://doi.org/10.1145/2601248.2601268}{doi:\nolinkurl{10.1145/2601248.2601268}}
+
+
+\bibitem[Wu et~al\mbox{.}(2026)]%
+        {wurepack2026}
+\bibfield{author}{\bibinfo{person}{Yiming Wu}, \bibinfo{person}{Zhuowu Liu},
+  \bibinfo{person}{Yanjie Lin}, \bibinfo{person}{Binbin Zhao},
+  \bibinfo{person}{Chunyi Zhou}, \bibinfo{person}{Tiejun Wu}, {and}
+  \bibinfo{person}{Zhen Hong}.} \bibinfo{year}{2026}\natexlab{}.
+\newblock \showarticletitle{Android App Repackaging Detection: A Comprehensive
+  Survey}.
+\newblock \bibinfo{journal}{\emph{Cyber Security and Applications}}
+  \bibinfo{volume}{4} (\bibinfo{year}{2026}), \bibinfo{pages}{100124}.
+\newblock
+\href{https://doi.org/10.1016/j.csa.2026.100124}{doi:\nolinkurl{10.1016/j.csa.2026.100124}}
+
+
+\bibitem[Xu and Yuan(2022)]%
+        {libroad}
+\bibfield{author}{\bibinfo{person}{Jian Xu} {and} \bibinfo{person}{Qianting
+  Yuan}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{{LibRoad}: Rapid, Online, and Accurate Detection of
+  {TPLs} on {Android}}.
+\newblock \bibinfo{journal}{\emph{IEEE Transactions on Mobile Computing}}
+  \bibinfo{volume}{21}, \bibinfo{number}{1} (\bibinfo{year}{2022}),
+  \bibinfo{pages}{167--180}.
+\newblock
+\href{https://doi.org/10.1109/TMC.2020.3003336}{doi:\nolinkurl{10.1109/TMC.2020.3003336}}
+
+
+\bibitem[Xu et~al\mbox{.}(2016)]%
+        {xuandroid}
+\bibfield{author}{\bibinfo{person}{Meng Xu}, \bibinfo{person}{Chengyu Song},
+  \bibinfo{person}{Yang Ji}, \bibinfo{person}{Ming-Wei Shih},
+  \bibinfo{person}{Kangjie Lu}, \bibinfo{person}{Cong Zheng},
+  \bibinfo{person}{Ruian Duan}, \bibinfo{person}{Yeongjin Jang},
+  \bibinfo{person}{Byoungyoung Lee}, \bibinfo{person}{Chenxiong Qian},
+  \bibinfo{person}{Sangho Lee}, \bibinfo{person}{Taesoo Kim}, {and}
+  \bibinfo{person}{Wenke Lee}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Toward Engineering a Secure Android Ecosystem: A
+  Survey of Existing Techniques}.
+\newblock \bibinfo{journal}{\emph{Comput. Surveys}} \bibinfo{volume}{49},
+  \bibinfo{number}{2} (\bibinfo{year}{2016}), \bibinfo{pages}{38:1--38:47}.
+\newblock
+\href{https://doi.org/10.1145/2963145}{doi:\nolinkurl{10.1145/2963145}}
+
+
+\bibitem[Yue et~al\mbox{.}(2017)]%
+        {repdroid}
+\bibfield{author}{\bibinfo{person}{Shengtao Yue}, \bibinfo{person}{Weizan
+  Feng}, \bibinfo{person}{Jun Ma}, \bibinfo{person}{Yanyan Jiang},
+  \bibinfo{person}{Xianping Tao}, \bibinfo{person}{Chang Xu}, {and}
+  \bibinfo{person}{Jian Lu}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{RepDroid: An Automated Tool for Android Application
+  Repackaging Detection}. In \bibinfo{booktitle}{\emph{IEEE/ACM International
+  Conference on Program Comprehension}}. \bibinfo{publisher}{IEEE},
+  \bibinfo{address}{Piscataway, NJ, USA}, \bibinfo{pages}{132--142}.
+\newblock
+\href{https://doi.org/10.1109/ICPC.2017.16}{doi:\nolinkurl{10.1109/ICPC.2017.16}}
+
+
+\bibitem[Zahan et~al\mbox{.}(2022)]%
+        {weaklinks}
+\bibfield{author}{\bibinfo{person}{Nusrat Zahan}, \bibinfo{person}{Thomas
+  Zimmermann}, \bibinfo{person}{Patrice Godefroid}, \bibinfo{person}{Brendan
+  Murphy}, \bibinfo{person}{Chandra Maddila}, {and} \bibinfo{person}{Laurie
+  Williams}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{What Are Weak Links in the npm Supply Chain?}. In
+  \bibinfo{booktitle}{\emph{International Conference on Software Engineering:
+  Software Engineering in Practice}}. \bibinfo{publisher}{IEEE},
+  \bibinfo{address}{Piscataway, NJ, USA}, \bibinfo{pages}{331--340}.
+\newblock
+\href{https://doi.org/10.1145/3510457.3513044}{doi:\nolinkurl{10.1145/3510457.3513044}}
+
+
+\bibitem[Zeng et~al\mbox{.}(2024)]%
+        {zengtpsurvey2024}
+\bibfield{author}{\bibinfo{person}{Jia Zeng}, \bibinfo{person}{Dan Han},
+  \bibinfo{person}{Yaling Zhu}, \bibinfo{person}{Yangzhong Wang}, {and}
+  \bibinfo{person}{Fangchen Weng}.} \bibinfo{year}{2024}\natexlab{}.
+\newblock \bibinfo{title}{A Survey of Third-Party Library Security Research in
+  Application Software}.
+\newblock \bibinfo{howpublished}{arXiv:2404.17955}.
+\newblock
+
+
+\bibitem[Zhan et~al\mbox{.}(2021)]%
+        {atvhunter}
+\bibfield{author}{\bibinfo{person}{Xian Zhan}, \bibinfo{person}{Lingling Fan},
+  \bibinfo{person}{Sen Chen}, \bibinfo{person}{Feng Wu},
+  \bibinfo{person}{Tianming Liu}, \bibinfo{person}{Xiapu Luo}, {and}
+  \bibinfo{person}{Yang Liu}.} \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{ATVHunter: Reliable Version Detection of
+  Third-Party Libraries for Vulnerability Identification in Android
+  Applications}. In \bibinfo{booktitle}{\emph{International Conference on
+  Software Engineering}}. \bibinfo{publisher}{IEEE},
+  \bibinfo{address}{Piscataway, NJ, USA}, \bibinfo{pages}{1695--1707}.
+\newblock
+\href{https://doi.org/10.1109/ICSE43902.2021.00150}{doi:\nolinkurl{10.1109/ICSE43902.2021.00150}}
+
+
+\bibitem[Zhan et~al\mbox{.}(2020)]%
+        {tplready}
+\bibfield{author}{\bibinfo{person}{Xian Zhan}, \bibinfo{person}{Lingling Fan},
+  \bibinfo{person}{Tianming Liu}, \bibinfo{person}{Sen Chen},
+  \bibinfo{person}{Li Li}, \bibinfo{person}{Haoyu Wang}, \bibinfo{person}{Yifei
+  Xu}, \bibinfo{person}{Xiapu Luo}, {and} \bibinfo{person}{Yang Liu}.}
+  \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{Automated Third-Party Library Detection for Android
+  Applications: Are We There Yet?}. In \bibinfo{booktitle}{\emph{IEEE/ACM
+  International Conference on Automated Software Engineering}}.
+  \bibinfo{publisher}{IEEE}, \bibinfo{address}{Piscataway, NJ, USA},
+  \bibinfo{pages}{919--930}.
+\newblock
+\href{https://doi.org/10.1145/3324884.3416582}{doi:\nolinkurl{10.1145/3324884.3416582}}
+
+
+\bibitem[Zhan et~al\mbox{.}(2022)]%
+        {tpl}
+\bibfield{author}{\bibinfo{person}{Xian Zhan}, \bibinfo{person}{Tianming Liu},
+  \bibinfo{person}{Lingling Fan}, \bibinfo{person}{Li Li}, \bibinfo{person}{Sen
+  Chen}, \bibinfo{person}{Xiapu Luo}, {and} \bibinfo{person}{Yang Liu}.}
+  \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{Research on Third-Party Libraries in Android Apps:
+  A Taxonomy and Systematic Literature Review}.
+\newblock \bibinfo{journal}{\emph{IEEE Transactions on Software Engineering}}
+  \bibinfo{volume}{48}, \bibinfo{number}{10} (\bibinfo{year}{2022}),
+  \bibinfo{pages}{4181--4213}.
+\newblock
+\href{https://doi.org/10.1109/TSE.2021.3114381}{doi:\nolinkurl{10.1109/TSE.2021.3114381}}
+
+
+\bibitem[Zhang et~al\mbox{.}(2014)]%
+        {viewdroid}
+\bibfield{author}{\bibinfo{person}{Fangfang Zhang}, \bibinfo{person}{Heqing
+  Huang}, \bibinfo{person}{Sencun Zhu}, \bibinfo{person}{Dinghao Wu}, {and}
+  \bibinfo{person}{Peng Liu}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{ViewDroid: Towards Obfuscation-Resilient Mobile
+  Application Repackaging Detection}. In \bibinfo{booktitle}{\emph{ACM
+  Conference on Security and Privacy in Wireless and Mobile Networks}}.
+  \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{25--36}.
+\newblock
+\href{https://doi.org/10.1145/2627393.2627395}{doi:\nolinkurl{10.1145/2627393.2627395}}
+
+
+\bibitem[Zhang et~al\mbox{.}(2019)]%
+        {libid}
+\bibfield{author}{\bibinfo{person}{Jiexin Zhang}, \bibinfo{person}{Alastair~R.
+  Beresford}, {and} \bibinfo{person}{Stephan~A. Kollmann}.}
+  \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{LibID: Reliable Identification of Obfuscated
+  Third-Party Android Libraries}. In \bibinfo{booktitle}{\emph{ACM SIGSOFT
+  International Symposium on Software Testing and Analysis}}.
+  \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{55--65}.
+\newblock
+\href{https://doi.org/10.1145/3293882.3330563}{doi:\nolinkurl{10.1145/3293882.3330563}}
+
+
+\bibitem[Zhang et~al\mbox{.}(2018)]%
+        {tplprecision}
+\bibfield{author}{\bibinfo{person}{Yiming Zhang}, \bibinfo{person}{Jian Dai},
+  \bibinfo{person}{Xiaohan Zhang}, \bibinfo{person}{Shuang Huang},
+  \bibinfo{person}{Zhen Yang}, \bibinfo{person}{Min Yang}, {and}
+  \bibinfo{person}{Hao Chen}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{Detecting Third-Party Libraries in Android
+  Applications with High Precision and Recall}. In
+  \bibinfo{booktitle}{\emph{IEEE International Conference on Software Analysis,
+  Evolution and Reengineering}}. \bibinfo{publisher}{IEEE},
+  \bibinfo{address}{Piscataway, NJ, USA}, \bibinfo{pages}{141--152}.
+\newblock
+\href{https://doi.org/10.1109/SANER.2018.8330204}{doi:\nolinkurl{10.1109/SANER.2018.8330204}}
+
+
+\bibitem[Zhang et~al\mbox{.}(2020)]%
+        {malicioustpl}
+\bibfield{author}{\bibinfo{person}{Zhengzi Zhang}, \bibinfo{person}{Wenrui
+  Diao}, \bibinfo{person}{Chao Hu}, \bibinfo{person}{Shengjian Guo},
+  \bibinfo{person}{Chaoshun Zuo}, {and} \bibinfo{person}{Li Li}.}
+  \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{An Empirical Study of Potentially Malicious
+  Third-Party Libraries in Android Apps}. In \bibinfo{booktitle}{\emph{ACM
+  Conference on Security and Privacy in Wireless and Mobile Networks}}.
+  \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{144--154}.
+\newblock
+\href{https://doi.org/10.1145/3395351.3399346}{doi:\nolinkurl{10.1145/3395351.3399346}}
+
+
+\bibitem[Zhauniarovich et~al\mbox{.}(2014)]%
+        {fsquadra}
+\bibfield{author}{\bibinfo{person}{Yury Zhauniarovich}, \bibinfo{person}{Olga
+  Gadyatskaya}, \bibinfo{person}{Bruno Crispo}, \bibinfo{person}{Francesco~La
+  Spina}, {and} \bibinfo{person}{Ermanno Moser}.}
+  \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{FSquaDRA: Fast Detection of Repackaged
+  Applications}. In \bibinfo{booktitle}{\emph{IFIP Annual Conference on Data
+  and Applications Security and Privacy}}. \bibinfo{publisher}{Springer},
+  \bibinfo{address}{Cham, Switzerland}, \bibinfo{pages}{130--145}.
+\newblock
+\href{https://doi.org/10.1007/978-3-662-43936-4_9}{doi:\nolinkurl{10.1007/978-3-662-43936-4_9}}
+
+
+\bibitem[Zhou et~al\mbox{.}(2013)]%
+        {appink}
+\bibfield{author}{\bibinfo{person}{Wu Zhou}, \bibinfo{person}{Xinwen Zhang},
+  {and} \bibinfo{person}{Xuxian Jiang}.} \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{AppInk: Watermarking Android Apps for Repackaging
+  Deterrence}. In \bibinfo{booktitle}{\emph{ACM Asia Conference on Computer and
+  Communications Security}}. \bibinfo{publisher}{Association for Computing
+  Machinery}, \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{1--12}.
+\newblock
+\href{https://doi.org/10.1145/2484313.2484315}{doi:\nolinkurl{10.1145/2484313.2484315}}
+
+
+\bibitem[Zhou et~al\mbox{.}(2012)]%
+        {droidmoss}
+\bibfield{author}{\bibinfo{person}{Wu Zhou}, \bibinfo{person}{Yajin Zhou},
+  \bibinfo{person}{Xuxian Jiang}, {and} \bibinfo{person}{Peng Ning}.}
+  \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{Detecting Repackaged Smartphone Applications in
+  Third-Party Android Marketplaces}. In \bibinfo{booktitle}{\emph{ACM
+  Conference on Data and Application Security and Privacy}}.
+  \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{317--326}.
+\newblock
+\href{https://doi.org/10.1145/2133601.2133640}{doi:\nolinkurl{10.1145/2133601.2133640}}
+
+
+\bibitem[Zimmermann et~al\mbox{.}(2019)]%
+        {npmworld}
+\bibfield{author}{\bibinfo{person}{Markus Zimmermann},
+  \bibinfo{person}{Cristian-Alexandru Staicu}, \bibinfo{person}{Cam Tenny},
+  {and} \bibinfo{person}{Michael Pradel}.} \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{Small World with High Risks: A Study of Security
+  Threats in the npm Ecosystem}. In \bibinfo{booktitle}{\emph{USENIX Security
+  Symposium}}. \bibinfo{publisher}{USENIX}, \bibinfo{address}{Berkeley, CA},
+  \bibinfo{pages}{995--1010}.
+\newblock
+
+
+\end{thebibliography}

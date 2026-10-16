@@ -118,6 +118,30 @@ class SnapshotEvidenceRegressions(unittest.TestCase):
             source_count_macros(r'\newcommand{\SourceCheckedWorks}{88}' * 2)
 
 
+class FigureBindingRegressions(unittest.TestCase):
+    def test_included_figure_is_bound_and_changes_invalidate_source_identity(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / 'sections').mkdir()
+            (root / 'figures').mkdir()
+            (root / 'main.tex').write_text(r'\input{sections/model}', encoding='utf-8')
+            (root / 'sections/model.tex').write_text(
+                r'\includegraphics[width=\linewidth]{figures/model.pdf}', encoding='utf-8')
+            for name in ('references.bib', 'acmart.cls', 'ACM-Reference-Format.bst'):
+                (root / name).write_text('', encoding='utf-8')
+            figure = root / 'figures/model.pdf'
+            figure.write_bytes(b'first benign vector fixture')
+            config = runpy.run_path(str(ART / 'manuscript_snapshot/build.py'))
+            before = config['source_binding'](root)
+            self.assertEqual(hashlib.sha256(figure.read_bytes()).hexdigest(),
+                             before['figures/model.pdf'])
+            figure.write_bytes(b'changed benign vector fixture')
+            self.assertNotEqual(before, config['source_binding'](root))
+            figure.unlink()
+            with self.assertRaisesRegex(ValueError, 'Missing or out-of-tree figure'):
+                config['source_binding'](root)
+
+
 class QualityGateOptimizationRegressions(unittest.TestCase):
     def _run_gate(self, *, sections, extra='', optimized=False, binding_defect=None):
         with tempfile.TemporaryDirectory() as temporary:

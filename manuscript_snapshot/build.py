@@ -20,7 +20,7 @@ MAX_PAGES = 39  # Local editorial budget, not a certified CSUR submission cap.
 
 
 def source_binding(root):
-    """Bind only active TeX inputs, the bibliography and publisher template."""
+    """Bind active TeX inputs, included vector figures, bibliography and template."""
     root = Path(root).resolve()
     pending = [root / "main.tex"]
     inputs = set()
@@ -36,6 +36,12 @@ def source_binding(root):
         for braced, bare in re.findall(r"\\input\s*(?:\{([^{}]+)\}|([^\s{}%]+))", text):
             child = root / (braced or bare)
             pending.append(child if child.suffix else child.with_suffix(".tex"))
+        for name in re.findall(r"\\includegraphics(?:\[[^\]]*\])?\{([^{}]+)\}", text):
+            figure = root / name
+            figure = figure if figure.suffix else figure.with_suffix(".pdf")
+            if not figure.resolve().is_relative_to(root) or not figure.is_file():
+                raise ValueError(f"Missing or out-of-tree figure: {figure}")
+            inputs.add(figure.resolve())
     inputs.update(root / name for name in ("references.bib", "acmart.cls", "ACM-Reference-Format.bst"))
     return {path.relative_to(root).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
             for path in sorted(inputs)}
@@ -89,6 +95,9 @@ def main(results=None) -> None:
         raise SystemExit("Requires pdflatex, bibtex/bibtex8, and pdfinfo.")
 
     env = dict(os.environ, PYTHONDONTWRITEBYTECODE="1", OMP_NUM_THREADS="1")
+    figure_script = ARTIFACT / "figures/build_figures.py"
+    subprocess.run([sys.executable, "-B", str(figure_script), "--outdir",
+                    str(ROOT / "figures")], cwd=ROOT, env=env, check=True, timeout=45)
 
     # Preserve the supplied class, fonts, margins and scientific content.
     # Unassigned DOI, reference and copyright furniture may be suppressed;

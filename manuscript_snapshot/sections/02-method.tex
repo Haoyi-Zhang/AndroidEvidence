@@ -3,13 +3,13 @@
 
 \subsection{Review type, objective, and unit of analysis}
 
-This work is a bounded, claim-centered structured evidence synthesis, not a PRISMA-complete review or prevalence meta-analysis. Its analytic unit is a scholarly work contributing an Android artifact-comparison, component/version, provenance or reproducibility mechanism; an empirical supply-chain or AI-development study; or a structuring review or method source.
+This structured evidence synthesis compares the claims and inference boundaries of a bounded literature corpus. Its analytic unit is a scholarly work contributing an Android artifact-comparison, component/version, provenance or reproducibility mechanism; an empirical supply-chain or AI-development study; or a structuring review or method source.
 
 The coded unit relates object, observation, transformation model, oracle or policy, claim ceiling, and counter-history. Tool-level coding would hide stages such as module separation, signature construction, and version comparison; feature-level coding alone would also hide that clone pairs, family labels, repositories, signed policies, and rebuilds establish different propositions.
 
 \subsection{Search, snowballing, and corpus construction}
 
-Seeds included the Android repackaging benchmark review~\cite{repack}, the Android TPL review~\cite{tpl}, broader Android surveys~\cite{sufatrio,xuandroid,tamandroid}, and static-analysis/testing reviews~\cite{staticandroid,androidtesting}. Backward and targeted forward snowballing followed supply-chain integrity, SBOMs, reproducible builds and AI-mediated development~\cite{wohlin,kitchenham,brereton}. Wohlin's procedure requires inclusion before seed expansion and admits missed citation clusters; Kitchenham's 2004 report separates retrieval, quality assessment, extraction and synthesis. We use those distinctions, not their examples as validation of this search; independent extraction and a complete search denominator remain unavailable.
+Seeds included the Android repackaging benchmark review~\cite{repack}, the Android TPL review~\cite{tpl}, broader Android surveys~\cite{sufatrio,xuandroid,tamandroid}, and static-analysis/testing reviews~\cite{staticandroid,androidtesting}. Backward and targeted forward snowballing followed supply-chain integrity, SBOMs, reproducible builds and AI-mediated development~\cite{wohlin,kitchenham,brereton}. Wohlin's procedure requires inclusion before seed expansion and admits missed citation clusters; Kitchenham's 2004 report separates retrieval, quality assessment, extraction and synthesis. These distinctions organize the search, extraction and synthesis; the search denominator and extraction independence are discussed below.
 
 A 2024--2026 update added repackaging, TPL and adjacent review records~\cite{wurepack2026,zengtpsurvey2024,reichert2024}. Research-direction and supply-chain reviews~\cite{williams2025,gokkaya2026,cyberrisk2026} and empirical SBOM studies~\cite{bi2024sbom,bomsaway2024} were tracked separately. A candidate SBOM review was excluded after its official record reported withdrawal and no paper was available for coding. The artifact preserves 105 screening decisions plus source-location and retrospective discovery rows for every retained work; these support record audit, not a database-hit denominator.
 
@@ -45,7 +45,8 @@ The \ReviewMatrixWorks{} review/method records are compared across Android repac
 RePack's common-predecessor example supplies partial ceiling treatment~\cite{repack}. The TPL review treats component privilege policies and stage-specific limits, with no authenticated build-history or generative-assistant workflow in the complete retrieved author version~\cite{tpl}. Wohlin bounds seed-cluster discovery and replication inferences; Kitchenham distinguishes unknown conduct, duplicate reports and incomparable outcomes~\cite{wohlin,kitchenham}. These are partial method-level ceilings, not integrated artifact/principal/policy bindings. Their matrix decisions reuse the existing complete-PDF assessments. AStRA's retrieved 2024 v2 identifies AI-generated software as future work; Williams et al. directly discuss LLM supply chains~\cite{astra,williams2025}. Xu et al.'s update-actor flow supplies partial lifecycle context~\cite{xuandroid}. These distinctions determine the corresponding matrix codes.
 
 \begin{table}[t]
-\caption{Selected prior-review adversary matrix. A=Android repackaging, C=component/version, P=process provenance, U=authorization, B=behavior, G=AI-mediated generation, X=claim-ceiling and binding rule.}
+\caption{Selected prior-review matrix.}
+The columns denote Android repackaging (A), component/version evidence (C), process provenance (P), authorization (U), behavior (B), AI-mediated generation (G), and claim-ceiling/binding rules (X).\par\medskip
 \label{tab:review-matrix}
 \centering
 \small
@@ -86,7 +87,7 @@ OpenAI Codex assisted retrieval, source reading, seven-field coding, matrix revi
 The claim ladder states \emph{which proposition} is supported; an orthogonal grade states \emph{how it was evaluated}.
 
 \begin{table}[t]
-\caption{Evidence-strength notation. A higher grade is not automatically available for every question.}
+\caption{Evidence-strength notation.}
 \label{tab:evidence-grades}
 \small
 \begin{tabularx}{\textwidth}{L{.85cm}L{2.85cm}Y Y}

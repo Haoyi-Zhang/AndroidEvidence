@@ -9,7 +9,7 @@ Let an evidence item be represented as
 \[
   e=(o,\phi,r,m,q,a),
 \]
-where $o$ is the observed object, $\phi$ is the feature or record extracted from it, $r$ is the relation being inferred, $m$ is the transformation model, $q$ is the oracle or policy against which the inference is evaluated, and $a$ is the set of assumptions. The tuple is not a new detector. It is a discipline for stating what a detector or provenance mechanism actually observes.
+where $o$ is the observed object, $\phi$ is the feature or record extracted from it, $r$ is the relation being inferred, $m$ is the transformation model, $q$ is the oracle or policy against which the inference is evaluated, and $a$ is the set of assumptions. The tuple makes the observations and inference premises of each mechanism explicit.
 
 For example, a fuzzy code signature may compare methods after identifier normalization. Here, $o$ is DEX method code, $\phi$ is a normalized signature, $m$ includes identifier renaming but may exclude control-flow restructuring, and $q$ may be a corpus of known repackaged pairs. The supported relation is resemblance under $m$. Direction is not part of that observation unless the oracle or auxiliary evidence supplies it. By contrast, an in-toto link observes authenticated step metadata and binds materials to products under a layout~\cite{intoto}. It supports a process relation under key, layout, and metadata assumptions, but does not establish that two programs are semantically equivalent.
 
@@ -19,22 +19,8 @@ Figure~\ref{fig:ladder} summarizes seven numbered claim categories. They are nei
 
 \begin{figure}[t]
 \centering
-\begin{tikzpicture}[font=\rmfamily\fontsize{9}{10.8}\selectfont,
-  box/.style={draw,rounded corners=1pt,align=left,text width=.77\textwidth,minimum height=8mm,inner sep=4pt,font=\rmfamily\fontsize{9}{10.8}\selectfont},
-  arr/.style={-{Latex[length=2mm]},thick},
-  node distance=2.2mm
-]
-\node[box,fill=black!4] (l0) {\textbf{\claimlevel{0} Identity}: the observed bytes or a cryptographic digest are equal.};
-\node[box,fill=black!7,above=of l0] (l1) {\textbf{\claimlevel{1} Composition}: an artifact contains a component, resource, or recognizable code region.};
-\node[box,fill=black!10,above=of l1] (l2) {\textbf{\claimlevel{2} Resemblance}: two objects share features or behavior under a stated\\transformation model.};
-\node[box,fill=black!13,above=of l2] (l3) {\textbf{\claimlevel{3} Derivation}: one object was transformed from another, or both share a\\historical ancestor; direction is explicit.};
-\node[box,fill=black!16,above=of l3] (l4) {\textbf{\claimlevel{4} Process provenance}: recorded principals and steps bind input materials to an output artifact.};
-\node[box,fill=black!19,above=of l4] (l5) {\textbf{\claimlevel{5} Authorization}: a policy-recognized principal approved the transformation or release.};
-\node[box,fill=black!22,above=of l5] (l6) {\textbf{\claimlevel{6} Behavioral assurance}: the artifact satisfies a security, privacy, or functional property in a stated model.};
-\draw[arr] (l0)--(l1);\draw[arr] (l1)--(l2);\draw[arr] (l2)--(l3);\draw[arr] (l3)--(l4);\draw[arr] (l4)--(l5);\draw[arr] (l5)--(l6);
-\node[align=center,rotate=90,anchor=south] at ([xshift=-9mm]l3.west) {different propositions and assumptions};
-\end{tikzpicture}
-\caption{Claim categories for Android lineage and assurance. Arrows order the topics, not logical implications. Each category needs its own evidence and assumptions; a higher number or similarity score does not establish the other propositions.}
+\includegraphics[width=\linewidth]{figures/claim-ladder.pdf}
+\caption{Android lineage claim categories. Arrows indicate presentation order, not logical implication.}
 \Description{Seven stacked boxes order identity, composition, resemblance, derivation, process provenance, authorization, and behavioral assurance. The arrows indicate presentation order, not entailment.}
 \label{fig:ladder}
 \end{figure}
