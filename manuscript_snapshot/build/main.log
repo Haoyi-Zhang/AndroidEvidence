@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2026.10.3)  17 OCT 2026 01:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2026.10.3)  17 OCT 2026 01:58
 entering extended mode
  file:line:error style messages enabled.
  %&-line parsing enabled.
@@ -1360,7 +1360,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  22435 strings out of 475129
  368137 string characters out of 5764261
- 838096 words of memory out of 5000000
+ 838095 words of memory out of 5000000
  44013 multiletter control sequences out of 15000+600000
  745815 words of font info for 525 fonts, out of 8000000 for 9000
  197 hyphenation exceptions out of 8191
@@ -1375,7 +1375,7 @@ ublic/libertine/LinLibertineTB.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/fonts
 st/fonts/type1/public/newtx/txmiaX.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/f
 onts/type1/public/newtx/txsys.pfb>
 Output written on build/main.
-pdf (40 pages, 625812 bytes).
+pdf (40 pages, 625815 bytes).
 PDF statistics:
  1346 PDF objects out of 1440 (max. 8388607)
  1146 compressed objects within 12 object streams

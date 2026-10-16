@@ -4,7 +4,7 @@
   "pdf_path_basis": "artifact-root relative",
   "page_count": 40,
   "local_page_budget": 40,
-  "pdf_sha256": "52226ab15f5a7ba3b455080ec39278c8afd7fc8da6a78296f95edbc786504284",
+  "pdf_sha256": "9b74e59c140f5c1406d9a47c8108226e0aa23b5cca91b2364a9e4cf9c6914747",
   "source_sha256": {
     "ACM-Reference-Format.bst": "4342d27456645567ef1a027f6474e894715bc31d468f040142fa54540440ad04",
     "acmart.cls": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
@@ -24,10 +24,10 @@
     "sections/05-libraries.tex": "340dff1a6b6429d70749beb22d2b702e9dfc32910f79d68014f620f711b41041",
     "sections/06-provenance.tex": "613c6e3fbb26f5c07e336068d77afdf330fe549036387faee484b756582a1203",
     "sections/07-ai-mediated.tex": "f79c23164f7def666bdd8cb5b3ded06697b8465494950f344ca8a6f84f3a0d1c",
-    "sections/08-synthesis.tex": "9806c4f759470dabea8a77a94ae8c5d2e146d74b5d0293dad1c1a72e981fa792",
+    "sections/08-synthesis.tex": "ff058dde72402d72781d0b9158471aedfee9813af5d5d7d8b6b6c418fa92f035",
     "sections/09-agenda.tex": "1c2e6bff0863be4a4237791bb50153cf48d59c5e24ecda1478bb7ce5f4ea8b5c"
   },
-  "log_sha256": "3c49c6b4308fd8b1f8e429db98619743abb7c7ce2a37ee9e4bd742f3e642df01",
+  "log_sha256": "dbb678569cc6af30348ff30bafa8077886746e0034f88f3081c6409acbed1b98",
   "full_size_pages_inspected": [
     1,
     2,
@@ -119,23 +119,22 @@
   "individual_figure_view_basis": "Prior recorded 180-dpi views; all three figure PDF byte identities unchanged.",
   "font_embedding": "all listed fonts embedded",
   "font_embedding_basis": "pdffonts on this exact rebuilt PDF: every listed font embedded; no Type 3.",
-  "inspection_basis": "Actual changed pages4/15 and final40 viewed; other38 pages reuse previous actual views only by exact rendered-pixel and link identity. No corpus recoding or independent source-interpretation certification.",
+  "inspection_basis": "Actually viewed changed page31 and final40. Other39 pages retain prior real view coverage by exact pixels and link annotations; not40 new page views.",
   "current_round_changed_pages_inspected": [
-    4,
-    15
+    31
   ],
   "additional_unchanged_boundary_pages_viewed": [
     40
   ],
   "newly_viewed_full_size_pages": [
-    4,
-    15,
+    31,
     40
   ],
   "unchanged_pages_inherit_previous_view_by_pixel_and_uri_identity": [
     1,
     2,
     3,
+    4,
     5,
     6,
     7,
@@ -146,6 +145,7 @@
     12,
     13,
     14,
+    15,
     16,
     17,
     18,
@@ -161,7 +161,6 @@
     28,
     29,
     30,
-    31,
     32,
     33,
     34,
@@ -172,10 +171,10 @@
     39,
     40
   ],
-  "previous_viewed_pdf_sha256": "d84bd50725b38758fcc776ad434709bf4ffb036eb6216b8382454e045d322fb0",
-  "prior_visual_receipt_sha256": "4d40cb7cc86314a0f0d88325d559b7648f349d2f8903c90543c7eb3e01efacd4",
+  "previous_viewed_pdf_sha256": "52226ab15f5a7ba3b455080ec39278c8afd7fc8da6a78296f95edbc786504284",
+  "prior_visual_receipt_sha256": "868361e3c624b77c8756d214821cfa48242a693c7a34290554adc9d346da3686",
   "supporting_evidence": "Raw native compiler output, prechange receipt, actual-view list and complete pixel/link comparison retained privately.",
-  "pixel_link_comparison_sha256": "d51dda3f6b5d240d554053496f3f87ebe4381dcc5d7d2f9d8c4748ed804b1681",
+  "pixel_link_comparison_sha256": "8e3f42e18553a75e5848557c6d1f8e463401a3f24da747cc5ed2fc35568c3a7a",
   "page_boundaries": {
     "total_physical_pages": 40,
     "body_front_matter_pages": [
@@ -196,20 +195,20 @@
     "venue_submission_cap_verified": false
   },
   "layout_findings": [
-    "Positive TPL policy/stage description is readable; existing current matrix evidence is retained.",
-    "Static navigation-graph observation is explicit in the table.",
-    "40 pages retained; no new overlapping or clipped content in inspected pages."
+    "RePack denominator attribution matches the selected original passages; the sentence, citation, table and adjacent paragraphs remain readable.",
+    "40 physical pages retained; body/reference/declaration boundaries unchanged.",
+    "No clipping or overlap in the two actually viewed pages."
   ],
   "comparison_to_primary": {
     "byte_identical_to_current_primary": true,
     "byte_identical_to_receipt_selected_pdf": true,
-    "receipt_selected_pdf_sha256": "52226ab15f5a7ba3b455080ec39278c8afd7fc8da6a78296f95edbc786504284"
+    "receipt_selected_pdf_sha256": "9b74e59c140f5c1406d9a47c8108226e0aa23b5cca91b2364a9e4cf9c6914747"
   },
   "links": {
     "annotations": 494,
     "unresolved_internal_or_invalid_uri_annotations": 0,
     "scope": "PDF link destinations/schemes and preview identity checked offline; no external URL availability claim."
   },
-  "inspected_at": "2026-10-16T17:43:04.848509+00:00",
+  "inspected_at": "2026-10-16T18:00:01.302552+00:00",
   "scope": "Current combined page-layout coverage; not independent peer review, independent source coding, source-interpretation certification or venue certification."
 }
