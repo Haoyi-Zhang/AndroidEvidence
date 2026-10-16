@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "pdf": "build/main.pdf",
-  "pdf_sha256": "d6fff1bdf8a535e6b6e268cda1524e11ba9277f6ef62de352bb0225e7760a580",
+  "pdf_sha256": "d84bd50725b38758fcc776ad434709bf4ffb036eb6216b8382454e045d322fb0",
   "source_sha256": {
     "ACM-Reference-Format.bst": "4342d27456645567ef1a027f6474e894715bc31d468f040142fa54540440ad04",
     "acmart.cls": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
@@ -21,85 +21,38 @@
     "sections/05-libraries.tex": "340dff1a6b6429d70749beb22d2b702e9dfc32910f79d68014f620f711b41041",
     "sections/06-provenance.tex": "613c6e3fbb26f5c07e336068d77afdf330fe549036387faee484b756582a1203",
     "sections/07-ai-mediated.tex": "f79c23164f7def666bdd8cb5b3ded06697b8465494950f344ca8a6f84f3a0d1c",
-    "sections/08-synthesis.tex": "6d2dc2cf6389192021599130f896231e45cbb34e150e99fde5738f5b8f9febe0",
+    "sections/08-synthesis.tex": "9806c4f759470dabea8a77a94ae8c5d2e146d74b5d0293dad1c1a72e981fa792",
     "sections/09-agenda.tex": "1c2e6bff0863be4a4237791bb50153cf48d59c5e24ecda1478bb7ce5f4ea8b5c"
   },
-  "log_sha256": "2d04e9550eef993e5cd92182471926891d396c06ceffcd3a4d3aa9ae69461bc8",
+  "log_sha256": "cabd3d23c3ced991ec7b86d6d79cdf8d09c8401abba5e696119f489a680dbc3a",
   "local_page_budget": 40,
   "pages": 40,
   "page_size": "612 x 792 pts (letter)",
-  "file_size_bytes": 625864,
+  "file_size_bytes": 625872,
   "commands": [
     {
       "command": [
-        "pdflatex.EXE",
+        "latexmk.exe",
+        "-norc",
+        "-g",
+        "-bibtex",
+        "-pdf",
+        "-pdflatex=pdflatex.exe %O %S",
         "-no-shell-escape",
+        "-synctex=1",
         "-interaction=nonstopmode",
         "-halt-on-error",
-        "-output-directory=build",
+        "-file-line-error",
+        "-recorder",
+        "-outdir=build",
         "main.tex"
       ],
       "exit_code": 0,
-      "wall_seconds": 1.1035221999918576,
+      "wall_seconds": 6.1782784999813884,
       "child_cpu_seconds": null,
       "cumulative_max_child_rss_kib": null,
-      "accepted_bibliography_warnings": false
-    },
-    {
-      "command": [
-        "bibtex.EXE",
-        "build/main"
-      ],
-      "exit_code": 0,
-      "wall_seconds": 0.04604840002139099,
-      "child_cpu_seconds": null,
-      "cumulative_max_child_rss_kib": null,
-      "accepted_bibliography_warnings": false
-    },
-    {
-      "command": [
-        "pdflatex.EXE",
-        "-no-shell-escape",
-        "-interaction=nonstopmode",
-        "-halt-on-error",
-        "-output-directory=build",
-        "main.tex"
-      ],
-      "exit_code": 0,
-      "wall_seconds": 1.0769175000023097,
-      "child_cpu_seconds": null,
-      "cumulative_max_child_rss_kib": null,
-      "accepted_bibliography_warnings": false
-    },
-    {
-      "command": [
-        "pdflatex.EXE",
-        "-no-shell-escape",
-        "-interaction=nonstopmode",
-        "-halt-on-error",
-        "-output-directory=build",
-        "main.tex"
-      ],
-      "exit_code": 0,
-      "wall_seconds": 1.0731064999999944,
-      "child_cpu_seconds": null,
-      "cumulative_max_child_rss_kib": null,
-      "accepted_bibliography_warnings": false
-    },
-    {
-      "command": [
-        "pdflatex.EXE",
-        "-no-shell-escape",
-        "-interaction=nonstopmode",
-        "-halt-on-error",
-        "-output-directory=build",
-        "main.tex"
-      ],
-      "exit_code": 0,
-      "wall_seconds": 1.1335528000199702,
-      "child_cpu_seconds": null,
-      "cumulative_max_child_rss_kib": null,
-      "accepted_bibliography_warnings": false
+      "command_paths_normalized_for_portability": true,
+      "wall_scope": "Reviewed isolated compiler including source snapshot and latexmk; not a five-command timing record."
     }
   ],
   "latex_findings": {
@@ -127,8 +80,8 @@
     "forbidden_source_patterns_found": [],
     "source_contract_passed": true
   },
-  "qpdf_check": "not_available",
-  "visual_inspection": "separate manual page-image inspection required",
+  "qpdf_check": "not_run_this_bounded_rebuild",
+  "visual_inspection": "Separate actual changed-page/last-page review plus unchanged-page pixel/link identity; see visual-inspection.json.",
   "page_boundaries": {
     "total_physical_pages": 40,
     "body_front_matter_pages": [
@@ -149,13 +102,10 @@
     "venue_submission_cap_verified": false
   },
   "document_only_refresh": {
-    "retained_fragments_imported": true,
+    "retained_fragments_used_without_regeneration": true,
     "corpus_reproduction_run": false,
-    "scope": "Genuine owned-driver document build; no new science or source coding.",
-    "central_preview_sha256": "e223670396bbbeb91865865dad59361a4cecafb12c966824e61bcf204c9fc18c",
-    "all_pages_pixel_and_link_identical_to_central_preview": true,
-    "command_execution_root": "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\private\\targeted_completion\\library-repair\\consumer-stage\\P026\\paper",
-    "driver_sha256": "7439d95d7b2dfe7437f12087feb617541df778e6c7f5ca2486c02286f41222ba",
+    "scope": "Current bounded citation wording rebuild with the reviewed isolated compiler; no new science or source coding.",
+    "driver_sha256": "56b61a417bdc23592e81b5779671ef7a38a4ba965f03a5cdda7747975c2d4925",
     "retained_fragment_sha256": {
       "corpus_counts.tex": "62467009d3afa850dbfc47fa71a774f457c3715da9e48ca85694af94c1a790e0",
       "counts.tex": "75a9a9e14441d8183a5deba478ccbf86844d5a8c412c193490c5503be1303fce",
@@ -163,6 +113,10 @@
       "oracle.tex": "09902f5365760625cdfef60896bccea28f5eba55d36da38590269b53907e514b",
       "review_matrix_rows.tex": "b5ca58dc2162cc365d435f9d21845499f09f80d10993f661a12164be4988be80",
       "sensitivity_rows.tex": "c9ab9ac8e1885336ede5ad7a8b5a77bca0ac1022fe96a6acfa1e2b64acc702ff"
-    }
-  }
+    },
+    "prior_refresh_record_retained_in_private_preimage": true,
+    "raw_current_build_evidence_retained_privately": true
+  },
+  "compiler_execution": "Reviewed isolated latexmk driver; no project-provided scripts, figures or scientific jobs executed.",
+  "log_path_normalization": "Only the dedicated absolute output-directory path and its TeX line wrapping are replaced by build; raw native log retained privately. Diagnostics unchanged."
 }
