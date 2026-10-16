@@ -4,7 +4,7 @@
   "pdf_path_basis": "manuscript-directory relative",
   "page_count": 40,
   "local_page_budget": 40,
-  "pdf_sha256": "d84bd50725b38758fcc776ad434709bf4ffb036eb6216b8382454e045d322fb0",
+  "pdf_sha256": "52226ab15f5a7ba3b455080ec39278c8afd7fc8da6a78296f95edbc786504284",
   "source_sha256": {
     "ACM-Reference-Format.bst": "4342d27456645567ef1a027f6474e894715bc31d468f040142fa54540440ad04",
     "acmart.cls": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
@@ -18,16 +18,16 @@
     "project-repository.tex": "a9cbcf7c0e634f512a9fc6e297ae38730618c06f676e14ee61bce71a0c69243b",
     "references.bib": "b6067323d7ae368a4a5df86f1644ee74d782cdbeed97dfe477f1d7f33fbb3a0c",
     "sections/01-introduction.tex": "d0d2ddae58a08cb050d748f1a5cfb60647574c21e190d35efdc2a713c2127f04",
-    "sections/02-method.tex": "aa57ec0ae25f6a59bc0ffac72903a3446c365dd190a49841b0f92f5360c9672e",
+    "sections/02-method.tex": "adb4f5427c9df5afc5c47722bb0786fd386574f8306ec668f500e69e1fbce0ea",
     "sections/03-evidence-model.tex": "481856cedd84b69a09cbc4bc5b1fba4389d1ea48c34aa586be17a2ef173b56f1",
-    "sections/04-repackaging.tex": "4a30056020d48392ad7967a725adced97302747209b741779cca223131497ba5",
+    "sections/04-repackaging.tex": "7f7e79e95a26a5e0d0a95f4e0ed8ee5bfb5e6749ccb366fff705f70f648e8f99",
     "sections/05-libraries.tex": "340dff1a6b6429d70749beb22d2b702e9dfc32910f79d68014f620f711b41041",
     "sections/06-provenance.tex": "613c6e3fbb26f5c07e336068d77afdf330fe549036387faee484b756582a1203",
     "sections/07-ai-mediated.tex": "f79c23164f7def666bdd8cb5b3ded06697b8465494950f344ca8a6f84f3a0d1c",
     "sections/08-synthesis.tex": "9806c4f759470dabea8a77a94ae8c5d2e146d74b5d0293dad1c1a72e981fa792",
     "sections/09-agenda.tex": "1c2e6bff0863be4a4237791bb50153cf48d59c5e24ecda1478bb7ce5f4ea8b5c"
   },
-  "log_sha256": "cabd3d23c3ced991ec7b86d6d79cdf8d09c8401abba5e696119f489a680dbc3a",
+  "log_sha256": "3c49c6b4308fd8b1f8e429db98619743abb7c7ce2a37ee9e4bd742f3e642df01",
   "full_size_pages_inspected": [
     1,
     2,
@@ -119,22 +119,23 @@
   "individual_figure_view_basis": "Prior recorded 180-dpi views; all three figure PDF byte identities unchanged.",
   "font_embedding": "all listed fonts embedded",
   "font_embedding_basis": "pdffonts on this exact rebuilt PDF: every listed font embedded; no Type 3.",
-  "inspection_basis": "Actually viewed changed page 29 and unchanged last page 40. Other 38 pages inherit the existing full-coverage visual receipt by exact 104.4-dpi RGB-pixel and link-annotation identity. Not 40 new page views.",
+  "inspection_basis": "Actual changed pages4/15 and final40 viewed; other38 pages reuse previous actual views only by exact rendered-pixel and link identity. No corpus recoding or independent source-interpretation certification.",
   "current_round_changed_pages_inspected": [
-    29
+    4,
+    15
   ],
   "additional_unchanged_boundary_pages_viewed": [
     40
   ],
   "newly_viewed_full_size_pages": [
-    29,
+    4,
+    15,
     40
   ],
   "unchanged_pages_inherit_previous_view_by_pixel_and_uri_identity": [
     1,
     2,
     3,
-    4,
     5,
     6,
     7,
@@ -145,7 +146,6 @@
     12,
     13,
     14,
-    15,
     16,
     17,
     18,
@@ -159,6 +159,7 @@
     26,
     27,
     28,
+    29,
     30,
     31,
     32,
@@ -168,12 +169,13 @@
     36,
     37,
     38,
-    39
+    39,
+    40
   ],
-  "previous_viewed_pdf_sha256": "d6fff1bdf8a535e6b6e268cda1524e11ba9277f6ef62de352bb0225e7760a580",
-  "prior_visual_receipt_sha256": "1d7a06b3a737680d1768b369257f145fb1be6a8e691011a0ffc26418f311d957",
+  "previous_viewed_pdf_sha256": "d84bd50725b38758fcc776ad434709bf4ffb036eb6216b8382454e045d322fb0",
+  "prior_visual_receipt_sha256": "4d40cb7cc86314a0f0d88325d559b7648f349d2f8903c90543c7eb3e01efacd4",
   "supporting_evidence": "Raw native compiler output, prechange receipt, actual-view list and complete pixel/link comparison retained privately.",
-  "pixel_link_comparison_sha256": "acd1799c294d0673cf12f772b9d82099eef9d505146edb200e6ff93fb2194d69",
+  "pixel_link_comparison_sha256": "d51dda3f6b5d240d554053496f3f87ebe4381dcc5d7d2f9d8c4748ed804b1681",
   "page_boundaries": {
     "total_physical_pages": 40,
     "body_front_matter_pages": [
@@ -194,20 +196,20 @@
     "venue_submission_cap_verified": false
   },
   "layout_findings": [
-    "Corrected delegation/publishing-authority clause is readable on page 29; list and adjacent prose intact.",
-    "Body/front matter 1-34, references 35-39, declaration 40; no page-count change.",
-    "Viewed pages have no clipping, overlap or missing glyphs."
+    "Positive TPL policy/stage description is readable; existing current matrix evidence is retained.",
+    "Static navigation-graph observation is explicit in the table.",
+    "40 pages retained; no new overlapping or clipped content in inspected pages."
   ],
   "comparison_to_primary": {
     "byte_identical_to_current_primary": true,
     "byte_identical_to_receipt_selected_pdf": true,
-    "receipt_selected_pdf_sha256": "d84bd50725b38758fcc776ad434709bf4ffb036eb6216b8382454e045d322fb0"
+    "receipt_selected_pdf_sha256": "52226ab15f5a7ba3b455080ec39278c8afd7fc8da6a78296f95edbc786504284"
   },
   "links": {
     "annotations": 494,
     "unresolved_internal_or_invalid_uri_annotations": 0,
     "scope": "PDF link destinations/schemes and preview identity checked offline; no external URL availability claim."
   },
-  "inspected_at": "2026-10-16T15:23:05.585142+00:00",
+  "inspected_at": "2026-10-16T17:43:04.848509+00:00",
   "scope": "Current combined page-layout coverage; not independent peer review, independent source coding, source-interpretation certification or venue certification."
 }
