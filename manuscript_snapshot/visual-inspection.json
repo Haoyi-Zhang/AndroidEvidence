@@ -4,11 +4,11 @@
   "pdf_path_basis": "manuscript-directory relative",
   "page_count": 39,
   "local_page_budget": 39,
-  "pdf_sha256": "144576162ae4100d7824ac8183260733734bbb2036530b35bf96d127d027b119",
+  "pdf_sha256": "96933489549078ce8d45af1da8f27e5ed4be490ef71c73bcfb80b81de365ed8b",
   "source_sha256": {
     "ACM-Reference-Format.bst": "4342d27456645567ef1a027f6474e894715bc31d468f040142fa54540440ad04",
     "acmart.cls": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
-    "current-authors.tex": "2397fbf049bf5504e5c4139f571a84f8cd7b25651a3c582213746026297f3123",
+    "current-authors.tex": "5c45b8f5cbc48a6517f6c3ab2964c29abc13156ddff3d314d2394e6f8985d008",
     "figures/assurance-pattern.pdf": "245eb8cc3d48bc2a418568b6c66170e8f55e4a07bc6f2a46841723d8b6129333",
     "figures/claim-ladder.pdf": "d994bc340f9da519b586d83f880d230f114d96a7dfb11ddc9c6de75003da27a7",
     "figures/mobile-lifecycle.pdf": "acfe69665d5efa705a4e84bdc08eb0b71914ceb2250dd47ef0d973063bf334b8",
@@ -27,7 +27,7 @@
     "sections/08-synthesis.tex": "6d2dc2cf6389192021599130f896231e45cbb34e150e99fde5738f5b8f9febe0",
     "sections/09-agenda.tex": "1c2e6bff0863be4a4237791bb50153cf48d59c5e24ecda1478bb7ce5f4ea8b5c"
   },
-  "log_sha256": "2264159a2310aa04912f394eb17433e62ab7dd5edcb6e22fbdb166df251a8440",
+  "log_sha256": "c42ae0a879607040823b7fbc365e6a194ab2f90de46b363dfa895fa196321af1",
   "full_size_pages_inspected": [
     1,
     2,
@@ -115,7 +115,7 @@
   "individual_figure_render_dpi": 180,
   "font_embedding": "all listed fonts embedded",
   "font_embedding_basis": "pdffonts on exact owned-driver PDF; embedded Type1 and CID TrueType; no Type3",
-  "inspection_basis": "All registered-build pages actually viewed; final owned-driver output is pixel and URI identical on every page.",
+  "inspection_basis": "Previously inspected pages2–39 remain pixel and URI identical to the bound earlier PDF. The affiliation-only changed first page was rendered at122.4dpi and actually viewed by the main coordinator.",
   "layout_findings": [
     "All three direct-Python conceptual diagrams viewed individually and in the manuscript.",
     "All ten tables, last body page 34, and references pages35–39 viewed without overlap or missing glyphs."
@@ -123,8 +123,52 @@
   "comparison_to_primary": {
     "byte_identical_to_current_primary": true,
     "byte_identical_to_receipt_selected_pdf": true,
-    "receipt_selected_pdf_sha256": "144576162ae4100d7824ac8183260733734bbb2036530b35bf96d127d027b119"
+    "receipt_selected_pdf_sha256": "96933489549078ce8d45af1da8f27e5ed4be490ef71c73bcfb80b81de365ed8b"
   },
-  "inspected_at": "2026-10-16T07:20:47.143847+00:00",
-  "scope": "Current page-layout inspection; not independent peer review or source-interpretation certification."
+  "inspected_at": "2026-10-16T08:07:00.647631+00:00",
+  "scope": "Current page-layout inspection; not independent peer review or source-interpretation certification.",
+  "current_round_changed_pages_inspected": [
+    1
+  ],
+  "unchanged_pages_inherit_previous_view_by_pixel_and_uri_identity": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+  ],
+  "previous_viewed_pdf_sha256": "144576162ae4100d7824ac8183260733734bbb2036530b35bf96d127d027b119"
 }
