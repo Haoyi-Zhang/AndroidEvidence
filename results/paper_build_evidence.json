@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "pdf": "manuscript_snapshot/build/main.pdf",
-  "pdf_sha256": "9b74e59c140f5c1406d9a47c8108226e0aa23b5cca91b2364a9e4cf9c6914747",
+  "pdf_sha256": "345377ae010c16444f0cb4bdb986d004fab8f87a5f929ac9f01e119c683ed8d9",
   "source_sha256": {
     "ACM-Reference-Format.bst": "4342d27456645567ef1a027f6474e894715bc31d468f040142fa54540440ad04",
     "acmart.cls": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
@@ -11,11 +11,11 @@
     "figures/mobile-lifecycle.pdf": "acfe69665d5efa705a4e84bdc08eb0b71914ceb2250dd47ef0d973063bf334b8",
     "generated/corpus_counts.tex": "62467009d3afa850dbfc47fa71a774f457c3715da9e48ca85694af94c1a790e0",
     "generated/review_matrix_rows.tex": "b5ca58dc2162cc365d435f9d21845499f09f80d10993f661a12164be4988be80",
-    "main.tex": "4a36fff288ce6fb8c9c00b39771edeea892cc5439e81711ac1455cc300e07a41",
+    "main.tex": "9ee093a1bc53af1e74a68602cc3f7be09f0861afb7223fcb863e2131f9708f34",
     "project-repository.tex": "a9cbcf7c0e634f512a9fc6e297ae38730618c06f676e14ee61bce71a0c69243b",
     "references.bib": "b6067323d7ae368a4a5df86f1644ee74d782cdbeed97dfe477f1d7f33fbb3a0c",
     "sections/01-introduction.tex": "d0d2ddae58a08cb050d748f1a5cfb60647574c21e190d35efdc2a713c2127f04",
-    "sections/02-method.tex": "adb4f5427c9df5afc5c47722bb0786fd386574f8306ec668f500e69e1fbce0ea",
+    "sections/02-method.tex": "28cb45825ce2155042df88e7ef4cf66f027510acf7d1c175b0a2e90d15cda459",
     "sections/03-evidence-model.tex": "481856cedd84b69a09cbc4bc5b1fba4389d1ea48c34aa586be17a2ef173b56f1",
     "sections/04-repackaging.tex": "7f7e79e95a26a5e0d0a95f4e0ed8ee5bfb5e6749ccb366fff705f70f648e8f99",
     "sections/05-libraries.tex": "340dff1a6b6429d70749beb22d2b702e9dfc32910f79d68014f620f711b41041",
@@ -24,35 +24,82 @@
     "sections/08-synthesis.tex": "ff058dde72402d72781d0b9158471aedfee9813af5d5d7d8b6b6c418fa92f035",
     "sections/09-agenda.tex": "1c2e6bff0863be4a4237791bb50153cf48d59c5e24ecda1478bb7ce5f4ea8b5c"
   },
-  "log_sha256": "dbb678569cc6af30348ff30bafa8077886746e0034f88f3081c6409acbed1b98",
+  "log_sha256": "70a54005aac0f751b0e82f1a330939d0c2c7b441ceab1597da17529137c1add2",
   "local_page_budget": 40,
-  "pages": 40,
+  "pages": 39,
   "page_size": "612 x 792 pts (letter)",
-  "file_size_bytes": 625815,
+  "file_size_bytes": 624752,
   "commands": [
     {
       "command": [
-        "latexmk.exe",
-        "-norc",
-        "-g",
-        "-bibtex",
-        "-pdf",
-        "-pdflatex=pdflatex.exe %O %S",
+        "pdflatex.EXE",
         "-no-shell-escape",
-        "-synctex=1",
         "-interaction=nonstopmode",
         "-halt-on-error",
-        "-file-line-error",
-        "-recorder",
-        "-outdir=build",
+        "-output-directory=build",
         "main.tex"
       ],
       "exit_code": 0,
-      "wall_seconds": null,
+      "wall_seconds": 1.0819921999936923,
       "child_cpu_seconds": null,
       "cumulative_max_child_rss_kib": null,
-      "command_paths_normalized_for_portability": true,
-      "wall_scope": "No per-command timing retained for this citation-only rebuild; no old timing reused."
+      "accepted_bibliography_warnings": false
+    },
+    {
+      "command": [
+        "bibtex.EXE",
+        "build/main"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.04490600002463907,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null,
+      "accepted_bibliography_warnings": false
+    },
+    {
+      "command": [
+        "pdflatex.EXE",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-output-directory=build",
+        "main.tex"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.0669799000024796,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null,
+      "accepted_bibliography_warnings": false
+    },
+    {
+      "command": [
+        "pdflatex.EXE",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-output-directory=build",
+        "main.tex"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.0658131999953184,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null,
+      "accepted_bibliography_warnings": false
+    },
+    {
+      "command": [
+        "pdflatex.EXE",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-output-directory=build",
+        "main.tex"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.069850800005952,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null,
+      "accepted_bibliography_warnings": false
     }
   ],
   "latex_findings": {
@@ -80,44 +127,23 @@
     "forbidden_source_patterns_found": [],
     "source_contract_passed": true
   },
-  "qpdf_check": "not_run_this_bounded_rebuild",
-  "visual_inspection": "Separate actual changed-page/last-page review plus unchanged-page pixel/link identity; see visual-inspection.json.",
-  "page_boundaries": {
-    "total_physical_pages": 40,
-    "body_front_matter_pages": [
-      1,
-      34
-    ],
-    "reference_pages": [
-      35,
-      39
-    ],
-    "declaration_pages": [
-      40,
-      40
-    ],
-    "blank_spacer_pages": [],
-    "appendix_pages": [],
-    "venue_page_exemption_verified": false,
-    "venue_submission_cap_verified": false
+  "qpdf_check": "not_available",
+  "visual_inspection": "separate manual page-image inspection required",
+  "primary_relation": {
+    "kind": "research-content-excerpt",
+    "primary_pages": 40,
+    "primary_pdf_sha256": "9b74e59c140f5c1406d9a47c8108226e0aa23b5cca91b2364a9e4cf9c6914747",
+    "primary_log_sha256": "dbb678569cc6af30348ff30bafa8077886746e0034f88f3081c6409acbed1b98",
+    "source_exceptions": {
+      "main.tex": {
+        "primary": "4a36fff288ce6fb8c9c00b39771edeea892cc5439e81711ac1455cc300e07a41",
+        "snapshot": "9ee093a1bc53af1e74a68602cc3f7be09f0861afb7223fcb863e2131f9708f34"
+      },
+      "sections/02-method.tex": {
+        "primary": "adb4f5427c9df5afc5c47722bb0786fd386574f8306ec668f500e69e1fbce0ea",
+        "snapshot": "28cb45825ce2155042df88e7ef4cf66f027510acf7d1c175b0a2e90d15cda459"
+      }
+    }
   },
-  "document_only_refresh": {
-    "retained_fragments_used_without_regeneration": true,
-    "corpus_reproduction_run": false,
-    "scope": "Current bounded citation wording rebuild with the reviewed isolated compiler; no new science or source coding.",
-    "driver_sha256": "56b61a417bdc23592e81b5779671ef7a38a4ba965f03a5cdda7747975c2d4925",
-    "retained_fragment_sha256": {
-      "corpus_counts.tex": "62467009d3afa850dbfc47fa71a774f457c3715da9e48ca85694af94c1a790e0",
-      "counts.tex": "75a9a9e14441d8183a5deba478ccbf86844d5a8c412c193490c5503be1303fce",
-      "coverage_rows.tex": "d5d9c0407179aa0b38f72b09f26ffc38bb83e305fc87c5b3308361597031bd4d",
-      "oracle.tex": "09902f5365760625cdfef60896bccea28f5eba55d36da38590269b53907e514b",
-      "review_matrix_rows.tex": "b5ca58dc2162cc365d435f9d21845499f09f80d10993f661a12164be4988be80",
-      "sensitivity_rows.tex": "c9ab9ac8e1885336ede5ad7a8b5a77bca0ac1022fe96a6acfa1e2b64acc702ff"
-    },
-    "prior_refresh_record_retained_in_private_preimage": true,
-    "raw_current_build_evidence_retained_privately": true
-  },
-  "compiler_execution": "Reviewed isolated latexmk driver; no project-provided scripts, figures or scientific jobs executed.",
-  "log_path_normalization": "Only the dedicated absolute output-directory path and its TeX line wrapping are replaced by build; raw native log retained privately. Diagnostics unchanged.",
-  "pdf_path_basis": "artifact-root relative"
+  "pdf_path_basis": "artifact-directory relative"
 }

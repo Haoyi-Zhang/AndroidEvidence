@@ -66,6 +66,57 @@ class SnapshotEvidenceRegressions(unittest.TestCase):
     def test_consistent_current_fixture_passes(self):
         validate_snapshot_evidence(**current_fixture())
 
+    def _excerpt_fixture(self):
+        case = current_fixture()
+        original = {'main.tex': 'a' * 64, 'sections/02-method.tex': 'b' * 64,
+                    'references.bib': 'r' * 64}
+        excerpt = {'main.tex': 'c' * 64, 'sections/02-method.tex': 'd' * 64,
+                   'references.bib': 'r' * 64}
+        relation = {'kind': 'research-content-excerpt', 'primary_pages': 40,
+                    'primary_pdf_sha256': 'P' * 64, 'primary_log_sha256': 'L' * 64,
+                    'source_exceptions': {name: {'primary': original[name], 'snapshot': excerpt[name]}
+                                          for name in ('main.tex', 'sections/02-method.tex')}}
+        for name in ('build', 'result_build', 'visual', 'result_visual'):
+            case[name]['local_page_budget'] = 40
+            case[name]['source_sha256'] = excerpt
+        for name in ('build', 'result_build'):
+            case[name]['primary_relation'] = copy.deepcopy(relation)
+        for name in ('visual', 'result_visual'):
+            case[name]['comparison_to_primary']['byte_identical_to_current_primary'] = False
+            case[name]['comparison_to_primary']['research_content_excerpt_of_current_primary'] = True
+        case['source_sha256'] = excerpt
+        case['budget'] = case['primary']['budget'] = 40
+        case['primary']['source_sha256'] = original
+        case['primary']['pdf_sha256'] = 'P' * 64
+        case['primary']['log_sha256'] = 'L' * 64
+        case['primary']['build'].update(pages=40, local_page_budget=40,
+                                      source_sha256=original,
+                                      pdf_sha256='P' * 64, log_sha256='L' * 64)
+        return case
+
+    def test_research_excerpt_binds_primary_and_preserves_identity_mode(self):
+        validate_snapshot_evidence(**self._excerpt_fixture())
+        validate_snapshot_evidence(**current_fixture())
+
+    def test_excerpt_rejects_unlisted_scientific_input_changes(self):
+        case = self._excerpt_fixture()
+        case['primary']['source_sha256']['references.bib'] = 'x' * 64
+        case['primary']['build']['source_sha256'] = case['primary']['source_sha256']
+        with self.assertRaisesRegex(ValueError, 'unlisted scientific input'):
+            validate_snapshot_evidence(**case)
+
+    def test_excerpt_rejects_stale_primary_and_false_byte_identity(self):
+        case = self._excerpt_fixture()
+        case['primary']['pdf_sha256'] = 'x' * 64
+        case['primary']['build']['pdf_sha256'] = 'x' * 64
+        with self.assertRaisesRegex(ValueError, 'bound current primary'):
+            validate_snapshot_evidence(**case)
+        case = self._excerpt_fixture()
+        for name in ('visual', 'result_visual'):
+            case[name]['comparison_to_primary']['byte_identical_to_current_primary'] = True
+        with self.assertRaisesRegex(ValueError, 'must not claim'):
+            validate_snapshot_evidence(**case)
+
     def test_stale_36_page_fixture_rejected(self):
         case = current_fixture()
         for record in (case['build'], case['result_build']):

@@ -194,7 +194,7 @@ def field_evidence_summary(rows, extractions, source_locations, source_readings)
             raise ValueError('duplicate or unbound source reading')
         if (row['fulltext_url'] != locations[key]['fulltext_url'] or
                 row['reading_scope'] != 'retrieved_pdf_locator_binding' or
-                row['extractor'] != 'AI-assisted single extractor; not independent' or
+                row['extractor'] != 'single extractor; not independent' or
                 not re.fullmatch(r'[0-9a-f]{64}', row['source_sha256'])):
             raise ValueError('source reading lacks exact representation boundary')
         pages = int(row['pdf_page_count'])

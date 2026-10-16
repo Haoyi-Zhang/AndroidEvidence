@@ -92,6 +92,21 @@ def validate_snapshot_evidence(*, build, visual, result_build, result_visual,
         require(counts == (checked, unchecked),
                 f'{name} SourceCheckedWorks/SourceUncheckedWorks differs from current data')
 
+    relation = build.get('primary_relation')
+    if relation is not None:
+        require(relation.get('kind') == 'research-content-excerpt',
+                'Unknown snapshot relation to primary paper')
+        exceptions = relation.get('source_exceptions', {})
+        require(set(exceptions) == {'main.tex', 'sections/02-method.tex'},
+                'Excerpt changes unexpected primary source inputs')
+        for name, values in exceptions.items():
+            require(values.get('snapshot') == source_sha256.get(name) and
+                    values.get('primary') != values.get('snapshot'),
+                    'Excerpt source exception does not bind active inputs')
+        require(comparison.get('byte_identical_to_current_primary') is False and
+                comparison.get('research_content_excerpt_of_current_primary') is True,
+                'Excerpt must not claim primary PDF byte identity')
+
     if primary is not None:
         primary_build = primary['build']
         require(primary_build.get('status') == 'passed', 'Primary paper build did not pass')
@@ -100,12 +115,29 @@ def validate_snapshot_evidence(*, build, visual, result_build, result_visual,
         require(primary_build.get('pdf_sha256') == primary['pdf_sha256'] and
                 primary_build.get('log_sha256') == primary['log_sha256'],
                 'Primary paper PDF/log differs from its build evidence')
-        require(primary_build.get('pages') == pages and
-                primary_build.get('local_page_budget') == primary['budget'] == budget,
+        require(primary_build.get('local_page_budget') == primary['budget'] == budget,
                 'Snapshot page count/budget differs from current primary paper')
-        require(source_sha256 == primary['source_sha256'] and
-                pdf_sha256 == primary['pdf_sha256'] and
-                log_sha256 == primary['log_sha256'],
-                'Snapshot source/PDF/log differs from current primary paper')
-        require(comparison.get('byte_identical_to_current_primary') is True,
-                'Visual comparison does not affirm current primary byte identity')
+        if relation is None:
+            require(primary_build.get('pages') == pages,
+                    'Snapshot page count/budget differs from current primary paper')
+            require(source_sha256 == primary['source_sha256'] and
+                    pdf_sha256 == primary['pdf_sha256'] and
+                    log_sha256 == primary['log_sha256'],
+                    'Snapshot source/PDF/log differs from current primary paper')
+            require(comparison.get('byte_identical_to_current_primary') is True,
+                    'Visual comparison does not affirm current primary byte identity')
+        else:
+            require(relation.get('primary_pdf_sha256') == primary['pdf_sha256'] and
+                    relation.get('primary_log_sha256') == primary['log_sha256'] and
+                    relation.get('primary_pages') == primary_build.get('pages') == pages + 1,
+                    'Excerpt differs from bound current primary paper')
+            require(set(source_sha256) == set(primary['source_sha256']),
+                    'Excerpt source input set differs from current primary paper')
+            for name, digest in source_sha256.items():
+                expected = relation['source_exceptions'].get(name)
+                if expected is None:
+                    require(digest == primary['source_sha256'][name],
+                            'Excerpt changes an unlisted scientific input')
+                else:
+                    require(expected['primary'] == primary['source_sha256'][name],
+                            'Excerpt exception differs from current primary source')

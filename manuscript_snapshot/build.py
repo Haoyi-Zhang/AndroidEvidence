@@ -16,7 +16,7 @@ import time
 
 ROOT = Path(__file__).resolve().parent
 ARTIFACT = ROOT.parent if ROOT.name == "manuscript_snapshot" else ROOT.parent / "artifact"
-MAX_PAGES = 40  # Local total-page budget including declaration; not a certified CSUR submission cap.
+MAX_PAGES = 40  # Local total-page budget; not a certified CSUR submission cap.
 
 
 def source_binding(root):
@@ -238,7 +238,15 @@ def main(results=None) -> None:
         "qpdf_check": qpdf_status,
         "visual_inspection": "separate manual page-image inspection required",
     }
-    (ROOT / "build-evidence.json").write_text(json.dumps(evidence, indent=2) + "\n", encoding="utf-8")
+    previous_path = ROOT / "build-evidence.json"
+    if ROOT.name == "manuscript_snapshot" and previous_path.is_file():
+        previous = json.loads(previous_path.read_text(encoding="utf-8"))
+        relation = previous.get("primary_relation")
+        if relation is not None:
+            if previous.get("source_sha256") != evidence["source_sha256"]:
+                raise SystemExit("Research-content snapshot inputs changed; refresh its relation to the primary source.")
+            evidence["primary_relation"] = relation
+    previous_path.write_text(json.dumps(evidence, indent=2) + "\n", encoding="utf-8")
     print(f"Built {pdf}: {pages} pages; {citation_report['unique_cited_entries']} cited works.")
 
 

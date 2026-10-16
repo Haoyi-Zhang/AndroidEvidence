@@ -2,15 +2,13 @@
 
 This directory contains the single-column ACM review source, bibliography, generated count fragments, and embedded-font vector figures. The review uses the ACM template's `manuscript,screen,review` mode. Fonts, margins, and page dimensions come from the unmodified class.
 
-## Build from the complete project
+## Build the artifact snapshot
 
-First reproduce the sibling artifact so manuscript-facing count fragments are current:
+From the artifact directory, reproduce the coded inputs before compiling the snapshot:
 
 ```bash
-cd ../artifact
 PYTHONDONTWRITEBYTECODE=1 python scripts/reproduce.py --out /path/to/check-output
-cd ../paper
-PYTHONDONTWRITEBYTECODE=1 python build.py --results /path/to/check-output
+PYTHONDONTWRITEBYTECODE=1 python manuscript_snapshot/build.py --results /path/to/check-output
 ```
 
 Keep that output directory outside the artifact to preserve historical raw results.
@@ -30,6 +28,6 @@ The build requires `pdflatex`, `bibtex` or `bibtex8`, `pdfinfo`, and Matplotlib 
 - writes only `build/main.pdf` as the PDF output, plus `build-evidence.json`, `bibliography-audit.json`, and `bibliography-warnings.txt`;
 - binds the output PDF and final log to active TeX inputs, included vector figures, bibliography and publisher template. Delivery gates reject a stale PDF even if it fits the page budget.
 
-The current manuscript has 40 physical pages: body/front matter 1–34, references 35–39, and a separate declaration on page 40. The local total budget includes all pages; it is not a venue page exemption or a verified CSUR submission cap.
+The research-content snapshot has 39 physical pages: body/front matter 1–34 and references 35–39. The local total budget is not a venue page exemption or a verified CSUR submission cap.
 
-`build-evidence.json` records the current compiler run and source/PDF/final-log bindings. POSIX child CPU/RSS measurements are reported where available; unavailable Windows values remain null. `visual-inspection.json` records combined layout coverage from changed-page views and unchanged-page pixel/link comparisons, including embedded-font checks. All listed fonts are embedded and none is Type 3. The artifact's `manuscript_snapshot/` mirrors the current manuscript and build outputs; `paper/` remains primary. Layout coverage is not independent peer review or source-interpretation certification.
+`build-evidence.json` records the current compiler run and source/PDF/final-log bindings. POSIX child CPU/RSS measurements are reported where available; unavailable Windows values remain null. `visual-inspection.json` records combined layout coverage from changed-page views and unchanged-page pixel/link comparisons, including embedded-font checks. All listed fonts are embedded and none is Type 3. The sibling `paper/` remains primary and unchanged. This snapshot binds its two source differences and unchanged scientific inputs to that paper; its PDF is not byte-identical to the primary PDF. Layout coverage is not independent peer review or source-interpretation certification.

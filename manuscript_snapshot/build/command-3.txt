@@ -153,6 +153,7 @@ c.enc}{d:/LaTeXTools/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh7
 [2.2{d:/LaTeXTools/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_7gruk
 w.enc}]) (./sections/02-method.tex
 [3.3] (./generated/review_matrix_rows.tex)
+Underfull \vbox (badness 1142) has occurred while \output is active
 [4.4]
 Underfull \vbox (badness 2726) has occurred while \output is active
 [5.5]
@@ -205,7 +206,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active
 [37.37]
 Underfull \vbox (badness 10000) has occurred while \output is active
 [38.38])
-[39.39]
 
 Class acmart Warning: ACM reference format is mandatory 
 (acmart)              for papers over one page. 
@@ -215,7 +215,7 @@ Class acmart Warning: ACM reference format is mandatory
 
 (d:/LaTeXTools/texlive/2024/texmf-dist/tex/generic/stringenc/se-pdfdoc.def)
 (d:/LaTeXTools/texlive/2024/texmf-dist/tex/generic/stringenc/se-utf8.def)
-[40.40] (build/main.aux) )
+[39.39] (build/main.aux) )
 (see the transcript file for additional information)<d:/LaTeXTools/texlive/2024
 /texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb><d:/LaTeXTools/texlive
 /2024/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb><d:/LaTeXTools/t
@@ -226,5 +226,5 @@ B.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLi
 bertineTI.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/fonts/type1/public/newtx/t
 xmiaX.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys
 .pfb>
-Output written on build/main.pdf (40 pages, 625864 bytes).
+Output written on build/main.pdf (39 pages, 624752 bytes).
 Transcript written on build/main.log.
