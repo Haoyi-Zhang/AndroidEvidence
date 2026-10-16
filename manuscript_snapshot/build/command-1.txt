@@ -156,6 +156,11 @@ w.enc}]) (./sections/02-method.tex
 [4.4]
 Underfull \vbox (badness 2726) has occurred while \output is active
 [5.5]
+
+LaTeX Warning: Hyper reference `sec:research-tool-use' on page 6 undefined on i
+nput line 83.
+
+
 [6.6]) (./sections/03-evidence-model.tex
 Underfull \vbox (badness 10000) has occurred while \output is active
 [7.7{d:/LaTeXTools/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6
@@ -205,6 +210,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active
 [37.37]
 Underfull \vbox (badness 10000) has occurred while \output is active
 [38.38])
+(d:/LaTeXTools/texlive/2024/texmf-dist/tex/generic/stringenc/se-pdfdoc.def)
+(d:/LaTeXTools/texlive/2024/texmf-dist/tex/generic/stringenc/se-utf8.def)
+[39.39]
 
 Class acmart Warning: ACM reference format is mandatory 
 (acmart)              for papers over one page. 
@@ -212,9 +220,19 @@ Class acmart Warning: ACM reference format is mandatory
 (acmart)              \settopmatter command..
 
 
-(d:/LaTeXTools/texlive/2024/texmf-dist/tex/generic/stringenc/se-pdfdoc.def)
-(d:/LaTeXTools/texlive/2024/texmf-dist/tex/generic/stringenc/se-utf8.def)
-[39.39] (build/main.aux) )
+[40.40]
+
+LaTeX Warning: Hook 'shipout/lastpage' executed on wrong page (39 not 40).
+               Rerun to correct this.
+
+(build/main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
 (see the transcript file for additional information)<d:/LaTeXTools/texlive/2024
 /texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb><d:/LaTeXTools/texlive
 /2024/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb><d:/LaTeXTools/t
@@ -225,5 +243,5 @@ B.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLi
 bertineTI.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/fonts/type1/public/newtx/t
 xmiaX.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys
 .pfb>
-Output written on build/main.pdf (39 pages, 624882 bytes).
+Output written on build/main.pdf (40 pages, 625916 bytes).
 Transcript written on build/main.log.

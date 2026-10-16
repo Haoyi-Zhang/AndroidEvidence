@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2026.10.3)  16 OCT 2026 16:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2026.10.3)  16 OCT 2026 20:13
 entering extended mode
  %&-line parsing enabled.
 **main.tex
@@ -1194,7 +1194,7 @@ LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 (Font)              scaled to size 6.6pt on input line 117.
 ) (./sections/03-evidence-model.tex
-<figures/claim-ladder.pdf, id=488, 458.9145pt x 280.4076pt>
+<figures/claim-ladder.pdf, id=490, 458.9145pt x 280.4076pt>
 File: figures/claim-ladder.pdf Graphic file (type pdf)
 <use figures/claim-ladder.pdf>
 Package pdftex.def Info: figures/claim-ladder.pdf  used on input line 22.
@@ -1262,7 +1262,7 @@ Underfull \vbox (badness 2073) has occurred while \output is active []
 
 
 [23.23]
-<figures/mobile-lifecycle.pdf, id=929, 458.9145pt x 328.8285pt>
+<figures/mobile-lifecycle.pdf, id=931, 458.9145pt x 328.8285pt>
 File: figures/mobile-lifecycle.pdf Graphic file (type pdf)
 <use figures/mobile-lifecycle.pdf>
 Package pdftex.def Info: figures/mobile-lifecycle.pdf  used on input line 86.
@@ -1283,7 +1283,7 @@ Underfull \vbox (badness 2495) has occurred while \output is active []
 
 
 [29.29]
-<figures/assurance-pattern.pdf, id=1033, 458.9145pt x 357.7365pt>
+<figures/assurance-pattern.pdf, id=1035, 458.9145pt x 357.7365pt>
 File: figures/assurance-pattern.pdf Graphic file (type pdf)
 <use figures/assurance-pattern.pdf>
 Package pdftex.def Info: figures/assurance-pattern.pdf  used on input line 27.
@@ -1326,6 +1326,8 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [38.38])
 
+[39.39]
+
 Class acmart Warning: ACM reference format is mandatory 
 (acmart)              for papers over one page. 
 (acmart)              Please add printacmref=true to the 
@@ -1339,7 +1341,9 @@ File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 (d:/LaTeXTools/texlive/2024/texmf-dist/tex/generic/stringenc/se-utf8.def
 File: se-utf8.def 2019/11/29 v1.12 stringenc: UTF-8
 )
-[39.39] (build/main.aux)
+[40.40
+
+] (build/main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1348,11 +1352,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: AA631B6AD8BBD8BA494FA80DAB3E162A;18084.
  ) 
 Here is how much of TeX's memory you used:
- 22429 strings out of 475129
- 367371 string characters out of 5764261
- 840366 words of memory out of 5000000
- 44012 multiletter control sequences out of 15000+600000
- 745444 words of font info for 523 fonts, out of 8000000 for 9000
+ 22435 strings out of 475129
+ 367487 string characters out of 5764261
+ 838096 words of memory out of 5000000
+ 44013 multiletter control sequences out of 15000+600000
+ 745815 words of font info for 525 fonts, out of 8000000 for 9000
  197 hyphenation exceptions out of 8191
  90i,17n,131p,1224b,890s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <d:/LaTeXTools/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMath
@@ -1364,10 +1368,10 @@ ublic/libertine/LinLibertineTB.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/fonts
 /type1/public/libertine/LinLibertineTI.pfb><d:/LaTeXTools/texlive/2024/texmf-di
 st/fonts/type1/public/newtx/txmiaX.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/f
 onts/type1/public/newtx/txsys.pfb>
-Output written on build/main.pdf (39 pages, 624882 bytes).
+Output written on build/main.pdf (40 pages, 625864 bytes).
 PDF statistics:
- 1340 PDF objects out of 1440 (max. 8388607)
- 1141 compressed objects within 12 object streams
- 238 named destinations out of 1000 (max. 500000)
+ 1346 PDF objects out of 1440 (max. 8388607)
+ 1146 compressed objects within 12 object streams
+ 240 named destinations out of 1000 (max. 500000)
  92732 words of extra memory for PDF output out of 106986 (max. 10000000)
 

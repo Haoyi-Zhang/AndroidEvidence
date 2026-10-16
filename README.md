@@ -79,13 +79,9 @@ A passing run does not prove exhaustive search, a PRISMA denominator, a comprehe
 - `results/clean-reproduction.json`
 - `results/tex/*.tex`
 
-Most retained results under `results/` describe earlier offline runs. The exceptions are `corpus_summary.json`, `paper_build_evidence.json`, `visual-inspection.json`, and the six default `tex/` fragments, which describe current coded inputs or mirror the owned 39-page manuscript build. A new `--out` run produces separate summaries, raw command logs and `tex/` fragments; historical CPU/RSS must not be attributed to that new run. The visual-evidence regression compares the current snapshot receipt, result mirrors, active source/PDF/log and dynamic content-check counts; it does not certify source interpretation.
+Most retained results under `results/` describe earlier offline runs. The exceptions are `corpus_summary.json`, `paper_build_evidence.json`, `visual-inspection.json`, and the six default `tex/` fragments, which describe current coded inputs or mirror the owned 40-page manuscript build. A new `--out` run produces separate summaries, raw command logs and `tex/` fragments; historical CPU/RSS must not be attributed to that new run. The visual-evidence regression compares the current snapshot receipt, result mirrors, active source/PDF/log and dynamic content-check counts; it does not certify source interpretation.
 
-`manuscript_snapshot/` mirrors the current sibling `paper/` source, 39-page PDF,
-final engine log, compiled bibliography, build evidence and the 104.4-dpi all-page
-visual receipt (individual diagrams at 180 dpi). The local budget is 39 pages, not a certified CSUR cap.
-The sibling `paper/` remains the primary source; the snapshot is an artifact-only
-delivery mirror, not a second compilation. Earlier evidence is retained privately.
+`manuscript_snapshot/` mirrors the current sibling `paper/` source, 40-page PDF, final engine log, compiled bibliography, and current build and visual receipts. Body/front matter occupies pages 1–34, references 35–39, and a separate declaration page 40. The local total budget includes all pages; it is not a venue page exemption or a verified CSUR submission cap. The current visual receipt records combined layout coverage from changed-page views and unchanged-page pixel/link comparisons. The sibling `paper/` remains primary; the snapshot is an artifact-only delivery mirror, not a second compilation.
 
 When this directory is the repository root, `.github/workflows/scientific-checks.yml` runs the owned offline checks on Ubuntu 24.04 and uploads raw output even on failure. Exact-commit workflow results provide execution evidence separately from this configuration. The retained local run in `results/current/` records the earlier 112-test suite and its actual platform and timing fields; the discovered suite now also includes the figure-input binding regression. All 97 corpus records pass their consistency checks; 19,683 ternary matrices and 262,144 binary completions have no oracle disagreement. Regenerated fragments describe the coded inputs, not search completeness or independent source interpretation.
 
