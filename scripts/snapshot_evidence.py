@@ -1,6 +1,8 @@
-"""Pure consistency checks for the delivered manuscript snapshot records."""
+"""Snapshot-record checks and a read-only PDF page-count consumer."""
 
 import re
+import shutil
+import subprocess
 
 
 def require(condition, message):
@@ -10,6 +12,16 @@ def require(condition, message):
 
 def _comparable(record, omitted):
     return {key: value for key, value in record.items() if key not in omitted}
+
+
+def pdf_page_count(path):
+    """Read the selected PDF's actual count; never infer it from a receipt."""
+    info = subprocess.check_output(
+        [shutil.which('pdfinfo') or 'pdfinfo', str(path)], text=True,
+        encoding='utf-8', errors='replace', timeout=30)
+    match = re.search(r'^Pages:\s+(\d+)\s*$', info, re.M)
+    require(match is not None, 'pdfinfo did not report an actual PDF page count')
+    return int(match.group(1))
 
 
 def source_count_macros(text):
@@ -27,7 +39,8 @@ def source_count_macros(text):
 
 def validate_snapshot_evidence(*, build, visual, result_build, result_visual,
                                budget, source_sha256, pdf_sha256, log_sha256,
-                               checked, unchecked, macro_counts, primary=None):
+                               checked, unchecked, macro_counts, actual_pages,
+                               primary=None):
     """Reject stale or cross-version evidence; no PDF, TeX, or network work occurs here.
 
     ``primary`` is absent in an artifact-only checkout. When present it contains
@@ -59,10 +72,37 @@ def validate_snapshot_evidence(*, build, visual, result_build, result_visual,
             'Snapshot page budget differs from build.py')
     pages = build.get('pages')
     require(isinstance(pages, int) and 0 < pages <= budget, 'Snapshot page count exceeds budget')
+    require(type(actual_pages) is int and actual_pages == pages,
+            'Snapshot build page count differs from the actual PDF')
     require(visual.get('page_count') == pages, 'Snapshot visual page count differs from build')
     all_pages = list(range(1, pages + 1))
-    require(visual.get('full_size_pages_inspected') == all_pages,
-            'Full-size visual inspection does not cover every snapshot page')
+    if visual.get('coverage_kind') == 'pixel-identity-to-primary':
+        require(build.get('primary_relation') is None,
+                'Pixel-identity mirror coverage cannot describe a research excerpt')
+        commands = build.get('commands', [])
+        require(len(commands) == 5 and all(command.get('exit_code') == 0 for command in commands),
+                'Full mirror lacks the five-command successful primary build record')
+        viewed = visual.get('full_size_pages_inspected', [])
+        require(viewed and viewed == sorted(set(viewed)) and
+                all(type(page) is int and page in all_pages for page in viewed),
+                'Actual full-size page views are missing or invalid')
+        pixels = visual.get('pixel_identity_to_primary', {})
+        require(pixels.get('primary_pdf_sha256') == pixels.get('snapshot_pdf_sha256') == pdf_sha256,
+                'Pixel identity does not bind the actual byte-identical PDFs')
+        rows = pixels.get('pages', [])
+        require([row.get('page') for row in rows] == all_pages,
+                'Pixel identity does not cover every snapshot page')
+        for row in rows:
+            require(type(row.get('width')) is int and row['width'] > 0 and
+                    type(row.get('height')) is int and row['height'] > 0 and
+                    re.fullmatch(r'[0-9a-f]{64}', row.get('primary_pixels_sha256', '')) and
+                    row.get('primary_pixels_sha256') == row.get('snapshot_pixels_sha256'),
+                    'Primary/snapshot rendered pixels differ or lack a complete binding')
+        require(visual.get('comparison_to_primary', {}).get('byte_identical_to_current_primary') is True,
+                'Pixel mirror must affirm actual primary byte identity')
+    else:
+        require(visual.get('full_size_pages_inspected') == all_pages,
+                'Full-size visual inspection does not cover every snapshot page')
     require(visual.get('required_parent_pages') == all_pages,
             'Required visual pages do not cover every snapshot page')
     require(visual.get('pending_parent_all_page_inspection') is False,
@@ -110,6 +150,8 @@ def validate_snapshot_evidence(*, build, visual, result_build, result_visual,
     if primary is not None:
         primary_build = primary['build']
         require(primary_build.get('status') == 'passed', 'Primary paper build did not pass')
+        require(primary_build.get('pages') == primary['actual_pages'],
+                'Primary build page count differs from the actual PDF')
         require(primary_build.get('source_sha256') == primary['source_sha256'],
                 'Primary paper build does not bind active source')
         require(primary_build.get('pdf_sha256') == primary['pdf_sha256'] and
@@ -126,6 +168,8 @@ def validate_snapshot_evidence(*, build, visual, result_build, result_visual,
                     'Snapshot source/PDF/log differs from current primary paper')
             require(comparison.get('byte_identical_to_current_primary') is True,
                     'Visual comparison does not affirm current primary byte identity')
+            require(build.get('commands') == primary_build.get('commands'),
+                    'Full mirror compiler-command provenance differs from the primary build')
         else:
             require(relation.get('primary_pdf_sha256') == primary['pdf_sha256'] and
                     relation.get('primary_log_sha256') == primary['log_sha256'] and

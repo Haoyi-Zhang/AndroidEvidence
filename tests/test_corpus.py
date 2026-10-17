@@ -10,7 +10,7 @@ from pathlib import Path
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from corpus_audit import nonindependent_status, review_coverage_status, content_check_counts, specific_content_locator
-from snapshot_evidence import source_count_macros, validate_snapshot_evidence
+from snapshot_evidence import pdf_page_count, source_count_macros, validate_snapshot_evidence
 
 ROOT = Path(__file__).resolve().parents[1]
 LOCKED_CORPUS_SIZE = 97
@@ -243,11 +243,12 @@ class CorpusTests(unittest.TestCase):
         snapshot = ROOT / "manuscript_snapshot"
         load = lambda path: json.loads(path.read_text(encoding="utf-8"))
         digest = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
-        snapshot_build = load(snapshot / "build-evidence.json")
+        snapshot_config = runpy.run_path(str(snapshot / "build.py"))
+        snapshot_build = snapshot_config['check_current_binding'](snapshot, snapshot / 'build/main.pdf')
         snapshot_visual = load(snapshot / "visual-inspection.json")
         result_build = load(ROOT / "results/paper_build_evidence.json")
         result_visual = self.visual_inspection
-        snapshot_config = runpy.run_path(str(snapshot / "build.py"))
+        actual_pages = pdf_page_count(snapshot / 'build/main.pdf')
         counts = content_check_counts(self.source_locations)
         checked = counts["content_checked_records"]
         unchecked = len(self.source_locations) - checked
@@ -261,12 +262,21 @@ class CorpusTests(unittest.TestCase):
         if paper.is_dir():
             paper_config = runpy.run_path(str(paper / "build.py"))
             primary = {
-                "build": load(paper / "build-evidence.json"),
+                "build": paper_config['check_current_binding'](paper, paper / 'build/main.pdf'),
                 "source_sha256": paper_config["source_binding"](paper),
                 "pdf_sha256": digest(paper / "build/main.pdf"),
                 "log_sha256": digest(paper / "build/main.log"),
                 "budget": paper_config["MAX_PAGES"],
+                "actual_pages": pdf_page_count(paper / 'build/main.pdf'),
             }
+            if snapshot_build.get('primary_relation') is None:
+                self.assertEqual((paper / 'build/main.pdf').read_bytes(),
+                                 (snapshot / 'build/main.pdf').read_bytes())
+                self.assertEqual((paper / 'build/main.log').read_bytes(),
+                                 (snapshot / 'build/main.log').read_bytes())
+                self.assertEqual(set(primary['source_sha256']), set(snapshot_build['source_sha256']))
+                for name in snapshot_build['source_sha256']:
+                    self.assertEqual((paper / name).read_bytes(), (snapshot / name).read_bytes(), name)
             macro_paths["primary generated"] = paper / "generated/corpus_counts.tex"
         for name, main_path in (("snapshot main fallback", snapshot / "main.tex"),
                                 ("primary main fallback", paper / "main.tex")):
@@ -286,8 +296,18 @@ class CorpusTests(unittest.TestCase):
             pdf_sha256=digest(snapshot / "build/main.pdf"),
             log_sha256=digest(snapshot / "build/main.log"),
             checked=checked, unchecked=unchecked,
-            macro_counts=macro_counts, primary=primary,
+            macro_counts=macro_counts, actual_pages=actual_pages, primary=primary,
         )
+        page_index = load(ROOT / 'manifests/PAGE-COUNT.json')
+        self.assertEqual(actual_pages, page_index['pages'])
+        self.assertEqual(snapshot_build['pdf_sha256'], page_index['pdf_sha256'])
+        self.assertEqual(snapshot_build['source_sha256'], page_index['source_sha256'])
+        self.assertEqual(snapshot_build['log_sha256'], page_index['log_sha256'])
+        for name, expected in [('paper_build_evidence.json', result_build),
+                               ('visual-inspection.json', result_visual)]:
+            current = ROOT / 'results/current' / name
+            if current.is_file():
+                self.assertEqual(expected, load(current), str(current))
 
     def test_material_claim_ledger_complete(self):
         self.assertTrue(self.material_claims)

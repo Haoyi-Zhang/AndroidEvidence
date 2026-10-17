@@ -1,7 +1,7 @@
 {
   "pages": 39,
   "local_page_budget": 40,
-  "pdf_sha256": "345377ae010c16444f0cb4bdb986d004fab8f87a5f929ac9f01e119c683ed8d9",
+  "pdf_sha256": "5064f0d04f1200d8724f9b69b2adfd1498ffeacb572b4bc671e3f5c48ed7f3a6",
   "source_sha256": {
     "ACM-Reference-Format.bst": "4342d27456645567ef1a027f6474e894715bc31d468f040142fa54540440ad04",
     "acmart.cls": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
@@ -13,18 +13,18 @@
     "generated/review_matrix_rows.tex": "b5ca58dc2162cc365d435f9d21845499f09f80d10993f661a12164be4988be80",
     "main.tex": "9ee093a1bc53af1e74a68602cc3f7be09f0861afb7223fcb863e2131f9708f34",
     "project-repository.tex": "a9cbcf7c0e634f512a9fc6e297ae38730618c06f676e14ee61bce71a0c69243b",
-    "references.bib": "b6067323d7ae368a4a5df86f1644ee74d782cdbeed97dfe477f1d7f33fbb3a0c",
+    "references.bib": "eedea8dbc68b079fb085374420cd85d87a83e7ea22fcece8c44d32c156d6af50",
     "sections/01-introduction.tex": "d0d2ddae58a08cb050d748f1a5cfb60647574c21e190d35efdc2a713c2127f04",
     "sections/02-method.tex": "28cb45825ce2155042df88e7ef4cf66f027510acf7d1c175b0a2e90d15cda459",
     "sections/03-evidence-model.tex": "481856cedd84b69a09cbc4bc5b1fba4389d1ea48c34aa586be17a2ef173b56f1",
     "sections/04-repackaging.tex": "7f7e79e95a26a5e0d0a95f4e0ed8ee5bfb5e6749ccb366fff705f70f648e8f99",
-    "sections/05-libraries.tex": "340dff1a6b6429d70749beb22d2b702e9dfc32910f79d68014f620f711b41041",
+    "sections/05-libraries.tex": "3f4719ddc464861fc222f1407de9feedb4f2ce7ec406465ca6be195e2f015e1d",
     "sections/06-provenance.tex": "613c6e3fbb26f5c07e336068d77afdf330fe549036387faee484b756582a1203",
-    "sections/07-ai-mediated.tex": "f79c23164f7def666bdd8cb5b3ded06697b8465494950f344ca8a6f84f3a0d1c",
+    "sections/07-ai-mediated.tex": "da580017654fa38751d93dce893ab4a6bc0f59ec657915bc2fa5f8005c950d62",
     "sections/08-synthesis.tex": "ff058dde72402d72781d0b9158471aedfee9813af5d5d7d8b6b6c418fa92f035",
     "sections/09-agenda.tex": "1c2e6bff0863be4a4237791bb50153cf48d59c5e24ecda1478bb7ce5f4ea8b5c"
   },
-  "log_sha256": "70a54005aac0f751b0e82f1a330939d0c2c7b441ceab1597da17529137c1add2",
+  "log_sha256": "44ed0c422820d88adc46d544471182e31ab421d10fbc325a051f1ec030edb443",
   "pdf": "manuscript_snapshot/build/main.pdf",
   "pdf_path_basis": "artifact-root relative",
   "page_boundaries": {
@@ -37,6 +37,7 @@
       35,
       39
     ],
+    "declaration_pages": [],
     "blank_spacer_pages": []
   },
   "current_build_evidence": "manuscript_snapshot/build-evidence.json",

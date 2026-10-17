@@ -1,10 +1,10 @@
 {
   "status": "PASS",
   "pdf": "manuscript_snapshot/build/main.pdf",
-  "pdf_path_basis": "manuscript-directory relative",
+  "pdf_path_basis": "artifact-root relative",
   "page_count": 39,
   "local_page_budget": 40,
-  "pdf_sha256": "716fad6a8ae9f5146c95d476a9ef014a5a85c38c6a4d2c8218b9913117f29f0a",
+  "pdf_sha256": "5064f0d04f1200d8724f9b69b2adfd1498ffeacb572b4bc671e3f5c48ed7f3a6",
   "source_sha256": {
     "ACM-Reference-Format.bst": "4342d27456645567ef1a027f6474e894715bc31d468f040142fa54540440ad04",
     "acmart.cls": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
@@ -27,48 +27,17 @@
     "sections/08-synthesis.tex": "ff058dde72402d72781d0b9158471aedfee9813af5d5d7d8b6b6c418fa92f035",
     "sections/09-agenda.tex": "1c2e6bff0863be4a4237791bb50153cf48d59c5e24ecda1478bb7ce5f4ea8b5c"
   },
-  "log_sha256": "fd2e9a131b806865241710fe1c0d209f88727d7a43e0bd63c042185c80aeecf5",
+  "log_sha256": "44ed0c422820d88adc46d544471182e31ab421d10fbc325a051f1ec030edb443",
+  "coverage_kind": "pixel-identity-to-primary",
   "full_size_pages_inspected": [
     1,
-    2,
-    3,
-    4,
-    5,
     6,
     7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13,
-    14,
-    15,
-    16,
-    17,
-    18,
-    19,
-    20,
-    21,
-    22,
-    23,
-    24,
-    25,
-    26,
-    27,
-    28,
-    29,
-    30,
-    31,
-    32,
-    33,
     34,
     35,
-    36,
-    37,
-    38,
     39
   ],
+  "full_size_pages_inspected_semantics": "Only these six pages were actually viewed full-size in this round; other pages have rendered-pixel identity coverage, not new full-size visual review.",
   "required_parent_pages": [
     1,
     2,
@@ -110,58 +79,297 @@
     38,
     39
   ],
-  "full_size_pages_inspected_semantics": "Combined actual views and inherited identical page/link coverage; not 39 new page views.",
   "pending_parent_all_page_inspection": false,
-  "render_dpi": 135,
+  "render_dpi": 108,
   "newly_viewed_full_size_pages": [
-    19
-  ],
-  "current_round_changed_pages_inspected": [
-    19
-  ],
-  "unchanged_pages_inherit_previous_view_by_pixel_and_uri_identity": [
     1,
-    2,
-    3,
-    4,
-    5,
     6,
     7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13,
-    14,
-    15,
-    16,
-    17,
-    18,
-    20,
-    21,
-    22,
-    23,
-    24,
-    25,
-    26,
-    27,
-    28,
-    29,
-    30,
-    31,
-    32,
-    33,
     34,
     35,
-    36,
-    37,
-    38,
     39
   ],
-  "prior_visual_receipt_sha256": "0c179950c2ad54367b052863907795cbce958c8ccba8e00d7ef834373c1c029a",
+  "pixel_identity_to_primary": {
+    "primary_pdf_sha256": "5064f0d04f1200d8724f9b69b2adfd1498ffeacb572b4bc671e3f5c48ed7f3a6",
+    "snapshot_pdf_sha256": "5064f0d04f1200d8724f9b69b2adfd1498ffeacb572b4bc671e3f5c48ed7f3a6",
+    "pages": [
+      {
+        "page": 1,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "e33af537542c76142a5db4d433d78e9807752ab58ca1d88b5ccf17d2e8bbab03",
+        "snapshot_pixels_sha256": "e33af537542c76142a5db4d433d78e9807752ab58ca1d88b5ccf17d2e8bbab03"
+      },
+      {
+        "page": 2,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "be554d0a7c522f4162f65c030530ea7605658984ef05c1e4620a5d87f7d94926",
+        "snapshot_pixels_sha256": "be554d0a7c522f4162f65c030530ea7605658984ef05c1e4620a5d87f7d94926"
+      },
+      {
+        "page": 3,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "9527b26e87143cf67a170eee7f732abc2d6e924b471e9f18e28acad619ed619d",
+        "snapshot_pixels_sha256": "9527b26e87143cf67a170eee7f732abc2d6e924b471e9f18e28acad619ed619d"
+      },
+      {
+        "page": 4,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "63045695738b5b5ecea92676439d42191350f0a3f74741b3c7c1470fc70929af",
+        "snapshot_pixels_sha256": "63045695738b5b5ecea92676439d42191350f0a3f74741b3c7c1470fc70929af"
+      },
+      {
+        "page": 5,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "0bc73371f1031f51edf8a87968b5fe00ef7d574f6394e196fd980397c91c1e41",
+        "snapshot_pixels_sha256": "0bc73371f1031f51edf8a87968b5fe00ef7d574f6394e196fd980397c91c1e41"
+      },
+      {
+        "page": 6,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "0e58d0e2bf27264306c8ef57f4b0ed40134eb3b730317d7cbd8eaee6e47ab01a",
+        "snapshot_pixels_sha256": "0e58d0e2bf27264306c8ef57f4b0ed40134eb3b730317d7cbd8eaee6e47ab01a"
+      },
+      {
+        "page": 7,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "595b44f85fa9603ca0c15908bb6029f49145c58495ca040a41a937507da9794b",
+        "snapshot_pixels_sha256": "595b44f85fa9603ca0c15908bb6029f49145c58495ca040a41a937507da9794b"
+      },
+      {
+        "page": 8,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "eb2e3bd81c556526a9decd38a1c54b802d7b3d3dbcd2942afee1802ed668cb5e",
+        "snapshot_pixels_sha256": "eb2e3bd81c556526a9decd38a1c54b802d7b3d3dbcd2942afee1802ed668cb5e"
+      },
+      {
+        "page": 9,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "b92d688c6c2ac513d33b66f4e851646dd0447884e8ecafde94d1761cfdcf62e7",
+        "snapshot_pixels_sha256": "b92d688c6c2ac513d33b66f4e851646dd0447884e8ecafde94d1761cfdcf62e7"
+      },
+      {
+        "page": 10,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "a2197578867bde1a9dda85724bd2dd4b97aee47dec037faa6808d0bfdb5b1a23",
+        "snapshot_pixels_sha256": "a2197578867bde1a9dda85724bd2dd4b97aee47dec037faa6808d0bfdb5b1a23"
+      },
+      {
+        "page": 11,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "d0fcf481cc3f40443b24d5f0ba7544528f2aa2b1bb9548ad6f84e1dfc6a319cf",
+        "snapshot_pixels_sha256": "d0fcf481cc3f40443b24d5f0ba7544528f2aa2b1bb9548ad6f84e1dfc6a319cf"
+      },
+      {
+        "page": 12,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "e6e8b3bd0842760848da0d2c5051722403835c5ffe8ba505cc15eb1885e43226",
+        "snapshot_pixels_sha256": "e6e8b3bd0842760848da0d2c5051722403835c5ffe8ba505cc15eb1885e43226"
+      },
+      {
+        "page": 13,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "65f2a81881592de762b63e5c2aa385ad44893fb6199a904493edf828ac1548c7",
+        "snapshot_pixels_sha256": "65f2a81881592de762b63e5c2aa385ad44893fb6199a904493edf828ac1548c7"
+      },
+      {
+        "page": 14,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "5d7def2c9730462ffaa17ddf7a53a4b3ca3ecc2b3e0248f6ea4ef0d7c8e623f4",
+        "snapshot_pixels_sha256": "5d7def2c9730462ffaa17ddf7a53a4b3ca3ecc2b3e0248f6ea4ef0d7c8e623f4"
+      },
+      {
+        "page": 15,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "58ae4a8a329db8048d21902a8b71751ea55d4170877781501722c367ba5ab850",
+        "snapshot_pixels_sha256": "58ae4a8a329db8048d21902a8b71751ea55d4170877781501722c367ba5ab850"
+      },
+      {
+        "page": 16,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "2516aeb3aa78050288bb1d77282e11327e215daa741fcb4ad7639a6b4923b45e",
+        "snapshot_pixels_sha256": "2516aeb3aa78050288bb1d77282e11327e215daa741fcb4ad7639a6b4923b45e"
+      },
+      {
+        "page": 17,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "0008ab8117861d5b8ba9ed311c6f26ab5c796891fd6b838eb01cf4f5eb62788d",
+        "snapshot_pixels_sha256": "0008ab8117861d5b8ba9ed311c6f26ab5c796891fd6b838eb01cf4f5eb62788d"
+      },
+      {
+        "page": 18,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "241950b48abe41dae7f0c49aded4aa2d8e996a9ce5ceb99db979bddd71655321",
+        "snapshot_pixels_sha256": "241950b48abe41dae7f0c49aded4aa2d8e996a9ce5ceb99db979bddd71655321"
+      },
+      {
+        "page": 19,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "11811c5563cc39d5f8c9e06ddb4da6a277e53d55c8954bff55da0bfcfc9a1d73",
+        "snapshot_pixels_sha256": "11811c5563cc39d5f8c9e06ddb4da6a277e53d55c8954bff55da0bfcfc9a1d73"
+      },
+      {
+        "page": 20,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "370503b18be67bd6cfd7cfcbf8082ad9dbe5ae17cbd8faa45313851a7001acd5",
+        "snapshot_pixels_sha256": "370503b18be67bd6cfd7cfcbf8082ad9dbe5ae17cbd8faa45313851a7001acd5"
+      },
+      {
+        "page": 21,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "60aab7d6a7559ad675c3b552d1302cdfce0b89588292dd1bd3589e10dd57d277",
+        "snapshot_pixels_sha256": "60aab7d6a7559ad675c3b552d1302cdfce0b89588292dd1bd3589e10dd57d277"
+      },
+      {
+        "page": 22,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "9e49c2011825992596a095c00d0620acde67cce413f7deea89cacf4ddcec709d",
+        "snapshot_pixels_sha256": "9e49c2011825992596a095c00d0620acde67cce413f7deea89cacf4ddcec709d"
+      },
+      {
+        "page": 23,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "6ac90d995c939fd07bfbdb32ebfb7fe6de7f18ba09858110ba207b91258f7825",
+        "snapshot_pixels_sha256": "6ac90d995c939fd07bfbdb32ebfb7fe6de7f18ba09858110ba207b91258f7825"
+      },
+      {
+        "page": 24,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "981f48b672aa8093ed72f3d84f3595f38a622b90d81a2f35a816352c690fb92e",
+        "snapshot_pixels_sha256": "981f48b672aa8093ed72f3d84f3595f38a622b90d81a2f35a816352c690fb92e"
+      },
+      {
+        "page": 25,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "2d92d2119585f3358824249d8ea5f345ed9d1f376506fbc4279ebc1c834dc3b5",
+        "snapshot_pixels_sha256": "2d92d2119585f3358824249d8ea5f345ed9d1f376506fbc4279ebc1c834dc3b5"
+      },
+      {
+        "page": 26,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "094b522011f562fa71c7bcc4e33a7099dbb5203ea4b95729b2dc76c41019283f",
+        "snapshot_pixels_sha256": "094b522011f562fa71c7bcc4e33a7099dbb5203ea4b95729b2dc76c41019283f"
+      },
+      {
+        "page": 27,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "dd9101c35dc950605cf58ed6b878a8d0681f5fd4a23d5555b2e147b74d316f70",
+        "snapshot_pixels_sha256": "dd9101c35dc950605cf58ed6b878a8d0681f5fd4a23d5555b2e147b74d316f70"
+      },
+      {
+        "page": 28,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "0b858d3827bcf01e91bafe37e159e3a22c3124653ab91048ed7731c668d7f9f3",
+        "snapshot_pixels_sha256": "0b858d3827bcf01e91bafe37e159e3a22c3124653ab91048ed7731c668d7f9f3"
+      },
+      {
+        "page": 29,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "3444c3a82169b7627b6d3892840f84f3b5d95067e9a65ce4e1f97fe213d74d64",
+        "snapshot_pixels_sha256": "3444c3a82169b7627b6d3892840f84f3b5d95067e9a65ce4e1f97fe213d74d64"
+      },
+      {
+        "page": 30,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "4e60b9a792ca02042a69536b2a674138609be93c4f3b5725547293e830963395",
+        "snapshot_pixels_sha256": "4e60b9a792ca02042a69536b2a674138609be93c4f3b5725547293e830963395"
+      },
+      {
+        "page": 31,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "5fdafb9bdc6cd7b4a1f40fb9d393d20140236ff9e5f3640b04f9a220d725696f",
+        "snapshot_pixels_sha256": "5fdafb9bdc6cd7b4a1f40fb9d393d20140236ff9e5f3640b04f9a220d725696f"
+      },
+      {
+        "page": 32,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "1018d60008c135142de3b7c48af86ab6141e508ad69cb6c13a65beef02115006",
+        "snapshot_pixels_sha256": "1018d60008c135142de3b7c48af86ab6141e508ad69cb6c13a65beef02115006"
+      },
+      {
+        "page": 33,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "8e2feca643259dd5a484d704be1a6fbb802163a7d834ccc0617f9b990395db96",
+        "snapshot_pixels_sha256": "8e2feca643259dd5a484d704be1a6fbb802163a7d834ccc0617f9b990395db96"
+      },
+      {
+        "page": 34,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "7e663fba557709796b7d2a95b9306fd9472f264574209f9bc85720f87b784b9a",
+        "snapshot_pixels_sha256": "7e663fba557709796b7d2a95b9306fd9472f264574209f9bc85720f87b784b9a"
+      },
+      {
+        "page": 35,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "8525f287a2c0095610320bff3dd70bd1a1f553d5f9dabfbd20a6b49006df697a",
+        "snapshot_pixels_sha256": "8525f287a2c0095610320bff3dd70bd1a1f553d5f9dabfbd20a6b49006df697a"
+      },
+      {
+        "page": 36,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "b1c7f2f39a2ed9600a0151f204b4bfdae256f086c4ff5e94b8db9d3ebc538d7f",
+        "snapshot_pixels_sha256": "b1c7f2f39a2ed9600a0151f204b4bfdae256f086c4ff5e94b8db9d3ebc538d7f"
+      },
+      {
+        "page": 37,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "44ce745326d112268497b4fb837011b2fecb086f3a398e9137feee034e5ebd1a",
+        "snapshot_pixels_sha256": "44ce745326d112268497b4fb837011b2fecb086f3a398e9137feee034e5ebd1a"
+      },
+      {
+        "page": 38,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "041f688abcf62a6e55425a27159d83f927246375ae1bafc1f1febebe49123e41",
+        "snapshot_pixels_sha256": "041f688abcf62a6e55425a27159d83f927246375ae1bafc1f1febebe49123e41"
+      },
+      {
+        "page": 39,
+        "width": 918,
+        "height": 1188,
+        "primary_pixels_sha256": "54e7189848fd3f6ac306c1bbef6b6f4f9b0f44bb2a3144794620dce2c7a73aec",
+        "snapshot_pixels_sha256": "54e7189848fd3f6ac306c1bbef6b6f4f9b0f44bb2a3144794620dce2c7a73aec"
+      }
+    ]
+  },
   "font_embedding": "all listed fonts embedded",
-  "font_embedding_basis": "pdffonts on this exact PDF; no Type 3.",
+  "font_embedding_basis": "pdffonts on the exact mirrored snapshot: all 17 listed fonts embedded and no Type 3.",
   "page_boundaries": {
     "total_physical_pages": 39,
     "body_front_matter_pages": [
@@ -172,21 +380,20 @@
       35,
       39
     ],
+    "declaration_pages": [],
     "blank_spacer_pages": []
   },
   "comparison_to_primary": {
-    "byte_identical_to_current_primary": false,
-    "research_content_excerpt_of_current_primary": true,
+    "primary_pdf": "../paper/build/main.pdf",
+    "byte_identical_to_current_primary": true,
     "byte_identical_to_receipt_selected_pdf": true,
-    "receipt_selected_pdf_sha256": "716fad6a8ae9f5146c95d476a9ef014a5a85c38c6a4d2c8218b9913117f29f0a"
+    "receipt_selected_pdf_sha256": "5064f0d04f1200d8724f9b69b2adfd1498ffeacb572b4bc671e3f5c48ed7f3a6"
   },
   "layout_findings": [
-    "Feature-granularity attribution corrected without changing reported output units.",
-    "Current total/reference boundaries unchanged; no clipping or overlap on viewed page."
+    "Title/author page and method/removal boundaries on pages 6 and 7 inspected without clipping or overlap.",
+    "Page 34 ends the body and code availability; page 35 starts References; page 39 ends References; there is no page 40."
   ],
-  "inspected_at": "2026-10-17T11:59:16.453592+00:00",
-  "scope": "Current combined page-layout coverage; not independent peer review, independent source coding or venue certification.",
-  "additional_unchanged_boundary_pages_viewed": [],
-  "previous_viewed_pdf_sha256": "82dae684b5411f243cc426d53c46840fd67b86659880f39a3606fabf1675c5db",
-  "inspection_basis": "Changedpage19actuallyviewed;allothersretainprioractualviewbypixelandlinkidentity;notanewall-pageinspection."
+  "inspection_basis": "Both exact PDFs were rendered at 108 dpi and all 39 RGB page pixel arrays compared equal. Actual current full-size views: 1, 6, 7, 34, 35, 39. No all-page human review or new compilation is claimed.",
+  "inspected_at": "2026-10-17T18:04:36.772Z",
+  "scope": "Current selected-page layout and complete primary/snapshot pixel identity only; not independent peer review, source-interpretation certification or venue certification."
 }

@@ -52,12 +52,13 @@ def current_fixture():
         'result_build': result_build, 'result_visual': result_visual,
         'budget': 39, 'source_sha256': source,
         'pdf_sha256': pdf_hash, 'log_sha256': log_hash,
-        'checked': 88, 'unchecked': 9,
+        'checked': 88, 'unchecked': 9, 'actual_pages': 39,
         'macro_counts': {'snapshot generated': (88, 9),
                          'default build input': (88, 9)},
         'primary': {
             'build': copy.deepcopy(build), 'source_sha256': source,
             'pdf_sha256': pdf_hash, 'log_sha256': log_hash, 'budget': 39,
+            'actual_pages': 39,
         },
     }
 
@@ -89,6 +90,7 @@ class SnapshotEvidenceRegressions(unittest.TestCase):
         case['primary']['source_sha256'] = original
         case['primary']['pdf_sha256'] = 'P' * 64
         case['primary']['log_sha256'] = 'L' * 64
+        case['primary']['actual_pages'] = 40
         case['primary']['build'].update(pages=40, local_page_budget=40,
                                       source_sha256=original,
                                       pdf_sha256='P' * 64, log_sha256='L' * 64)
@@ -97,6 +99,82 @@ class SnapshotEvidenceRegressions(unittest.TestCase):
     def test_research_excerpt_binds_primary_and_preserves_identity_mode(self):
         validate_snapshot_evidence(**self._excerpt_fixture())
         validate_snapshot_evidence(**current_fixture())
+
+    def _pixel_mirror_fixture(self):
+        case = current_fixture()
+        commands = [{'command': ['bibtex' if i == 1 else 'pdflatex'], 'exit_code': 0}
+                    for i in range(5)]
+        for name in ('build', 'result_build'):
+            case[name]['commands'] = copy.deepcopy(commands)
+        case['primary']['build']['commands'] = copy.deepcopy(commands)
+        for name in ('visual', 'result_visual'):
+            case[name].update(
+                coverage_kind='pixel-identity-to-primary',
+                full_size_pages_inspected=[1, 39],
+                pixel_identity_to_primary={
+                    'primary_pdf_sha256': case['pdf_sha256'],
+                    'snapshot_pdf_sha256': case['pdf_sha256'],
+                    'pages': [{'page': page, 'width': 918, 'height': 1188,
+                               'primary_pixels_sha256': 'a' * 64,
+                               'snapshot_pixels_sha256': 'a' * 64}
+                              for page in range(1, 40)],
+                })
+        return case
+
+    def test_full_mirror_accepts_actual_views_and_complete_pixel_identity(self):
+        validate_snapshot_evidence(**self._pixel_mirror_fixture())
+
+    def test_pixel_mirror_requires_real_build_command_record(self):
+        case = self._pixel_mirror_fixture()
+        for name in ('build', 'result_build'):
+            case[name]['commands'].pop()
+        with self.assertRaisesRegex(ValueError, 'five-command'):
+            validate_snapshot_evidence(**case)
+
+    def test_mirror_rejects_incomplete_or_different_rendered_pixels(self):
+        for defect in ('missing-page', 'different-pixels', 'missing-actual-views'):
+            case = self._pixel_mirror_fixture()
+            for name in ('visual', 'result_visual'):
+                if defect == 'missing-page':
+                    case[name]['pixel_identity_to_primary']['pages'].pop()
+                elif defect == 'different-pixels':
+                    case[name]['pixel_identity_to_primary']['pages'][0]['snapshot_pixels_sha256'] = 'b' * 64
+                else:
+                    case[name]['full_size_pages_inspected'] = []
+            with self.subTest(defect=defect), self.assertRaises(ValueError):
+                validate_snapshot_evidence(**case)
+
+    def test_actual_pdf_counts_cannot_be_replaced_by_receipt_counts(self):
+        case = current_fixture()
+        case['actual_pages'] = 38
+        with self.assertRaisesRegex(ValueError, 'actual PDF'):
+            validate_snapshot_evidence(**case)
+        case = current_fixture()
+        case['primary']['actual_pages'] = 40
+        with self.assertRaisesRegex(ValueError, 'actual PDF'):
+            validate_snapshot_evidence(**case)
+
+    def test_full_mirror_rejects_source_figure_template_pdf_log_or_command_drift(self):
+        for defect in ('main.tex', 'figures/model.pdf', 'acmart.cls', 'pdf', 'log', 'commands'):
+            case = current_fixture()
+            if defect.endswith(('.tex', '.pdf', '.cls')):
+                changed = dict(case['primary']['source_sha256'], **{defect: 'x' * 64})
+                case['primary']['source_sha256'] = changed
+                case['primary']['build']['source_sha256'] = changed
+            elif defect in ('pdf', 'log'):
+                field = defect + '_sha256'
+                case['primary'][field] = case['primary']['build'][field] = 'x' * 64
+            else:
+                case['primary']['build']['commands'] = [{'command': ['different-local-build']}]
+            with self.subTest(defect=defect), self.assertRaises(ValueError):
+                validate_snapshot_evidence(**case)
+
+    def test_excerpt_cannot_describe_identical_exception_sources(self):
+        case = self._excerpt_fixture()
+        for name in ('build', 'result_build'):
+            case[name]['primary_relation']['source_exceptions']['main.tex']['primary'] = case['source_sha256']['main.tex']
+        with self.assertRaisesRegex(ValueError, 'Excerpt source exception'):
+            validate_snapshot_evidence(**case)
 
     def test_excerpt_rejects_unlisted_scientific_input_changes(self):
         case = self._excerpt_fixture()
@@ -128,6 +206,7 @@ class SnapshotEvidenceRegressions(unittest.TestCase):
             record['full_size_pages_inspected'] = list(range(1, 37))
             record['required_parent_pages'] = list(range(1, 37))
         case['budget'] = 36
+        case['actual_pages'] = 36
         with self.assertRaisesRegex(ValueError, 'current primary paper'):
             validate_snapshot_evidence(**case)
 

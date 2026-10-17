@@ -10,7 +10,7 @@
   "local_page_budget": 40,
   "scope": "Structural and rhetorical gate; not a substitute for independent copyediting or peer judgment.",
   "pdf": "manuscript_snapshot/build/main.pdf",
-  "pdf_sha256": "716fad6a8ae9f5146c95d476a9ef014a5a85c38c6a4d2c8218b9913117f29f0a",
+  "pdf_sha256": "5064f0d04f1200d8724f9b69b2adfd1498ffeacb572b4bc671e3f5c48ed7f3a6",
   "source_sha256": {
     "ACM-Reference-Format.bst": "4342d27456645567ef1a027f6474e894715bc31d468f040142fa54540440ad04",
     "acmart.cls": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
@@ -33,6 +33,6 @@
     "sections/08-synthesis.tex": "ff058dde72402d72781d0b9158471aedfee9813af5d5d7d8b6b6c418fa92f035",
     "sections/09-agenda.tex": "1c2e6bff0863be4a4237791bb50153cf48d59c5e24ecda1478bb7ce5f4ea8b5c"
   },
-  "log_sha256": "fd2e9a131b806865241710fe1c0d209f88727d7a43e0bd63c042185c80aeecf5",
+  "log_sha256": "44ed0c422820d88adc46d544471182e31ab421d10fbc325a051f1ec030edb443",
   "manuscript_mode": "artifact-only-snapshot"
 }

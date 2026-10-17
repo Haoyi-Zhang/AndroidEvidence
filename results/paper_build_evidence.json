@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "pdf": "manuscript_snapshot/build/main.pdf",
-  "pdf_sha256": "716fad6a8ae9f5146c95d476a9ef014a5a85c38c6a4d2c8218b9913117f29f0a",
+  "pdf_sha256": "5064f0d04f1200d8724f9b69b2adfd1498ffeacb572b4bc671e3f5c48ed7f3a6",
   "source_sha256": {
     "ACM-Reference-Format.bst": "4342d27456645567ef1a027f6474e894715bc31d468f040142fa54540440ad04",
     "acmart.cls": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
@@ -24,62 +24,82 @@
     "sections/08-synthesis.tex": "ff058dde72402d72781d0b9158471aedfee9813af5d5d7d8b6b6c418fa92f035",
     "sections/09-agenda.tex": "1c2e6bff0863be4a4237791bb50153cf48d59c5e24ecda1478bb7ce5f4ea8b5c"
   },
-  "log_sha256": "fd2e9a131b806865241710fe1c0d209f88727d7a43e0bd63c042185c80aeecf5",
+  "log_sha256": "44ed0c422820d88adc46d544471182e31ab421d10fbc325a051f1ec030edb443",
   "local_page_budget": 40,
   "pages": 39,
   "page_size": "612 x 792 pts (letter)",
-  "file_size_bytes": 624752,
+  "file_size_bytes": 624748,
   "commands": [
     {
       "command": [
-        "D:\\LaTeXTools\\texlive\\2024\\bin\\windows\\pdflatex.exe",
+        "pdflatex.exe",
         "-no-shell-escape",
         "-interaction=nonstopmode",
         "-halt-on-error",
         "-output-directory=build",
         "main.tex"
       ],
-      "exit_code": 0
+      "exit_code": 0,
+      "wall_seconds": 1.0945252999663353,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null,
+      "accepted_bibliography_warnings": false
     },
     {
       "command": [
-        "D:\\LaTeXTools\\texlive\\2024\\bin\\windows\\bibtex.exe",
+        "bibtex.exe",
         "build/main"
       ],
-      "exit_code": 0
+      "exit_code": 0,
+      "wall_seconds": 0.04578779998701066,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null,
+      "accepted_bibliography_warnings": false
     },
     {
       "command": [
-        "D:\\LaTeXTools\\texlive\\2024\\bin\\windows\\pdflatex.exe",
+        "pdflatex.exe",
         "-no-shell-escape",
         "-interaction=nonstopmode",
         "-halt-on-error",
         "-output-directory=build",
         "main.tex"
       ],
-      "exit_code": 0
+      "exit_code": 0,
+      "wall_seconds": 1.0641964999958873,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null,
+      "accepted_bibliography_warnings": false
     },
     {
       "command": [
-        "D:\\LaTeXTools\\texlive\\2024\\bin\\windows\\pdflatex.exe",
+        "pdflatex.exe",
         "-no-shell-escape",
         "-interaction=nonstopmode",
         "-halt-on-error",
         "-output-directory=build",
         "main.tex"
       ],
-      "exit_code": 0
+      "exit_code": 0,
+      "wall_seconds": 1.0746857000049204,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null,
+      "accepted_bibliography_warnings": false
     },
     {
       "command": [
-        "D:\\LaTeXTools\\texlive\\2024\\bin\\windows\\pdflatex.exe",
+        "pdflatex.exe",
         "-no-shell-escape",
         "-interaction=nonstopmode",
         "-halt-on-error",
         "-output-directory=build",
         "main.tex"
       ],
-      "exit_code": 0
+      "exit_code": 0,
+      "wall_seconds": 1.0637403999571688,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null,
+      "accepted_bibliography_warnings": false
     }
   ],
   "latex_findings": {
@@ -108,21 +128,8 @@
     "source_contract_passed": true
   },
   "qpdf_check": "not_available",
-  "visual_inspection": "Actual changed page19 viewed; unchanged pages inherit previous actual coverage by exact pixel and link identity.",
-  "primary_relation": {
-    "kind": "research-content-excerpt",
-    "primary_pages": 40,
-    "primary_pdf_sha256": "c8e65ac6c47dfbb8ab21eab15525bf4871375d8df7a706e538711714553c7f3f",
-    "primary_log_sha256": "01d79e245382f64a4339530884c57f055428aab4d98a830e40c92d91d43f39ea",
-    "source_exceptions": {
-      "main.tex": {
-        "primary": "4a36fff288ce6fb8c9c00b39771edeea892cc5439e81711ac1455cc300e07a41",
-        "snapshot": "9ee093a1bc53af1e74a68602cc3f7be09f0861afb7223fcb863e2131f9708f34"
-      },
-      "sections/02-method.tex": {
-        "primary": "adb4f5427c9df5afc5c47722bb0786fd386574f8306ec668f500e69e1fbce0ea",
-        "snapshot": "28cb45825ce2155042df88e7ef4cf66f027510acf7d1c175b0a2e90d15cda459"
-      }
-    }
-  }
+  "visual_inspection": "39 rendered pages pixel-identical to reviewed native output; actual changed pages6,7and final39 viewed",
+  "pdf_path_basis": "artifact-root relative",
+  "command_execution_root": "isolated sibling-paper build (original root retained privately)",
+  "scope": "Exact byte copies of the current primary paper PDF and final log, with its genuine five-command compiler record. No separate snapshot compilation."
 }
