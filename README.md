@@ -6,6 +6,10 @@ This directory contains the evidence companion to **From Resemblance to Authorit
 
 ## Reproduce
 
+The full runner needs Python and Poppler's `pdfinfo` on `PATH`. The snapshot
+regression reads the actual PDF page count; on Debian/Ubuntu, install
+`poppler-utils`. The ledger calculations themselves use the Python standard library.
+
 From this directory:
 
 ```bash

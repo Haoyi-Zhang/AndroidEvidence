@@ -10,12 +10,33 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from snapshot_evidence import source_count_macros, validate_snapshot_evidence
+from snapshot_evidence import pdf_page_count, source_count_macros, validate_snapshot_evidence
 
 
 ART = Path(__file__).resolve().parents[1]
+
+
+class PdfInfoDependencyRegressions(unittest.TestCase):
+    def test_real_snapshot_page_count_uses_installed_pdfinfo(self):
+        self.assertEqual(39, pdf_page_count(ART / 'manuscript_snapshot/build/main.pdf'))
+
+    def test_missing_pdfinfo_fails_without_receipt_or_subprocess_fallback(self):
+        with patch('snapshot_evidence.shutil.which', return_value=None), \
+             patch('snapshot_evidence.subprocess.check_output') as measure:
+            with self.assertRaisesRegex(ValueError, 'pdfinfo.*poppler-utils'):
+                pdf_page_count(ART / 'manuscript_snapshot/build/main.pdf')
+            measure.assert_not_called()
+
+    def test_scientific_workflow_installs_and_checks_poppler_before_reproduce(self):
+        workflow = (ART / '.github/workflows/scientific-checks.yml').read_text(encoding='utf-8')
+        install = 'sudo apt-get install --yes --no-install-recommends poppler-utils'
+        self.assertIn(install, workflow)
+        self.assertLess(workflow.index(install), workflow.index('pdfinfo -v'))
+        self.assertLess(workflow.index('pdfinfo -v'),
+                        workflow.index('python -B scripts/reproduce.py --out scientific-output'))
 
 
 def current_fixture():

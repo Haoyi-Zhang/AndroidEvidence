@@ -20,6 +20,11 @@ jobs:
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
           python-version: '3.12'
+      - name: Install PDF metadata tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends poppler-utils
+          pdfinfo -v
       - name: Generate conceptual vector figures
         run: |
           python -m pip install matplotlib==3.11.2

@@ -16,8 +16,11 @@ def _comparable(record, omitted):
 
 def pdf_page_count(path):
     """Read the selected PDF's actual count; never infer it from a receipt."""
+    pdfinfo = shutil.which('pdfinfo')
+    require(pdfinfo is not None,
+            'PDF page measurement requires pdfinfo; install Poppler (Ubuntu: poppler-utils).')
     info = subprocess.check_output(
-        [shutil.which('pdfinfo') or 'pdfinfo', str(path)], text=True,
+        [pdfinfo, str(path)], text=True,
         encoding='utf-8', errors='replace', timeout=30)
     match = re.search(r'^Pages:\s+(\d+)\s*$', info, re.M)
     require(match is not None, 'pdfinfo did not report an actual PDF page count')
