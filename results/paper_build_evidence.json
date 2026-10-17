@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "pdf": "manuscript_snapshot/build/main.pdf",
-  "pdf_sha256": "82dae684b5411f243cc426d53c46840fd67b86659880f39a3606fabf1675c5db",
+  "pdf_sha256": "716fad6a8ae9f5146c95d476a9ef014a5a85c38c6a4d2c8218b9913117f29f0a",
   "source_sha256": {
     "ACM-Reference-Format.bst": "4342d27456645567ef1a027f6474e894715bc31d468f040142fa54540440ad04",
     "acmart.cls": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
@@ -18,13 +18,13 @@
     "sections/02-method.tex": "28cb45825ce2155042df88e7ef4cf66f027510acf7d1c175b0a2e90d15cda459",
     "sections/03-evidence-model.tex": "481856cedd84b69a09cbc4bc5b1fba4389d1ea48c34aa586be17a2ef173b56f1",
     "sections/04-repackaging.tex": "7f7e79e95a26a5e0d0a95f4e0ed8ee5bfb5e6749ccb366fff705f70f648e8f99",
-    "sections/05-libraries.tex": "340dff1a6b6429d70749beb22d2b702e9dfc32910f79d68014f620f711b41041",
+    "sections/05-libraries.tex": "3f4719ddc464861fc222f1407de9feedb4f2ce7ec406465ca6be195e2f015e1d",
     "sections/06-provenance.tex": "613c6e3fbb26f5c07e336068d77afdf330fe549036387faee484b756582a1203",
     "sections/07-ai-mediated.tex": "da580017654fa38751d93dce893ab4a6bc0f59ec657915bc2fa5f8005c950d62",
     "sections/08-synthesis.tex": "ff058dde72402d72781d0b9158471aedfee9813af5d5d7d8b6b6c418fa92f035",
     "sections/09-agenda.tex": "1c2e6bff0863be4a4237791bb50153cf48d59c5e24ecda1478bb7ce5f4ea8b5c"
   },
-  "log_sha256": "d51b915fbae2ee2d5ea5371cded114e0f9e003268569dabbca89ed772cf6a78c",
+  "log_sha256": "fd2e9a131b806865241710fe1c0d209f88727d7a43e0bd63c042185c80aeecf5",
   "local_page_budget": 40,
   "pages": 39,
   "page_size": "612 x 792 pts (letter)",
@@ -32,35 +32,51 @@
   "commands": [
     {
       "command": [
-        "pdflatex",
+        "D:\\LaTeXTools\\texlive\\2024\\bin\\windows\\pdflatex.exe",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-output-directory=build",
         "main.tex"
       ],
       "exit_code": 0
     },
     {
       "command": [
-        "bibtex",
+        "D:\\LaTeXTools\\texlive\\2024\\bin\\windows\\bibtex.exe",
         "build/main"
       ],
       "exit_code": 0
     },
     {
       "command": [
-        "pdflatex",
+        "D:\\LaTeXTools\\texlive\\2024\\bin\\windows\\pdflatex.exe",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-output-directory=build",
         "main.tex"
       ],
       "exit_code": 0
     },
     {
       "command": [
-        "pdflatex",
+        "D:\\LaTeXTools\\texlive\\2024\\bin\\windows\\pdflatex.exe",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-output-directory=build",
         "main.tex"
       ],
       "exit_code": 0
     },
     {
       "command": [
-        "pdflatex",
+        "D:\\LaTeXTools\\texlive\\2024\\bin\\windows\\pdflatex.exe",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-output-directory=build",
         "main.tex"
       ],
       "exit_code": 0
@@ -92,12 +108,12 @@
     "source_contract_passed": true
   },
   "qpdf_check": "not_available",
-  "visual_inspection": "Actual changed page28 viewed; unchanged pages retain previous actual-view coverage by exact pixels and links.",
+  "visual_inspection": "Actual changed page19 viewed; unchanged pages inherit previous actual coverage by exact pixel and link identity.",
   "primary_relation": {
     "kind": "research-content-excerpt",
     "primary_pages": 40,
-    "primary_pdf_sha256": "79c1b31cd338f8b67a7f7cf8045865c7b89da6136b3937a58262447ffc5c28db",
-    "primary_log_sha256": "a67b84a3a789497e8b0df89bbe2419d4ed201f7b57cbfcc70389dda68c2a1985",
+    "primary_pdf_sha256": "c8e65ac6c47dfbb8ab21eab15525bf4871375d8df7a706e538711714553c7f3f",
+    "primary_log_sha256": "01d79e245382f64a4339530884c57f055428aab4d98a830e40c92d91d43f39ea",
     "source_exceptions": {
       "main.tex": {
         "primary": "4a36fff288ce6fb8c9c00b39771edeea892cc5439e81711ac1455cc300e07a41",
