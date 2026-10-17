@@ -1,10 +1,10 @@
 {
   "status": "PASS",
   "pdf": "manuscript_snapshot/build/main.pdf",
-  "pdf_path_basis": "artifact-directory relative",
+  "pdf_path_basis": "manuscript-directory relative",
   "page_count": 39,
   "local_page_budget": 40,
-  "pdf_sha256": "345377ae010c16444f0cb4bdb986d004fab8f87a5f929ac9f01e119c683ed8d9",
+  "pdf_sha256": "bed1cce36f76266aa048804840eb2c46bc119551b5ed9345cfb481464bf12a0f",
   "source_sha256": {
     "ACM-Reference-Format.bst": "4342d27456645567ef1a027f6474e894715bc31d468f040142fa54540440ad04",
     "acmart.cls": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
@@ -16,7 +16,7 @@
     "generated/review_matrix_rows.tex": "b5ca58dc2162cc365d435f9d21845499f09f80d10993f661a12164be4988be80",
     "main.tex": "9ee093a1bc53af1e74a68602cc3f7be09f0861afb7223fcb863e2131f9708f34",
     "project-repository.tex": "a9cbcf7c0e634f512a9fc6e297ae38730618c06f676e14ee61bce71a0c69243b",
-    "references.bib": "b6067323d7ae368a4a5df86f1644ee74d782cdbeed97dfe477f1d7f33fbb3a0c",
+    "references.bib": "03be199739d11b053f8bec0fe23e5b844f5f3d3a0ce96dda34a9dd59285f9896",
     "sections/01-introduction.tex": "d0d2ddae58a08cb050d748f1a5cfb60647574c21e190d35efdc2a713c2127f04",
     "sections/02-method.tex": "28cb45825ce2155042df88e7ef4cf66f027510acf7d1c175b0a2e90d15cda459",
     "sections/03-evidence-model.tex": "481856cedd84b69a09cbc4bc5b1fba4389d1ea48c34aa586be17a2ef173b56f1",
@@ -27,7 +27,7 @@
     "sections/08-synthesis.tex": "ff058dde72402d72781d0b9158471aedfee9813af5d5d7d8b6b6c418fa92f035",
     "sections/09-agenda.tex": "1c2e6bff0863be4a4237791bb50153cf48d59c5e24ecda1478bb7ce5f4ea8b5c"
   },
-  "log_sha256": "70a54005aac0f751b0e82f1a330939d0c2c7b441ceab1597da17529137c1add2",
+  "log_sha256": "23284b51bbcf582f8c7bcb03d3c227551911f9c2c9878be8bb0f750fabae16a2",
   "full_size_pages_inspected": [
     1,
     2,
@@ -114,21 +114,19 @@
   "pending_parent_all_page_inspection": false,
   "render_dpi": 135,
   "newly_viewed_full_size_pages": [
-    3,
-    6,
-    7,
-    39
+    36
   ],
   "current_round_changed_pages_inspected": [
-    3,
-    6,
-    7
+    36
   ],
   "unchanged_pages_inherit_previous_view_by_pixel_and_uri_identity": [
     1,
     2,
+    3,
     4,
     5,
+    6,
+    7,
     8,
     9,
     10,
@@ -157,12 +155,11 @@
     33,
     34,
     35,
-    36,
     37,
     38,
     39
   ],
-  "prior_visual_receipt_sha256": "3876c7f76f49ad3400dd741fc4460b09e21efdc6846f4a78a18d924e338b6ba4",
+  "prior_visual_receipt_sha256": "d2cea1a0fbc3f6337d496262450c9eac8e7e890bf46bd6ed7f017624d26262b5",
   "font_embedding": "all listed fonts embedded",
   "font_embedding_basis": "pdffonts on this exact PDF; no Type 3.",
   "page_boundaries": {
@@ -181,13 +178,15 @@
     "byte_identical_to_current_primary": false,
     "research_content_excerpt_of_current_primary": true,
     "byte_identical_to_receipt_selected_pdf": true,
-    "receipt_selected_pdf_sha256": "345377ae010c16444f0cb4bdb986d004fab8f87a5f929ac9f01e119c683ed8d9"
+    "receipt_selected_pdf_sha256": "bed1cce36f76266aa048804840eb2c46bc119551b5ed9345cfb481464bf12a0f"
   },
   "layout_findings": [
-    "Changed pages 3, 6 and 7 and final reference page 39 were actually inspected at 135 dpi.",
-    "No clipping, overlap or unresolved reference was observed in the inspected pages.",
-    "The other 36 pages retain prior actual-view coverage by pixel and link identity."
+    "AppCommune four given-name errors corrected against original first-page author list.",
+    "Reference and total page boundaries unchanged; no clipping or overlap on actual viewed page."
   ],
-  "inspected_at": "2026-10-16T21:55:36.224481+00:00",
-  "scope": "Current combined page-layout coverage; not independent peer review, independent source coding or venue certification."
+  "inspected_at": "2026-10-17T05:48:28.276469+00:00",
+  "scope": "Current combined page-layout coverage; not independent peer review, independent source coding or venue certification.",
+  "additional_unchanged_boundary_pages_viewed": [],
+  "previous_viewed_pdf_sha256": "345377ae010c16444f0cb4bdb986d004fab8f87a5f929ac9f01e119c683ed8d9",
+  "inspection_basis": "Actual changed reference page36 viewed; unchanged pages retain previous actual-view coverage via exact pixels and URI annotations. No claim of a fresh all-page rereading."
 }

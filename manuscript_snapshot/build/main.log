@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2026.10.3)  17 OCT 2026 05:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2026.10.3)  17 OCT 2026 13:47
 entering extended mode
  %&-line parsing enabled.
 **main.tex
@@ -1367,7 +1367,7 @@ ublic/libertine/LinLibertineTB.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/fonts
 /type1/public/libertine/LinLibertineTI.pfb><d:/LaTeXTools/texlive/2024/texmf-di
 st/fonts/type1/public/newtx/txmiaX.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/f
 onts/type1/public/newtx/txsys.pfb>
-Output written on build/main.pdf (39 pages, 624752 bytes).
+Output written on build/main.pdf (39 pages, 624745 bytes).
 PDF statistics:
  1340 PDF objects out of 1440 (max. 8388607)
  1141 compressed objects within 12 object streams

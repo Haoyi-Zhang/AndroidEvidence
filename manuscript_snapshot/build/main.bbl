@@ -585,8 +585,8 @@
 
 \bibitem[Li et~al\mbox{.}(2019)]%
         {appcommune}
-\bibfield{author}{\bibinfo{person}{Bowen Li}, \bibinfo{person}{Yiming Zhang},
-  \bibinfo{person}{Jing Li}, \bibinfo{person}{Ruitao Feng}, {and}
+\bibfield{author}{\bibinfo{person}{Bodong Li}, \bibinfo{person}{Yuanyuan
+  Zhang}, \bibinfo{person}{Juanru Li}, \bibinfo{person}{Runhan Feng}, {and}
   \bibinfo{person}{Dawu Gu}.} \bibinfo{year}{2019}\natexlab{}.
 \newblock \showarticletitle{AppCommune: Automated Third-Party Libraries
   De-Duplicating and Updating for Android Apps}. In
