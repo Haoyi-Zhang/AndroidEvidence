@@ -4,7 +4,7 @@
   "pdf_path_basis": "manuscript-directory relative",
   "page_count": 39,
   "local_page_budget": 40,
-  "pdf_sha256": "07b873e9d1ad939bf7463f2b794fc6cc60e8407e93f529cda04c068aa4065cc7",
+  "pdf_sha256": "82dae684b5411f243cc426d53c46840fd67b86659880f39a3606fabf1675c5db",
   "source_sha256": {
     "ACM-Reference-Format.bst": "4342d27456645567ef1a027f6474e894715bc31d468f040142fa54540440ad04",
     "acmart.cls": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
@@ -23,11 +23,11 @@
     "sections/04-repackaging.tex": "7f7e79e95a26a5e0d0a95f4e0ed8ee5bfb5e6749ccb366fff705f70f648e8f99",
     "sections/05-libraries.tex": "340dff1a6b6429d70749beb22d2b702e9dfc32910f79d68014f620f711b41041",
     "sections/06-provenance.tex": "613c6e3fbb26f5c07e336068d77afdf330fe549036387faee484b756582a1203",
-    "sections/07-ai-mediated.tex": "f79c23164f7def666bdd8cb5b3ded06697b8465494950f344ca8a6f84f3a0d1c",
+    "sections/07-ai-mediated.tex": "da580017654fa38751d93dce893ab4a6bc0f59ec657915bc2fa5f8005c950d62",
     "sections/08-synthesis.tex": "ff058dde72402d72781d0b9158471aedfee9813af5d5d7d8b6b6c418fa92f035",
     "sections/09-agenda.tex": "1c2e6bff0863be4a4237791bb50153cf48d59c5e24ecda1478bb7ce5f4ea8b5c"
   },
-  "log_sha256": "cddf2af3fddcc927d65152059ef2313bf7dc7da87f38dbd0c81073165cfc321a",
+  "log_sha256": "d51b915fbae2ee2d5ea5371cded114e0f9e003268569dabbca89ed772cf6a78c",
   "full_size_pages_inspected": [
     1,
     2,
@@ -114,12 +114,10 @@
   "pending_parent_all_page_inspection": false,
   "render_dpi": 135,
   "newly_viewed_full_size_pages": [
-    38,
-    39
+    28
   ],
   "current_round_changed_pages_inspected": [
-    38,
-    39
+    28
   ],
   "unchanged_pages_inherit_previous_view_by_pixel_and_uri_identity": [
     1,
@@ -149,7 +147,6 @@
     25,
     26,
     27,
-    28,
     29,
     30,
     31,
@@ -158,9 +155,11 @@
     34,
     35,
     36,
-    37
+    37,
+    38,
+    39
   ],
-  "prior_visual_receipt_sha256": "70867fd2f33c5e9f39dd94457d6dec3bf27427f9498747464698b40d85a371e6",
+  "prior_visual_receipt_sha256": "a3b13c3f071be2456d08d67d0c6c85c9e0635bf5fdacf7f0368d3935297ee6e9",
   "font_embedding": "all listed fonts embedded",
   "font_embedding_basis": "pdffonts on this exact PDF; no Type 3.",
   "page_boundaries": {
@@ -179,15 +178,15 @@
     "byte_identical_to_current_primary": false,
     "research_content_excerpt_of_current_primary": true,
     "byte_identical_to_receipt_selected_pdf": true,
-    "receipt_selected_pdf_sha256": "07b873e9d1ad939bf7463f2b794fc6cc60e8407e93f529cda04c068aa4065cc7"
+    "receipt_selected_pdf_sha256": "82dae684b5411f243cc426d53c46840fd67b86659880f39a3606fabf1675c5db"
   },
   "layout_findings": [
-    "Three original-verified author lists corrected.",
-    "Reference and total-page boundaries unchanged; actual viewed pages have no clipping or overlap."
+    "Explicit43/2560 response denominator and separate43-prompt abstract wording.",
+    "Total and reference boundaries unchanged; no clipping or overlap on actual viewed pages."
   ],
-  "inspected_at": "2026-10-17T06:00:13.043030+00:00",
+  "inspected_at": "2026-10-17T06:45:15.362119+00:00",
   "scope": "Current combined page-layout coverage; not independent peer review, independent source coding or venue certification.",
   "additional_unchanged_boundary_pages_viewed": [],
-  "previous_viewed_pdf_sha256": "bed1cce36f76266aa048804840eb2c46bc119551b5ed9345cfb481464bf12a0f",
-  "inspection_basis": "Actual changed reference pages viewed; unchanged pages retain previous actual-view coverage through exact pixels and URI annotations. No new all-page rereading claimed."
+  "previous_viewed_pdf_sha256": "07b873e9d1ad939bf7463f2b794fc6cc60e8407e93f529cda04c068aa4065cc7",
+  "inspection_basis": "Actual changed page28 viewed separately in both consumers; exact pixels and links retain prior actual-view coverage for every unchanged page."
 }
