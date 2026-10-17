@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "pdf": "manuscript_snapshot/build/main.pdf",
-  "pdf_sha256": "bed1cce36f76266aa048804840eb2c46bc119551b5ed9345cfb481464bf12a0f",
+  "pdf_sha256": "07b873e9d1ad939bf7463f2b794fc6cc60e8407e93f529cda04c068aa4065cc7",
   "source_sha256": {
     "ACM-Reference-Format.bst": "4342d27456645567ef1a027f6474e894715bc31d468f040142fa54540440ad04",
     "acmart.cls": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
@@ -13,7 +13,7 @@
     "generated/review_matrix_rows.tex": "b5ca58dc2162cc365d435f9d21845499f09f80d10993f661a12164be4988be80",
     "main.tex": "9ee093a1bc53af1e74a68602cc3f7be09f0861afb7223fcb863e2131f9708f34",
     "project-repository.tex": "a9cbcf7c0e634f512a9fc6e297ae38730618c06f676e14ee61bce71a0c69243b",
-    "references.bib": "03be199739d11b053f8bec0fe23e5b844f5f3d3a0ce96dda34a9dd59285f9896",
+    "references.bib": "eedea8dbc68b079fb085374420cd85d87a83e7ea22fcece8c44d32c156d6af50",
     "sections/01-introduction.tex": "d0d2ddae58a08cb050d748f1a5cfb60647574c21e190d35efdc2a713c2127f04",
     "sections/02-method.tex": "28cb45825ce2155042df88e7ef4cf66f027510acf7d1c175b0a2e90d15cda459",
     "sections/03-evidence-model.tex": "481856cedd84b69a09cbc4bc5b1fba4389d1ea48c34aa586be17a2ef173b56f1",
@@ -24,7 +24,7 @@
     "sections/08-synthesis.tex": "ff058dde72402d72781d0b9158471aedfee9813af5d5d7d8b6b6c418fa92f035",
     "sections/09-agenda.tex": "1c2e6bff0863be4a4237791bb50153cf48d59c5e24ecda1478bb7ce5f4ea8b5c"
   },
-  "log_sha256": "23284b51bbcf582f8c7bcb03d3c227551911f9c2c9878be8bb0f750fabae16a2",
+  "log_sha256": "cddf2af3fddcc927d65152059ef2313bf7dc7da87f38dbd0c81073165cfc321a",
   "local_page_budget": 40,
   "pages": 39,
   "page_size": "612 x 792 pts (letter)",
@@ -92,12 +92,12 @@
     "source_contract_passed": true
   },
   "qpdf_check": "not_available",
-  "visual_inspection": "Changed reference page36 actually viewed; every other page inherits previous actual-view evidence by pixel and link identity.",
+  "visual_inspection": "Changed reference pages38and39 actually viewed; every other page inherits previous actual-view evidence by pixel and link identity.",
   "primary_relation": {
     "kind": "research-content-excerpt",
     "primary_pages": 40,
-    "primary_pdf_sha256": "924ed9e46b54d993387af7e6311589f2722493f1436dad16f2be94186a3c2973",
-    "primary_log_sha256": "276c1dde0164edefd8918f92bd83ea4213919150872b8cdec1388c9167e1fb1d",
+    "primary_pdf_sha256": "26816c17795593d0c082e7846ba5843806e593e4684ab4887128ade17779c60e",
+    "primary_log_sha256": "a7914018b2c399b5109ca83faed6a407ca92744239865d8d5c991c5ab1eaab0c",
     "source_exceptions": {
       "main.tex": {
         "primary": "4a36fff288ce6fb8c9c00b39771edeea892cc5439e81711ac1455cc300e07a41",

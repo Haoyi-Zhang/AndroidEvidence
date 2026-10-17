@@ -1194,8 +1194,8 @@
   \bibinfo{person}{Kangjie Lu}, \bibinfo{person}{Cong Zheng},
   \bibinfo{person}{Ruian Duan}, \bibinfo{person}{Yeongjin Jang},
   \bibinfo{person}{Byoungyoung Lee}, \bibinfo{person}{Chenxiong Qian},
-  \bibinfo{person}{Sangho Lee}, \bibinfo{person}{Taesoo Kim}, {and}
-  \bibinfo{person}{Wenke Lee}.} \bibinfo{year}{2016}\natexlab{}.
+  \bibinfo{person}{Sangho Lee}, {and} \bibinfo{person}{Taesoo Kim}.}
+  \bibinfo{year}{2016}\natexlab{}.
 \newblock \showarticletitle{Toward Engineering a Secure Android Ecosystem: A
   Survey of Existing Techniques}.
 \newblock \bibinfo{journal}{\emph{Comput. Surveys}} \bibinfo{volume}{49},
@@ -1319,9 +1319,9 @@
 
 \bibitem[Zhang et~al\mbox{.}(2018)]%
         {tplprecision}
-\bibfield{author}{\bibinfo{person}{Yiming Zhang}, \bibinfo{person}{Jian Dai},
-  \bibinfo{person}{Xiaohan Zhang}, \bibinfo{person}{Shuang Huang},
-  \bibinfo{person}{Zhen Yang}, \bibinfo{person}{Min Yang}, {and}
+\bibfield{author}{\bibinfo{person}{Yuan Zhang}, \bibinfo{person}{Jiarun Dai},
+  \bibinfo{person}{Xiaohan Zhang}, \bibinfo{person}{Sirong Huang},
+  \bibinfo{person}{Zhemin Yang}, \bibinfo{person}{Min Yang}, {and}
   \bibinfo{person}{Hao Chen}.} \bibinfo{year}{2018}\natexlab{}.
 \newblock \showarticletitle{Detecting Third-Party Libraries in Android
   Applications with High Precision and Recall}. In
@@ -1334,8 +1334,8 @@
 
 \bibitem[Zhang et~al\mbox{.}(2020)]%
         {malicioustpl}
-\bibfield{author}{\bibinfo{person}{Zhengzi Zhang}, \bibinfo{person}{Wenrui
-  Diao}, \bibinfo{person}{Chao Hu}, \bibinfo{person}{Shengjian Guo},
+\bibfield{author}{\bibinfo{person}{Zicheng Zhang}, \bibinfo{person}{Wenrui
+  Diao}, \bibinfo{person}{Chengyu Hu}, \bibinfo{person}{Shanqing Guo},
   \bibinfo{person}{Chaoshun Zuo}, {and} \bibinfo{person}{Li Li}.}
   \bibinfo{year}{2020}\natexlab{}.
 \newblock \showarticletitle{An Empirical Study of Potentially Malicious
