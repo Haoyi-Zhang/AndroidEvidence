@@ -1,7 +1,7 @@
 {
   "status": "bounded_claim_centered_evidence_synthesis",
   "question": "Which observable evidence supports which Android software-lineage or assurance claim, under what transformation and trust assumptions, when applications include third-party components and AI-mediated changes?",
-  "review_type": "bounded claim-centered structured evidence synthesis with a closest-review adversary matrix",
+  "review_type": "bounded claim-centered structured evidence synthesis using thematic searches, citation tracing, common eligibility criteria and seven-field coding, with a closest-review adversary matrix",
   "search_cutoff": "2026-09-16",
   "corpus_records": 97,
   "primary_or_system": 76,
@@ -65,7 +65,7 @@
   ],
   "reproduction_scope": "Offline scripts validate corpus/bibliography/extraction equality, canonical identifier and publication-status constraints, source-version/page and historical-to-current recoding bindings, matrix semantics, claim-ledger references, mutation controls, the retained finite bookkeeping oracle, and manuscript-facing counts. They do not validate source interpretation or novelty.",
   "unresolved_leads": 0,
-  "traceability_note": "Every retained record has a direct scholarly or official locator, source-reading boundary, retrospective retained-record provenance row, and publication-status row. This does not reconstruct a complete database-search denominator. The legacy fresh_source_rechecks fields count cumulative dated ledger rows, not a new all-source recheck batch. Legacy reading-depth labels are not content certificates; selected fulltext checks and legacy-not-reverified records are counted separately.",
+  "traceability_note": "Discovery combines thematic keyword searches and backward/targeted forward citation tracing; retained screening decisions apply common inclusion and exclusion criteria. Every retained record has a direct scholarly or official locator, source-reading boundary, retrospective retained-record provenance row, and publication-status row. This does not reconstruct a complete database-search denominator. The legacy fresh_source_rechecks fields count cumulative dated ledger rows, not a new all-source recheck batch. Legacy reading-depth labels are not content certificates; selected fulltext checks and legacy-not-reverified records are counted separately.",
   "selected_fulltext_checked": 3,
   "complete_scope_checked": 85,
   "content_checked": 88,

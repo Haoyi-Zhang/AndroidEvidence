@@ -10,9 +10,9 @@ This is a bounded claim-centered structured evidence synthesis with a closest-re
 
 ## Search and discovery
 
-Discovery combined the historical RePack review, backward and forward scholarly snowballing, targeted searches across Android repackaging, third-party libraries, supply-chain provenance and assurance, SBOMs, reproducible builds and transparency, and AI-mediated development/security. `search_slices.csv` records the major search slices. `search_provenance.csv` records a discovery route for every retained item and explicitly labels that trace retrospective.
+Discovery combines thematic keyword searches with backward and targeted forward citation tracing. The recorded search slices concern Android repackaging, Android static analysis, third-party libraries and software-supply-chain reviews. The historical RePack review and other seed reviews connect these searches to provenance and assurance, SBOMs, reproducible builds, transparency and AI-mediated development/security. `search_slices.csv` records the major search slices. `search_provenance.csv` records a discovery route for every retained item and explicitly labels that trace retrospective.
 
-`screening_ledger.csv` contains 105 retained and excluded decisions. Inclusion requires a software-artifact lineage, component, process, authorization, behavioral, review-method, or directly relevant AI-mediated evidence object. General LLM or GUI-agent work without a software-artifact lineage object is excluded. Withdrawn or retracted records cannot enter the active corpus.
+Common inclusion and exclusion criteria govern `screening_ledger.csv`: 105 decisions comprise 97 inclusions, seven scope exclusions and one withdrawn publication. Inclusion requires a software-artifact lineage, component, process, authorization, behavioral, review-method, or directly relevant AI-mediated evidence object. General LLM or GUI-agent work without a software-artifact lineage object is excluded. Withdrawn or retracted records cannot enter the active corpus.
 
 ## Corpus obligations
 

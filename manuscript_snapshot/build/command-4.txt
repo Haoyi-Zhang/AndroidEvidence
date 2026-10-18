@@ -152,10 +152,9 @@ c.enc}{d:/LaTeXTools/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh7
 7jq.enc}]
 [2.2{d:/LaTeXTools/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_7gruk
 w.enc}]) (./sections/02-method.tex
+Underfull \vbox (badness 10000) has occurred while \output is active
 [3.3] (./generated/review_matrix_rows.tex)
-Underfull \vbox (badness 1142) has occurred while \output is active
 [4.4]
-Underfull \vbox (badness 2726) has occurred while \output is active
 [5.5]
 [6.6]) (./sections/03-evidence-model.tex
 Underfull \vbox (badness 10000) has occurred while \output is active
@@ -226,5 +225,5 @@ B.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLi
 bertineTI.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/fonts/type1/public/newtx/t
 xmiaX.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys
 .pfb>
-Output written on build/main.pdf (39 pages, 624748 bytes).
+Output written on build/main.pdf (39 pages, 624999 bytes).
 Transcript written on build/main.log.
