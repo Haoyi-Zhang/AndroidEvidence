@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "records": 97,
+  "unique_bib_keys": 97,
+  "bibliography_entries": 97,
+  "bibliography_verification_records": 97,
+  "excluded_publications": 1,
+  "claim_level_extractions": 97,
+  "closest_review_records": 21,
+  "direct_all_dimension_reviews": [],
+  "review_direct_coverage_status": "undetermined",
+  "review_unknown_cells": 31,
+  "selected_fulltext_checked_records": 3,
+  "complete_scope_checked_records": 85,
+  "content_checked_records": 88,
+  "legacy_not_reverified_records": 9,
+  "supplementary_located_coding": {
+    "located_field_rows": 595,
+    "located_recoded_records": 85,
+    "total_coding_fields": 679,
+    "records_without_supplementary_field_bindings": 12,
+    "semantic_interpretation_verified_by_code": false
+  },
+  "declared_semantic_coding": {
+    "declared_complete_seven_field_codings": 85,
+    "acquired_records_without_complete_coding": 0,
+    "semantic_interpretation_verified_by_code": false,
+    "independent_second_coder": false
+  },
+  "historical_to_current_recoding_transitions": 82,
+  "source_rechecks": 90,
+  "source_recheck_fraction": 0.9278350515463918,
+  "source_rechecks_independent": false,
+  "screening_rows": 105,
+  "source_location_records": 97,
+  "retained_record_provenance_records": 97,
+  "unresolved_leads": 0,
+  "resolved_leads": 3,
+  "templated_observations": 0,
+  "placeholder_source_locators": 0,
+  "material_claims": 27,
+  "venue_recorded": 93,
+  "active_preprints": 3,
+  "technical_method_reports": 1,
+  "primary_or_system": 76,
+  "primary_venue_recorded": 74,
+  "secondary_or_method": 21,
+  "reading_depth": {
+    "full_or_selected_source": 61,
+    "publisher_abstract_or_selected_source": 36
+  },
+  "strata": {
+    "ai_mediated": 8,
+    "android_artifact": 34,
+    "review_and_method": 21,
+    "supply_chain": 17,
+    "third_party_library": 17
+  },
+  "bibliography_optional_metadata_warnings": [],
+  "errors": [],
+  "boundary": "The checks validate supplied ledgers, exact active/excluded key quarantine, record-level publication-status metadata, review bindings, recheck coverage, and retained corpus counts. They do not prove search exhaustiveness, a comprehensive retraction-registry search, independent source interpretation, detector performance, or worldwide novelty. A source URL, complete row, legacy reading-depth label or lack of an observed all-dimension row does not certify content or a gap."
+}

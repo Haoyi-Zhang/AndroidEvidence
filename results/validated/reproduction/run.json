@@ -1,0 +1,106 @@
+{
+  "status": "passed",
+  "commands": [
+    {
+      "name": "corpus",
+      "command": [
+        "python",
+        "-B",
+        "scripts/corpus_audit.py",
+        "--out",
+        "<ARTIFACT_ROOT>\\results\\validated"
+      ],
+      "cwd": "repository root",
+      "timeout_seconds": 45,
+      "timed_out": false,
+      "exit_code": 0,
+      "launch_error": null,
+      "wall_seconds": 0.06386670004576445,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null
+    },
+    {
+      "name": "ledger",
+      "command": [
+        "python",
+        "-B",
+        "scripts/audit.py",
+        "--out",
+        "<ARTIFACT_ROOT>\\results\\validated"
+      ],
+      "cwd": "repository root",
+      "timeout_seconds": 45,
+      "timed_out": false,
+      "exit_code": 0,
+      "launch_error": null,
+      "wall_seconds": 0.046077299979515374,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null
+    },
+    {
+      "name": "oracle",
+      "command": [
+        "python",
+        "-B",
+        "scripts/oracle_check.py",
+        "--out",
+        "<ARTIFACT_ROOT>\\results\\validated"
+      ],
+      "cwd": "repository root",
+      "timeout_seconds": 45,
+      "timed_out": false,
+      "exit_code": 0,
+      "launch_error": null,
+      "wall_seconds": 0.8506446999963373,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null
+    },
+    {
+      "name": "tests",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "cwd": "repository root",
+      "timeout_seconds": 45,
+      "timed_out": false,
+      "exit_code": 0,
+      "launch_error": null,
+      "wall_seconds": 6.822678099968471,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null
+    },
+    {
+      "name": "tables",
+      "command": [
+        "python",
+        "-B",
+        "scripts/render_tables.py",
+        "--results",
+        "<ARTIFACT_ROOT>\\results\\validated"
+      ],
+      "cwd": "repository root",
+      "timeout_seconds": 45,
+      "timed_out": false,
+      "exit_code": 0,
+      "launch_error": null,
+      "wall_seconds": 0.03674650000175461,
+      "child_cpu_seconds": null,
+      "cumulative_max_child_rss_kib": null
+    }
+  ],
+  "wall_seconds": 7.821183599997312,
+  "whole_run_limit_seconds": 240,
+  "measured_child_cpu_seconds": null,
+  "workers": 1,
+  "platform": "win32",
+  "resource_measurement_basis": "getrusage unavailable on this platform",
+  "rss_note": "Running maximum, not simultaneous RSS; unavailable measurements are null.",
+  "scope": "Only the five offline checks; no source interpretation, TeX/PDF build, or release-readiness certification."
+}

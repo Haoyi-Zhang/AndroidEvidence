@@ -1,0 +1,10 @@
+{
+  "wall_seconds": 0.008021200017537922,
+  "cpu_seconds": 0.015625,
+  "peak_rss_kib": null,
+  "rss_measurement_basis": "getrusage unavailable on this platform",
+  "workers": 1,
+  "input_selection": "all supplied selected-record tables",
+  "output": "coverage_result.json",
+  "scientific_experiment": false
+}

@@ -1,0 +1,6 @@
+{
+  "binary_completions_across_matrices": 262144,
+  "domain": "exactly 3 rows by 3 columns; all ternary matrices",
+  "mismatches": 0,
+  "ternary_matrices": 19683
+}

@@ -1,0 +1,746 @@
+{
+  "analyses": {
+    "base_all": {
+      "columns": 7,
+      "definitely_absent_columns": [],
+      "direct": "undetermined",
+      "direct_lower": false,
+      "direct_upper": true,
+      "known_cover": null,
+      "known_covered_columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mosaic": "undetermined",
+      "mosaic_lower": false,
+      "mosaic_upper": true,
+      "obligation_ids": [
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O6",
+        "O7"
+      ],
+      "record_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R08",
+        "R09",
+        "R12",
+        "R13",
+        "R14"
+      ],
+      "rows": 11,
+      "unknown_cells": 66
+    },
+    "base_coarse": {
+      "columns": 6,
+      "definitely_absent_columns": [],
+      "direct": "undetermined",
+      "direct_lower": false,
+      "direct_upper": true,
+      "known_cover": [
+        "R01",
+        "R03"
+      ],
+      "known_covered_columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mosaic": "covered",
+      "mosaic_lower": true,
+      "mosaic_upper": true,
+      "obligation_ids": [
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O6"
+      ],
+      "record_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R08",
+        "R09",
+        "R12",
+        "R13",
+        "R14"
+      ],
+      "rows": 11,
+      "unknown_cells": 55
+    },
+    "core_only_all": {
+      "columns": 7,
+      "definitely_absent_columns": [],
+      "direct": "undetermined",
+      "direct_lower": false,
+      "direct_upper": true,
+      "known_cover": null,
+      "known_covered_columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mosaic": "undetermined",
+      "mosaic_lower": false,
+      "mosaic_upper": true,
+      "obligation_ids": [
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O6",
+        "O7"
+      ],
+      "record_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04"
+      ],
+      "rows": 4,
+      "unknown_cells": 17
+    },
+    "core_only_coarse": {
+      "columns": 6,
+      "definitely_absent_columns": [],
+      "direct": "undetermined",
+      "direct_lower": false,
+      "direct_upper": true,
+      "known_cover": [
+        "R01",
+        "R03"
+      ],
+      "known_covered_columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mosaic": "covered",
+      "mosaic_lower": true,
+      "mosaic_upper": true,
+      "obligation_ids": [
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O6"
+      ],
+      "record_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04"
+      ],
+      "rows": 4,
+      "unknown_cells": 13
+    },
+    "leave_out_R01": {
+      "columns": 6,
+      "definitely_absent_columns": [],
+      "direct": "undetermined",
+      "direct_lower": false,
+      "direct_upper": true,
+      "known_cover": [
+        "R02",
+        "R03"
+      ],
+      "known_covered_columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mosaic": "covered",
+      "mosaic_lower": true,
+      "mosaic_upper": true,
+      "obligation_ids": [
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O6"
+      ],
+      "record_ids": [
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R08",
+        "R09",
+        "R12",
+        "R13",
+        "R14"
+      ],
+      "rows": 10,
+      "unknown_cells": 52
+    },
+    "leave_out_R02": {
+      "columns": 6,
+      "definitely_absent_columns": [],
+      "direct": "undetermined",
+      "direct_lower": false,
+      "direct_upper": true,
+      "known_cover": [
+        "R01",
+        "R03"
+      ],
+      "known_covered_columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mosaic": "covered",
+      "mosaic_lower": true,
+      "mosaic_upper": true,
+      "obligation_ids": [
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O6"
+      ],
+      "record_ids": [
+        "R01",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R08",
+        "R09",
+        "R12",
+        "R13",
+        "R14"
+      ],
+      "rows": 10,
+      "unknown_cells": 52
+    },
+    "leave_out_R03": {
+      "columns": 6,
+      "definitely_absent_columns": [],
+      "direct": "undetermined",
+      "direct_lower": false,
+      "direct_upper": true,
+      "known_cover": null,
+      "known_covered_columns": [
+        0,
+        1,
+        2,
+        3,
+        5
+      ],
+      "mosaic": "undetermined",
+      "mosaic_lower": false,
+      "mosaic_upper": true,
+      "obligation_ids": [
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O6"
+      ],
+      "record_ids": [
+        "R01",
+        "R02",
+        "R04",
+        "R05",
+        "R06",
+        "R08",
+        "R09",
+        "R12",
+        "R13",
+        "R14"
+      ],
+      "rows": 10,
+      "unknown_cells": 52
+    },
+    "leave_out_R04": {
+      "columns": 6,
+      "definitely_absent_columns": [],
+      "direct": "undetermined",
+      "direct_lower": false,
+      "direct_upper": true,
+      "known_cover": [
+        "R01",
+        "R03"
+      ],
+      "known_covered_columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mosaic": "covered",
+      "mosaic_lower": true,
+      "mosaic_upper": true,
+      "obligation_ids": [
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O6"
+      ],
+      "record_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R05",
+        "R06",
+        "R08",
+        "R09",
+        "R12",
+        "R13",
+        "R14"
+      ],
+      "rows": 10,
+      "unknown_cells": 51
+    },
+    "leave_out_R05": {
+      "columns": 6,
+      "definitely_absent_columns": [],
+      "direct": "undetermined",
+      "direct_lower": false,
+      "direct_upper": true,
+      "known_cover": [
+        "R01",
+        "R03"
+      ],
+      "known_covered_columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mosaic": "covered",
+      "mosaic_lower": true,
+      "mosaic_upper": true,
+      "obligation_ids": [
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O6"
+      ],
+      "record_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R06",
+        "R08",
+        "R09",
+        "R12",
+        "R13",
+        "R14"
+      ],
+      "rows": 10,
+      "unknown_cells": 49
+    },
+    "leave_out_R06": {
+      "columns": 6,
+      "definitely_absent_columns": [],
+      "direct": "undetermined",
+      "direct_lower": false,
+      "direct_upper": true,
+      "known_cover": [
+        "R01",
+        "R03"
+      ],
+      "known_covered_columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mosaic": "covered",
+      "mosaic_lower": true,
+      "mosaic_upper": true,
+      "obligation_ids": [
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O6"
+      ],
+      "record_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R08",
+        "R09",
+        "R12",
+        "R13",
+        "R14"
+      ],
+      "rows": 10,
+      "unknown_cells": 49
+    },
+    "leave_out_R08": {
+      "columns": 6,
+      "definitely_absent_columns": [],
+      "direct": "undetermined",
+      "direct_lower": false,
+      "direct_upper": true,
+      "known_cover": [
+        "R01",
+        "R03"
+      ],
+      "known_covered_columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mosaic": "covered",
+      "mosaic_lower": true,
+      "mosaic_upper": true,
+      "obligation_ids": [
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O6"
+      ],
+      "record_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R09",
+        "R12",
+        "R13",
+        "R14"
+      ],
+      "rows": 10,
+      "unknown_cells": 49
+    },
+    "leave_out_R09": {
+      "columns": 6,
+      "definitely_absent_columns": [],
+      "direct": "undetermined",
+      "direct_lower": false,
+      "direct_upper": true,
+      "known_cover": [
+        "R01",
+        "R03"
+      ],
+      "known_covered_columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mosaic": "covered",
+      "mosaic_lower": true,
+      "mosaic_upper": true,
+      "obligation_ids": [
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O6"
+      ],
+      "record_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R08",
+        "R12",
+        "R13",
+        "R14"
+      ],
+      "rows": 10,
+      "unknown_cells": 49
+    },
+    "leave_out_R12": {
+      "columns": 6,
+      "definitely_absent_columns": [],
+      "direct": "undetermined",
+      "direct_lower": false,
+      "direct_upper": true,
+      "known_cover": [
+        "R01",
+        "R03"
+      ],
+      "known_covered_columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mosaic": "covered",
+      "mosaic_lower": true,
+      "mosaic_upper": true,
+      "obligation_ids": [
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O6"
+      ],
+      "record_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R08",
+        "R09",
+        "R13",
+        "R14"
+      ],
+      "rows": 10,
+      "unknown_cells": 49
+    },
+    "leave_out_R13": {
+      "columns": 6,
+      "definitely_absent_columns": [],
+      "direct": "undetermined",
+      "direct_lower": false,
+      "direct_upper": true,
+      "known_cover": [
+        "R01",
+        "R03"
+      ],
+      "known_covered_columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mosaic": "covered",
+      "mosaic_lower": true,
+      "mosaic_upper": true,
+      "obligation_ids": [
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O6"
+      ],
+      "record_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R08",
+        "R09",
+        "R12",
+        "R14"
+      ],
+      "rows": 10,
+      "unknown_cells": 49
+    },
+    "leave_out_R14": {
+      "columns": 6,
+      "definitely_absent_columns": [],
+      "direct": "undetermined",
+      "direct_lower": false,
+      "direct_upper": true,
+      "known_cover": [
+        "R01",
+        "R03"
+      ],
+      "known_covered_columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mosaic": "covered",
+      "mosaic_lower": true,
+      "mosaic_upper": true,
+      "obligation_ids": [
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O6"
+      ],
+      "record_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R08",
+        "R09",
+        "R12",
+        "R13"
+      ],
+      "rows": 10,
+      "unknown_cells": 49
+    },
+    "publication_documented_all": {
+      "columns": 7,
+      "definitely_absent_columns": [],
+      "direct": "undetermined",
+      "direct_lower": false,
+      "direct_upper": true,
+      "known_cover": null,
+      "known_covered_columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mosaic": "undetermined",
+      "mosaic_lower": false,
+      "mosaic_upper": true,
+      "obligation_ids": [
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O6",
+        "O7"
+      ],
+      "record_ids": [
+        "R01",
+        "R03",
+        "R04",
+        "R06",
+        "R08",
+        "R14"
+      ],
+      "rows": 6,
+      "unknown_cells": 34
+    },
+    "publication_documented_coarse": {
+      "columns": 6,
+      "definitely_absent_columns": [],
+      "direct": "undetermined",
+      "direct_lower": false,
+      "direct_upper": true,
+      "known_cover": [
+        "R01",
+        "R03"
+      ],
+      "known_covered_columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mosaic": "covered",
+      "mosaic_lower": true,
+      "mosaic_upper": true,
+      "obligation_ids": [
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O6"
+      ],
+      "record_ids": [
+        "R01",
+        "R03",
+        "R04",
+        "R06",
+        "R08",
+        "R14"
+      ],
+      "rows": 6,
+      "unknown_cells": 28
+    }
+  },
+  "recheck": {
+    "completed_cells": 21,
+    "fraction": 0.21428571428571427,
+    "independent": false,
+    "total_cells": 98
+  },
+  "record_counts": {
+    "base_eligible_reviews": 11,
+    "boundary_reviews": 2,
+    "coverage_cells": 98,
+    "extractions": 22,
+    "horizon_primary": 2,
+    "main_primary_corpus": 0,
+    "positive_cells": 11,
+    "review_records": 14,
+    "selected_scholarly": 16,
+    "unknown_cells": 87,
+    "withdrawn": 1
+  },
+  "scientific_lock": false,
+  "scope": "Pointwise coverage of encoded obligations only; not a worldwide absence or joint-synthesis proof.",
+  "status": "ledger_audit_only"
+}

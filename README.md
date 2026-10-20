@@ -91,6 +91,13 @@ Most retained results under `results/` describe earlier offline runs. The except
 
 When this directory is the repository root, `.github/workflows/scientific-checks.yml` runs the owned offline checks on Ubuntu 24.04 and uploads raw output even on failure. Exact-commit workflow results provide execution evidence separately from this configuration. The retained local run in `results/current/` records the earlier 112-test suite and its actual platform and timing fields; the discovered suite now also includes the figure-input binding regression. All 97 corpus records pass their consistency checks; 19,683 ternary matrices and 262,144 binary completions have no oracle disagreement. Regenerated fragments describe the coded inputs, not search completeness or independent source interpretation.
 
+The historical `results/current/runner.stdout.txt` says 61 tests whereas its
+adjacent test log says 112. Their same-run attribution is unresolved; neither
+file is used to certify the current suite. A separate Windows offline execution
+in `results/validated/` completed all five commands and 125 tests. Its captured
+runner summary agrees with the actual unittest footer. This validates the local
+corpus bookkeeping and software checks, not independent reading or coding.
+
 ## Located coding and reading boundaries
 
 The `reading_scope` field in `data/source_readings.csv` uses
