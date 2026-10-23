@@ -149,62 +149,49 @@ LF.fd) (./sections/01-introduction.tex
 c}{d:/LaTeXTools/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_afusau.
 enc}{d:/LaTeXTools/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooy
 c.enc}{d:/LaTeXTools/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh7
-7jq.enc}]
-[2.2{d:/LaTeXTools/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_7gruk
-w.enc}]) (./sections/02-method.tex
-Underfull \vbox (badness 10000) has occurred while \output is active
+7jq.enc}]) (./sections/02-method.tex
+[2.2]
+Underfull \vbox (badness 1681) has occurred while \output is active
 [3.3] (./generated/review_matrix_rows.tex)
-[4.4]
-[5.5]
-[6.6]) (./sections/03-evidence-model.tex
-Underfull \vbox (badness 10000) has occurred while \output is active
-[7.7{d:/LaTeXTools/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6
+[4.4]) (./sections/03-evidence-model.tex
+[5.5{d:/LaTeXTools/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_7gruk
+w.enc}]
+[6.6 <./figures/claim-ladder.pdf>]
+[7.7]
+[8.8]) (./sections/04-repackaging.tex
+[9.9{d:/LaTeXTools/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6
 f.enc}]
-[8.8 <./figures/claim-ladder.pdf>]
-[9.9]
-[10.10]) (./sections/04-repackaging.tex
-[11.11]
-[12.12]
-[13.13]
-Underfull \vbox (badness 2073) has occurred while \output is active
-[14.14]
-[15.15]) (./sections/05-libraries.tex
 Underfull \vbox (badness 10000) has occurred while \output is active
+[10.10]
+[11.11]) (./sections/05-libraries.tex
+Underfull \vbox (badness 10000) has occurred while \output is active
+[12.12]
+Underfull \vbox (badness 10000) has occurred while \output is active
+[13.13]
+[14.14]
+[15.15]) (./sections/06-provenance.tex
 [16.16]
-Underfull \vbox (badness 2073) has occurred while \output is active
 [17.17]
 Underfull \vbox (badness 10000) has occurred while \output is active
-[18.18]
+[18.18]) (./sections/07-ai-mediated.tex
 [19.19]
+Underfull \vbox (badness 6625) has occurred while \output is active
+[20.20 <./figures/mobile-lifecycle.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active
-[20.20]) (./sections/06-provenance.tex
-Underfull \vbox (badness 4048) has occurred while \output is active
-[21.21]
-Underfull \vbox (badness 10000) has occurred while \output is active
+[21.21]) (./sections/08-synthesis.tex
 [22.22]
-Underfull \vbox (badness 2073) has occurred while \output is active
-[23.23]) (./sections/07-ai-mediated.tex
+[23.23]
 [24.24]
-[25.25]
-[26.26 <./figures/mobile-lifecycle.pdf>]
-[27.27]
-[28.28]) (./sections/08-synthesis.tex
-Underfull \vbox (badness 2495) has occurred while \output is active
+[25.25 <./figures/assurance-pattern.pdf>]
+[26.26]
+[27.27]) (./sections/09-agenda.tex
+[28.28]) (./project-repository.tex) (build/main.bbl
 [29.29]
-[30.30 <./figures/assurance-pattern.pdf>]
+[30.30]
 [31.31]
-[32.32]) (./sections/09-agenda.tex
-Underfull \vbox (badness 2846) has occurred while \output is active
-[33.33]) (./project-repository.tex) (build/main.bbl
-Underfull \vbox (badness 2221) has occurred while \output is active
-[34.34]
+[32.32]
 Underfull \vbox (badness 10000) has occurred while \output is active
-[35.35]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[36.36]
-[37.37]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[38.38])
+[33.33])
 
 Class acmart Warning: ACM reference format is mandatory 
 (acmart)              for papers over one page. 
@@ -214,7 +201,7 @@ Class acmart Warning: ACM reference format is mandatory
 
 (d:/LaTeXTools/texlive/2024/texmf-dist/tex/generic/stringenc/se-pdfdoc.def)
 (d:/LaTeXTools/texlive/2024/texmf-dist/tex/generic/stringenc/se-utf8.def)
-[39.39] (build/main.aux) )
+[34.34] (build/main.aux) )
 (see the transcript file for additional information)<d:/LaTeXTools/texlive/2024
 /texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb><d:/LaTeXTools/texlive
 /2024/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb><d:/LaTeXTools/t
@@ -225,5 +212,5 @@ B.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLi
 bertineTI.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/fonts/type1/public/newtx/t
 xmiaX.pfb><d:/LaTeXTools/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys
 .pfb>
-Output written on build/main.pdf (39 pages, 624999 bytes).
+Output written on build/main.pdf (34 pages, 600733 bytes).
 Transcript written on build/main.log.

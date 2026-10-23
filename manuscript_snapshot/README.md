@@ -2,13 +2,15 @@
 
 This directory contains the single-column ACM review source, bibliography, generated count fragments, and embedded-font vector figures. The review uses the ACM template's `manuscript,screen,review` mode. Fonts, margins, and page dimensions come from the unmodified class.
 
-## Build the artifact snapshot
+## Build from the complete project
 
-From the artifact directory, reproduce the coded inputs before compiling the snapshot:
+First reproduce the sibling artifact so manuscript-facing count fragments are current:
 
 ```bash
+cd ../artifact
 PYTHONDONTWRITEBYTECODE=1 python scripts/reproduce.py --out /path/to/check-output
-PYTHONDONTWRITEBYTECODE=1 python manuscript_snapshot/build.py --results /path/to/check-output
+cd ../paper
+PYTHONDONTWRITEBYTECODE=1 python build.py --results /path/to/check-output
 ```
 
 Keep that output directory outside the artifact to preserve historical raw results.
@@ -24,10 +26,12 @@ The build requires `pdflatex`, `bibtex` or `bibtex8`, `pdfinfo`, and Matplotlib 
 - requires `\documentclass[manuscript,screen,review]{acmart}`;
 - rejects `nonacm`, manual geometry/font overrides, and negative vertical spacing; unassigned DOI/reference/copyright furniture is omitted;
 - compiles without shell escape;
-- fails on overfull boxes, undefined citations/references, undefined control sequences, or a review copy exceeding the local 40-page total budget;
-- writes only `build/main.pdf` as the PDF output, plus `build-evidence.json`, `bibliography-audit.json`, and `bibliography-warnings.txt`;
+- fails on overfull boxes, undefined citations/references, undefined control sequences, or a review copy exceeding the local 35-page total budget;
+- writes only `build/main.pdf` as the PDF output, plus `../artifact/paper_support/build-evidence.json`, `bibliography-audit.json`, and `bibliography-warnings.txt`;
 - binds the output PDF and final log to active TeX inputs, included vector figures, bibliography and publisher template. Delivery gates reject a stale PDF even if it fits the page budget.
 
-The complete same-source snapshot has 39 physical pages: body/front matter 1–34 and references 35–39. Its active TeX, bibliography, figures, and template inputs are byte-identical to the sibling primary paper. The local total budget is not a venue page exemption or a verified CSUR submission cap.
+The current review manuscript has 34 physical pages, including references.
+The conservative local 35-page total budget includes all pages; it is not a
+page exemption or a certification of the live journal-specific policy.
 
-`build-evidence.json` preserves the primary paper's genuine five-command compiler record and source/PDF/final-log bindings. The delivered snapshot PDF and log are exact copies, not products of a separate snapshot compilation. Unavailable Windows child CPU/RSS measurements remain null. `visual-inspection.json` records actual page-image views of pages 1, 3, 4, 5, 6, 34, 35, and 39 separately from complete rendered-pixel identity across all 39 primary/snapshot pages. All listed fonts are embedded and none is Type 3. The sibling `paper/` is the primary manuscript. The current PDF, log, and complete active input set are byte-identical mirrors; the historical research-content-excerpt validator remains available for genuinely different sources. Layout coverage is not independent peer review or source-interpretation certification.
+`../artifact/paper_support/build-evidence.json` records its compiler run and source/PDF/final-log bindings. POSIX child CPU/RSS measurements are reported where available; unavailable Windows values remain null. `../artifact/paper_support/visual-inspection.json` retains the results of its recorded page inspection, including font checks. Page counts and declaration-page locators in earlier receipts describe only their earlier PDFs; this description does not renew those results. The artifact's `manuscript_snapshot/` contains separately retained source and build records; `paper/` remains primary. Current source/PDF/receipt correspondence and any snapshot relationship must be established by the existing checks, not assumed from this description. Layout coverage is not independent peer review or source-interpretation certification.

@@ -21,7 +21,7 @@ ART = Path(__file__).resolve().parents[1]
 
 class PdfInfoDependencyRegressions(unittest.TestCase):
     def test_real_snapshot_page_count_uses_installed_pdfinfo(self):
-        self.assertEqual(39, pdf_page_count(ART / 'manuscript_snapshot/build/main.pdf'))
+        self.assertEqual(34, pdf_page_count(ART / 'manuscript_snapshot/build/main.pdf'))
 
     def test_missing_pdfinfo_fails_without_receipt_or_subprocess_fallback(self):
         with patch('snapshot_evidence.shutil.which', return_value=None), \

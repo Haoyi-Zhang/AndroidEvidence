@@ -16,7 +16,7 @@ import time
 
 ROOT = Path(globals().get("MANUSCRIPT_DIR", Path(__file__).resolve().parents[2] / "paper"))
 ARTIFACT = ROOT.parent if ROOT.name == "manuscript_snapshot" else ROOT.parent / "artifact"
-MAX_PAGES = 40  # Local total-page budget; not a certified CSUR submission cap.
+MAX_PAGES = 35  # Conservative local total budget; live journal-specific policy is checked separately.
 
 
 def source_binding(root):

@@ -45,6 +45,30 @@ Cross-layer evidence is useful only when records refer to the same objects. Four
 
 The bindings localize disagreements to APK, component database, policy or environment.
 
+\subsection{A documented Android release-chain walkthrough}
+
+F-Droid's documented upstream-signed publishing path makes the bindings concrete. Its reproducible-build procedure compares a rebuild from the recorded recipe with an upstream APK by copying and verifying the APK signature. For the exclusively upstream-signed mode, the binary location and permitted signing keys are explicit metadata; a failed match prevents publication. The signing documentation separately distinguishes the repository-index key from an application's APK key.\footnote{F-Droid, \emph{Reproducible Builds}, Introduction and Publishing APKs with the upstream developer's signature, \url{https://f-droid.org/docs/Reproducible_Builds/}; \emph{Signing Process}, Repo Index Signing and APK Signing, \url{https://f-droid.org/docs/Signing_Process/}. Accessed 24 October 2026.} This is a walkthrough of a published workflow, not a new experiment or an additional scholarly-corpus record.
+
+Starting with the upstream APK, successful signature-copy verification supplies a concrete equality check under the applicable APK signing scheme. The recipe and rebuild identify the declared production route; the expected APK key and repository-index key serve different release roles. These observations still leave component composition and behavior as separate questions about the exact distributed APK. Table~\ref{tab:release-walkthrough} shows what changes when each evidence item is added.
+
+\begin{table}[t]
+\caption{Claim composition in the documented release-chain walkthrough.}
+\label{tab:release-walkthrough}
+\small
+\begin{tabularx}{\textwidth}{L{3.0cm}Y Y}
+\toprule
+Added evidence & Supported proposition & Further evidence needed \\
+\midrule
+Reference APK and verified rebuild & \claimlevel{0}: agreement under the signing-scheme comparison & Separate package/region analyses for \claimlevel{1} and \claimlevel{2} \\
+Recipe, source and build records & Declared source-to-product route; authenticated records can support \claimlevel{3}/\claimlevel{4} & Actual record authentication and capture completeness \\
+Expected APK key and signed repository index & Distinct application and repository roles relevant to \claimlevel{5} & Trusted role assignment and current release policy \\
+Analysis of the distributed APK & \claimlevel{6} for the stated property and environment & Coverage and oracle of that specific analysis \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+A later localized APK with a different identity does not inherit the original rebuild or authorization result. It needs its own product binding and, if intentional divergence is claimed, a documented predecessor/transformation relation. Likewise, a correctly rebuilt and signed APK can contain a vulnerable component: the release chain joins evidence but does not replace the component or behavior checks.
+
 \subsection{Contradiction patterns}
 
 A synthesis preserves incompatible contracts rather than averaging their numbers. RePack distinguishes recall on known-positive pairs from manual checks of returned candidates~\cite{repack}; AppForge conditions test-pass and crash rates on compiled apps but functional success on all tasks~\cite{appforge}. DetTrace excludes unsupported builds and timeouts, with inconsistent unsupported totals in Table~1~\cite{reprocontainers}. Transformation sets, output objects (classes, pairs, steps), and threat models also differ. Controlled transformations establish constructed direction but have limited realism; market labels improve realism with uncertain history. ViewDroid accepts shared-builder apps under its criterion whereas ResDroid reports template false alerts~\cite{viewdroid,resourcedriven}. Authenticated histories bind participating projects, not every adversarial artifact. Table~\ref{tab:contradictions} states the information required to compare these cases.
