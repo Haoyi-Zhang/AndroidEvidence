@@ -118,4 +118,8 @@ The audit rejects extraction/locator disagreement, conflicting source URLs, miss
 
 ## Portable path notation
 
+Machine-specific temporary-directory names in retained test stderr are
+redacted as `<TEMP>`. Test names, outcomes, failure controls and measurements
+are unchanged.
+
 Published execution records use `<PYTHON_ROOT>`, `<NODE_ROOT>` and `<RUNTIME_ROOT>` for local tool installations, `<DEPENDENCIES_ROOT>` for local dependencies, and `<PROJECTS_ROOT>`, `<ARTIFACT_ROOT>`, `<SOURCE_ROOT>` and `<WORK_ROOT>` for the workspace, artifact checkout, source checkout and temporary work directory of the recorded run. These are path aliases, not literal directories or claims that historical temporary files are included in this bundle. Substitute the corresponding local roots when replaying a command. Recorded tool versions, source/input identities, measurements, outcomes and failures are unchanged. Current file inventories bind the portable published bytes; any `recorded_` identity denotes pre-normalization bytes.
