@@ -20,7 +20,7 @@ MAX_PAGES = 35  # Conservative local total budget; live journal-specific policy 
 
 
 def source_binding(root):
-    """Bind active TeX inputs, included vector figures, bibliography and template."""
+    """Bind active TeX inputs, included figures, bibliography and template."""
     root = Path(root).resolve()
     pending = [root / "main.tex"]
     inputs = set()

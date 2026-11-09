@@ -71,4 +71,14 @@ Nondeterministic regeneration & Exact output may not be reproducible from a prom
 
 A generated transformation record should identify: the parent source revision; task or specification identifier; model or service identity at the granularity available; generation parameters; tool and retrieval accesses; candidate-output digests; the accepted patch or file digests; tests and analyses run; human or policy approvals; and the downstream build product. Sensitive context can be access controlled, but the public or shared record should still bind the accepted output to the final APK.
 
+The record links are shown in Figure~\ref{fig:generation-release-binding}.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/generation-release-binding.pdf}
+\caption{Provenance for a generated change binds the parent to the accepted patch and downstream APK. Generation and approval are recorded as different steps.}
+\Description{Parent, generation record, accepted patch, and APK are distinct linked objects.}
+\label{fig:generation-release-binding}
+\end{figure}
+
 This record serves three purposes. It establishes direction from a parent revision to an accepted generated change. It separates generation from approval and release. It gives artifact and behavior analyses exact objects to examine. The record does not prove that the model never used unrecorded training material or that the accepted code is secure. It makes those residual questions explicit rather than hiding them behind a generic provenance claim.

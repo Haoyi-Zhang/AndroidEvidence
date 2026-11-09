@@ -20,17 +20,17 @@ These are evaluation errors, not merely wording. Android surveys distinguish pri
 
 \subsection{A cross-layer assurance pattern}
 
-Figure~\ref{fig:assurance-case} presents an Android-focused assurance pattern building on existing artifact/operation/actor properties and supply-chain frameworks~\cite{properties,astra,williams2025}. The claim graph identifies the bindings needed to establish that a released Android artifact is an authorized product of a declared process and satisfies a stated property.
+In Figure~\ref{fig:assurance-case}, read the two solid paths into the same APK: one establishes authorized production, the other evaluates property $Q$. This binding requirement builds on artifact/operation/actor properties and supply-chain frameworks~\cite{properties,astra,williams2025}. The dashed component comparison is a cross-check, not a third route to the joint claim.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\linewidth]{figures/assurance-pattern.pdf}
-\caption{Cross-layer assurance pattern: solid subclaim arrows and dashed evidence arrows.}
-\Description{A top claim that an APK is authorized and satisfies a property is supported by provenance and behavior branches. Lower boxes show authorization, declared lineage, attestations, signatures, similarity evidence, and program analyses.}
+\includegraphics[width=\linewidth]{figures/illustrations/assurance-pattern.pdf}
+\caption{A joint claim binds both routes to one APK. A release attestation leaves property $Q$ open, and a behavior result alone cannot establish authorization. The dashed link only cross-checks declared lineage.}
+\Description{Release evidence and the check of property Q must both refer to the same APK for a joint claim. A dashed route denotes component comparison as a separate cross-check.}
 \label{fig:assurance-case}
 \end{figure}
 
-The top claim separates authorized production from property $Q$ of the exact APK. Artifact and component analyses cross-check the declared lineage; disagreement requires investigation, not automatic preference for either record. Without trustworthy process evidence, comparison may support a weaker relationship claim. Without behavior analysis, even a fully attested build leaves $Q$ open.
+Disagreement between a component comparison and a process record requires investigation, not automatic preference for either source. Without trustworthy process evidence, comparison may support a weaker relationship claim. Even strong evidence on each route cannot support the joint claim if the two records refer to different APKs.
 
 \subsection{Binding rules}
 
@@ -70,6 +70,17 @@ Analysis of the distributed APK & \claimlevel{6} for the stated property and env
 A later localized APK with a different identity does not inherit the original rebuild or authorization result. It needs its own product binding and, if intentional divergence is claimed, a documented predecessor/transformation relation. Likewise, a correctly rebuilt and signed APK can contain a vulnerable component: the release chain joins evidence but does not replace the component or behavior checks.
 
 \subsection{Contradiction patterns}
+
+Check object identity before interpreting disagreement, as in Figure~\ref{fig:mismatch-binding}.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/mismatch-binding.pdf}
+\caption{First determine whether both records describe the same APK. Shared identity allows investigation of the discrepancy, not automatic preference for either record.}
+\Description{A build record and a binary scan are compared; differing APK identities prevent claim composition.}
+\label{fig:mismatch-binding}
+\end{figure}
+
 
 A synthesis preserves incompatible contracts rather than averaging their numbers. RePack distinguishes recall on known-positive pairs from manual checks of returned candidates~\cite{repack}; AppForge conditions test-pass and crash rates on compiled apps but functional success on all tasks~\cite{appforge}. DetTrace excludes unsupported builds and timeouts, with inconsistent unsupported totals in Table~1~\cite{reprocontainers}. Transformation sets, output objects (classes, pairs, steps), and threat models also differ. Controlled transformations establish constructed direction but have limited realism; market labels improve realism with uncertain history. ViewDroid accepts shared-builder apps under its criterion whereas ResDroid reports template false alerts~\cite{viewdroid,resourcedriven}. Authenticated histories bind participating projects, not every adversarial artifact. Table~\ref{tab:contradictions} states the information required to compare these cases.
 

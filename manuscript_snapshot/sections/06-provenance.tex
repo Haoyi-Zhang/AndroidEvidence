@@ -75,13 +75,13 @@ Package-ecosystem measurement (attack and dependency studies discussed above) & 
 
 \subsection{The source-to-APK evidence chain}
 
-Figure~\ref{fig:lifecycle} places the evidence families along a mobile lifecycle. The links are digest and identity bindings. A gap means that records on the two sides may describe different artifacts or principals.
+Read Figure~\ref{fig:lifecycle} across to follow the release and down to identify the record needed at each stage. A gap in digest or identity binding can make adjacent records refer to different artifacts or principals.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\linewidth]{figures/mobile-lifecycle.pdf}
-\caption{Android lifecycle and the evidence bound to each stage.}
-\Description{Six lifecycle stages follow two rows: source, dependency resolution, and build run left to right above; signing, store, and installed behavior continue right to left below. Each stage has a corresponding evidence source beneath it: repository history, resolver records, attestations, release authorization, transparency, or behavior analysis.}
+\includegraphics[width=\linewidth]{figures/illustrations/mobile-lifecycle.pdf}
+\caption{Android release stages and their evidence. Build attestation does not establish release approval; distribution evidence does not establish behavior. Each record needs a binding to its artifact or principal.}
+\Description{The release timeline runs from source through dependency resolution, build, approval, and distribution to execution. Dotted leaders identify the evidence associated with each stage.}
 \label{fig:lifecycle}
 \end{figure}
 

@@ -1,0 +1,145 @@
+{
+  "project": "AndroidEvidence_CSUR",
+  "figures": [
+    {
+      "asset": "claim-ladder",
+      "media": [
+        428.0,
+        184.0
+      ],
+      "width": 415.6,
+      "trim": [
+        0,
+        11,
+        0,
+        9
+      ],
+      "targets": [
+        "paper/figures/illustrations/claim-ladder.pdf",
+        "paper/figures/claim-ladder.pdf",
+        "artifact/figures/claim-ladder.pdf",
+        "artifact/manuscript_snapshot/figures/claim-ladder.pdf",
+        "artifact/manuscript_snapshot/figures/illustrations/claim-ladder.pdf"
+      ]
+    },
+    {
+      "asset": "lineage-histories",
+      "media": [
+        428.0,
+        128.0
+      ],
+      "width": 394.1,
+      "trim": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "targets": [
+        "paper/figures/lineage-histories.pdf",
+        "artifact/figures/lineage-histories.pdf",
+        "artifact/manuscript_snapshot/figures/lineage-histories.pdf"
+      ]
+    },
+    {
+      "asset": "worked-claim",
+      "media": [
+        428.0,
+        160.0
+      ],
+      "width": 398.4,
+      "trim": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "targets": [
+        "paper/figures/illustrations/worked-claim.pdf",
+        "paper/figures/worked-claim.pdf",
+        "artifact/manuscript_snapshot/figures/illustrations/worked-claim.pdf",
+        "artifact/manuscript_snapshot/figures/worked-claim.pdf"
+      ]
+    },
+    {
+      "asset": "library-attribution",
+      "media": [
+        426.0,
+        112.0
+      ],
+      "width": 428.4,
+      "trim": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "targets": [
+        "paper/figures/library-attribution.pdf",
+        "artifact/figures/library-attribution.pdf",
+        "artifact/manuscript_snapshot/figures/library-attribution.pdf"
+      ]
+    },
+    {
+      "asset": "mobile-lifecycle",
+      "media": [
+        428.0,
+        158.0
+      ],
+      "width": 428.4,
+      "trim": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "targets": [
+        "paper/figures/illustrations/mobile-lifecycle.pdf",
+        "paper/figures/mobile-lifecycle.pdf",
+        "artifact/figures/mobile-lifecycle.pdf",
+        "artifact/manuscript_snapshot/figures/illustrations/mobile-lifecycle.pdf",
+        "artifact/manuscript_snapshot/figures/mobile-lifecycle.pdf"
+      ]
+    },
+    {
+      "asset": "generation-release-binding",
+      "media": [
+        426.0,
+        55.0
+      ],
+      "width": 428.4,
+      "trim": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "targets": [
+        "paper/figures/generation-release-binding.pdf",
+        "artifact/figures/generation-release-binding.pdf",
+        "artifact/manuscript_snapshot/figures/generation-release-binding.pdf"
+      ]
+    },
+    {
+      "asset": "assurance-pattern",
+      "media": [
+        428.0,
+        162.0
+      ],
+      "width": 428.4,
+      "trim": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "targets": [
+        "paper/figures/illustrations/assurance-pattern.pdf",
+        "paper/figures/assurance-pattern.pdf",
+        "artifact/figures/assurance-pattern.pdf",
+        "artifact/manuscript_snapshot/figures/assurance-pattern.pdf",
+        "artifact/manuscript_snapshot/figures/illustrations/assurance-pattern.pdf"
+      ]
+    }
+  ]
+}

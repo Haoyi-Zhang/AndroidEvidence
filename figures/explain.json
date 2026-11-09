@@ -1,0 +1,53 @@
+[
+  {
+    "id": "library-attribution",
+    "kind": "fork",
+    "source": [
+      "Library-family|match",
+      "binary"
+    ],
+    "outcomes": [
+      [
+        [
+          "Narrow candidates|Use distinguishing traits",
+          "key"
+        ],
+        "Features observed"
+      ],
+      [
+        [
+          "Keep candidate set|Exact version unresolved",
+          "unknown"
+        ],
+        "Features missing"
+      ]
+    ]
+  },
+  {
+    "id": "generation-release-binding",
+    "kind": "route",
+    "rows": [
+      {
+        "name": "",
+        "nodes": [
+          [
+            "Parent|revision",
+            "file"
+          ],
+          [
+            "Generation|record",
+            "trace"
+          ],
+          [
+            "Accepted|patch",
+            "accept"
+          ],
+          [
+            "Built APK",
+            "apk"
+          ]
+        ]
+      }
+    ]
+  }
+]

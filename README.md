@@ -1,5 +1,9 @@
 # Android software lineage evidence artifact
 
+To regenerate the manuscript diagrams, run `python -B figures/rebuild_diagrams.py`
+from this artifact directory in the project bundle. The command also updates the
+PDF copies read by the paper. Statistical figures use their own generators and inputs.
+
 This directory contains the evidence companion to **From Resemblance to Authority: A Claim-Centered Review of Android Software Lineage**. Its offline ledger scripts use the standard library to check the evidence tables and finite coverage calculations. The optional manuscript diagrams use Matplotlib.
 
 The synthesis now leads with evidence objects, mechanism choices and a documented
@@ -10,7 +14,7 @@ scholarly corpus record. The 97-record corpus, 85 complete PDF assessments and
 
 The review combines thematic keyword searches and citation tracing, applies common inclusion and exclusion criteria, and codes the retained literature through seven claim-level fields. The screening ledger contains 97 inclusions, seven scope exclusions and one withdrawn publication. These 105 retained decisions are distinct from the unavailable initial database-hit denominator; reading coverage and same-process coding remain separately recorded.
 
-`figures/build_figures.py` draws the claim ladder, mobile lifecycle and assurance pattern directly as embedded-font vector PDFs. These figures encode the manuscript's conceptual relations, not measurements. The sibling manuscript build regenerates them; `python -B figures/build_figures.py --outdir /path/to/figures` can also generate them independently.
+`figures/build_figures.py` regenerates the vector coverage plot and reference schematics. The primary manuscript and its artifact mirror use fixed conceptual artwork under their respective `figures/illustrations/` folders. The schematics encode conceptual relations, not measurements. To generate the reference figures independently, run `python -B figures/build_figures.py --outdir /path/to/figures`.
 
 ## Reproduce
 
@@ -91,9 +95,9 @@ A passing run does not prove exhaustive search, a PRISMA denominator, a comprehe
 - `results/clean-reproduction.json`
 - `results/tex/*.tex`
 
-Most retained results under `results/` describe earlier offline runs. The exceptions are `corpus_summary.json`, `paper_build_evidence.json`, `visual-inspection.json`, and the six default `tex/` fragments, which describe current coded inputs or the owned 34-page research-content snapshot. A new `--out` run produces separate summaries, raw command logs and `tex/` fragments; historical CPU/RSS must not be attributed to that new run. The visual-evidence regression compares the current snapshot receipt, result mirrors, active source/PDF/log and dynamic content-check counts; it does not certify source interpretation.
+Most retained results under `results/` describe earlier offline runs. The exceptions are `corpus_summary.json`, `paper_build_evidence.json`, `visual-inspection.json`, and the six default `tex/` fragments, which describe current coded inputs or the 35-page review manuscript. A new `--out` run produces separate summaries, raw command logs and `tex/` fragments; historical CPU/RSS must not be attributed to that new run. The visual-evidence regression compares the current snapshot receipt, result mirrors, active source/PDF/log and dynamic content-check counts; it does not certify source interpretation.
 
-`manuscript_snapshot/` contains the complete same-source 34-page review manuscript, final engine log, compiled bibliography, and current build and visual records. The sibling `paper/` is the primary source; the snapshot's active inputs, PDF and final log are byte-identical mirrors. Its build record retains the genuine five-command primary compilation, not a separate snapshot build. The conservative local total budget is 35 pages, not a venue exemption or a certification of live journal-specific policy. Current visual coverage records actual page inspection and the source/PDF/log correspondence.
+`manuscript_snapshot/` contains the complete 35-page review manuscript, final engine log, compiled bibliography, and current build and visual records. The sibling `paper/` is the primary source. Both inputs were compiled and their rendered pages compared before the primary PDF and log were installed as the distributed mirror. The build record documents the five commands that produced those distributed bytes. The conservative local total budget is 35 pages, not a venue exemption or a certification of live journal-specific policy.
 
 When this directory is the repository root, `.github/workflows/scientific-checks.yml` runs the owned offline checks on Ubuntu 24.04 and uploads raw output even on failure. Exact-commit workflow results provide execution evidence separately from this configuration. The retained local run in `results/current/` records the earlier 112-test suite and its actual platform and timing fields; the discovered suite now also includes the figure-input binding regression. All 97 corpus records pass their consistency checks; 19,683 ternary matrices and 262,144 binary completions have no oracle disagreement. Regenerated fragments describe the coded inputs, not search completeness or independent source interpretation.
 

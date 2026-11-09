@@ -23,6 +23,16 @@ Family attribution maps an in-app region to an upstream library identity. Versio
 
 A version result is conditional on the reference database. LibScout reports unique profiles for 1,225 of 2,065 indexed versions (59.3\%); code-only changes can leave consecutive releases with the same profile, yielding a version set rather than a unique answer (Section 6.1)~\cite{libscout}. The detector can select only among indexed releases and may face forks, republished binaries, shaded dependencies, or vendor patches. Reporting a single exact version without alternatives can overstate the evidence. A better output is a candidate set with distinguishing and missing features, plus an ``unknown or modified'' state when no indexed version explains the observed region.
 
+The version decision is summarized in Figure~\ref{fig:library-attribution}.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/library-attribution.pdf}
+\caption{Family identification and exact version attribution require different evidence. If distinguishing features are missing, the result is a candidate set, not a forced exact version.}
+\Description{A family match can narrow candidates only if distinguishing features are observed.}
+\label{fig:library-attribution}
+\end{figure}
+
 ATVHunter separates library recall from version recall under a ground truth that excludes apps without complete reference versions~\cite{atvhunter}. Identical Java across releases leaves multiple version candidates; in a separate shrinking experiment its 75.57\% detection rate is below LibPecker's 79.28\%. The 66.24-second app-detection result uses the shared 6,819-version comparison database and excludes its construction. A separate full reference database occupies 300~GB after months of collection and feature generation. These are distinct workloads and cost stages.
 
 LibID distinguishes exact-version precision from a candidate set containing the answer~\cite{libid}. Synthetic tuning does not transfer unchanged to F-Droid apps: LibID-A reports 45\% recall with shrinking and class repackaging. Its 38.36-second profiling and 11.25-second matching stages are separate; matching alone is not per-app cost.
@@ -72,6 +82,17 @@ KeepUpdated estimates API-compatible upgrade opportunities among detected used-l
 Source-history mining finds rollback and integration costs that complicate updates~\cite{developersupdate}. Its ratings association is not causal; declared dependencies do not certify APK bytes. The retrieved draft's inconsistent update fractions and pattern denominators cannot support a market-wide estimate or certify final-version text.
 
 This layered view prevents two opposite errors. Treating every detected vulnerable version as exploitable inflates risk; treating a library as harmless because an affected method was not observed can miss dynamically loaded or reflective paths. The evidence report should state whether it establishes presence, reachability, triggerability, or observed behavior.
+
+The independent checks that follow a version match are shown in Figure~\ref{fig:component-reach}.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/component-reach.pdf}
+\caption{A version match is an early step. Retention of affected code, reachability in context, and observed behavior require additional checks.}
+\Description{Four stages are separated by dashed arrows to show that each transition needs additional evidence.}
+\label{fig:component-reach}
+\end{figure}
+
 
 The potentially malicious-library study combines scanner detections with selected harmful-API matches; its comparison cohort is only \emph{possibly} benign~\cite{malicioustpl}. Static paths are not observed harm, and same-package mutations do not prove copying. Its developer graph merges certificate owner text, not public-key fingerprints, so signer identity remains a heuristic despite sample size.
 

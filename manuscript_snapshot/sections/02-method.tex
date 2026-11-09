@@ -3,7 +3,7 @@
 
 \subsection{Question, retrieval, and eligibility}
 
-This claim-centered evidence synthesis asks which observations support Android artifact relations, production history, authorization and behavior. It combines thematic keyword searches and backward/targeted forward citation tracing with common eligibility criteria. Seeds included repackaging and TPL reviews~\cite{repack,tpl}, Android security reviews~\cite{sufatrio,xuandroid,tamandroid}, and static-analysis/testing syntheses~\cite{staticandroid,androidtesting}. Snowballing and extraction followed the methodological distinctions among retrieval, protocol validation, quality assessment and synthesis~\cite{wohlin,kitchenham,brereton}; citing these procedures does not establish that every database result was retained.
+We ask which observations support claims about Android artifact relations, production history, authorization and behavior. We applied the same eligibility criteria to thematic keyword searches and to backward and targeted forward citation tracing. Seed papers included reviews of repackaging and third-party libraries~\cite{repack,tpl}, Android security~\cite{sufatrio,xuandroid,tamandroid}, and static analysis and testing~\cite{staticandroid,androidtesting}. We distinguish retrieval, protocol validation, quality assessment and synthesis following prior methodological work~\cite{wohlin,kitchenham,brereton}. Coverage describes the retained records.
 
 Eligible works contribute an artifact-comparison, component/version, provenance, signing, build or release mechanism; empirical supply-chain or generated-software evidence; or a review/method framing those objects. We exclude general model and GUI-agent work without a software-artifact lineage object, withdrawn publications, and conclusions stronger than the source observation. Studies with incompatible candidate populations, oracles and units are compared by mechanism rather than pooled into one detector ranking~\cite{repack,repackeval,blackburn}.
 
@@ -40,7 +40,15 @@ Version distinctions apply to content, not merely identifiers: RepDetector's aut
 
 \subsection{Prior-review comparison}
 
-The \ReviewMatrixWorks{} closest review/method records are compared across Android repackaging, component/version evidence, process provenance, authorization, behavior, AI mediation and explicit claim-ceiling/binding rules. Code 1 means located direct treatment; P means located partial treatment; 0 requires complete scoped reading supporting absence; ? preserves an unresolved judgment. The matrix has 75 direct/partial cells, 41 scoped absences and 31 unknowns. Eighteen records have content checks. Neither the unknown cells nor the lack of an observed all-dimension row establishes a field-wide gap.
+We compare \ReviewMatrixWorks{} review/method records across seven evidence dimensions. Code 1 means located direct treatment; P means located partial treatment; 0 requires a complete scoped reading supporting absence; ? preserves an unresolved judgment. Figure~\ref{fig:review-coverage} separates the 31 unresolved cells from the 41 scoped absences; the remaining 75 are direct or partial. Eighteen records have content checks. The matrix does not establish a field-wide gap.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/review-coverage.pdf}
+\caption{Coverage codes across the 21 selected prior reviews. Each dimension has 21 records; an unresolved code is not evidence of absence. Table~\ref{tab:review-matrix} shows selected rows; the artifact retains the complete matrix.}
+\Description{Each row has 21 tiles, grouped by direct, partial, scoped-absence and unresolved codes. Tiles show counts, not review identities. Hatched tiles show unresolved coverage, not a missing topic.}
+\label{fig:review-coverage}
+\end{figure}
 
 \begin{table}[t]
 \caption{Selected prior-review matrix.}

@@ -13,17 +13,9 @@ where $o$ is the observed object, $\phi$ is the feature or record extracted from
 
 For example, a fuzzy code signature may compare methods after identifier normalization. Here, $o$ is DEX method code, $\phi$ is a normalized signature, $m$ includes identifier renaming but may exclude control-flow restructuring, and $q$ may be a corpus of known repackaged pairs. The supported relation is resemblance under $m$. Direction is not part of that observation unless the oracle or auxiliary evidence supplies it. By contrast, an in-toto link observes authenticated step metadata and binds materials to products under a layout~\cite{intoto}. It supports a process relation under key, layout, and metadata assumptions, but does not establish that two programs are semantically equivalent.
 
-\subsection{The seven-level claim ladder}
+\subsection{Seven distinct claim categories}
 
 Figure~\ref{fig:ladder} summarizes seven numbered claim categories. They are neither a maturity model nor an implication chain: a behavior claim can be supported without reconstructing provenance, and authorization does not establish resemblance. The order introduces different propositions, not cumulative guarantees.
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=\linewidth]{figures/claim-ladder.pdf}
-\caption{Android lineage claim categories. Arrows indicate presentation order, not logical implication.}
-\Description{Seven stacked boxes order identity, composition, resemblance, derivation, process provenance, authorization, and behavioral assurance. The arrows indicate presentation order, not entailment.}
-\label{fig:ladder}
-\end{figure}
 
 \paragraph{\claimlevel{0}: Identity.}
 Cryptographic hashes, package digests, and reproducible-build comparisons can establish equality of the observed bytes with negligible collision probability under the selected hash assumptions. Identity is useful for artifact distribution and cache verification. It does not reveal why the bytes are equal, who authorized them, or whether they are safe. Two parties can distribute the same malicious binary.
@@ -52,7 +44,25 @@ Consider two Android packages, $A$ and $B$, collected from different channels. T
 
 The observations license separate statements. Different digests reject \claimlevel{0} identity. The shared library supports family-level \claimlevel{1} composition while leaving version, modification, and reachability unresolved. Agreement across first-party code and resources supports \claimlevel{2} resemblance under the detector's transformation model, but does not select a direction: a common template, common predecessor, authorized fork, and copying either way remain compatible histories. The authenticated record supports \claimlevel{4} only for the materials, steps, principals, and product digest it names; delegation can add scoped \claimlevel{5} authorization for $A$. Neither claim transfers to $B$, and a different valid key is not by itself proof of unauthorized release. The endpoint finding is a \claimlevel{6} observation about the analyzed build and environment, not a derivation oracle.
 
-Later evidence should revise only the subclaim it resolves. An authenticated parent and ordered transformation could establish directional \claimlevel{3} or process-level \claimlevel{4}; a shared authenticated predecessor would instead establish sibling derivation. The correct report therefore preserves competing histories, binds every result to its exact object, and keeps retrieval, historical adjudication, authorization, and behavior distinct even when a store policy combines them into one action.
+Figure~\ref{fig:lineage-histories} isolates the directional question using only the package bytes and matching features. An authenticated record naming $A$ as the material and $B$ as the product can distinguish a directional transformation; two authenticated records naming the same predecessor instead support sibling derivation. Other observations in the example answer different questions about the two packages.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=.92\linewidth]{figures/lineage-histories.pdf}
+\caption{Different package bytes and matching selected features fit two histories. The features may come from a direct predecessor or a shared ancestor.}
+\Description{The left diagram has an arrow from APK A to APK B. The right diagram shows a predecessor with arrows to APK A and APK B. Both histories fit different package bytes and matching selected features.}
+\label{fig:lineage-histories}
+\end{figure}
+
+Figure~\ref{fig:worked-claim} shows which claims stay tied to each package.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=.93\linewidth]{figures/illustrations/worked-claim.pdf}
+\caption{Claim adjudication for the illustrative package pair. Shared components and resemblance do not identify direction. Package A's authenticated release evidence and package B's observed behavior support different, object-scoped claims.}
+\Description{Two packages share a library and resemble each other. A supports scoped provenance and release authorization; B supports only the stated behavior observation in its analysis setting.}
+\label{fig:worked-claim}
+\end{figure}
 
 \subsection{Claim ceilings of common evidence objects}
 
